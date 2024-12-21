@@ -336,6 +336,8 @@ in
         fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
         zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
         ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+        opts = "man home-configuration.nix";
+        lg = "lazygit";
         v = "nvim";
         cat = "bat";
         l = "eza -lh --icons=auto"; # long list
