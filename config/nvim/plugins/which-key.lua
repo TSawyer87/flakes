@@ -20,18 +20,18 @@ wk.add({
   { "<leader>zM", "<cmd>lua require('ufo').closeAllFolds<cr>", desc = "Close Folds", mode = "n" },
   { "<leader>zm", "<cmd>ZenMode<cr>", desc = "ZenMode", mode = "n" },
   {
-    "<leader>fb",
+    "<leader>sb",
     function()
-      print("hello")
+      print("#!/etc/profiles/per-user/jr/bin/bash")
     end,
-    desc = "Foobar",
+    desc = "SheBang",
   },
   { "<leader>fn", desc = "New File" },
   { "<leader>f1", hidden = true }, -- hide this keymap
   { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
   {
     "<leader>b",
-    group = "buffers",
+    group = "[B]uffers",
     expand = function()
       return require("which-key.extras").expand.buf()
     end,
