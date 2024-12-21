@@ -77,6 +77,7 @@ in
         trouble-nvim
         flash-nvim
         toggleterm-nvim
+        which-key-nvim
       ];
       extraConfig = ''
         set noemoji
@@ -110,6 +111,7 @@ in
         ${builtins.readFile ./nvim/plugins/ufo.lua}
         ${builtins.readFile ./nvim/plugins/flash.lua}
         ${builtins.readFile ./nvim/plugins/toggleterm.lua}
+        ${builtins.readFile ./nvim/plugins/which-key.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()
