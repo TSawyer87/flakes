@@ -1,7 +1,18 @@
 local wk = require("which-key")
 wk.add({
-  { "<leader>f", group = "file" }, -- group
+  { "<leader>f", group = "[F]ind Files" }, -- group
+  { "<leader>s", group = "[S]plits" }, -- group
+  { "<leader>z", group = "[Z]enMode + [F]olds" }, -- group
   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
+  { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", mode = "n" },
+  { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help", mode = "n" },
+  { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find todos", mode = "n" },
+  { "<leader>lg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", mode = "n" },
+  { "<leader>sv", "<C-w>v", desc = "Split Window Vertically", mode = "n" },
+  { "<leader>sh", "<C-w>s", desc = "Split Window Horizontally", mode = "n" },
+  { "<leader>zR", "<cmd>lua require('ufo').openAllFolds<cr>", desc = "Open Folds", mode = "n" },
+  { "<leader>zM", "<cmd>lua require('ufo').closeAllFolds<cr>", desc = "Close Folds", mode = "n" },
+  { "<leader>zm", "<cmd>ZenMode<cr>", desc = "ZenMode", mode = "n" },
   {
     "<leader>fb",
     function()
