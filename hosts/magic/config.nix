@@ -302,7 +302,7 @@ in
     spotify
     neovide
     greetd.tuigreet
-    hplipWithPlugin
+    # hplipWithPlugin
     hyprls
     jq
     nodePackages.prettier
@@ -317,7 +317,7 @@ in
       noto-fonts-cjk-sans
       font-awesome
       # Commenting Symbola out to fix install this will need to be fixed or an alternative found.
-      # symbola
+      symbola
       material-icons
     ];
   };
@@ -376,9 +376,9 @@ in
     flatpak.enable = false;
     printing = {
       enable = true;
-      # drivers = [
-      #    pkgs.hplipWithPlugin
-      # ];
+       drivers = [
+          pkgs.hplipWithPlugin
+       ];
     };
     gnome.gnome-keyring.enable = true;
     avahi = {
