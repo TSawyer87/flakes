@@ -74,6 +74,7 @@ in
         obsidian-nvim
         conform-nvim
         codeium-nvim
+        trouble-nvim
       ];
       extraConfig = ''
         set noemoji
@@ -103,6 +104,7 @@ in
         ${builtins.readFile ./nvim/plugins/obsidian.lua}
         ${builtins.readFile ./nvim/plugins/conform.lua}
         ${builtins.readFile ./nvim/plugins/codeium.lua}
+        ${builtins.readFile ./nvim/plugins/trouble.lua}
         ${builtins.readFile ./.stylua.toml}
         require("ufo").setup()
         require("render-markdown").setup{}
