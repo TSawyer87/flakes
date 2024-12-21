@@ -27,6 +27,7 @@ in
         zoxide
         mcfly
         tokei
+        obsidian
       ];
     };
     # "newuser" = {
