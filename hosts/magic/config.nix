@@ -305,7 +305,7 @@ in
     hplipWithPlugin
     hyprls
     jq
-    prettier
+    nodePackages.prettier
     prettierd
     ruff
   ];
