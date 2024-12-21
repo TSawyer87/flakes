@@ -1,7 +1,7 @@
 require("toggleterm").setup(
   ---@module 'toggleterm'
   {
-    open_mapping = [[<c-~>]],
+    open_mapping = [[<c-`>]],
     on_exit = function(term, job, exit_code, name)
       local session_terms = require("workspaces.toggleterms").get_session_terms()
       for _, value in ipairs(session_terms) do
