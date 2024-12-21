@@ -105,8 +105,8 @@ in
         ${builtins.readFile ./nvim/plugins/conform.lua}
         ${builtins.readFile ./nvim/plugins/codeium.lua}
         ${builtins.readFile ./nvim/plugins/trouble.lua}
+        ${builtins.readFile ./nvim/plugins/ufo.lua}
         ${builtins.readFile ./.stylua.toml}
-        require("ufo").setup()
         require("render-markdown").setup{}
         require("ibl").setup()
         require("bufferline").setup{}
