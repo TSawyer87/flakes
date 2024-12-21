@@ -305,6 +305,7 @@ in
     hplipWithPlugin
     hyprls
     jq
+    prettier
     prettierd
     ruff
   ];
