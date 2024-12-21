@@ -78,6 +78,7 @@ in
         flash-nvim
         toggleterm-nvim
         which-key-nvim
+        wezterm-nvim
       ];
       extraConfig = ''
         set noemoji

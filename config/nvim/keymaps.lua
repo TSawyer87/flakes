@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- use jk to exit insert mode
 map("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
@@ -30,7 +30,12 @@ map("n", "zM", "<CMD>lua require('ufo').closeAllFolds()<CR>")
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
-map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map(
+  { "n", "x" },
+  "<Down>",
+  "v:count == 0 ? 'gj' : 'j'",
+  { desc = "Down", expr = true, silent = true }
+)
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
@@ -50,6 +55,8 @@ map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Conform
 map("n", "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+  require("conform").format({ lsp_fallback = true })
 end, { desc = "general format file" })
 
+-- Wezterm-nvim Switch tab by index using vim.v.count
+map("n", "<leader>wt", require("wezterm").switch_tab.index)
