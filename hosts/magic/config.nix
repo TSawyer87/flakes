@@ -308,6 +308,7 @@ in
     nodePackages.prettier
     prettierd
     ruff
+    lazygit
   ];
 
   fonts = {
