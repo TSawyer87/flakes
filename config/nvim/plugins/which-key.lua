@@ -3,6 +3,12 @@ wk.add({
   { "<leader>f", group = "[F]ind Files" }, -- group
   { "<leader>s", group = "[S]plits" }, -- group
   { "<leader>z", group = "[Z]enMode + [F]olds" }, -- group
+  { "<leader>x", group = "[T]rouble" }, -- group
+  { "<leader>b", group = "[B]uffers" }, -- group
+  { "<leader>w", group = "[W]indows" }, -- group
+  { "<leader>t", group = "[T]abs" }, -- group
+  { "<leader>j", group = "[J]ump(hop)" }, -- group
+  { "<leader>n", group = "[N]oHighlights" }, -- group
   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
   { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", mode = "n" },
   { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help", mode = "n" },
