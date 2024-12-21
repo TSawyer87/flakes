@@ -4,20 +4,21 @@ require("conform").setup(
     -- Define your formatters
     formatters_by_ft = {
       lua = { "stylua" },
-      -- Conform will run multiple formatters sequentially
-      python = { "ruff_format" },
-      -- You can customize some of the format options for the filetype (:help conform.format)
-      -- Conform will run the first available formatter
-      markdown = { "prettierd" },
-      bash = { "shfmt" },
-      zsh = { "shfmt" },
-      nix = { "nixfmt" },
+      python = { "ruff" },
+      markdown = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
       json = { "jq" },
+      -- go = { "gofumpt" },
+      bash = { "shfmt" },
+      sh = { "shfmt" },
+      zsh = { "shfmt" },
+      -- yml = { "yamlfmt" },
+      -- yaml = { "yamlfmt" },
     },
 
     format_on_save = function(bufnr)
       return {
-        lsp_format = "fallback",
         timeout_ms = 500,
       }
     end,
