@@ -312,6 +312,7 @@ in
     lazygit
     nixd
     nodejs_22
+    nil
   ];
 
   fonts = {
