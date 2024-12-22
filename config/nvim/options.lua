@@ -1,3 +1,4 @@
+local vim = require("vim")
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
@@ -28,15 +29,6 @@ opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 -- opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
 opt.smoothscroll = true
-if vim.fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true
-  --opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
-  opt.foldmethod = "expr"
-  opt.foldtext = ""
-else
-  opt.foldmethod = "indent"
-  opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
-end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
