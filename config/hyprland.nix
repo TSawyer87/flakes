@@ -135,7 +135,7 @@ with lib;
           bind = ${modifier}ALT,W,exec,wallsetter
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
           bind = ${modifier},W,exec,${browser}
-          bind = ${modifier},O,exec,brave
+          bind = ${modifier},F,exec,firefox
           bind = ${modifier},Z,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},B,exec,discord
@@ -148,7 +148,6 @@ with lib;
           bind = ${modifier},Q,killactive,
           bind = ${modifier},P,pseudo,
           bind = ${modifier}SHIFT,I,togglesplit,
-          bind = ${modifier},F,exec,${browser}
           bind = Alt, Return, fullscreen, # toggle the window between focus and fullscreen
           bind = ${modifier}SHIFT,F,togglefloating,
           bind = ${modifier}SHIFT,C,exit,

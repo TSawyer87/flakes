@@ -17,7 +17,8 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   --timeout-indicator=right \
   " = Windows/Super/CAPS LOCK" "Modifier Key, used for keybindings" "Doesn't really execute anything by itself." \
   " + ENTER" "Terminal" "${terminal}" \
-  " + SHIFT + ENTER" "App Launcher" "rofi" \
+  " + T" "Terminal" "kitty" \
+  " + D"  "App Launcher" "rofi" \
   " + ALT + W" "Change Wallpaper" "wallsetter" \
   " + Q" "Kill Focused Window" "killactive" \
   " + SHIFT + W" "Search Websites Like Nix Packages" "web-search" \
@@ -32,7 +33,7 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   " + M" "Launch Spotify" "spotify" \
   " + P" "Pseudo Tiling" "pseudo" \
   " + SHIFT + I" "Toggle Split Direction" "togglesplit" \
-  " + F" "Toggle Focused Fullscreen" "fullscreen" \
+  "Alt + Return" "Toggle Focused Fullscreen" "fullscreen" \
   " + SHIFT + F" "Toggle Focused Floating" "fullscreen" \
   " + SHIFT + C" "Quit / Exit Hyprland" "exit" \
   " + Left" "Move Focus To Window On The Left" "movefocus,l" \
