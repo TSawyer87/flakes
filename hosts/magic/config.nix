@@ -78,8 +78,9 @@ in
     # };
     polarity = "dark";
     opacity.terminal = 0.8;
-    cursor.package = pkgs.bibata-cursors;
-    cursor.name = "Bibata-Modern-Ice";
+    # cursor.package = pkgs.bibata-cursors;
+    cursor.package = pkgs.rose-pine-cursor;
+    cursor.name = "rose-pine-cursor";
     cursor.size = 24;
     fonts = {
       monospace = {
