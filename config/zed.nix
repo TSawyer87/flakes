@@ -6,6 +6,8 @@
     extensions = [
       "nix"
       "toml"
+      "lua"
+      "basher"
     ];
 
     ## everything inside of these brackets are Zed options.
@@ -89,6 +91,19 @@
         };
       };
     };
+    languages = {
+      "Markdown" = {
+        "format_on_save" = {
+          "external" = {
+            "command" = "prettier";
+            "arguments" = [
+              "--stdin-filepath"
+              "{buffer_path}"
+            ];
+          };
+        };
+      };
+    }
 
     # languages = {
     # "Elixir" = {
