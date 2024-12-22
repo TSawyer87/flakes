@@ -314,6 +314,7 @@ in
     nodejs_22
     nil
     lua-language-server
+    bash-language-server
     stylua
   ];
 
