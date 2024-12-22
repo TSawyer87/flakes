@@ -11,6 +11,8 @@
     ## everything inside of these brackets are Zed options.
     userSettings = {
       vim_mode = true;
+      inactive_opacity = "0.5";
+      auto_install_extensions = true;
 
       assistant = {
         enabled = false;
