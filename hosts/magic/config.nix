@@ -310,6 +310,7 @@ in
     prettierd
     ruff
     lazygit
+    nixd
   ];
 
   fonts = {
