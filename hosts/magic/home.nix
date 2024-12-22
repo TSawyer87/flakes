@@ -287,18 +287,18 @@ in
         #     blur_size = 8;
         #   }
         # ];
-        image = [
-          {
-            path = "/home/${username}/.config/5-cm.jpg";
-            size = 150;
-            border_size = 4;
-            border_color = "rgb(0C96F9)";
-            rounding = -1; # Negative means circle
-            position = "0, 200";
-            halign = "center";
-            valign = "center";
-          }
-        ];
+        # image = [
+        #   {
+        #     path = "/home/${username}/.config/5-cm.jpg";
+        #     size = 150;
+        #     border_size = 4;
+        #     border_color = "rgb(0C96F9)";
+        #     rounding = -1; # Negative means circle
+        #     position = "0, 200";
+        #     halign = "center";
+        #     valign = "center";
+        #   }
+        # ];
         input-field = [
           {
             size = "200, 50";
