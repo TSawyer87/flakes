@@ -317,7 +317,6 @@ in
     lua-language-server
     bash-language-server
     stylua
-    rose-pine-cursor
   ];
 
   fonts = {
