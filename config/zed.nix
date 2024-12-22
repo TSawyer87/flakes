@@ -111,7 +111,6 @@
       vim_mode = true;
       ## tell zed to use direnv and direnv can use a flake.nix enviroment.
       # load_direnv = "shell_hook";
-      base_keymap = "VSCode";
       theme = {
         mode = "system";
         light = "One Light";
