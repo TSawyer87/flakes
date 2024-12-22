@@ -91,19 +91,19 @@
         };
       };
     };
-    languages = {
-      "Markdown" = {
-        "format_on_save" = {
-          "external" = {
-            "command" = "prettier";
-            "arguments" = [
-              "--stdin-filepath"
-              "{buffer_path}"
-            ];
-          };
-        };
-      };
-    };
+    # "languages" = {
+    #   "Markdown" = {
+    #     "format_on_save" = {
+    #       "external" = {
+    #         "command" = "prettier";
+    #         "arguments" = [
+    #           "--stdin-filepath"
+    #           "{buffer_path}"
+    #         ];
+    #       };
+    #     };
+    #   };
+    # };
 
     # languages = {
     # "Elixir" = {
