@@ -313,6 +313,8 @@ in
     nixd
     nodejs_22
     nil
+    lua-language-server
+    stylua
   ];
 
   fonts = {
