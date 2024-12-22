@@ -87,7 +87,7 @@
         };
       };
 
-      languages = {
+      # languages = {
         # "Elixir" = {
         #   language_servers = [
         #     "!lexical"
@@ -106,7 +106,7 @@
         #     };
         #   };
         # };
-      };
+      # };
 
       vim_mode = true;
       ## tell zed to use direnv and direnv can use a flake.nix enviroment.
