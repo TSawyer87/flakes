@@ -65,15 +65,14 @@
       --marker ⇒"
       export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
       export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
-      export PATH="/nix/store/zp4kybgqxrr8w1hy441fc1pdcxblxkfr-zed-editor-0.165.4/:$PATH"
     '';
     shellAliases = {
       sv = "sudo nvim";
       fr = "nh os switch --hostname ${host} /home/${username}/flakes";
       fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
-      zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       opts = "man home-configuration.nix";
+      zed = "zeditor";
       lg = "lazygit";
       v = "nvim";
       cat = "bat";
