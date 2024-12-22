@@ -311,6 +311,7 @@ in
     ruff
     lazygit
     nixd
+    nodejs_22
   ];
 
   fonts = {

@@ -31,6 +31,7 @@ in
     ../../config/zsh.nix
     ../../config/bash.nix
     ../../config/wezterm.nix
+    ../../config/zed.nix
   ];
 
   # Place Files Inside Home Directory
@@ -88,28 +89,21 @@ in
     enable = true;
   };
 
-  programs.zed-editor = {
-    enable = true;
-    extensions = [
-      "nix"
-    ];
-  };
 
   programs.foot = {
     enable = true;
     server.enable = true;
     settings = {
-       main = {
+      main = {
         term = "xterm-256color";
         font = "JetBrainsMono Nerd Font Mono:size=15";
         dpi-aware = "no";
-    };
+      };
       mouse = {
         hide-when-typing = "yes";
       };
     };
   };
-
 
   # Create XDG Dirs
   xdg = {
