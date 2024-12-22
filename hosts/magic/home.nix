@@ -101,7 +101,7 @@ in
        main = {
         term = "xterm-256color";
         font = "JetBrains Mono:size=12";
-        dpi-aware = "yes";
+        dpi-aware = "no";
     };
       mouse = {
         hide-when-typing = "yes";
