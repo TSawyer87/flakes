@@ -116,7 +116,6 @@
         light = "One Light";
         dark = "One Dark";
       };
-      show_whitespaces = "all";
       ui_font_size = 16;
 
     };
