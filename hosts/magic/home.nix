@@ -171,6 +171,11 @@ in
     })
   ];
 
+  home.sessionVariables = {
+    GTK_THEME = "Rose-Pine";
+    GTK_VARIANT = "Dark";
+  };
+
   services = {
     hypridle = {
       settings = {
