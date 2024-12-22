@@ -10,6 +10,7 @@
 
     ## everything inside of these brackets are Zed options.
     userSettings = {
+      vim_mode = true;
 
       assistant = {
         enabled = false;
@@ -81,43 +82,42 @@
           };
         };
 
-          settings = {
-            dialyzerEnabled = true;
-          };
+        settings = {
+          dialyzerEnabled = true;
         };
       };
-
-      # languages = {
-        # "Elixir" = {
-        #   language_servers = [
-        #     "!lexical"
-        #     "elixir-ls"
-        #     "!next-ls"
-        #   ];
-        #   format_on_save = {
-        #     external = {
-        #       command = "mix";
-        #       arguments = [
-        #         "format"
-        #         "--stdin-filename"
-        #         "{buffer_path}"
-        #         "-"
-        #       ];
-        #     };
-        #   };
-        # };
-      # };
-
-      vim_mode = true;
-      ## tell zed to use direnv and direnv can use a flake.nix enviroment.
-      # load_direnv = "shell_hook";
-      # theme = {
-      #   mode = "system";
-      #   light = "One Light";
-      #   dark = "One Dark";
-      # };
-      # ui_font_size = 16;
-
     };
 
- }
+    # languages = {
+    # "Elixir" = {
+    #   language_servers = [
+    #     "!lexical"
+    #     "elixir-ls"
+    #     "!next-ls"
+    #   ];
+    #   format_on_save = {
+    #     external = {
+    #       command = "mix";
+    #       arguments = [
+    #         "format"
+    #         "--stdin-filename"
+    #         "{buffer_path}"
+    #         "-"
+    #       ];
+    #     };
+    #   };
+    # };
+    # };
+
+    ## tell zed to use direnv and direnv can use a flake.nix enviroment.
+    # load_direnv = "shell_hook";
+    # theme = {
+    #   mode = "system";
+    #   light = "One Light";
+    #   dark = "One Dark";
+    # };
+    # ui_font_size = 16;
+
+  };
+
+}
