@@ -1,4 +1,3 @@
-local vim = require("vim")
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
