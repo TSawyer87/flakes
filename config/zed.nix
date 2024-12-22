@@ -111,12 +111,12 @@
       vim_mode = true;
       ## tell zed to use direnv and direnv can use a flake.nix enviroment.
       # load_direnv = "shell_hook";
-      theme = {
-        mode = "system";
-        light = "One Light";
-        dark = "One Dark";
-      };
-      ui_font_size = 16;
+      # theme = {
+      #   mode = "system";
+      #   light = "One Light";
+      #   dark = "One Dark";
+      # };
+      # ui_font_size = 16;
 
     };
 
