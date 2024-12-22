@@ -272,7 +272,7 @@ in
     };
     home-manager.enable = true;
     hyprlock = {
-      enable = false;
+      enable = true;
       settings = {
         general = {
           disable_loading_bar = true;
