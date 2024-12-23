@@ -325,6 +325,7 @@ in
     rose-pine-cursor
     cliphist
     wofi
+    pyprland
   ];
 
   fonts = {

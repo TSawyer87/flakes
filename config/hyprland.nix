@@ -45,6 +45,7 @@ with lib;
           exec-once = killall -q swaync;sleep .5 && swaync
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
+          exec-once = pypr &
           exec-once = wl-paste --type text --watch cliphist store # clipboard store text data
           exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
           exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/original-anime-cafe.jpg
