@@ -267,7 +267,8 @@ in {
     cliphist
     wofi
     pyprland
-    hyprland-qtutils.packages.${pkgs.system}.default
+    # hyprland-qtutils.packages.${pkgs.system}.default
+    inputs.hyprland-qtutils.defaultPackage.${pkgs.system}
   ];
 
   fonts = {
