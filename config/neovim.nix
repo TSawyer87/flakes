@@ -79,6 +79,7 @@ in
         toggleterm-nvim
         which-key-nvim
         wezterm-nvim
+        tokyonight-nvim
       ];
       extraConfig = ''
         set noemoji
