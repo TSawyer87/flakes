@@ -142,7 +142,7 @@ with lib;
           bind = ${modifier},W,exec,${browser}
           bind = ${modifier},F,exec,firefox
           bind = ${modifier},V,exec,cliphist list | wofi -S dmenu | cliphist decode | wl-copy
-          bind = ${modifier},Z,exec,emopicker9000
+          bind = ${modifier},Y,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},B,exec,discord
           bind = ${modifier},O,exec,obs
@@ -153,6 +153,8 @@ with lib;
           bind = ${modifier},N,exec,thunar
           bind = ${modifier},M,exec,spotify
           bind = ${modifier},Q,killactive,
+          bind = ${modifier} SHIFT, Return, exec, pypr toggle term # Dropdown terminal
+          bind = ${modifier}, Z, exec, pypr zoom # Toggle Zoom
           bind = ${modifier},P,pseudo,
           bind = ${modifier}SHIFT,I,togglesplit,
           bind = Alt, Return, fullscreen, # toggle the window between focus and fullscreen
