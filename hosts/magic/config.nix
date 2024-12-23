@@ -267,7 +267,6 @@ in {
     cliphist
     wofi
     pyprland
-    hyprland-qtutils.packages.${pkgs.system}.default
   ];
 
   fonts = {

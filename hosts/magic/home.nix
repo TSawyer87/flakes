@@ -1,15 +1,6 @@
-{
-  pkgs,
-  username,
-  host,
-  system,
-  inputs,
-  ...
-}:
-let
-  inherit (import ./variables.nix) gitUsername gitEmail;
-in
-{
+{ pkgs, username, host, system, inputs, ... }:
+let inherit (import ./variables.nix) gitUsername gitEmail;
+in {
   # Home Manager Settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -90,10 +81,7 @@ in
     '';
   };
 
-  programs.zathura = {
-    enable = true;
-  };
-
+  programs.zathura = { enable = true; };
 
   programs.foot = {
     enable = true;
@@ -104,9 +92,7 @@ in
         font = "JetBrainsMono Nerd Font Mono:size=15";
         dpi-aware = "no";
       };
-      mouse = {
-        hide-when-typing = "yes";
-      };
+      mouse = { hide-when-typing = "yes"; };
     };
   };
 
@@ -135,12 +121,8 @@ in
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
+    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+    gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
   };
   qt = {
     enable = true;
@@ -151,6 +133,8 @@ in
   # Scripts
   home.packages = [
     inputs.zen-browser.packages."${system}".specific
+    # inputs.hyprland-qtutils.packages.${pkgs.system}.default
+    inputs.hyprland-qtutils.packages."${system}".default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.nix-output-monitor # provides `nom` command, works like `nix`
@@ -201,9 +185,7 @@ in
     gh.enable = true;
     btop = {
       enable = true;
-      settings = {
-        vim_keys = true;
-      };
+      settings = { vim_keys = true; };
     };
     starship = {
       enable = true;
