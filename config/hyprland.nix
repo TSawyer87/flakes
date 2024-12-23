@@ -45,6 +45,8 @@ with lib;
           exec-once = killall -q swaync;sleep .5 && swaync
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
+          exec-once = wl-paste --type text --watch cliphist store # clipboard store text data
+          exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
           exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/original-anime-cafe.jpg
           exec-once = foot --server
           monitor=,preferred,auto,1
@@ -138,6 +140,7 @@ with lib;
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
           bind = ${modifier},W,exec,${browser}
           bind = ${modifier},F,exec,firefox
+          bind = ${modifier},V,exec,cliphist list | wofi -S dmenu | cliphist decode | wl-copy
           bind = ${modifier},Z,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},B,exec,discord

@@ -323,6 +323,7 @@ in
     bash-language-server
     stylua
     rose-pine-cursor
+    cliphist
   ];
 
   fonts = {
