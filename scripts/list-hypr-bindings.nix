@@ -20,6 +20,7 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   " + SHIFT + ENTER" "Dropdown Terminal" "kitty" \
   " + T" "Terminal" "footclient" \
   " + Z" "Zoom" "pyprland" \
+  " + V" "Clipboard History" \
   ""  "App Launcher" "wofi" \
   " + D"  "App Launcher" "rofi" \
   " + ALT + W" "Change Wallpaper" "wallsetter" \
