@@ -57,7 +57,8 @@ in
     # image = ../../config/wallpapers/Dreamy-Aesthetic-Home-Under-Moonlight.png;
     # image = ../../config/wallpapers/Anime-Girl5.png;
     # image = ../../config/wallpapers/Wallpaper.png;
-     image = ../../config/wallpapers/gruvbox-dark-japanese-street.jpg;
+    # image = ../../config/wallpapers/gruvbox-dark-japanese-street.jpg;
+     image = ../../config/wallpapers/5-cm.jpg;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
