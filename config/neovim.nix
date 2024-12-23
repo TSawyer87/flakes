@@ -112,16 +112,13 @@ in
         ${builtins.readFile ./nvim/plugins/ufo.lua}
         ${builtins.readFile ./nvim/plugins/flash.lua}
         ${builtins.readFile ./nvim/plugins/toggleterm.lua}
+        ${builtins.readFile ./nvim/plugins/lualine.lua}
         ${builtins.readFile ./nvim/plugins/which-key.lua}
         ${builtins.readFile ./.stylua.toml}
         require("wezterm").setup{}
         require("render-markdown").setup{}
         require("ibl").setup()
         require("bufferline").setup{}
-        require("lualine").setup({
-          icons_enabled = true,
-          theme = "tokyonight",
-        })
       '';
     };
   };
