@@ -268,7 +268,7 @@ in {
     wofi
     pyprland
     # hyprland-qtutils.packages.${pkgs.system}.default
-    inputs.hyprland-qtutils.defaultPackage.${pkgs.system}
+    hyprland-qtutils.defaultPackage.${pkgs.system}
   ];
 
   fonts = {
