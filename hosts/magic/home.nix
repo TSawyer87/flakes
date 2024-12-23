@@ -45,7 +45,7 @@ in
     recursive = true;
   };
   home.file.".config/hypr/pyprland.toml" = {
-    source = ../../pyprland.toml;
+    source = ../../config/pyprland.toml;
     recursive = true;
   };
   # home.file.".face.icon".source = ../../config/face.jpg;
