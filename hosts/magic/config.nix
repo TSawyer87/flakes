@@ -324,6 +324,7 @@ in
     stylua
     rose-pine-cursor
     cliphist
+    wofi
   ];
 
   fonts = {
