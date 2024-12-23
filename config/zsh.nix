@@ -16,7 +16,16 @@
       plugins = [
         "git"
         "sudo"
-        "zsh-nix-shell"
+        {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";  # Check for the latest version.
+          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
       ];
     };
     profileExtra = ''
