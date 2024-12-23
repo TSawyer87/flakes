@@ -326,6 +326,7 @@ in
     cliphist
     wofi
     pyprland
+    hyprland-qtutils
   ];
 
   fonts = {
