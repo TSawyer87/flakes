@@ -146,6 +146,7 @@ with lib;
           bind = ${modifier},B,exec,discord
           bind = ${modifier},O,exec,obs
           bind = ${modifier},C,exec,hyprpicker -a
+          bindr=SUPER, SUPER_L, exec, pkill wofi || wofi --normal-window --show drun --allow-images
           bind = ${modifier},G,exec,gimp
           bind = ${modifier}SHIFT,G,exec,godot4
           bind = ${modifier},N,exec,thunar
@@ -211,6 +212,8 @@ with lib;
           bind = ,XF86AudioPrev, exec, playerctl previous
           bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
           bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
+          blurls = wofi
+          blurls = thunar
         ''
       ];
   };
