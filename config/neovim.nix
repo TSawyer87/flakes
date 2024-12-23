@@ -120,6 +120,7 @@ in
         require("bufferline").setup{}
         require("lualine").setup({
           icons_enabled = true,
+          theme = "tokyonight",
         })
       '';
     };
