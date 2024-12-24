@@ -8,7 +8,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "nix-zsh-completions" ];
+      plugins = [ "git" "sudo" ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -36,7 +36,6 @@
             fi
             source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
             source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
-            source ${pkgs.nix-zsh-completions}/share/nix-zsh-completions/nix-shell.plugin.zsh
             eval "$(zoxide init zsh)"
             eval "$(mcfly init zsh)"
             export MANPAGER='nvim +Man!'
