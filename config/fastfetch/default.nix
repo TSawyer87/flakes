@@ -12,8 +12,8 @@
 
       logo = {
         source = ./ryuzaki.png;
-        type = "kitty-direct";
-        height = 15;
+        type = "kitty";
+        height = 18;
         width = 30;
         padding = {
           top = 3;
