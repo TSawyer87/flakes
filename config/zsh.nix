@@ -8,7 +8,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "nix-shell-completions" ];
+      plugins = [ "git" "sudo" ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
