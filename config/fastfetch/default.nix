@@ -11,7 +11,7 @@
       };
 
       logo = {
-        source = ./pacman.png;
+        source = ./pochita.png;
         type = "kitty";
         height = 18;
         width = 30;
