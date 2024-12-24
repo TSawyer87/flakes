@@ -108,10 +108,16 @@ in
         {
           type = "uptime";
           key = "│  ";
+          keyColor = "red";
         }
         {
           type = "custom";
           format = "└────────────────────────────────────────────────────┘";
+        }
+        {
+          type = "colors";
+          paddingLeft = 2;
+          symbol = "circle";
         }
         "break"
       ];
