@@ -1,3 +1,10 @@
+# { config, pkgs, ... }:
+# let
+#   randomPng = pkgs.runCommand "random-png" {} ''
+#     mkdir -p $out
+#     ln -s $(find "/home/jr/.config/fastfetch/pngs/" -name "*.png" | shuf -n 1) $out/random.png
+#   '';
+# in
 {
   programs.fastfetch = {
     enable = true;
@@ -11,7 +18,7 @@
       };
 
       logo = {
-        source = ./ryuzaki.png;
+        source = "./pngs/ryuzaki.png";
         type = "kitty-direct";
         height = 15;
         width = 30;
@@ -50,7 +57,7 @@
         }
         {
           type = "custom";
-          format = " OS -> ZaneyOS 2.2";
+          format = " OS -> NixOS 25.05 (Warbler) ";
         }
         {
           type = "kernel";
@@ -107,6 +114,7 @@
         {
           type = "uptime";
           key = "│  ";
+          keyColor = "red";
         }
         {
           type = "custom";
@@ -122,4 +130,3 @@
     };
   };
 }
-
