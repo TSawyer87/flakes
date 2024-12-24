@@ -11,7 +11,7 @@
       };
 
       logo = {
-        source = ./ryuzaki.png;
+        source = ./heart.png;
         type = "kitty";
         height = 18;
         width = 30;
@@ -54,7 +54,7 @@
         }
         {
           type = "custom";
-          format = " OS -> ZaneyOS 2.2";
+          format = " ❄️ OS -> ZaneyOS 2.2";
         }
         {
           type = "kernel";
