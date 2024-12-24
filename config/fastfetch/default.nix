@@ -19,7 +19,7 @@ in
 
       logo = {
         source = "${randomPng}/random.png";
-        type = "kitty-direct";
+        # type = "kitty-direct";
         height = 15;
         width = 30;
         padding = {
