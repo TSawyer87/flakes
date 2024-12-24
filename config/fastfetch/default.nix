@@ -1,3 +1,10 @@
+{ config, pkgs, ... }:
+let
+  randomPng = pkgs.runCommand "random-png" {} ''
+    mkdir -p $out
+    ln -s $(find "${config.xdg.configHome}/fastfetch/pngs/" -name "*.png" | shuf -n 1) $out/random.png
+  '';
+in
 {
   programs.fastfetch = {
     enable = true;
@@ -11,7 +18,7 @@
       };
 
       logo = {
-        source = ./nixos.png;
+        source = "${randomPng}/random.png";
         type = "kitty-direct";
         height = 15;
         width = 30;
