@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
-let
-  randomPng = pkgs.runCommand "random-png" {} ''
-    mkdir -p $out
-    ln -s $(find "/home/jr/.config/fastfetch/pngs/" -name "*.png" | shuf -n 1) $out/random.png
-  '';
-in
+# { config, pkgs, ... }:
+# let
+#   randomPng = pkgs.runCommand "random-png" {} ''
+#     mkdir -p $out
+#     ln -s $(find "/home/jr/.config/fastfetch/pngs/" -name "*.png" | shuf -n 1) $out/random.png
+#   '';
+# in
 {
   programs.fastfetch = {
     enable = true;
@@ -18,7 +18,7 @@ in
       };
 
       logo = {
-        source = "${randomPng}/random.png";
+        source = "./pngs/ryuzaki.png";
         type = "kitty-direct";
         height = 15;
         width = 30;
