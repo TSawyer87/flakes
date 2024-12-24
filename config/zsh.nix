@@ -27,7 +27,6 @@
       setopt auto_pushd
       setopt pushd_ignore_dups
       setopt pushdminus
-      prompt_nix_shell_setup
     '';
     initExtra = ''
             fastfetch
@@ -59,6 +58,7 @@
             --marker ⇒"
             export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
             export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
+            prompt_nix_shell_setup
     '';
     shellAliases = {
       sv = "sudo nvim";
