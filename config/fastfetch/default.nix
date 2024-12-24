@@ -19,7 +19,7 @@ in
 
       logo = {
         source = "${randomPng}/random.png";
-        # type = "kitty-direct";
+        type = "kitty-direct";
         height = 15;
         width = 30;
         padding = {
@@ -74,11 +74,17 @@ in
         "break"
         {
           type = "wm";
-          key = " WM";
+          key = "  󱗃 WM";
+          format = "{2}";
         }
         {
           type = "wmtheme";
           key = "│ ├󰉼 ";
+        }
+        {
+          type = "display";
+          key = "  󰍹 Display";
+          format = "{1}x{2} @ {3}Hz [{7}]";
         }
         {
           type = "terminal";
