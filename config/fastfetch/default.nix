@@ -25,7 +25,7 @@
         "break"
         {
           type = "custom";
-          format = "u001b[36m   👻";
+          format = "  👻";
         }
         {
           type = "custom";
@@ -33,15 +33,15 @@
         }
         {
           type = "cpu";
-          key = "│  ";
+          key = "│ 🥵";
         }
         {
           type = "gpu";
-          key = "│ 󰍛 ";
+          key = "│ 💨";
         }
         {
           type = "memory";
-          key = "│ 󰑭 ";
+          key = "│ 🤔";
         }
         {
           type = "custom";
@@ -66,7 +66,7 @@
         }
         {
           type = "shell";
-          key = "└ └ ";
+          key = "└ └🐢";
         }
         "break"
         {
@@ -110,7 +110,7 @@
         }
         {
           type = "uptime";
-          key = "│  ";
+          key = "│🕛";
         }
         {
           type = "custom";
