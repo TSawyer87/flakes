@@ -28,6 +28,7 @@ in
         mcfly
         tokei
         obsidian
+        anki
         cbonsai
       ];
     };
