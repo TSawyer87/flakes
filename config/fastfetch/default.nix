@@ -2,7 +2,7 @@
 let
   randomPng = pkgs.runCommand "random-png" {} ''
     mkdir -p $out
-    ln -s $(find "${config.xdg.configHome}/fastfetch/pngs/" -name "*.png" | shuf -n 1) $out/random.png
+    ln -s $(find "/home/jr/.config/fastfetch/pngs/" -name "*.png" | shuf -n 1) $out/random.png
   '';
 in
 {
