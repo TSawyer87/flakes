@@ -58,7 +58,7 @@
         }
         {
           type = "kernel";
-          key = "│ ├ ";
+          key = "│ ├ 🐧";
         }
         {
           type = "packages";
@@ -110,7 +110,7 @@
         }
         {
           type = "uptime";
-          key = "│🕛";
+          key = "│☝️ 🕛";
         }
         {
           type = "custom";
