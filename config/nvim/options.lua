@@ -3,6 +3,7 @@ opt.number = true
 opt.relativenumber = true
 opt.colorcolumn = "80"
 opt.tabstop = 2
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true

@@ -267,6 +267,7 @@ in {
     cliphist
     wofi
     pyprland
+    zig_0_12
   ];
 
   fonts = {
