@@ -11,7 +11,7 @@
       };
 
       logo = {
-        source = ./heart.png;
+        source = ./pacman.png;
         type = "kitty";
         height = 18;
         width = 30;
