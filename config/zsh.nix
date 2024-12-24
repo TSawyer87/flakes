@@ -36,6 +36,7 @@
             fi
             source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
             source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+            source ${pkgs.nix-shell-completions}/share/nix-shell-completions/nix-shell.plugin.zsh
             eval "$(zoxide init zsh)"
             eval "$(mcfly init zsh)"
             export MANPAGER='nvim +Man!'
