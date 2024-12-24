@@ -48,7 +48,7 @@ with lib;
           exec-once = pypr &
           exec-once = wl-paste --type text --watch cliphist store # clipboard store text data
           exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
-          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/catppuccin-mocha-buttons.png
+          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/Lofi-Cafe1.png
           exec-once = foot --server
           monitor=,preferred,auto,1
           ${extraMonitorSettings}
