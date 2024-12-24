@@ -39,6 +39,10 @@ in {
     source = ../../config/pyprland.toml;
     recursive = true;
   };
+  home.file.".config/fastfetch/pngs" = {
+    source = ../../config/fastfetch;
+    recursive = true;
+  };
   # home.file.".face.icon".source = ../../config/face.jpg;
   # home.file.".config/face.jpg".source = ../../config/face.jpg;
   home.file.".config/swappy/config".text = ''
