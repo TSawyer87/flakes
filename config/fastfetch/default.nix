@@ -54,7 +54,7 @@
         }
         {
           type = "custom";
-          format = " ❄️ OS -> ZaneyOS 2.2";
+          format = " ❄️ OS -> NixOS 25.05";
         }
         {
           type = "kernel";
