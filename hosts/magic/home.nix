@@ -136,7 +136,7 @@ in {
 
   # Scripts
   home.packages = [
-    inputs.zen-browser.packages."${system}".specific
+    inputs.zen-browser.packages."${pkgs.system}".default
     # inputs.hyprland-qtutils.packages.${pkgs.system}.default
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
     pkgs.fzf
