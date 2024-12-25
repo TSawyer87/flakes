@@ -15,21 +15,13 @@
     };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      zen-browser,
-      wezterm,
-      hyprland-qtutils,
-      ...
+  outputs = { nixpkgs, home-manager, zen-browser, wezterm, hyprland-qtutils, ...
     }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-    in
-    {
+    in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -57,12 +49,11 @@
           ];
         };
       };
-      homeConfigurations."${username}@${host}" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/${host}/home.nix
-        ];
-      };
+      homeConfigurations."${username}@${host}" =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./hosts/${host}/home.nix ];
+        };
     };
 }
