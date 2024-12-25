@@ -224,17 +224,14 @@ local function random_header()
   return headers[index]
 end
 
+-- Seed the random number generator
+math.randomseed(os.time())
+
 -- Set header with random selection
 dashboard.section.header.val = random_header()
 
 -- Set menu
 dashboard.section.buttons.val = {
-  -- dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-  -- dashboard.button("SPC fe", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
-  -- dashboard.button("SPC ff", "󰱼 > Find File", "<cmd>Telescope find_files<CR>"),
-  -- dashboard.button("SPC lg", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
-  -- dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
-  -- dashboard.button("q", " > Quit NVIM", "<cmd>qa<CR>"),
   dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
   dashboard.button("f", "󰈞  Find file", ":Telescope find_files<CR>"),
   dashboard.button("r", "  Restore session", ":SessionRestore<CR>"),
