@@ -134,13 +134,8 @@ in {
 
   # Styling Options
   stylix.targets.waybar.enable = false;
-  # stylix.targets.wezterm.enable = true;
+  stylix.targets.wezterm.enable = true;
   # stylix.targets.ghostty.enable = true;
-  stylix.targets = {
-    wezterm = { enable = true; };
-    ghostty = { enable = true; };
-  };
-
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
   gtk = {
@@ -160,7 +155,6 @@ in {
   # Scripts
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".default
-    # inputs.hyprland-qtutils.packages.${pkgs.system}.default
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
     inputs.ghostty.packages."${pkgs.system}".default
     pkgs.fzf
