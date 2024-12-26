@@ -256,6 +256,8 @@ in {
     prettierd
     ruff
     lazygit
+    shfmt
+    shellcheck
     nixd
     nodejs_22
     nil
