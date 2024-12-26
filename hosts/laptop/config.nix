@@ -138,6 +138,7 @@ in {
   };
 
   programs = {
+    nix-direnv.enable = true;
     thunderbird.enable = true;
     yazi = { enable = true; };
     firefox.enable = true;
@@ -269,7 +270,6 @@ in {
     wofi
     pyprland
     unipicker
-    nix-direnv
   ];
 
   fonts = {
