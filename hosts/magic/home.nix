@@ -135,6 +135,7 @@ in {
   # Styling Options
   stylix.targets.waybar.enable = false;
   stylix.targets.wezterm.enable = true;
+  stylix.targets.ghostty.enable = true;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
   gtk = {
