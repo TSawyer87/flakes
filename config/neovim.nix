@@ -87,7 +87,7 @@ in
         flash-nvim
         toggleterm-nvim
         which-key-nvim
-        wezterm-nvim
+        # wezterm-nvim
         tokyonight-nvim
       ];
       extraConfig = ''
@@ -125,7 +125,7 @@ in
         ${builtins.readFile ./nvim/plugins/lualine.lua}
         ${builtins.readFile ./nvim/plugins/which-key.lua}
         ${builtins.readFile ./.stylua.toml}
-        require("wezterm").setup{}
+        # require("wezterm").setup{}
         require("render-markdown").setup{}
         require("ibl").setup()
         require("bufferline").setup{}
