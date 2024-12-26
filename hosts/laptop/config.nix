@@ -48,8 +48,9 @@ in {
     # image = ../../config/wallpapers/Wallpaper.png;
     # image = ../../config/wallpapers/gruvbox-dark-japanese-street.jpg;
     # image = ../../config/wallpapers/5-cm.jpg;
-    image = ../../config/wallpapers/nightTab_backdrop.jpg;
+    # image = ../../config/wallpapers/nightTab_backdrop.jpg;
     # image = ../../config/wallpapers/original-anime-cafe.jpg;
+     image = ../../config/wallpapers/Lofi-Cafe1.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
