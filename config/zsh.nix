@@ -8,7 +8,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" ];
+      plugins = [ "git" "sudo" "direnv" ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -37,6 +37,7 @@
             source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
             eval "$(zoxide init zsh)"
             eval "$(mcfly init zsh)"
+            eval "$(direnv hook zsh)"
             export MANPAGER='nvim +Man!'
             export MCFLY_KEY_SCHEME=vim
             export MCFLY_FUZZY=2

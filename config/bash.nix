@@ -25,6 +25,7 @@
       shopt -s autocd
       eval "$(zoxide init bash)"
       eval "$(mcfly init bash)"
+      eval "$(direnv hook bash)"
     '';
     shellAliases = {
       sv = "sudo nvim";
