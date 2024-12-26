@@ -270,6 +270,7 @@ in {
     pyprland
     zig_0_12
     unipicker
+    ghostty.packages.x86_64-linux.default
   ];
 
   fonts = {
