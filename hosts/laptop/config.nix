@@ -268,6 +268,8 @@ in {
     cliphist
     wofi
     pyprland
+    unipicker
+    nix-direnv
   ];
 
   fonts = {
