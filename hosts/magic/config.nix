@@ -269,6 +269,7 @@ in {
     wofi
     pyprland
     zig_0_12
+    unipicker
   ];
 
   fonts = {
@@ -421,7 +422,7 @@ in {
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
     };
-    gc = {
+    gc = {               # Auto weekly garbage collection
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
