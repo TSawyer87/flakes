@@ -138,7 +138,6 @@ in {
   };
 
   programs = {
-    nix-direnv.enable = true;
     thunderbird.enable = true;
     yazi = { enable = true; };
     firefox.enable = true;
