@@ -44,21 +44,6 @@
       export MCFLY_RESULTS=50
       export MCFLY_RESULTS_SORT=LAST_RUN
       export MCFLY_INTERFACE_VIEW=BOTTOM
-      # fzf
-      export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-      export FZF_CTRL_T_OPTS="
-      --walker-skip .git,node_modules,target
-      --preview 'bat -n --color=always {}'
-      --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-      export FZF_DEFAULT_OPTS="--height 60% \
-      --border sharp \
-      --layout reverse \
-      --color '$FZF_COLORS' \
-      --prompt '∷ ' \
-      --pointer ▶ \
-      --marker ⇒"
-      export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
-      export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
     '';
     shellAliases = {
       sv = "sudo nvim";
