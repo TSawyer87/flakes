@@ -110,6 +110,8 @@ in {
     bash.enable = true; # see note on other shells below
   };
 
+  programs.go = { enable = true; };
+
   # Create XDG Dirs
   xdg = {
     configFile."mimeapps.list".text = ''
