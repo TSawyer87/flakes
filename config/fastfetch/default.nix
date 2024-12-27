@@ -11,7 +11,7 @@
       };
 
       logo = {
-        source = ./pochita.png;
+        source = ./pfp-walkman.png;
         type = "kitty";
         height = 18;
         width = 30;
