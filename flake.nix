@@ -8,6 +8,7 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
+    ghostty = { url = "github:ghostty-org/ghostty"; };
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
@@ -15,11 +16,11 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, zen-browser, wezterm, hyprland-qtutils, ...
-    }@inputs:
+  outputs = { nixpkgs, home-manager, zen-browser, wezterm, hyprland-qtutils
+    , ghostty, ... }@inputs:
     let
       system = "x86_64-linux";
-      host = "laptop";
+      host = "magic";
       username = "jr";
     in {
       nixosConfigurations = {

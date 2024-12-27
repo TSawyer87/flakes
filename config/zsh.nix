@@ -29,36 +29,21 @@
       setopt pushdminus
     '';
     initExtra = ''
-            fastfetch
-            if [ -f $HOME/.zshrc-personal ]; then
-              source $HOME/.zshrc-personal
-            fi
-            source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-            source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
-            eval "$(zoxide init zsh)"
-            eval "$(mcfly init zsh)"
-            eval "$(direnv hook zsh)"
-            export MANPAGER='nvim +Man!'
-            export MCFLY_KEY_SCHEME=vim
-            export MCFLY_FUZZY=2
-            export MCFLY_RESULTS=50
-            export MCFLY_RESULTS_SORT=LAST_RUN
-            export MCFLY_INTERFACE_VIEW=BOTTOM
-            # fzf
-            export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-            export FZF_CTRL_T_OPTS="
-            --walker-skip .git,node_modules,target
-            --preview 'bat -n --color=always {}'
-            --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-            export FZF_DEFAULT_OPTS="--height 60% \
-            --border sharp \
-            --layout reverse \
-            --color '$FZF_COLORS' \
-            --prompt '∷ ' \
-            --pointer ▶ \
-            --marker ⇒"
-            export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
-            export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
+      fastfetch
+      if [ -f $HOME/.zshrc-personal ]; then
+        source $HOME/.zshrc-personal
+      fi
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+      eval "$(zoxide init zsh)"
+      eval "$(mcfly init zsh)"
+      eval "$(direnv hook zsh)"
+      export MANPAGER='nvim +Man!'
+      export MCFLY_KEY_SCHEME=vim
+      export MCFLY_FUZZY=2
+      export MCFLY_RESULTS=50
+      export MCFLY_RESULTS_SORT=LAST_RUN
+      export MCFLY_INTERFACE_VIEW=BOTTOM
     '';
     shellAliases = {
       sv = "sudo nvim";
@@ -69,19 +54,30 @@
       opts = "man home-configuration.nix";
       zed = "zeditor";
       lg = "lazygit";
+      ip = "ip -color";
+      tarnow = "tar -acf ";
+      untar = "tar -zxvf ";
+      egrep = "grep -E --color=auto";
+      fgrep = "grep -F --color=auto";
+      grep = "grep --color=auto";
+      vdir = "vdir --color=auto";
+      dir = "dir --color=auto";
       v = "nvim";
-      cat = "bat";
+      cat = "bat --style snip --style changes --style header";
       l = "eza -lh --icons=auto"; # long list
-      ls = "eza --icons=auto"; # short list
-      ll = "eza -lh --icons --grid --group-directories-first";
-      la = "eza -lah --icons --grid --group-directories-first";
+      ls = "eza --icons=auto --group-directories-first --icons"; # short list
+      ll = "eza -lh --icons --grid --group-directories-first --icons";
+      la = "eza -lah --icons --grid --group-directories-first --icons";
       ld = "eza -lhD --icons=auto";
       lt = "eza --icons=auto --tree"; # list folder as tree
+      # Get the error messages from journalctl
+      jctl = "journalctl -p 3 -xb";
+
       mkdir = "mkdir -p";
       yz = "yazi";
       ".." = "cd ..";
       "..." = "cd ../..";
-      "...." = "cd ../../../";
+      "...." = "cd ../../..";
     };
   };
 
