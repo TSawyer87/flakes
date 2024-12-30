@@ -1,13 +1,20 @@
 { config, pkgs, host, username, options, lib, ... }:
 let
   # ... existing let bindings ...
+  drivers = [
+    "amdgpu"
+    #"intel"
+    # "nvidia"
+    "amdcpu"
+    # "intel-old"
+  ];
 
   # Define the hardware configuration based on config
-  hasAmdCpu = builtins.elem "amdcpu" (config.hardware.drivers or [ ]);
-  hasIntelCpu = builtins.elem "intel" (config.hardware.drivers or [ ]);
-  hasAmdGpu = builtins.elem "amdgpu" (config.hardware.drivers or [ ]);
-  hasNvidia = builtins.elem "nvidia" (config.hardware.drivers or [ ]);
-  hasOlderIntelCpu = builtins.elem "intel-old" (config.hardware.drivers or [ ]);
+  hasAmdCpu = builtins.elem "amdcpu" drivers;
+  hasIntelCpu = builtins.elem "intel" drivers;
+  hasAmdGpu = builtins.elem "amdgpu" drivers;
+  hasNvidia = builtins.elem "nvidia" drivers;
+  hasOlderIntelCpu = builtins.elem "intel-old" drivers;
 
   # Define when Mesa is needed based on hardware configuration
   needsMesa = hasAmdGpu || hasIntelCpu || hasOlderIntelCpu;
