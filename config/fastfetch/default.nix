@@ -11,8 +11,7 @@
       };
 
       logo = {
-        # source = ./pfp-walkman.png;
-         source = "pokeget 23";
+        source = ./pfp-walkman.png;
         type = "kitty";
         height = 18;
         width = 30;
