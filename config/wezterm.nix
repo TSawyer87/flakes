@@ -6,7 +6,6 @@
       local wezterm = require 'wezterm'
       local act = wezterm.action
       local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
-      bar.apply_to_config(config, { enabled_modules = { hostname = false } })
 
       return {
         font = wezterm.font("JetBrains Mono"),
