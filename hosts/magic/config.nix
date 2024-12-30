@@ -144,19 +144,23 @@ in {
 
   environment.systemPackages = with pkgs; [
     # GPU support packages
-    (lib.optional needsMesa mesa)
-    (lib.optional hasAmdGpu vulkan-tools)
-    (lib.optional hasAmdGpu vulkan-loader)
-    (lib.optional hasAmdGpu vulkan-validation-layers)
-    (lib.optional hasAmdGpu amdvlk)
-    (lib.optional hasNvidia nvidia-vaapi-driver)
-    (lib.optional hasNvidia libva-vdpau-driver)
-    (lib.optional hasNvidia vulkan-tools)
-    (lib.optional hasNvidia vulkan-loader)
-    (lib.optional hasNvidia vulkan-validation-layers)
+    # (lib.optional needsMesa mesa)
+    # (lib.optional hasAmdGpu vulkan-tools)
+    # (lib.optional hasAmdGpu vulkan-loader)
+    # (lib.optional hasAmdGpu vulkan-validation-layers)
+    # (lib.optional hasAmdGpu amdvlk)
+    # (lib.optional hasNvidia nvidia-vaapi-driver)
+    # (lib.optional hasNvidia libva-vdpau-driver)
+    # (lib.optional hasNvidia vulkan-tools)
+    # (lib.optional hasNvidia vulkan-loader)
+    # (lib.optional hasNvidia vulkan-validation-layers)
 
     # Additional system packages
     vim
+    mesa
+    vulkan-loader
+    vulkan-validation-layers
+    amdvlk
     wget
     killall
     eza
