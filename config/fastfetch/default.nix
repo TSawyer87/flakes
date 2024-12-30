@@ -12,7 +12,7 @@
 
       logo = {
         # source = ./pfp-walkman.png;
-        source = "$(pokemon-colorscripts -r | sed 's/$/\\n/')";
+        source = ''${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r | sed 's/$/\\n/''' ;  # Using multi-line string for clarity
         type = "kitty";
         height = 18;
         width = 30;
