@@ -35,6 +35,11 @@
       fi
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+      # You can now call pokemon-colorscripts from here
+      function random_pokemon() {
+        ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r
+      }
+      random_pokemon
       eval "$(zoxide init zsh)"
       eval "$(mcfly init zsh)"
       eval "$(direnv hook zsh)"
