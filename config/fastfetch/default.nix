@@ -1,5 +1,4 @@
 {
-  home.packages = with pkgs; [ pokemon-colorscripts ];
   programs.fastfetch = {
     enable = true;
 
