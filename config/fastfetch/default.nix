@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   programs.fastfetch = {
     enable = true;
 
@@ -11,12 +11,9 @@
       };
 
       logo = {
-        # Use the `writeText` function to capture the output of the command
-        source = "${pkgs.writeText {
-          name = "pokemon-colorscripts-logo";
-          text = "${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r";
-        }}";
-
+        source = "${pkgs.writeShellScript "pokemon-logo" ''
+          ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r
+        ''}";
         type = "kitty";
         height = 18;
         width = 30;
