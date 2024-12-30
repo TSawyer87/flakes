@@ -52,6 +52,7 @@
               nixpkgs.overlays = overlays; # Apply all overlays here
               environment.systemPackages = with pkgs; [
                 pokemon-colorscripts
+                pkgs.neovim
               ];
               home-manager.extraSpecialArgs = {
                 inherit username;
