@@ -30,7 +30,6 @@
           lib = final.lib;
         };
       };
-
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -44,7 +43,7 @@
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
-            {
+            ({ config, pkgs, ... }: {
               nixpkgs.overlays = [ pokemonColorscriptsOverlay ];
               environment.systemPackages = with pkgs;
                 [
@@ -61,7 +60,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
-            }
+            })
           ];
         };
       };
@@ -88,4 +87,3 @@
         };
     };
 }
-
