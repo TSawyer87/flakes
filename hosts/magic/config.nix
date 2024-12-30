@@ -236,7 +236,7 @@ in {
     zig_0_12
     unipicker
     nvtopPackages.amd
-    microcode-amd
+    pokeget-rs
   ];
   # Styling Options
   stylix = {

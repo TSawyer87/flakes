@@ -30,6 +30,7 @@
     '';
     initExtra = ''
      # fastfetch
+     pokeget
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi
@@ -39,7 +40,7 @@
       function random_pokemon() {
         ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
       }
-      random_pokemon
+      #random_pokemon
       eval "$(zoxide init zsh)"
       eval "$(mcfly init zsh)"
       eval "$(direnv hook zsh)"
