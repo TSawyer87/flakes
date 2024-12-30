@@ -1,4 +1,5 @@
 {
+  home.packages = with pkgs; [ pokemon-colorscripts ];
   programs.fastfetch = {
     enable = true;
 
@@ -11,8 +12,12 @@
       };
 
       logo = {
-        # source = ./pfp-walkman.png;
-        source = ''${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r | sed 's/$/\\n/''' ;  # Using multi-line string for clarity
+        # Use the `writeText` function to capture the output of the command
+        source = "${pkgs.writeText {
+          name = "pokemon-colorscripts-logo";
+          text = "${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r";
+        }}";
+
         type = "kitty";
         height = 18;
         width = 30;
