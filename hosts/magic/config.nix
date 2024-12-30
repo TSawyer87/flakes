@@ -1,4 +1,4 @@
-{ config, pkgs, host, username, options, ... }:
+{ config, pkgs, host, username, options, lib, ... }:
 let
   # ... existing let bindings ...
 
