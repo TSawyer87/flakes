@@ -73,7 +73,7 @@
       homeConfigurations."${username}@${host}" =
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}.extend
-            (self: super: { overlays = overlays; });
+            (final: prev: final.lib.composeManyExtensions overlays);
           extraSpecialArgs = {
             inherit inputs;
             inherit host;
