@@ -9,6 +9,7 @@ require("image").setup({
         -- you can call the fallback function to get the default behavior
         return fallback(document_path, image_path)
       end,
+      only_render_image_at_cursor = true,
     },
   },
 })
