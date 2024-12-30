@@ -289,7 +289,7 @@ in {
   };
 
   # Extra Module Options
-  drivers.amdgpu.enable = true;
+  # drivers.amdgpu.enable = true;
   drivers.nvidia.enable = false;
   drivers.nvidia-prime = {
     enable = false;
@@ -546,7 +546,7 @@ in {
   };
 
   # OpenGL
-  hardware.graphics = { enable = true; };
+  #hardware.graphics = { enable = true; };
 
   console.keyMap = "${keyboardLayout}";
 
