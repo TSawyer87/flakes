@@ -87,11 +87,6 @@
                 pkgs.neovim # This will now use the nightly version
                 # Other home-manager packages
               ];
-              programs.neovim = {
-                # Here you can configure Neovim further if needed
-                enable = true;
-                # ... other neovim configurations
-              };
             })
             ./hosts/${host}/home.nix
           ];

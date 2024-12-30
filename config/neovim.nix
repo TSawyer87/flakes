@@ -5,11 +5,12 @@ let
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
-in
-{
+in {
   programs = {
     neovim = {
       enable = true;
+      package =
+        pkgs.neovim-unwrapped; # This should pick up from the nightly overlay
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
