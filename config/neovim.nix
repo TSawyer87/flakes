@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ... }:
+{ pkgs, inputs, ... }:
 let
   # Build the finecmdline plugin
   finecmdline = pkgs.vimUtils.buildVimPlugin {
@@ -17,6 +17,7 @@ in {
       vimdiffAlias = true;
       withNodeJs = true;
       extraPackages = with pkgs; [
+        imagemagick
         lua-language-server
         stylua
         gopls

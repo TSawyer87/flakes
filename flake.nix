@@ -52,8 +52,6 @@
               nixpkgs.overlays = overlays; # Apply all overlays here
               environment.systemPackages = with pkgs; [
                 pokemon-colorscripts
-                pkgs.neovim # This will now use the nightly version
-                # Other system-wide packages
               ];
               home-manager.extraSpecialArgs = {
                 inherit username;
