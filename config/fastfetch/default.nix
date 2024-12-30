@@ -11,10 +11,11 @@
       };
 
       logo = {
+        # Create a separate script that will be called by fastfetch
         source = "${pkgs.writeShellScript "pokemon-logo" ''
-          ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r
+          ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
         ''}";
-        type = "kitty";
+        type = "sixel"; # Change from kitty to sixel
         height = 18;
         width = 30;
         padding = {
@@ -22,7 +23,6 @@
           left = 3;
         };
       };
-
       modules = [
         "break"
         {
