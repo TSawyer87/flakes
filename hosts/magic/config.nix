@@ -1,5 +1,19 @@
 { config, pkgs, host, username, options, ... }:
-let inherit (import ./variables.nix) keyboardLayout;
+let
+  # ... existing let bindings ...
+
+  # Define the hardware configuration based on config
+  hasAmdCpu = builtins.elem "amdcpu" (config.hardware.drivers or [ ]);
+  hasIntelCpu = builtins.elem "intel" (config.hardware.drivers or [ ]);
+  hasAmdGpu = builtins.elem "amdgpu" (config.hardware.drivers or [ ]);
+  hasNvidia = builtins.elem "nvidia" (config.hardware.drivers or [ ]);
+  hasOlderIntelCpu = builtins.elem "intel-old" (config.hardware.drivers or [ ]);
+
+  # Define when Mesa is needed based on hardware configuration
+  needsMesa = hasAmdGpu || hasIntelCpu || hasOlderIntelCpu;
+
+  # Import and inherit values from another Nix file
+  inherit (import ./variables.nix) keyboardLayout;
 in {
   imports = [
     ./hardware.nix
@@ -12,22 +26,103 @@ in {
     ../../modules/local-hardware-clock.nix
   ];
 
+  # ===== Hardware Configuration =====
+  hardware = {
+    # Existing config
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = pkgs.lib.flatten (with pkgs; [
+        # AMD GPU packages
+        (lib.optional hasAmdGpu amdvlk)
+
+        # Nvidia GPU packages
+        (lib.optional hasNvidia nvidia-vaapi-driver)
+        (lib.optional hasNvidia libva-vdpau-driver)
+
+        # Intel Cpu packages
+        (lib.optional hasIntelCpu intel-media-driver)
+        (lib.optional hasOlderIntelCpu intel-vaapi-driver)
+
+        # Mesa
+        (lib.optional needsMesa mesa)
+      ]);
+      extraPackages32 = pkgs.lib.flatten (with pkgs; [
+        # AMD GPU packages
+        (lib.optional hasAmdGpu amdvlk)
+
+        # Nvidia GPU packages
+        (lib.optional hasNvidia libva-vdpau-driver)
+
+        # Intel Cpu packages
+        (lib.optional hasIntelCpu intel-media-driver)
+        (lib.optional hasOlderIntelCpu intel-vaapi-driver)
+
+        # Mesa
+        (lib.optional needsMesa mesa)
+      ]);
+    };
+
+    # CPU Configuration
+    cpu = {
+      amd.updateMicrocode = hasAmdCpu;
+      intel.updateMicrocode = hasIntelCpu || hasOlderIntelCpu;
+    };
+
+    # Nvidia specific configuration
+    nvidia = pkgs.lib.mkIf hasNvidia {
+      modesetting.enable = true;
+      powerManagement = { enable = false; };
+      open = false;
+      nvidiaSettings = true;
+      forceFullCompositionPipeline = true;
+    };
+  };
+
+  # Boot configuration for GPU support
   boot = {
     # Kernel
     kernelPackages = pkgs.linuxPackages_zen;
-    # This is for OBS Virtual Cam Support
-    kernelModules = [ "v4l2loopback" ];
+
+    # Kernel modules and parameters for GPU support
+    kernelModules = with pkgs.lib;
+      [ "v4l2loopback" ] # For OBS Virtual Cam Support
+      ++ (optionals hasAmdCpu [ "kvm-amd" ])
+      ++ (optionals (hasIntelCpu || hasOlderIntelCpu) [ "kvm-intel" ])
+      ++ (optionals hasAmdGpu [ "amdgpu" ])
+      ++ (optionals hasNvidia [ "nvidia" "nvidia_drm" "nvidia_modeset" ]);
+
+    kernelParams = with pkgs.lib;
+      [ ] ++ (optionals hasAmdCpu [ "amd_pstate=active" ])
+      ++ (optionals hasAmdGpu [ "radeon.si_support=0" "amdgpu.si_support=1" ])
+      ++ (optionals hasNvidia [ "nvidia-drm.modeset=1" ]);
+
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+
     # Needed For Some Steam Games
     kernel.sysctl = { "vm.max_map_count" = 2147483642; };
+
+    # Module blacklisting
+    blacklistedKernelModules = with pkgs.lib;
+      [ ] ++ (optionals hasAmdGpu [ "radeon" ])
+      ++ (optionals hasNvidia [ "nouveau" ]);
+
+    # Extra modprobe config for Nvidia
+    extraModprobeConfig = pkgs.lib.mkIf hasNvidia ''
+      options nvidia-drm modeset=1
+      options nvidia NVreg_PreserveVideoMemoryAllocations=1
+    '';
+
     # Bootloader.
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = false;
       tmpfsSize = "30%";
     };
+
     # Appimage Support
     binfmt.registrations.appimage = {
       wrapInterpreterInShell = false;
@@ -37,9 +132,101 @@ in {
       mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
       magicOrExtension = "\\x7fELF....AI\\x02";
     };
-    plymouth.enable = true;
+
   };
 
+  environment.systemPackages = with pkgs; [
+    # GPU support packages
+    (lib.optional needsMesa mesa)
+    (lib.optional hasAmdGpu vulkan-tools)
+    (lib.optional hasAmdGpu vulkan-loader)
+    (lib.optional hasAmdGpu vulkan-validation-layers)
+    (lib.optional hasAmdGpu amdvlk)
+    (lib.optional hasNvidia nvidia-vaapi-driver)
+    (lib.optional hasNvidia libva-vdpau-driver)
+    (lib.optional hasNvidia vulkan-tools)
+    (lib.optional hasNvidia vulkan-loader)
+    (lib.optional hasNvidia vulkan-validation-layers)
+
+    # Additional system packages
+    vim
+    wget
+    killall
+    eza
+    git
+    cmatrix
+    lolcat
+    htop
+    libvirt
+    lxqt.lxqt-policykit
+    lm_sensors
+    unzip
+    unrar
+    libnotify
+    v4l-utils
+    ydotool
+    duf
+    ncdu
+    wl-clipboard
+    pciutils
+    ffmpeg
+    socat
+    cowsay
+    ripgrep
+    lshw
+    bat
+    pkg-config
+    meson
+    hyprpicker
+    ninja
+    brightnessctl
+    virt-viewer
+    swappy
+    appimage-run
+    networkmanagerapplet
+    yad
+    inxi
+    playerctl
+    nh
+    nixfmt-classic
+    discord
+    swww
+    grim
+    slurp
+    file-roller
+    swaynotificationcenter
+    imv
+    mpv
+    gimp
+    pavucontrol
+    tree
+    spotify
+    neovide
+    greetd.tuigreet
+    hplipWithPlugin
+    hyprls
+    jq
+    nodePackages.prettier
+    prettierd
+    ruff
+    lazygit
+    shfmt
+    shellcheck
+    nixd
+    nodejs_22
+    nil
+    lua-language-server
+    bash-language-server
+    stylua
+    rose-pine-cursor
+    cliphist
+    wofi
+    pyprland
+    zig_0_12
+    unipicker
+    nvtopPackages.amd
+    microcode-amd
+  ];
   # Styling Options
   stylix = {
     enable = true;
@@ -193,87 +380,6 @@ in {
 
   users = { mutableUsers = true; };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    killall
-    eza
-    git
-    cmatrix
-    lolcat
-    htop
-    libvirt
-    lxqt.lxqt-policykit
-    lm_sensors
-    unzip
-    unrar
-    libnotify
-    v4l-utils
-    ydotool
-    duf
-    ncdu
-    wl-clipboard
-    pciutils
-    ffmpeg
-    socat
-    cowsay
-    ripgrep
-    lshw
-    bat
-    pkg-config
-    meson
-    hyprpicker
-    ninja
-    brightnessctl
-    virt-viewer
-    swappy
-    appimage-run
-    networkmanagerapplet
-    yad
-    inxi
-    playerctl
-    nh
-    nixfmt-classic
-    discord
-    libvirt
-    swww
-    grim
-    slurp
-    file-roller
-    swaynotificationcenter
-    imv
-    mpv
-    gimp
-    pavucontrol
-    tree
-    spotify
-    neovide
-    greetd.tuigreet
-    hplipWithPlugin
-    hyprls
-    jq
-    nodePackages.prettier
-    prettierd
-    ruff
-    lazygit
-    shfmt
-    shellcheck
-    nixd
-    nodejs_22
-    nil
-    lua-language-server
-    bash-language-server
-    stylua
-    rose-pine-cursor
-    cliphist
-    wofi
-    pyprland
-    zig_0_12
-    unipicker
-    nvtopPackages.amd
-    microcode-amd
-  ];
-
   fonts = {
     packages = with pkgs; [
       noto-fonts-emoji
@@ -424,7 +530,7 @@ in {
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
     };
-    gc = {               # Auto weekly garbage collection
+    gc = { # Auto weekly garbage collection
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
