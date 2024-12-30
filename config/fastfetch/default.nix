@@ -11,7 +11,8 @@
       };
 
       logo = {
-        source = ./pfp-walkman.png;
+        # source = ./pfp-walkman.png;
+        source = "$(pokemon-colorscripts -r | sed 's/$/\\n/')";
         type = "kitty";
         height = 18;
         width = 30;
