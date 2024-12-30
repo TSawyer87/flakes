@@ -29,7 +29,7 @@
       setopt pushdminus
     '';
     initExtra = ''
-      fastfetch
+     # fastfetch
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi
@@ -37,7 +37,7 @@
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
       # You can now call pokemon-colorscripts from here
       function random_pokemon() {
-        ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r
+        ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
       }
       random_pokemon
       eval "$(zoxide init zsh)"
