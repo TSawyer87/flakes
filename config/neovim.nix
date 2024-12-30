@@ -1,13 +1,5 @@
 { pkgs, inputs, lib, ... }:
 let
-  # Define the nightly overlay
-  nightlyOverlay = final: prev: {
-    # Add any packages or modifications here if needed
-  };
-
-  # Use the nightly overlay
-  pkgs' = pkgs.extend nightlyOverlay;
-
   # Build the finecmdline plugin
   finecmdline = pkgs.vimUtils.buildVimPlugin {
     name = "fine-cmdline";

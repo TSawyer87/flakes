@@ -1,6 +1,5 @@
 { config, pkgs, host, username, options, lib, ... }:
 let
-  # ... existing let bindings ...
   drivers = [
     "amdgpu"
     #"intel"
@@ -236,7 +235,7 @@ in {
     zig_0_12
     unipicker
     nvtopPackages.amd
-    pokeget-rs
+    nix-diff
   ];
   # Styling Options
   stylix = {

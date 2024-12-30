@@ -9,6 +9,7 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     ghostty = { url = "github:ghostty-org/ghostty"; };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
@@ -16,8 +17,8 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, zen-browser, wezterm, hyprland-qtutils
-    , ghostty, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, zen-browser, wezterm
+    , hyprland-qtutils, ghostty, neovim-nightly-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -30,6 +31,10 @@
           lib = final.lib;
         };
       };
+
+      # Combine all overlays
+      overlays =
+        [ pokemonColorscriptsOverlay neovim-nightly-overlay.overlays.default ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -44,12 +49,12 @@
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             ({ config, pkgs, ... }: {
-              nixpkgs.overlays = [ pokemonColorscriptsOverlay ];
-              environment.systemPackages = with pkgs;
-                [
-                  pokemon-colorscripts
-                  # Other system-wide packages
-                ];
+              nixpkgs.overlays = overlays; # Apply all overlays here
+              environment.systemPackages = with pkgs; [
+                pokemon-colorscripts
+                pkgs.neovim # This will now use the nightly version
+                # Other system-wide packages
+              ];
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
@@ -64,10 +69,11 @@
           ];
         };
       };
+
       homeConfigurations."${username}@${host}" =
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}.extend
-            (self: super: { overlays = [ pokemonColorscriptsOverlay ]; });
+            (self: super: { overlays = overlays; });
           extraSpecialArgs = {
             inherit inputs;
             inherit host;
@@ -76,14 +82,20 @@
           };
           modules = [
             ({ pkgs, ... }: {
-              home.packages = with pkgs;
-                [
-                  pokemon-colorscripts
-                  # Other home-manager packages
-                ];
+              home.packages = with pkgs; [
+                pokemon-colorscripts
+                pkgs.neovim # This will now use the nightly version
+                # Other home-manager packages
+              ];
+              programs.neovim = {
+                # Here you can configure Neovim further if needed
+                enable = true;
+                # ... other neovim configurations
+              };
             })
             ./hosts/${host}/home.nix
           ];
         };
     };
 }
+
