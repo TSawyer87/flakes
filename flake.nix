@@ -22,6 +22,15 @@
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
+
+      # Define the overlay for pokemon-colorscripts
+      pokemonColorscriptsOverlay = final: prev: {
+        pokemon-colorscripts = import ./modules/pokemon-colorscripts.nix {
+          pkgs = final;
+          lib = final.lib;
+        };
+      };
+
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -36,6 +45,12 @@
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
+              nixpkgs.overlays = [ pokemonColorscriptsOverlay ];
+              environment.systemPackages = with pkgs;
+                [
+                  pokemon-colorscripts
+                  # Other system-wide packages
+                ];
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
@@ -52,9 +67,25 @@
       };
       homeConfigurations."${username}@${host}" =
         home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          extraSpecialArgs = { inherit inputs; };
-          modules = [ ./hosts/${host}/home.nix ];
+          pkgs = nixpkgs.legacyPackages.${system}.extend
+            (self: super: { overlays = [ pokemonColorscriptsOverlay ]; });
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit host;
+            inherit system;
+            inherit username;
+          };
+          modules = [
+            ({ pkgs, ... }: {
+              home.packages = with pkgs;
+                [
+                  pokemon-colorscripts
+                  # Other home-manager packages
+                ];
+            })
+            ./hosts/${host}/home.nix
+          ];
         };
     };
 }
+
