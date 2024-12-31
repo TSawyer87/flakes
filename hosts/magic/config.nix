@@ -243,6 +243,7 @@ in {
     nvtopPackages.amd
     nix-diff
     linuxKernel.packages.linux_zen.cpupower
+    tradingview
   ];
   # Styling Options
   stylix = {
