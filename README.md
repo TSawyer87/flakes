@@ -63,6 +63,7 @@ After your flake is initialized, a few aliases:
 | `-`                  | launch oil.nvim file browser |
 | `Ctrl+;` or `Ctrl+y` | accept cmp or codeium        |
 | `Ctrl+`              | Launch toggleterm            |
+| `Ctrl+/`             | Close toggleterm             |
 | `zR`                 | open all folds (ufo)         |
 | `zM`                 | close all folds              |
 
