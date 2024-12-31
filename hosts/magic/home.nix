@@ -220,7 +220,7 @@ in {
       enable = true;
       package = pkgs.starship;
       settings = {
-        add_newline = false;
+        add_newline = true;
         format =
           "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
         shlvl = {
@@ -239,42 +239,89 @@ in {
           style_user = "bright-white bold";
           style_root = "bright-red bold";
         };
+        hostname = {
+          style = "bright-green bold";
+          ssh_only = true;
+        };
+        nix_shell = {
+          symbol = "";
+          format = "[$symbol$name]($style) ";
+          style = "bright-purple bold";
+        };
+        git_branch = {
+          only_attached = true;
+          format = "[$symbol$branch]($style) ";
+          symbol = "שׂ";
+          style = "bright-yellow bold";
+        };
+        git_commit = {
+          only_detached = true;
+          format = "[ﰖ$hash]($style) ";
+          style = "bright-yellow bold";
+        };
+        git_state = { style = "bright-purple bold"; };
+        git_status = { style = "bright-green bold"; };
+        directory = {
+          read_only = " ";
+          truncation_length = 0;
+        };
+        cmd_duration = {
+          format = "[$duration]($style) ";
+          style = "bright-blue";
+        };
+        jobs = { style = "bright-green bold"; };
+        character = {
+          success_symbol = "[\\$](bright-green bold)";
+          error_symbol = "[\\$](bright-red bold)";
+        };
       };
     };
-    # background = [
-    #   {
-    #     path = "/home/${username}/Pictures/Wallpapers/Wall.png";
-    #     blur_passes = 3;
-    #     blur_size = 8;
-    #   }
-    # ];
-    # image = [
-    #   {
-    #     path = "/home/${username}/.config/5-cm.jpg";
-    #     size = 150;
-    #     border_size = 4;
-    #     border_color = "rgb(0C96F9)";
-    #     rounding = -1; # Negative means circle
-    #     position = "0, 200";
-    #     halign = "center";
-    #     valign = "center";
-    #   }
-    # ];
-    # input-field = [
-    #   {
-    #     size = "200, 50";
-    #     position = "0, -80";
-    #     monitor = "";
-    #     dots_center = true;
-    #     fade_on_empty = false;
-    #     font_color = "rgb(CFE6F4)";
-    #     inner_color = "rgb(657DC2)";
-    #     outer_color = "rgb(0D0E15)";
-    #     outline_thickness = 5;
-    #     placeholder_text = "Password...";
-    #     shadow_passes = 2;
-    #   }
-    # ];
-  };
+    home-manager.enable = true;
+    hyprlock = {
+      enable = true;
+      settings = {
+        general = {
+          disable_loading_bar = true;
+          grace = 10;
+          hide_cursor = true;
+          no_fade_in = false;
+        };
+        # background = [
+        #   {
+        #     path = "/home/${username}/Pictures/Wallpapers/Wall.png";
+        #     blur_passes = 3;
+        #     blur_size = 8;
+        #   }
+        # ];
+        # image = [
+        #   {
+        #     path = "/home/${username}/.config/5-cm.jpg";
+        #     size = 150;
+        #     border_size = 4;
+        #     border_color = "rgb(0C96F9)";
+        #     rounding = -1; # Negative means circle
+        #     position = "0, 200";
+        #     halign = "center";
+        #     valign = "center";
+        #   }
+        # ];
+        # input-field = [
+        #   {
+        #     size = "200, 50";
+        #     position = "0, -80";
+        #     monitor = "";
+        #     dots_center = true;
+        #     fade_on_empty = false;
+        #     font_color = "rgb(CFE6F4)";
+        #     inner_color = "rgb(657DC2)";
+        #     outer_color = "rgb(0D0E15)";
+        #     outline_thickness = 5;
+        #     placeholder_text = "Password...";
+        #     shadow_passes = 2;
+        #   }
+        # ];
+      };
 
+    };
+  };
 }
