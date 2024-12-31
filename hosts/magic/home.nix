@@ -115,7 +115,6 @@ in {
     bash.enable = true; # see note on other shells below
   };
 
-  programs = { nix-index-database = { enable = true; }; };
   programs.go = { enable = true; };
 
   # Create XDG Dirs
