@@ -19,8 +19,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser, wezterm
-    , hyprland-qtutils, ghostty, neovim-nightly-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
+    , wezterm, hyprland-qtutils, ghostty, neovim-nightly-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -48,7 +48,6 @@
           };
           modules = [
             ./hosts/${host}/config.nix
-            nix-index-database.hmModules.nix-index
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             ({ config, pkgs, ... }: {
@@ -87,6 +86,7 @@
               home.packages = with pkgs; [
                 pokemon-colorscripts
                 pkgs.neovim # This will now use the nightly version
+                nix-index-database.hmModules.nix-index
                 # Other home-manager packages
               ];
             })
