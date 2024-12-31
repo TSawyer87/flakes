@@ -155,8 +155,14 @@ in {
     # (lib.optional hasNvidia vulkan-validation-layers)
 
     # Additional system packages
+    # nvidia-vaapi-driver
+    # libva-vdpau-driver
+    # vulkan-tools
+    # vulkan-loader
+    # vulkan-validation-layers
     vim
     mesa
+    vulkan-tools
     vulkan-loader
     vulkan-validation-layers
     amdvlk
