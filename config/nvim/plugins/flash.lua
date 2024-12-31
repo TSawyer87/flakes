@@ -6,7 +6,7 @@ require("flash").setup(
     },
     keys = {
       {
-        "s",
+        "<LEADER>v",
         mode = { "n", "x", "o" },
         function()
           require("flash").jump()
@@ -14,7 +14,7 @@ require("flash").setup(
         desc = "Flash",
       },
       {
-        "S",
+        "<LEADER>V",
         mode = { "n", "o", "x" },
         function()
           require("flash").treesitter()
@@ -29,29 +29,12 @@ require("flash").setup(
         end,
         desc = "Remote Flash",
       },
-      {
-        "R",
-        mode = { "o", "x" },
-        function()
-          require("flash").treesitter_search()
-        end,
-        desc = "Treesitter Search",
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function()
-          require("flash").toggle()
-        end,
-        desc = "Toggle Flash Search",
-      },
     },
-    modes = {
-      search = {
-        enabled = true,
-      },
-      char = {
-        enabled = false,
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        },
       },
     },
   }
