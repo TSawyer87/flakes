@@ -56,10 +56,15 @@ After your flake is initialized, a few aliases:
 | `leader`             | Space                        |
 | `leader + fm`        | conform format manual        |
 | `leader + j`         | hop-nvim                     |
+| `leader + s`         | splits                       |
+| `leader+zm`          | Zen-Mode                     |
 | `Shift+ h`           | switch buffer left           |
 | `Shift+ l`           | switch buffer right          |
 | `-`                  | launch oil.nvim file browser |
 | `Ctrl+;` or `Ctrl+y` | accept cmp or codeium        |
+| `Ctrl+`              | Launch toggleterm            |
+| `zR`                 | open all folds (ufo)         |
+| `zM`                 | close all folds              |
 
 -   `yz` = Yazi, terminal based file manager, uses `vim` bindings.
 

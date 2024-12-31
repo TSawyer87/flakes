@@ -78,7 +78,7 @@ in {
         conform-nvim
         codeium-nvim
         trouble-nvim
-        flash-nvim
+        #flash-nvim
         toggleterm-nvim
         which-key-nvim
         wezterm-nvim
@@ -115,7 +115,6 @@ in {
         ${builtins.readFile ./nvim/plugins/codeium.lua}
         ${builtins.readFile ./nvim/plugins/trouble.lua}
         ${builtins.readFile ./nvim/plugins/ufo.lua}
-        ${builtins.readFile ./nvim/plugins/flash.lua}
         ${builtins.readFile ./nvim/plugins/toggleterm.lua}
         ${builtins.readFile ./nvim/plugins/lualine.lua}
         ${builtins.readFile ./nvim/plugins/which-key.lua}
