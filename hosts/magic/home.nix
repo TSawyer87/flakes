@@ -115,6 +115,7 @@ in {
     bash.enable = true; # see note on other shells below
   };
 
+  programs = { nix-index-database = { enable = true; }; };
   programs.go = { enable = true; };
 
   # Create XDG Dirs
@@ -212,7 +213,6 @@ in {
   };
 
   programs = {
-    nix-index-database.enable = true;
     gh.enable = true;
     btop = {
       enable = true;
@@ -229,9 +229,9 @@ in {
           no_fade_in = false;
         };
         # background = [{
-          # path = "/home/${username}/Pictures/Wallpapers/Wall.png";
-          # blur_passes = 3;
-          # blur_size = 8;
+        # path = "/home/${username}/Pictures/Wallpapers/Wall.png";
+        # blur_passes = 3;
+        # blur_size = 8;
         # }];
         # image = [{
         #   path = "/home/${username}/.config/5-cm.jpg";
