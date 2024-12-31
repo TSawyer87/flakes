@@ -221,12 +221,10 @@ in {
       package = pkgs.starship;
       settings = {
   add_newline = true;
-  format = lib.concatStrings [
-    "$line_break"
-    "$package"
-    "$line_break"
-    "$character"
-  ];
+  show_always = true;
+  style_root = "bold red";
+  style_user = "bold red";
+  format = " [╭─$user]($style)@";
   scan_timeout = 10;
   character = {
     success_symbol = "⭍ ";
