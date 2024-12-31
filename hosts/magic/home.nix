@@ -111,7 +111,7 @@ in {
 
   programs.go = { enable = true; };
 
-  programs.nix-index = { enable = true; };
+  programs.nix-index = { enable = true; }; # nix-locate
 
   # Create XDG Dirs
   xdg = {
