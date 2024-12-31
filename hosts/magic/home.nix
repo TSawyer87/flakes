@@ -242,10 +242,10 @@ in {
         };
         sudo = { disabled = false; };
         git_status = {
-          ahead = "⇡${count}";
-          behind = "⇣${count}";
+          ahead = "⇡${"count:-0"}";
+          behind = "⇣${"count:-0"}";
           deleted = "x";
-          diverged = "⇕⇡${ahead_count}⇣${behind_count}";
+          diverged = "⇕⇡${"ahead_count:-0"}⇣${"behind_count:-0"}";
           style = "white";
         };
         cmd_duration = {
