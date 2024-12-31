@@ -16,6 +16,15 @@ To personalize this flake for your system, follow these steps:
 sudo nixos-generate-config --show-hardware-config > hardware.nix
 ```
 
+-   If the above command fails, I've found that `nh` picks up everything better
+    initially. Also `nh` is what is used in the `fr` and `fu` aliases.
+
+-   You can use `nix-shell -p nh`, then run the command:
+
+```nix
+nh os switch --hostname ${host} /home/${username}/flakes
+```
+
 2. Rename the directory to your desired `<hostname>` and finally change the `flake.nix` file:
 
 ```nix
@@ -41,6 +50,16 @@ After your flake is initialized, a few aliases:
 -   `Super+Return` = launch Wezterm
 
 -   `v`, `vi` = Neovim, I'm pretty happy with the config so far.
+
+| Nvim Keybind         | Description                  |
+| -------------------- | ---------------------------- |
+| `leader`             | Space                        |
+| `leader + fm`        | conform format manual        |
+| `leader + j`         | hop-nvim                     |
+| `Shift+ h`           | switch buffer left           |
+| `Shift+ l`           | switch buffer right          |
+| `-`                  | launch oil.nvim file browser |
+| `Ctrl+;` or `Ctrl+y` | accept cmp or codeium        |
 
 -   `yz` = Yazi, terminal based file manager, uses `vim` bindings.
 
