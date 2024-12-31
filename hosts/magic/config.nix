@@ -241,6 +241,8 @@ in {
     zig_0_12
     unipicker
     nvtopPackages.amd
+    dmidecode
+    alsa-utils
     nix-diff
     linuxKernel.packages.linux_zen.cpupower
     tradingview
