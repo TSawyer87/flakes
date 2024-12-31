@@ -10,7 +10,7 @@ let
   disableModules = isDisabled: modules:
     mergeAllAttrSets (map (mod: { "${mod}".disabled = isDisabled; }) modules);
 
-  starshipPackage = pkgs.unstable.starship;
+  starshipPackage = pkgs.starship;
   promptOrder = [
     "directory"
     "git_branch"
