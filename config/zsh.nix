@@ -29,26 +29,26 @@
       setopt pushdminus
     '';
     initExtra = ''
-     # fastfetch
-      if [ -f $HOME/.zshrc-personal ]; then
-        source $HOME/.zshrc-personal
-      fi
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
-      # You can now call pokemon-colorscripts from here
-      function random_pokemon() {
-        ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
-      }
-      random_pokemon
-      eval "$(zoxide init zsh)"
-      eval "$(mcfly init zsh)"
-      eval "$(direnv hook zsh)"
-      export MANPAGER='nvim +Man!'
-      export MCFLY_KEY_SCHEME=vim
-      export MCFLY_FUZZY=2
-      export MCFLY_RESULTS=50
-      export MCFLY_RESULTS_SORT=LAST_RUN
-      export MCFLY_INTERFACE_VIEW=BOTTOM
+      # fastfetch
+       if [ -f $HOME/.zshrc-personal ]; then
+         source $HOME/.zshrc-personal
+       fi
+       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+       # You can now call pokemon-colorscripts from here
+       function random_pokemon() {
+         ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
+       }
+       random_pokemon
+       eval "$(zoxide init zsh)"
+       eval "$(mcfly init zsh)"
+       eval "$(direnv hook zsh)"
+       export MANPAGER='nvim +Man!'
+       export MCFLY_KEY_SCHEME=vim
+       export MCFLY_FUZZY=2
+       export MCFLY_RESULTS=50
+       export MCFLY_RESULTS_SORT=LAST_RUN
+       export MCFLY_INTERFACE_VIEW=BOTTOM
     '';
     shellAliases = {
       sv = "sudo nvim";
@@ -75,6 +75,8 @@
       la = "eza -lah --icons --grid --group-directories-first --icons";
       ld = "eza -lhD --icons=auto";
       lt = "eza --icons=auto --tree"; # list folder as tree
+      performance = "sudo cpupower frequency-set -g performance"; # Amd pstate
+      powersave = "sudo cpupower frequency-set -g powersave"; # Amd pstate
       # Get the error messages from journalctl
       jctl = "journalctl -p 3 -xb";
 
