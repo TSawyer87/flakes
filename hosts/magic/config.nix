@@ -242,6 +242,7 @@ in {
     unipicker
     nvtopPackages.amd
     nix-diff
+    linuxKernel.packages.linux_zen.cpupower
   ];
   # Styling Options
   stylix = {
