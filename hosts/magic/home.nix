@@ -228,7 +228,7 @@ in {
           no_fade_in = false;
         };
         background = [{
-          path = "/home/${username}/Pictures/Wallpapers/Wall.png";
+          # path = "/home/${username}/Pictures/Wallpapers/Wall.png";
           blur_passes = 3;
           blur_size = 8;
         }];
