@@ -117,6 +117,8 @@ in {
 
   programs.go = { enable = true; };
 
+  programs.nix-index = { enable = true; };
+
   # Create XDG Dirs
   xdg = {
     configFile."mimeapps.list".text = ''
