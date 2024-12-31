@@ -212,6 +212,7 @@ in {
   };
 
   programs = {
+    nix-index-database.enable = true;
     gh.enable = true;
     btop = {
       enable = true;
