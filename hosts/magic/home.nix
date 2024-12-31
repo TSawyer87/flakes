@@ -227,11 +227,11 @@ in {
           hide_cursor = true;
           no_fade_in = false;
         };
-        background = [{
+        # background = [{
           # path = "/home/${username}/Pictures/Wallpapers/Wall.png";
-          blur_passes = 3;
-          blur_size = 8;
-        }];
+          # blur_passes = 3;
+          # blur_size = 8;
+        # }];
         image = [{
           path = "/home/${username}/.config/5-cm.jpg";
           size = 150;
