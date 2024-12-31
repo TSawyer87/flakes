@@ -63,7 +63,7 @@ map("n", "<leader>fm", function()
 end, { desc = "general format file" })
 
 -- Wezterm-nvim Switch tab by index using vim.v.count
-map("n", "<leader>wt", require("wezterm").switch_tab.index)
+-- map("n", "<leader>wt", require("wezterm").switch_tab.index)
 
 -- Terminal Mappings
 map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })

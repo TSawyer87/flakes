@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
@@ -17,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, wezterm
+  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser, wezterm
     , hyprland-qtutils, ghostty, neovim-nightly-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
@@ -46,6 +48,7 @@
           };
           modules = [
             ./hosts/${host}/config.nix
+            nix-index-database.hmModules.nix-index
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             ({ config, pkgs, ... }: {
