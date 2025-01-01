@@ -311,8 +311,8 @@ in {
     polarity = "dark";
     opacity.terminal = 0.8;
     #cursor.package = pkgs.bibata-cursors;
-     # cursor.package = pkgs.rose-pine-cursor;
-    # cursor.name = "rose-pine-cursor";
+     cursor.package = pkgs.rose-pine-cursor;
+    cursor.name = "Rose-Pine-Cursor";
     #cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
     fonts = {

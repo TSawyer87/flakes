@@ -38,7 +38,6 @@ with lib;
           env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
           env = SDL_VIDEODRIVER, x11
           env = MOZ_ENABLE_WAYLAND, 1
-          env = HYPRCURSOR_THEME,rose-pine-hyprcursor
           exec-once = dbus-update-activation-environment --systemd --all
           exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
           exec-once = killall -q swww;sleep .5 && swww init
@@ -49,7 +48,7 @@ with lib;
           exec-once = pypr &
           exec-once = wl-paste --type text --watch cliphist store # clipboard store text data
           exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
-          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/Lofi-Cafe1.png
+          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/Tower-Night.png
           exec-once = foot --server
           monitor=,preferred,auto,1
           ${extraMonitorSettings}
