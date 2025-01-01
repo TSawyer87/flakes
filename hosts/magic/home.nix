@@ -167,6 +167,9 @@ in {
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
     pkgs.mkpasswd # hashed passwords
+    pkgs.neomutt
+    pkgs.cyrus_sasl
+
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
