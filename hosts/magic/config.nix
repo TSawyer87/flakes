@@ -142,10 +142,10 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    (writeScriptBin "performance_hook" ''
-      #!/usr/bin/env bash
-      ${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh
-    '')
+    # (writeScriptBin "performance_hook" ''
+    #   #!/usr/bin/env bash
+    #   ${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh
+    # '')
     # GPU support packages
     # (lib.optional needsMesa mesa)
     # (lib.optional hasAmdGpu vulkan-tools)
@@ -253,31 +253,31 @@ in {
     tradingview
     dconf-editor
   ];
-  system.activationScripts.performanceHook = {
-    text = ''
-      performance_hook
-    '';
-  };
+  # system.activationScripts.performanceHook = {
+  #   text = ''
+  #     performance_hook
+  #   '';
+  # };
 
-  systemd.services.performanceHookPreUpdate = {
-    description = "Set CPU to performance mode before update";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart =
-        "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh set_performance";
-      Type = "oneshot";
-    };
-  };
-
-  systemd.services.performanceHookPostUpdate = {
-    description = "Restore CPU to powersave mode after update";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart =
-        "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh restore_mode";
-      Type = "oneshot";
-    };
-  };
+  # systemd.services.performanceHookPreUpdate = {
+  #   description = "Set CPU to performance mode before update";
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig = {
+  #     ExecStart =
+  #       "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh set_performance";
+  #     Type = "oneshot";
+  #   };
+  # };
+  #
+  # systemd.services.performanceHookPostUpdate = {
+  #   description = "Restore CPU to powersave mode after update";
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig = {
+  #     ExecStart =
+  #       "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh restore_mode";
+  #     Type = "oneshot";
+  #   };
+  # };
   # Styling Options
   stylix = {
     enable = true;
