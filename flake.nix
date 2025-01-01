@@ -88,7 +88,6 @@
                 pokemon-colorscripts
                 pkgs.neovim # This will now use the nightly version
                 nix-index-database.hmModules.nix-index
-                sketchy-bar
                 # Other home-manager packages
               ];
             })
