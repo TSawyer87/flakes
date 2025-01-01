@@ -249,6 +249,7 @@ in {
     tradingview
     dconf-editor
     neomutt
+    protonmail-bridge
   ];
   # Styling Options
   stylix = {
