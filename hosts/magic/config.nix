@@ -248,6 +248,7 @@ in {
     linuxKernel.packages.linux_zen.cpupower
     tradingview
     dconf-editor
+    neomutt
   ];
   # Styling Options
   stylix = {
