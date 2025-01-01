@@ -251,6 +251,7 @@ in {
     linuxKernel.packages.linux_zen.cpupower
     tradingview
     dconf-editor
+    rose-pine-cursor
     nwg-look
   ];
   # system.activationScripts.performanceHook = {
@@ -310,9 +311,8 @@ in {
     polarity = "dark";
     opacity.terminal = 0.8;
     #cursor.package = pkgs.bibata-cursors;
-    # cursor.package =
-    #   inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
-    cursor.name = "rose-pine-hyprcursor";
+     cursor.package = pkgs.rose-pine-cursor;
+    cursor.name = "rose-pine-cursor";
     #cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
     fonts = {
