@@ -246,6 +246,7 @@ in {
     nix-diff
     linuxKernel.packages.linux_zen.cpupower
     tradingview
+    dconf-editor
   ];
   # Styling Options
   stylix = {
