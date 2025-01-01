@@ -142,6 +142,10 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    (writeScriptBin "performance_hook" ''
+      #!/usr/bin/env bash
+      ${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh
+    '')
     # GPU support packages
     # (lib.optional needsMesa mesa)
     # (lib.optional hasAmdGpu vulkan-tools)
@@ -249,6 +253,17 @@ in {
     tradingview
     dconf-editor
   ];
+  # Run the hook before and after updates
+  system.activationScripts.preUpdate.text = ''
+    echo "Running pre-update script"
+    ${pkgs.bash}/bin/bash /path/to/performance_hook.sh
+  '';
+
+  # Here, we assume the script handles both setting and restoring modes
+  system.activationScripts.postUpdate.text = ''
+    echo "Running post-update script"
+    ${pkgs.bash}/bin/bash /path/to/performance_hook.sh
+  '';
   # Styling Options
   stylix = {
     enable = true;
