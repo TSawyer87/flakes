@@ -310,8 +310,8 @@ in {
     polarity = "dark";
     opacity.terminal = 0.8;
     #cursor.package = pkgs.bibata-cursors;
-    cursor.package =
-      inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+    # cursor.package =
+    #   inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
     cursor.name = "rose-pine-hyprcursor";
     #cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
