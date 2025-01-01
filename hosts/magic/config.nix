@@ -239,7 +239,6 @@ in {
     lua-language-server
     bash-language-server
     stylua
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     cliphist
     wofi
     pyprland

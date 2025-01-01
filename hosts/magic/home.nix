@@ -160,6 +160,7 @@ in {
     inputs.zen-browser.packages."${pkgs.system}".default
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
     inputs.ghostty.packages."${pkgs.system}".default
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.nix-output-monitor # provides `nom` command, works like `nix`
