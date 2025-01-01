@@ -239,7 +239,7 @@ in {
     lua-language-server
     bash-language-server
     stylua
-    rose-pine-cursor
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     cliphist
     wofi
     pyprland
@@ -309,10 +309,11 @@ in {
     # };
     polarity = "dark";
     opacity.terminal = 0.8;
-    cursor.package = pkgs.bibata-cursors;
-    # cursor.package = pkgs.rose-pine-cursor;
-    # cursor.name = "rose-pine-cursor";
-    cursor.name = "Bibata-Modern-Ice";
+    #cursor.package = pkgs.bibata-cursors;
+    cursor.package =
+      inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+    cursor.name = "rose-pine-hyprcursor";
+    #cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
     fonts = {
       monospace = {

@@ -10,6 +10,7 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     ghostty = { url = "github:ghostty-org/ghostty"; };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     stylix.url = "github:danth/stylix";
