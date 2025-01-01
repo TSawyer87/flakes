@@ -10,7 +10,6 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
-    sketchy-bar.url = "github:FelixKratz/SketchyBar";
     ghostty = { url = "github:ghostty-org/ghostty"; };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     stylix.url = "github:danth/stylix";
@@ -21,7 +20,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
-    , wezterm, hyprland-qtutils, ghostty, neovim-nightly-overlay, sketchy-bar, ... }@inputs:
+    , wezterm, hyprland-qtutils, ghostty, neovim-nightly-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";

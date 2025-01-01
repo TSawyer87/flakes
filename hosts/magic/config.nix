@@ -155,6 +155,7 @@ in {
     # (lib.optional hasNvidia vulkan-validation-layers)
 
     # Additional system packages
+    # For Nvidia uncomment the following
     # nvidia-vaapi-driver
     # libva-vdpau-driver
     # vulkan-tools
@@ -205,7 +206,7 @@ in {
     playerctl
     nh
     nixfmt-classic
-    discord
+    #discord
     swww
     grim
     slurp
@@ -216,7 +217,7 @@ in {
     gimp
     pavucontrol
     tree
-    spotify
+    #spotify
     neovide
     greetd.tuigreet
     hplipWithPlugin
