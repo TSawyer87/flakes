@@ -40,6 +40,26 @@
          ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
        }
        random_pokemon
+       function rbs() {
+    local host="$1"
+    local username="$2"
+    local duration=3600 # duration in seconds, here set to 1 hour
+
+    echo "Starting performance mode"
+    sudo cpupower frequency-set -g performance || { echo "Failed to set performance mode"; return 1; }
+
+    # Perform the OS switch
+    nh os switch --hostname "$host" --update "/home/$username/flakes" || echo "Failed to switch OS"
+
+    # Wait for the specified duration before switching back to powersave
+    echo "Performance mode active for $duration seconds"
+    sleep "$duration"
+
+    echo "Switching back to powersave mode"
+    sudo cpupower frequency-set -g powersave || echo "Failed to switch back to powersave mode"
+}
+
+# Usage: rbs <hostname> <username>
        eval "$(zoxide init zsh)"
        eval "$(mcfly init zsh)"
        eval "$(direnv hook zsh)"
