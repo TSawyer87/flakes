@@ -249,6 +249,7 @@ in {
     tradingview
     dconf-editor
     neomutt
+    cyrus_sasl
   ];
   # Styling Options
   stylix = {
