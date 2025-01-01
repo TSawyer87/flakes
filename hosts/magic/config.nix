@@ -251,6 +251,7 @@ in {
     linuxKernel.packages.linux_zen.cpupower
     tradingview
     dconf-editor
+    nwg-look
   ];
   # system.activationScripts.performanceHook = {
   #   text = ''
