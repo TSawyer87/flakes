@@ -253,17 +253,31 @@ in {
     tradingview
     dconf-editor
   ];
-  # Run the hook before and after updates
-  system.activationScripts.preUpdate.text = ''
-    echo "Running pre-update script"
-    ${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh
-  '';
+  system.activationScripts.performanceHook = {
+    text = ''
+      performance_hook
+    '';
+  };
 
-  # Here, we assume the script handles both setting and restoring modes
-  system.activationScripts.postUpdate.text = ''
-    echo "Running post-update script"
-    ${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh
-  '';
+  systemd.services.performanceHookPreUpdate = {
+    description = "Set CPU to performance mode before update";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart =
+        "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh set_performance";
+      Type = "oneshot";
+    };
+  };
+
+  systemd.services.performanceHookPostUpdate = {
+    description = "Restore CPU to powersave mode after update";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart =
+        "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh restore_mode";
+      Type = "oneshot";
+    };
+  };
   # Styling Options
   stylix = {
     enable = true;
