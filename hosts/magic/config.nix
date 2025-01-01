@@ -123,6 +123,9 @@ in {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
+    debug1 = true;
+    debug2 = true;
+
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = false;
