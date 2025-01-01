@@ -49,7 +49,7 @@
     sudo cpupower frequency-set -g performance || { echo "Failed to set performance mode"; return 1; }
 
     # Perform the OS switch
-    nh os switch --hostname "$host" --update "/home/$username/flakes" || echo "Failed to switch OS"
+    nh os switch --hostname ${host} --update "/home/${username}/flakes" || echo "Failed to switch OS"
 
     # Wait for the specified duration before switching back to powersave
     echo "Performance mode active for $duration seconds"
