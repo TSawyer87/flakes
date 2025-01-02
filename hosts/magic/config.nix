@@ -293,11 +293,8 @@ in {
     cursor.size = 24;
     fonts = {
       monospace = {
-        # Change this:
-        # package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-        # To this:
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font Mono";
+        package = pkgs.nerd-fonts.fira-mono;
+        name = "Fira-Mono";
       };
       sansSerif = {
         package = pkgs.montserrat;
@@ -416,6 +413,7 @@ in {
       # Commenting Symbola out to fix install this will need to be fixed or an alternative found.
       symbola
       material-icons
+      fira-code
     ];
   };
 
