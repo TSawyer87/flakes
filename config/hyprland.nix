@@ -46,6 +46,7 @@ with lib;
           exec-once = killall -q waybar;sleep .5 && waybar
           exec-once = killall -q swaync;sleep .5 && swaync
           exec-once = nm-applet --indicator
+          exec-once = hyprctl setcursor rose-pine-cursor 24
           exec-once = lxqt-policykit-agent
           exec-once = pypr &
           exec-once = wl-paste --type text --watch cliphist store # clipboard store text data
