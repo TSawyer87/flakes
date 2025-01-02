@@ -75,6 +75,7 @@
       sv = "sudo nvim";
       fr = "nh os switch --hostname ${host} /home/${username}/flakes";
       fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
+      rebuild = "/home/jr/scripts/performance_hook.sh";
       ncg =
         "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       opts = "man home-configuration.nix";

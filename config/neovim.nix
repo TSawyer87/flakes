@@ -83,7 +83,7 @@ in {
         which-key-nvim
         wezterm-nvim
         tokyonight-nvim
-        image-nvim
+        #image-nvim
       ];
       extraConfig = ''
         set noemoji
@@ -118,7 +118,6 @@ in {
         ${builtins.readFile ./nvim/plugins/toggleterm.lua}
         ${builtins.readFile ./nvim/plugins/lualine.lua}
         ${builtins.readFile ./nvim/plugins/which-key.lua}
-        ${builtins.readFile ./nvim/plugins/image.lua}
         ${builtins.readFile ./.stylua.toml}
         require("wezterm").setup{}
         require("render-markdown").setup{}
