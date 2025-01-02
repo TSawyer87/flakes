@@ -93,6 +93,7 @@ in {
 
   programs.nix-index = { enable = true; }; # nix-locate
 
+
   # programs.foot = {
   #   enable = true;
   #   server.enable = true;
