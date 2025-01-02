@@ -109,6 +109,13 @@ in {
 
   # Create XDG Dirs
   xdg = {
+    configFile."mimeapps.list".text = ''
+      [Default Applications]
+      x-scheme-handler/http=zen.desktop
+      x-scheme-handler/https=zen.desktop
+      text/html=zen.desktop
+      application/pdf=org.pwmt.zathura.desktop
+    '';
     userDirs = {
       enable = true;
       createDirectories = true;
@@ -198,10 +205,6 @@ in {
       enable = true;
       settings = { vim_keys = true; };
     };
-    # starship = {
-    #   enable = true;
-    #   package = pkgs.starship;
-    # };
     home-manager.enable = true;
     hyprlock = {
       enable = true;
