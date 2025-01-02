@@ -315,7 +315,7 @@ in {
     #cursor.package = pkgs.rose-pine-cursor;
     #cursor.name = "Rose-Pine-Cursor";
     # cursor.name = "Bibata-Modern-Ice";
-    cursor.size = 24;
+    # cursor.size = 24;
     fonts = {
       monospace = {
         # Change this:
