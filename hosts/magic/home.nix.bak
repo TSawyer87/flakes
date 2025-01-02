@@ -24,6 +24,7 @@ in {
     ../../config/wezterm.nix
     ../../config/kitty.nix
     ../../config/zed.nix
+    ../../config/starship.nix
   ];
 
   # Place Files Inside Home Directory
@@ -39,8 +40,10 @@ in {
     source = ../../config/pyprland.toml;
     recursive = true;
   };
-  # home.file.".face.icon".source = ../../config/face.jpg;
-  # home.file.".config/face.jpg".source = ../../config/face.jpg;
+  home.file.".config/ghostty/config" = {
+    source = ../../config/ghostty/config;
+    recursive = true;
+  };
   home.file.".config/swappy/config".text = ''
     [Default]
     save_dir=/home/${username}/Pictures/Screenshots
@@ -81,20 +84,20 @@ in {
     '';
   };
 
-  programs.zathura = { enable = true; };
+  programs.zathura = { enable = true; }; # PDF viewer with vim binds
 
-  programs.foot = {
-    enable = true;
-    server.enable = true;
-    settings = {
-      main = {
-        term = "xterm-256color";
-        font = "JetBrainsMono Nerd Font Mono:size=15";
-        dpi-aware = "no";
-      };
-      mouse = { hide-when-typing = "yes"; };
-    };
-  };
+  # programs.foot = {
+  #   enable = true;
+  #   server.enable = true;
+  #   settings = {
+  #     main = {
+  #       term = "xterm-256color";
+  #       font = "JetBrainsMono Nerd Font Mono:size=15";
+  #       dpi-aware = "no";
+  #     };
+  #     mouse = { hide-when-typing = "yes"; };
+  #   };
+  # };
 
   programs = {
     direnv = {
@@ -106,13 +109,31 @@ in {
     bash.enable = true; # see note on other shells below
   };
 
+  programs.go = { enable = true; };
+
+  programs.nix-index = { enable = true; }; # nix-locate
+
   # Create XDG Dirs
   xdg = {
+    configFile."mimeapps.list".text = ''
+      [Default Applications]
+      x-scheme-handler/http=zen.desktop
+      x-scheme-handler/https=zen.desktop
+      text/html=zen.desktop
+      application/pdf=org.pwmt.zathura.desktop
+    '';
     userDirs = {
       enable = true;
       createDirectories = true;
     };
   };
+
+#   home.pointerCursor = {
+#   gtk.enable = true;
+#   package = pkgs.rose-pine-cursor;
+#   name = "Rose-Pine-Moon";
+#   size = 24;
+# };
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
@@ -124,6 +145,7 @@ in {
   # Styling Options
   stylix.targets.waybar.enable = false;
   stylix.targets.wezterm.enable = true;
+  # stylix.targets.ghostty.enable = true;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
   gtk = {
@@ -143,14 +165,18 @@ in {
   # Scripts
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".default
-    # inputs.hyprland-qtutils.packages.${pkgs.system}.default
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
+    inputs.ghostty.packages."${pkgs.system}".default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.nix-output-monitor # provides `nom` command, works like `nix`
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
+    pkgs.mkpasswd # hashed passwords
+    pkgs.neomutt
+    pkgs.cyrus_sasl
+
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
@@ -197,10 +223,6 @@ in {
       enable = true;
       settings = { vim_keys = true; };
     };
-    starship = {
-      enable = true;
-      package = pkgs.starship;
-    };
     home-manager.enable = true;
     hyprlock = {
       enable = true;
@@ -211,42 +233,36 @@ in {
           hide_cursor = true;
           no_fade_in = false;
         };
-        # background = [
-        #   {
-        #     path = "/home/${username}/Pictures/Wallpapers/Wall.png";
-        #     blur_passes = 3;
-        #     blur_size = 8;
-        #   }
-        # ];
-        # image = [
-        #   {
-        #     path = "/home/${username}/.config/5-cm.jpg";
-        #     size = 150;
-        #     border_size = 4;
-        #     border_color = "rgb(0C96F9)";
-        #     rounding = -1; # Negative means circle
-        #     position = "0, 200";
-        #     halign = "center";
-        #     valign = "center";
-        #   }
-        # ];
-        # input-field = [
-        #   {
-        #     size = "200, 50";
-        #     position = "0, -80";
-        #     monitor = "";
-        #     dots_center = true;
-        #     fade_on_empty = false;
-        #     font_color = "rgb(CFE6F4)";
-        #     inner_color = "rgb(657DC2)";
-        #     outer_color = "rgb(0D0E15)";
-        #     outline_thickness = 5;
-        #     placeholder_text = "Password...";
-        #     shadow_passes = 2;
-        #   }
-        # ];
+        # background = [{
+        # path = "/home/${username}/Pictures/Wallpapers/Wall.png";
+        # blur_passes = 3;
+        # blur_size = 8;
+        # }];
+        # image = [{
+        #   path = "/home/${username}/.config/5-cm.jpg";
+        #   size = 150;
+        #   border_size = 4;
+        #   border_color = "rgb(0C96F9)";
+        #   rounding = -1; # Negative means circle
+        #   position = "0, 200";
+        #   halign = "center";
+        #   valign = "center";
+        # }];
+        # input-field = [{
+        #   size = "200, 50";
+        #   position = "0, -80";
+        #   monitor = "";
+        #   dots_center = true;
+        #   fade_on_empty = false;
+        #   font_color = "rgb(CFE6F4)";
+        #   inner_color = "rgb(657DC2)";
+        #   outer_color = "rgb(0D0E15)";
+        #   outline_thickness = 5;
+        #   placeholder_text = "Password...";
+        #   shadow_passes = 2;
+        # }];
       };
-    };
 
+    };
   };
 }
