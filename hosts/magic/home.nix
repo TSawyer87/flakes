@@ -39,6 +39,10 @@ in {
     source = ../../config/pyprland.toml;
     recursive = true;
   };
+  home.file.".config/ghostty/config" = {
+    source = ../../config/ghostty/config;
+    recursive = true;
+  };
   # home.file.".face.icon".source = ../../config/face.jpg;
   # home.file.".config/face.jpg".source = ../../config/face.jpg;
   home.file.".config/swappy/config".text = ''
@@ -83,18 +87,18 @@ in {
 
   programs.zathura = { enable = true; };
 
-  programs.foot = {
-    enable = true;
-    server.enable = true;
-    settings = {
-      main = {
-        term = "xterm-256color";
-        font = "JetBrainsMono Nerd Font Mono:size=15";
-        dpi-aware = "no";
-      };
-      mouse = { hide-when-typing = "yes"; };
-    };
-  };
+  # programs.foot = {
+  #   enable = true;
+  #   server.enable = true;
+  #   settings = {
+  #     main = {
+  #       term = "xterm-256color";
+  #       font = "JetBrainsMono Nerd Font Mono:size=15";
+  #       dpi-aware = "no";
+  #     };
+  #     mouse = { hide-when-typing = "yes"; };
+  #   };
+  # };
 
   programs = {
     direnv = {
@@ -106,8 +110,19 @@ in {
     bash.enable = true; # see note on other shells below
   };
 
+  programs.go = { enable = true; };
+
+  programs.nix-index = { enable = true; }; # nix-locate
+
   # Create XDG Dirs
   xdg = {
+    configFile."mimeapps.list".text = ''
+      [Default Applications]
+      x-scheme-handler/http=zen.desktop
+      x-scheme-handler/https=zen.desktop
+      text/html=zen.desktop
+      application/pdf=org.pwmt.zathura.desktop
+    '';
     userDirs = {
       enable = true;
       createDirectories = true;
@@ -143,8 +158,8 @@ in {
   # Scripts
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".default
-    # inputs.hyprland-qtutils.packages.${pkgs.system}.default
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
+    inputs.ghostty.packages."${pkgs.system}".default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.nix-output-monitor # provides `nom` command, works like `nix`
