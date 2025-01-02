@@ -122,26 +122,26 @@ in {
       text/html=zen.desktop
       application/pdf=org.pwmt.zathura.desktop
     '';
-    configFile."hypr/hyprland.conf".text = ''
-    # Other Hyprland config...
-    env = XCURSOR_THEME,Rose-Pine-Cursor
-    env = XCURSOR_SIZE,24
-    env = HYPRCURSOR_THEME,Rose-Pine-Cursor
-    env = HYPRCURSOR_SIZE,24
-    exec-once = hyprctl setcursor Rose-Pine-Cursor 24
-  '';
+  #   configFile."hypr/hyprland.conf".text = ''
+  #   # Other Hyprland config...
+  #   env = XCURSOR_THEME,Rose-Pine-Cursor
+  #   env = XCURSOR_SIZE,24
+  #   env = HYPRCURSOR_THEME,Rose-Pine-Cursor
+  #   env = HYPRCURSOR_SIZE,24
+  #   exec-once = hyprctl setcursor Rose-Pine-Cursor 24
+  # '';
     userDirs = {
       enable = true;
       createDirectories = true;
     };
   };
 
-  home.pointerCursor = {
-  gtk.enable = true;
-  package = pkgs.rose-pine-cursor;
-  name = "Rose-Pine-Moon";
-  size = 24;
-};
+#   home.pointerCursor = {
+#   gtk.enable = true;
+#   package = pkgs.rose-pine-cursor;
+#   name = "Rose-Pine-Moon";
+#   size = 24;
+# };
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {

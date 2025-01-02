@@ -283,10 +283,6 @@ in {
   # Styling Options
   stylix = {
     enable = true;
-    cursor = {
-      package = null;
-      name = null;
-    };
     # image = ../../config/wallpapers/Dreamy-Aesthetic-Home-Under-Moonlight.png;
     # image = ../../config/wallpapers/Anime-Girl5.png;
     # image = ../../config/wallpapers/Wallpaper.png;
@@ -316,10 +312,10 @@ in {
     polarity = "dark";
     opacity.terminal = 0.8;
     # cursor.package = pkgs.bibata-cursors;
-    #cursor.package = pkgs.rose-pine-cursor;
-    #cursor.name = "Rose-Pine-Cursor";
+    cursor.package = pkgs.rose-pine-cursor;
+    cursor.name = "Rose-Pine-Moon";
     # cursor.name = "Bibata-Modern-Ice";
-    # cursor.size = 24;
+    cursor.size = 24;
     fonts = {
       monospace = {
         # Change this:
