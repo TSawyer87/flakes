@@ -136,6 +136,13 @@ in {
     };
   };
 
+  home.pointerCursor = {
+  gtk.enable = true;
+  package = pkgs.rose-pine-cursor;
+  name = "Rose-Pine-Moon";
+  size = 24;
+};
+
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];
