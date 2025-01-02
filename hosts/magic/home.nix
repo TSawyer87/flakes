@@ -198,10 +198,10 @@ in {
       enable = true;
       settings = { vim_keys = true; };
     };
-    starship = {
-      enable = true;
-      package = pkgs.starship;
-    };
+    # starship = {
+    #   enable = true;
+    #   package = pkgs.starship;
+    # };
     home-manager.enable = true;
     hyprlock = {
       enable = true;
