@@ -254,6 +254,7 @@ in {
     rose-pine-cursor
     nwg-look
   ];
+
   # system.activationScripts.performanceHook = {
   #   text = ''
   #     performance_hook
@@ -310,10 +311,10 @@ in {
     # };
     polarity = "dark";
     opacity.terminal = 0.8;
-    cursor.package = pkgs.bibata-cursors;
+    # cursor.package = pkgs.bibata-cursors;
     #cursor.package = pkgs.rose-pine-cursor;
     #cursor.name = "Rose-Pine-Cursor";
-    cursor.name = "Bibata-Modern-Ice";
+    # cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
     fonts = {
       monospace = {
@@ -446,6 +447,10 @@ in {
   environment.variables = {
     NIXOS = "true";
     NIXOS_VERSION = "25.05";
+    XCURSOR_THEME = "Rose-Pine-Cursor";
+    XCURSOR_SIZE = "24"; # or your preferred size
+    HYPRCURSOR_THEME = "Rose-Pine-Cursor"; # For hyprcursor
+    HYPRCURSOR_SIZE = "24"; # For hyprcursor
   };
 
   # Extra Portal Configuration
