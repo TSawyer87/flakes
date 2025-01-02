@@ -24,6 +24,7 @@ in {
     ../../config/wezterm.nix
     ../../config/kitty.nix
     ../../config/zed.nix
+    ../../config/starship.nix
   ];
 
   # Place Files Inside Home Directory
@@ -37,10 +38,6 @@ in {
   };
   home.file.".config/hypr/pyprland.toml" = {
     source = ../../config/pyprland.toml;
-    recursive = true;
-  };
-  home.file.".config/ghostty/config" = {
-    source = ../../config/ghostty/config;
     recursive = true;
   };
   # home.file.".face.icon".source = ../../config/face.jpg;
@@ -110,19 +107,8 @@ in {
     bash.enable = true; # see note on other shells below
   };
 
-  programs.go = { enable = true; };
-
-  #programs.nix-index = { enable = true; }; # nix-locate
-
   # Create XDG Dirs
   xdg = {
-    configFile."mimeapps.list".text = ''
-      [Default Applications]
-      x-scheme-handler/http=zen.desktop
-      x-scheme-handler/https=zen.desktop
-      text/html=zen.desktop
-      application/pdf=org.pwmt.zathura.desktop
-    '';
     userDirs = {
       enable = true;
       createDirectories = true;
