@@ -238,9 +238,9 @@ with lib;
         }
         #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
           font-weight: bold;
-          margin: 4px 0px;
+          margin: 8px 0px;
           margin-left: 7px;
-          padding: 0px 18px;
+          padding: 4px 18px;
           background: #${config.stylix.base16Scheme.base04};
           color: #${config.stylix.base16Scheme.base00};
           border-radius: 0px;
