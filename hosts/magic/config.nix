@@ -255,31 +255,6 @@ in {
     nwg-look
   ];
 
-  # system.activationScripts.performanceHook = {
-  #   text = ''
-  #     performance_hook
-  #   '';
-  # };
-
-  # systemd.services.performanceHookPreUpdate = {
-  #   description = "Set CPU to performance mode before update";
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig = {
-  #     ExecStart =
-  #       "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh set_performance";
-  #     Type = "oneshot";
-  #   };
-  # };
-  #
-  # systemd.services.performanceHookPostUpdate = {
-  #   description = "Restore CPU to powersave mode after update";
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig = {
-  #     ExecStart =
-  #       "${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh restore_mode";
-  #     Type = "oneshot";
-  #   };
-  # };
   # Styling Options
   stylix = {
     enable = true;
@@ -311,10 +286,10 @@ in {
     # };
     polarity = "dark";
     opacity.terminal = 0.8;
-    # cursor.package = pkgs.bibata-cursors;
-    cursor.package = pkgs.rose-pine-cursor;
-    cursor.name = "Rose-Pine-Moon";
-    # cursor.name = "Bibata-Modern-Ice";
+    cursor.package = pkgs.bibata-cursors;
+    #cursor.package = pkgs.rose-pine-cursor;
+    #cursor.name = "Rose-Pine-Moon";
+    cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
     fonts = {
       monospace = {
@@ -447,10 +422,6 @@ in {
   environment.variables = {
     NIXOS = "true";
     NIXOS_VERSION = "25.05";
-    XCURSOR_THEME = "Rose-Pine-Cursor";
-    XCURSOR_SIZE = "24"; # or your preferred size
-    HYPRCURSOR_THEME = "Rose-Pine-Moon"; # For hyprcursor
-    HYPRCURSOR_SIZE = "24"; # For hyprcursor
   };
 
   # Extra Portal Configuration
@@ -539,7 +510,7 @@ in {
   };
 
   # Extra Logitech Support
-  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enable = false;
   hardware.logitech.wireless.enableGraphical = false;
 
   # Bluetooth Support
