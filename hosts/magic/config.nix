@@ -286,7 +286,6 @@ in {
     cursor = {
       package = null;
       name = null;
-      size = null;
     };
     # image = ../../config/wallpapers/Dreamy-Aesthetic-Home-Under-Moonlight.png;
     # image = ../../config/wallpapers/Anime-Girl5.png;
