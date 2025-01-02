@@ -40,6 +40,11 @@ in {
     source = ../../config/pyprland.toml;
     recursive = true;
   };
+  home.file.".config/ghostty/config" = {
+    source = ../../config/ghostty/config;
+    recursive = true;
+  };
+
   # home.file.".face.icon".source = ../../config/face.jpg;
   # home.file.".config/face.jpg".source = ../../config/face.jpg;
   home.file.".config/swappy/config".text = ''
@@ -84,6 +89,10 @@ in {
 
   programs.zathura = { enable = true; };
 
+  programs.go = { enable = true; };
+
+  programs.nix-index = { enable = true; }; # nix-locate
+
   # programs.foot = {
   #   enable = true;
   #   server.enable = true;
@@ -109,13 +118,13 @@ in {
 
   # Create XDG Dirs
   xdg = {
-    configFile."mimeapps.list".text = ''
-      [Default Applications]
-      # x-scheme-handler/http=zen.desktop
-      # x-scheme-handler/https=zen.desktop
-      # text/html=zen.desktop
-      application/pdf=org.pwmt.zathura.desktop
-    '';
+    # configFile."mimeapps.list".text = ''
+    # [Default Applications]
+    # x-scheme-handler/http=zen.desktop
+    # x-scheme-handler/https=zen.desktop
+    # text/html=zen.desktop
+    # application/pdf=org.pwmt.zathura.desktop
+    # '';
     userDirs = {
       enable = true;
       createDirectories = true;
