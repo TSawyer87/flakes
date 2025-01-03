@@ -438,7 +438,7 @@ in {
   # Services to start
   services.psd = {
     enable = true;
-    resyncTimer = "30m";
+    resyncTimer = "1h";
   };
 
   services = {
