@@ -7,6 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
@@ -35,9 +36,7 @@
       };
 
       # Combine all overlays
-      overlays = [
-        pokemonColorscriptsOverlay
-      ];
+      overlays = [ pokemonColorscriptsOverlay ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
