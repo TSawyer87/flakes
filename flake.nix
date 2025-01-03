@@ -7,6 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
@@ -18,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
+  outputs = { self, nixpkgs, home-manager, nix-index-database, neovim-nightly-overlay, zen-browser
     , wezterm, hyprland-qtutils, ghostty, ... }@inputs:
     let
       system = "x86_64-linux";
@@ -34,8 +35,7 @@
       };
 
       # Combine all overlays
-      overlays =
-        [ pokemonColorscriptsOverlay ];
+      overlays = [ pokemonColorscriptsOverlay neovim-nightly-overlay.overlay ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
