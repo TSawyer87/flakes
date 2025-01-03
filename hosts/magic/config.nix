@@ -254,7 +254,6 @@ in {
     dconf-editor
     rose-pine-cursor
     nwg-look
-    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
   ];
   # Styling Options
   stylix = {
