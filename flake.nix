@@ -8,7 +8,6 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     wezterm.url = "github:wez/wezterm?dir=nix";
-    #zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     ghostty.url = "github:clo4/ghostty-hm-module";
@@ -34,6 +33,12 @@
           lib = final.lib;
         };
       };
+
+      # Combine all overlays
+      overlays = [
+        pokemonColorscriptsOverlay
+        neovim-nightly-overlay.overlays.default
+      ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -48,6 +53,8 @@
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             ({ config, pkgs, ... }: {
+              # Apply the overlays to the NixOS system
+              nixpkgs.overlays = overlays;
               environment.systemPackages = with pkgs; [
                 inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
                 pokemon-colorscripts
