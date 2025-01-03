@@ -37,7 +37,7 @@
       # Combine all overlays
       overlays = [
         pokemonColorscriptsOverlay
-        neovim-nightly-overlay.overlays.default
+        inputs.neovim-nightly-overlay.overlays.default
       ];
     in {
       nixosConfigurations = {
@@ -56,7 +56,6 @@
               # Apply the overlays to the NixOS system
               nixpkgs.overlays = overlays;
               environment.systemPackages = with pkgs; [
-                inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
                 pokemon-colorscripts
               ];
               home-manager.extraSpecialArgs = {
@@ -89,7 +88,6 @@
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
                 pokemon-colorscripts
-                inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
                 nix-index-database.hmModules.nix-index
                 # Other home-manager packages
               ];
