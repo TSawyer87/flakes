@@ -10,7 +10,8 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
-    ghostty = { url = "github:ghostty-org/ghostty"; };
+    #ghostty = { url = "github:ghostty-org/ghostty"; };
+    ghostty.url = "github:clo4/ghostty-hm-module";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
@@ -82,6 +83,7 @@
             inherit username;
           };
           modules = [
+            ghostty.homeModules.default
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
                 pokemon-colorscripts

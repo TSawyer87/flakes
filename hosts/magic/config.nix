@@ -255,7 +255,6 @@ in {
     rose-pine-cursor
     nwg-look
   ];
-
   # Styling Options
   stylix = {
     enable = true;
