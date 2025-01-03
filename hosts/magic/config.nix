@@ -221,8 +221,10 @@ in {
     gimp
     pavucontrol
     tree
+    cachix
     #spotify
-    neovide
+    #neovide
+    dconf2nix
     greetd.tuigreet
     hyprls
     jq
