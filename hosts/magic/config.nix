@@ -436,6 +436,11 @@ in {
   };
 
   # Services to start
+  services.psd = {
+    enable = true;
+    resyncTimer = "30m";
+  };
+
   services = {
     xserver = {
       enable = false;
