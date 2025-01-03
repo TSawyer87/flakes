@@ -10,7 +10,7 @@ in {
     neovim = {
       enable = true;
       package =
-        pkgs.neovim-nightly-overlay; # This should pick up from the nightly overlay
+        pkgs.neovim-unwrapped.override; # This should pick up from the nightly overlay
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
