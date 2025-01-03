@@ -38,7 +38,7 @@
       # Combine all overlays
       overlays = [
         pokemonColorscriptsOverlay
-        inputs.neovim-nightly-overlay.specific
+        inputs.neovim-nightly-overlay
       ];
     in {
       nixosConfigurations = {
