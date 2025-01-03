@@ -9,8 +9,7 @@ in {
   programs = {
     neovim = {
       enable = true;
-      package =
-        pkgs.neovim-unwrapped; # This should pick up from the nightly overlay
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
