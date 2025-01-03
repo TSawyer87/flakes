@@ -171,6 +171,7 @@ in {
     vulkan-loader
     vulkan-validation-layers
     amdvlk
+    profile-sync-daemon
     wget
     killall
     eza
