@@ -74,6 +74,7 @@
     shellAliases = {
       sv = "sudo nvim";
       fr = "nh os switch --hostname ${host} /home/${username}/flakes";
+      ft = "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
       fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
       rebuild = "/home/jr/scripts/performance_hook.sh";
       ncg =
