@@ -35,7 +35,7 @@
       };
 
       # Combine all overlays
-      overlays = [ pokemonColorscriptsOverlay neovim-nightly-overlay.overlay ];
+      overlays = [ pokemonColorscriptsOverlay neovim-nightly-overlay.overlays ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
