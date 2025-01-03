@@ -9,7 +9,7 @@ in {
   programs = {
     neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system};
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
