@@ -40,10 +40,6 @@ in {
     source = ../../config/pyprland.toml;
     recursive = true;
   };
-  # home.file.".config/ghostty/config" = {
-  #   source = ../../config/ghostty/config;
-  #   recursive = true;
-  # };
 
   # home.file.".face.icon".source = ../../config/face.jpg;
   # home.file.".config/face.jpg".source = ../../config/face.jpg;
@@ -119,8 +115,8 @@ in {
   programs.ghostty = {
     enable = true;
     settings = {
-      font-size = 11;
-      font-family = "JetBrainsMono Nerd Font";
+      font-size = 14;
+      font-family = "Fira-Code-Mono Nerd Font";
       window-decoration = false;
       confirm-close-surface = false;
 
