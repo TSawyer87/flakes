@@ -19,8 +19,9 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, neovim-nightly-overlay, zen-browser
-    , wezterm, hyprland-qtutils, ghostty, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database
+    , neovim-nightly-overlay, zen-browser, wezterm, hyprland-qtutils, ghostty
+    , ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
