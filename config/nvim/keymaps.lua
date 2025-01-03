@@ -77,7 +77,7 @@ map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write Changes" })
 local mappings = {
   {
     mode = { "n", "x", "o" },
-    "s",
+    "f",
     function()
       require("flash").jump()
     end,
