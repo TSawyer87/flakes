@@ -182,7 +182,7 @@ in {
 
   # Scripts
   home.packages = [
-    inputs.zen-browser.packages."${pkgs.system}".default
+    inputs.zen-browser.packages."${pkgs.system}".specific
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
     # inputs.ghostty.packages."${pkgs.system}".default
     pkgs.fzf

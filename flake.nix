@@ -8,9 +8,9 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     wezterm.url = "github:wez/wezterm?dir=nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    #zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
-    #ghostty = { url = "github:ghostty-org/ghostty"; };
     ghostty.url = "github:clo4/ghostty-hm-module";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     stylix.url = "github:danth/stylix";
