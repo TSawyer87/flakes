@@ -178,20 +178,6 @@ in {
     style.name = "adwaita-dark";
     platformTheme.name = "gtk3";
   };
-   nixpkgs.config = {
-    packageOverrides = pkgs: let
-      pkgs' = import <nixpkgs-unstable> {
-        inherit (pkgs) system;
-        overlays = [
-          (import (builtins.fetchTarball {
-            url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-          }))
-        ];
-      };
-    in {
-      inherit (pkgs') neovim;
-    };
-  };
   # Scripts
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".specific
