@@ -40,10 +40,10 @@ in {
     source = ../../config/pyprland.toml;
     recursive = true;
   };
-  home.file.".config/ghostty/config" = {
-    source = ../../config/ghostty/config;
-    recursive = true;
-  };
+  # home.file.".config/ghostty/config" = {
+  #   source = ../../config/ghostty/config;
+  #   recursive = true;
+  # };
 
   # home.file.".face.icon".source = ../../config/face.jpg;
   # home.file.".config/face.jpg".source = ../../config/face.jpg;
