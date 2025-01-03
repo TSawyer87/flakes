@@ -24,7 +24,7 @@ in {
   imports = [
     ./hardware.nix
     ./users.nix
-    /etc/nixos/cachix.nix
+    ./cachix.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
