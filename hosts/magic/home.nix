@@ -180,8 +180,8 @@ in {
     platformTheme.name = "gtk3";
   };
 
-   nixpkgs = {
-    overlays =  [
+  nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays ++ [
       inputs.neovim-nightly-overlay.overlay
     ];
   };
