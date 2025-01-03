@@ -119,6 +119,24 @@ in {
 
   programs.ghostty = {
     enable = true;
+     settings = {
+      font-size = 11;
+      font-family = "JetBrainsMono Nerd Font";
+      window-decoration = false;
+      confirm-close-surface = false;
+
+      # The default is a bit intense for my liking
+      # but it looks good with some themes
+      unfocused-split-opacity = 0.90;
+      background-opacity = 0.8;
+      background-blur-radius = 20;
+
+      # Some macOS settings
+      window-theme = "dark";
+
+      # Disables ligatures
+      font-feature = ["-liga" "-dlig" "-calt"];
+    };
   };
 
   # Create XDG Dirs
