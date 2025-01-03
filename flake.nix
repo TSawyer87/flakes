@@ -7,11 +7,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     ghostty.url = "github:clo4/ghostty-hm-module";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
@@ -20,7 +20,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
-    , wezterm, hyprland-qtutils, ghostty, neovim-nightly-overlay, ... }@inputs:
+    , wezterm, hyprland-qtutils, ghostty, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -35,10 +35,8 @@
       };
 
       # Combine all overlays
-      overlays = [
-        pokemonColorscriptsOverlay
-        inputs.neovim-nightly-overlay.overlays.default
-      ];
+      overlays =
+        [ pokemonColorscriptsOverlay inputs.neovim-nightly-overlay.default ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -55,9 +53,7 @@
             ({ config, pkgs, ... }: {
               # Apply the overlays to the NixOS system
               nixpkgs.overlays = overlays;
-              environment.systemPackages = with pkgs; [
-                pokemon-colorscripts
-              ];
+              environment.systemPackages = with pkgs; [ pokemon-colorscripts ];
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
@@ -84,6 +80,7 @@
             inherit username;
           };
           modules = [
+            { nixpkgs.overlays = overlays; }
             ghostty.homeModules.default
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
