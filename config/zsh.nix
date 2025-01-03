@@ -8,7 +8,20 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" ];
+      plugins = [
+        "git"
+        "sudo"
+        {
+          name = "zsh-nix-shell";
+          file = "nix-shell.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "v0.8.0";
+            sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+          };
+        }
+      ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -29,52 +42,53 @@
       setopt pushdminus
     '';
     initExtra = ''
-      # fastfetch
-       if [ -f $HOME/.zshrc-personal ]; then
-         source $HOME/.zshrc-personal
-       fi
-       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
-       # You can now call pokemon-colorscripts from here
-       function random_pokemon() {
-         ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
-       }
-       random_pokemon
-       function rbs() {
-    local host="$1"
-    local username="$2"
-    local duration=3600 # duration in seconds, here set to 1 hour
+            # fastfetch
+             if [ -f $HOME/.zshrc-personal ]; then
+               source $HOME/.zshrc-personal
+             fi
+             source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+             source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+             # You can now call pokemon-colorscripts from here
+             function random_pokemon() {
+               ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
+             }
+             random_pokemon
+             function rbs() {
+          local host="$1"
+          local username="$2"
+          local duration=3600 # duration in seconds, here set to 1 hour
 
-    echo "Starting performance mode"
-    sudo cpupower frequency-set -g performance || { echo "Failed to set performance mode"; return 1; }
+          echo "Starting performance mode"
+          sudo cpupower frequency-set -g performance || { echo "Failed to set performance mode"; return 1; }
 
-    # Perform the OS switch
-    nh os switch --hostname ${host} --update "/home/${username}/flakes" || echo "Failed to switch OS"
+          # Perform the OS switch
+          nh os switch --hostname ${host} --update "/home/${username}/flakes" || echo "Failed to switch OS"
 
-    # Wait for the specified duration before switching back to powersave
-    echo "Performance mode active for $duration seconds"
-    sleep "$duration"
+          # Wait for the specified duration before switching back to powersave
+          echo "Performance mode active for $duration seconds"
+          sleep "$duration"
 
-    echo "Switching back to powersave mode"
-    sudo cpupower frequency-set -g powersave || echo "Failed to switch back to powersave mode"
-}
+          echo "Switching back to powersave mode"
+          sudo cpupower frequency-set -g powersave || echo "Failed to switch back to powersave mode"
+      }
 
-# Usage: rbs <hostname> <username>
-       eval "$(zoxide init zsh)"
-       eval "$(mcfly init zsh)"
-       eval "$(direnv hook zsh)"
-       export MANPAGER='nvim +Man!'
-       export MCFLY_KEY_SCHEME=vim
-       export MCFLY_FUZZY=2
-       export MCFLY_RESULTS=50
-       export MCFLY_RESULTS_SORT=LAST_RUN
-       export MCFLY_INTERFACE_VIEW=BOTTOM
-       export TERM=xterm-256color
+      # Usage: rbs <hostname> <username>
+             eval "$(zoxide init zsh)"
+             eval "$(mcfly init zsh)"
+             eval "$(direnv hook zsh)"
+             export MANPAGER='nvim +Man!'
+             export MCFLY_KEY_SCHEME=vim
+             export MCFLY_FUZZY=2
+             export MCFLY_RESULTS=50
+             export MCFLY_RESULTS_SORT=LAST_RUN
+             export MCFLY_INTERFACE_VIEW=BOTTOM
+             export TERM=xterm-256color
     '';
     shellAliases = {
       sv = "sudo nvim";
       fr = "nh os switch --hostname ${host} /home/${username}/flakes";
-      ft = "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
+      ft =
+        "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
       fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
       rebuild = "/home/jr/scripts/performance_hook.sh";
       ncg =
@@ -98,8 +112,10 @@
       la = "eza -lah --icons --grid --group-directories-first --icons";
       ld = "eza -lhD --icons=auto";
       lt = "eza --icons=auto --tree"; # list folder as tree
-      rbs = "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
-      powersave = "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
+      rbs =
+        "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
+      powersave =
+        "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
       # Get the error messages from journalctl
       jctl = "journalctl -p 3 -xb";
 
