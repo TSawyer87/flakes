@@ -523,20 +523,20 @@ in {
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
 
-  hardware.printers = {
-  ensurePrinters = [
-    {
-      name = "HP_OfficeJet_Pro_6970_F7873C";
-      location = "Home";
-      deviceUri = "ipp://192.168.0.24/ipp/print";
-      model = "everywhere";
-      ppdOptions = {
-        PageSize = "A4";
-      };
-    }
-  ];
-  ensureDefaultPrinter = "HP_OfficeJet_Pro_6970_F7873C";
-};
+#   hardware.printers = {
+#   ensurePrinters = [
+#     {
+#       name = "HP_OfficeJet_Pro_6970_F7873C";
+#       location = "Home";
+#       deviceUri = "ipp://192.168.0.24/ipp/print";
+#       model = "everywhere";
+#       ppdOptions = {
+#         PageSize = "A4";
+#       };
+#     }
+#   ];
+#   ensureDefaultPrinter = "HP_OfficeJet_Pro_6970_F7873C";
+# };
   # Security / Polkit
   security.rtkit.enable = true;
   security.polkit.enable = true;
