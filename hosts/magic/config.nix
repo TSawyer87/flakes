@@ -14,7 +14,6 @@ let
   hasAmdGpu = builtins.elem "amdgpu" drivers;
   hasNvidia = builtins.elem "nvidia" drivers;
   hasOlderIntelCpu = builtins.elem "intel-old" drivers;
-  cachixConfig = import /etc/nixos/cachix.nix;
 
   # Define when Mesa is needed based on hardware configuration
   needsMesa = hasAmdGpu || hasIntelCpu || hasOlderIntelCpu;
@@ -25,7 +24,7 @@ in {
   imports = [
     ./hardware.nix
     ./users.nix
-    cachixConfig
+    /etc/nixos/cachix.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
