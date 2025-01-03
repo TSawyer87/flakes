@@ -36,7 +36,10 @@
       };
 
       # Combine all overlays
-      overlays = [ pokemonColorscriptsOverlay ];
+      overlays = [
+        pokemonColorscriptsOverlay
+        inputs.neovim-nightly-overlay.default
+      ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -68,7 +71,6 @@
           ];
         };
       };
-
       homeConfigurations."${username}@${host}" =
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}.extend
@@ -80,6 +82,9 @@
             inherit username;
           };
           modules = [
+            {
+              nixpkgs.overlays = overlays;
+            }
             ghostty.homeModules.default
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
@@ -93,4 +98,3 @@
         };
     };
 }
-

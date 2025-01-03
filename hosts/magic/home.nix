@@ -93,7 +93,6 @@ in {
 
   programs.nix-index = { enable = true; }; # nix-locate
 
-
   # programs.foot = {
   #   enable = true;
   #   server.enable = true;
@@ -119,7 +118,7 @@ in {
 
   programs.ghostty = {
     enable = true;
-     settings = {
+    settings = {
       font-size = 11;
       font-family = "JetBrainsMono Nerd Font";
       window-decoration = false;
@@ -127,7 +126,7 @@ in {
 
       # The default is a bit intense for my liking
       # but it looks good with some themes
-      unfocused-split-opacity = 0.90;
+      unfocused-split-opacity = 0.9;
       background-opacity = 0.8;
       background-blur-radius = 20;
 
@@ -135,7 +134,7 @@ in {
       window-theme = "dark";
 
       # Disables ligatures
-      font-feature = ["-liga" "-dlig" "-calt"];
+      font-feature = [ "-liga" "-dlig" "-calt" ];
     };
   };
 
@@ -180,11 +179,6 @@ in {
     platformTheme.name = "gtk3";
   };
 
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays ++ [
-      inputs.neovim-nightly-overlay.overlay
-    ];
-  };
   # Scripts
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".specific
@@ -196,7 +190,7 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
-    pkgs.neovim-nightly
+    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
