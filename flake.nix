@@ -34,10 +34,6 @@
           lib = final.lib;
         };
       };
-
-      # Combine all overlays
-      overlays =
-        [ pokemonColorscriptsOverlay neovim-nightly-overlay.overlays.default ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -52,10 +48,9 @@
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             ({ config, pkgs, ... }: {
-              nixpkgs.overlays = overlays; # Apply all overlays here
               environment.systemPackages = with pkgs; [
+                inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
                 pokemon-colorscripts
-                pkgs.neovim
               ];
               home-manager.extraSpecialArgs = {
                 inherit username;
@@ -87,7 +82,7 @@
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
                 pokemon-colorscripts
-                pkgs.neovim # This will now use the nightly version
+                inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
                 nix-index-database.hmModules.nix-index
                 # Other home-manager packages
               ];
