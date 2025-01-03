@@ -180,6 +180,11 @@ in {
     platformTheme.name = "gtk3";
   };
 
+   nixpkgs = {
+    overlays =  [
+      inputs.neovim-nightly-overlay.overlay
+    ];
+  };
   # Scripts
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".specific
@@ -191,6 +196,7 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
+    pkgs.neovim-nightly
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
