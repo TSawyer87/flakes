@@ -73,3 +73,22 @@ map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Write Changes" })
+
+local mappings = {
+  {
+    mode = { "n", "x", "o" },
+    "s",
+    function()
+      require("flash").jump()
+    end,
+    description = "Flash see :h flash.nvim.txt",
+  },
+  {
+    mode = { "c" },
+    "<c-s>",
+    function()
+      require("flash").toggle()
+    end,
+    description = "Toggle Flash Search",
+  },
+}
