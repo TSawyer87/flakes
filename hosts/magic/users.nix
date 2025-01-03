@@ -9,7 +9,7 @@ in {
       description = "${gitUsername}";
       hashedPassword =
         "$6$hLxz1nh01PVcUQ6e$4o6tYrRxbRQQFRN3NSUMkPuwdRpOhNdp1s07TAYr2shcbdQUkYurHyk8Xp8FvjVPwr60N4NSPDmwUr6Nd5FD9.";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "scanner" "lp" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "scanner" "lp" "root" "jr" ];
       shell = pkgs.zsh;
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
