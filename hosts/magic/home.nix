@@ -190,7 +190,6 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
-    inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
