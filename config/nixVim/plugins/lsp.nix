@@ -94,7 +94,7 @@
           autostart = true;
             settings = {
               formatting = {
-              command = { "nixfmt" };
+              command = "nixfmt";
             };
             };
         }
