@@ -30,6 +30,9 @@ in {
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
     defaultEditor = true;
+    viAlias = true;
+    vimdiffAlias = true;
+    withNodeJs = true;
 
     # You can easily change to a different colorscheme.
     # Add your colorscheme here and enable it.
@@ -266,7 +269,30 @@ in {
         autoLoad = true;
         # lazyLoad.settings.ft = "markdown";
       };
-      obsidian = { enable = true; };
+      obsidian = {
+        enable = true;
+        settings = {
+          completion = {
+    min_chars = 2;
+    nvim_cmp = true;
+  };
+  new_notes_location = "current_dir";
+  workspaces = [
+    {
+      name = "notes";
+      path = "~/notes";
+    }
+    {
+      name = "2nd_brain";
+      path = "~/notes/2nd_brain";
+    }
+  ];
+};
+};
+}
+
+
+      };
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
