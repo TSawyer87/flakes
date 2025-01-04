@@ -13,6 +13,11 @@ in
  ./plugins/telescope.nix
  ./plugins/treesitter.nix
  ./plugins/which-key.nix
+ ./plugins/autopairs.nix
+ ./plugins/debug.nix
+ ./plugins/indent-blankline.nix
+ ./plugins/lint.nix
+ ./plugins/neo-tree.nix
  ];
 
   programs.nixvim = {
