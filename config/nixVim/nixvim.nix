@@ -21,6 +21,7 @@ in {
     ./plugins/alpha.nix
     ./plugins/oil.nix
     ./plugins/flash.nix
+    ./plugins/bufferline.nix
   ];
 
   programs.nixvim = {
