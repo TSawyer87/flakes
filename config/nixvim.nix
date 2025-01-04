@@ -1,5 +1,7 @@
 { config, pkgs, inputs, ... }:
-
+let
+  helpers = config.lib.nixvim;
+in
 {
   imports = [ inputs.nixvim.homeManagerModules.nixvim ];
 
