@@ -3,7 +3,7 @@ let inherit (import ./variables.nix) gitUsername gitEmail;
 in {
   # Home Manager Settings
   home.username = "${username}";
-  home.homeDirectory = "/home/${username}"; nixvim,
+  home.homeDirectory = "/home/${username}"; 
   home.stateVersion = "23.11";
 
   # Import Program Configurations
