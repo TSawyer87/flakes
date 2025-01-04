@@ -263,7 +263,8 @@ in {
       };
       render-markdown = {
         enable = true;
-        lazyLoad.settings.ft = "markdown";
+        autoLoad = true;
+        # lazyLoad.settings.ft = "markdown";
       };
     };
 
