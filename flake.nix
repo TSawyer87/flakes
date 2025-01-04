@@ -8,6 +8,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nixvim.url = "github:nix-community/nixvim";
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";

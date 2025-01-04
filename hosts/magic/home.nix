@@ -25,7 +25,6 @@ in {
     ../../config/kitty.nix
     ../../config/zed.nix
     ../../config/starship.nix
-    ../../config/nixVim/flake.nix
   ];
 
   # Place Files Inside Home Directory
@@ -90,6 +89,7 @@ in {
 
   programs.nix-index = { enable = true; }; # nix-locate
 
+  programs.nixvim = { enable = true; };
   # programs.foot = {
   #   enable = true;
   #   server.enable = true;
