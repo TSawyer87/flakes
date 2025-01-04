@@ -1,26 +1,25 @@
 { config, pkgs, inputs, ... }:
-let
-  helpers = config.lib.nixvim;
-in
-{
+let helpers = config.lib.nixvim;
+in {
   imports = [
- inputs.nixvim.homeManagerModules.nixvim
- ./plugins/conform.nix
- ./plugins/lsp.nix
- ./plugins/lspsaga.nix
- ./plugins/gitsigns.nix
- ./plugins/mini.nix
- ./plugins/nvim-cmp.nix
- ./plugins/telescope.nix
- ./plugins/treesitter.nix
- ./plugins/which-key.nix
- ./plugins/autopairs.nix
- ./plugins/debug.nix
- ./plugins/indent-blankline.nix
- ./plugins/lint.nix
- ./plugins/neo-tree.nix
- ./plugins/trouble.nix
- ];
+    inputs.nixvim.homeManagerModules.nixvim
+    ./plugins/conform.nix
+    ./plugins/lsp.nix
+    ./plugins/lspsaga.nix
+    ./plugins/gitsigns.nix
+    ./plugins/mini.nix
+    ./plugins/nvim-cmp.nix
+    ./plugins/telescope.nix
+    ./plugins/treesitter.nix
+    ./plugins/which-key.nix
+    ./plugins/autopairs.nix
+    ./plugins/debug.nix
+    ./plugins/indent-blankline.nix
+    ./plugins/lint.nix
+    ./plugins/neo-tree.nix
+    ./plugins/trouble.nix
+    ./plugins/alpha.nix
+  ];
 
   programs.nixvim = {
     enable = true;
@@ -151,32 +150,29 @@ in
         mode = "t";
         key = "<Esc><Esc>";
         action = "<C-\\><C-n>";
-        options = {
-          desc = "Exit terminal mode";
-        };
+        options = { desc = "Exit terminal mode"; };
       }
       # TIP: Disable arrow keys in normal mode
-      /*
-      {
-        mode = "n";
-        key = "<left>";
-        action = "<cmd>echo 'Use h to move!!'<CR>";
-      }
-      {
-        mode = "n";
-        key = "<right>";
-        action = "<cmd>echo 'Use l to move!!'<CR>";
-      }
-      {
-        mode = "n";
-        key = "<up>";
-        action = "<cmd>echo 'Use k to move!!'<CR>";
-      }
-      {
-        mode = "n";
-        key = "<down>";
-        action = "<cmd>echo 'Use j to move!!'<CR>";
-      }
+      /* {
+           mode = "n";
+           key = "<left>";
+           action = "<cmd>echo 'Use h to move!!'<CR>";
+         }
+         {
+           mode = "n";
+           key = "<right>";
+           action = "<cmd>echo 'Use l to move!!'<CR>";
+         }
+         {
+           mode = "n";
+           key = "<up>";
+           action = "<cmd>echo 'Use k to move!!'<CR>";
+         }
+         {
+           mode = "n";
+           key = "<down>";
+           action = "<cmd>echo 'Use j to move!!'<CR>";
+         }
       */
       # Keybinds to make split navigation easier.
       #  Use CTRL+<hjkl> to switch between windows
@@ -186,42 +182,30 @@ in
         mode = "n";
         key = "<C-h>";
         action = "<C-w><C-h>";
-        options = {
-          desc = "Move focus to the left window";
-        };
+        options = { desc = "Move focus to the left window"; };
       }
       {
         mode = "n";
         key = "<C-l>";
         action = "<C-w><C-l>";
-        options = {
-          desc = "Move focus to the right window";
-        };
+        options = { desc = "Move focus to the right window"; };
       }
       {
         mode = "n";
         key = "<C-j>";
         action = "<C-w><C-j>";
-        options = {
-          desc = "Move focus to the lower window";
-        };
+        options = { desc = "Move focus to the lower window"; };
       }
       {
         mode = "n";
         key = "<C-k>";
         action = "<C-w><C-k>";
-        options = {
-          desc = "Move focus to the upper window";
-        };
+        options = { desc = "Move focus to the upper window"; };
       }
     ];
 
     # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
-    autoGroups = {
-      kickstart-highlight-yank = {
-        clear = true;
-      };
-    };
+    autoGroups = { kickstart-highlight-yank = { clear = true; }; };
 
     # [[ Basic Autocommands ]]
     #  See `:help lua-guide-autocommands`
@@ -231,7 +215,7 @@ in
       #  Try it with `yap` in normal mode
       #  See `:help vim.highlight.on_yank()`
       {
-        event = ["TextYankPost"];
+        event = [ "TextYankPost" ];
         desc = "Highlight when yanking (copying) text";
         group = "kickstart-highlight-yank";
         callback.__raw = ''
@@ -248,9 +232,7 @@ in
 
       # Detect tabstop and shiftwidth automatically
       # https://nix-community.github.io/nixvim/plugins/sleuth/index.html
-      sleuth = {
-        enable = true;
-      };
+      sleuth = { enable = true; };
 
       # Highlight todo, notes, etc in comments
       # https://nix-community.github.io/nixvim/plugins/todo-comments/index.html
@@ -263,10 +245,11 @@ in
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
-    extraPlugins = with pkgs.vimPlugins; [
-      # Useful for getting pretty icons, but requires a Nerd Font.
-      nvim-web-devicons # TODO: Figure out how to configure using this with telescope
-    ];
+    extraPlugins = with pkgs.vimPlugins;
+      [
+        # Useful for getting pretty icons, but requires a Nerd Font.
+        nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+      ];
 
     # TODO: Figure out where to move this
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapre
