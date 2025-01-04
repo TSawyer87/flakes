@@ -9,7 +9,6 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     wezterm.url = "github:wez/wezterm?dir=nix";
-    nixvim.url = "github:nix-community/nixvim";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     ghostty.url = "github:clo4/ghostty-hm-module";
@@ -21,7 +20,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
-    , wezterm, neovim-nightly-overlay, hyprland-qtutils, ghostty, nixvim, ... }@inputs:
+    , wezterm, neovim-nightly-overlay, hyprland-qtutils, ghostty, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -80,7 +79,6 @@
           };
           modules = [
             ghostty.homeModules.default
-            nixvim.homeModules.nixvim
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
                 pokemon-colorscripts
