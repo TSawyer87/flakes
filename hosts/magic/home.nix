@@ -185,7 +185,6 @@ in {
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".specific
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
-    inputs.nixvim.packages."${pkgs.system}".nixvim
     # inputs.ghostty.packages."${pkgs.system}".default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal

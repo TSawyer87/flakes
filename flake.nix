@@ -80,6 +80,7 @@
           };
           modules = [
             ghostty.homeModules.default
+            nixvim.homeModules.nixvim
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
                 pokemon-colorscripts
