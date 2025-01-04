@@ -82,10 +82,11 @@
             ghostty.homeModules.default
             <nixvim>.homeManagerModules.nixvim
             ({ pkgs, ... }: {
-              home.packages = with pkgs; [
-                pokemon-colorscripts
-                # Other home-manager packages
-              ];
+              home.packages = with pkgs;
+                [
+                  pokemon-colorscripts
+                  # Other home-manager packages
+                ];
             })
             ./hosts/${host}/home.nix
           ];
