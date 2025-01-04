@@ -25,7 +25,7 @@ in {
     ../../config/kitty.nix
     ../../config/zed.nix
     ../../config/starship.nix
-    inputs.nixvim.homeManagerModules.nixvim
+    #inputs.nixvim.homeManagerModules.nixvim
     ../../config/nixvim.nix
   ];
 
