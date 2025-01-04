@@ -244,6 +244,7 @@ in {
       # https://nix-community.github.io/nixvim/plugins/sleuth/index.html
       sleuth = { enable = true; };
 
+      lz-n = { enable = true; };
       # Highlight todo, notes, etc in comments
       # https://nix-community.github.io/nixvim/plugins/todo-comments/index.html
       todo-comments = {
@@ -254,15 +255,15 @@ in {
       };
       grug-far = {
         enable = true;
-        # lazyLoad = { settings = { cmd = "GrugFar"; }; };
+        lazyLoad = { settings = { cmd = "GrugFar"; }; };
       };
       glow = {
         enable = true;
-        # lazyLoad.settings.ft = "markdown";
+        lazyLoad.settings.ft = "markdown";
       };
       render-markdown = {
         enable = true;
-        # lazyLoad.settings.ft = "markdown";
+        lazyLoad.settings.ft = "markdown";
       };
     };
 
