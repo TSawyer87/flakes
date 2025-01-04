@@ -269,26 +269,26 @@ in {
         autoLoad = true;
         # lazyLoad.settings.ft = "markdown";
       };
-      obsidian = {
-        enable = true;
-        settings = {
-          completion = {
-    min_chars = 2;
-    nvim_cmp = true;
-  };
-  new_notes_location = "current_dir";
-  workspaces = [
-    {
-      name = "notes";
-      path = "~/notes";
-    }
-    {
-      name = "2nd_brain";
-      path = "~/notes/2nd_brain";
-    }
-  ];
-};
-};
+#       obsidian = {
+#         enable = true;
+#         settings = {
+#           completion = {
+#     min_chars = 2;
+#     nvim_cmp = true;
+#   };
+#   new_notes_location = "current_dir";
+#   workspaces = [
+#     {
+#       name = "notes";
+#       path = "~/notes";
+#     }
+#     {
+#       name = "2nd_brain";
+#       path = "~/notes/2nd_brain";
+#     }
+#   ];
+# };
+# };
 }
 
 
