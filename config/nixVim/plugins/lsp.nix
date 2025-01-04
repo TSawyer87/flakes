@@ -90,6 +90,14 @@
         # tsserver = {
         #  enable = true;
         #}
+        nil_ls = {
+          autostart = true,
+            settings = {
+              formatting = {
+              command = { "nixfmt" },
+            },
+            },
+        }
 
         lua_ls = {
           enable = true;
