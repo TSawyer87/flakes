@@ -18,7 +18,7 @@ in {
     ./plugins/lint.nix
     ./plugins/neo-tree.nix
     ./plugins/trouble.nix
-    ./plugins/alpha.nix
+    #    ./plugins/alpha.nix
     ./plugins/oil.nix
     # ./plugins/flash.nix
     ./plugins/bufferline.nix
