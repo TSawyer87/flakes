@@ -25,6 +25,7 @@ in {
     ../../config/kitty.nix
     ../../config/zed.nix
     ../../config/starship.nix
+    ../../config/nixvim.nix
   ];
 
   # Place Files Inside Home Directory
@@ -134,6 +135,7 @@ in {
     };
   };
 
+
   # Create XDG Dirs
   xdg = {
     # configFile."mimeapps.list".text = ''
@@ -178,8 +180,6 @@ in {
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".specific
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
-    inputs.nixvim.homeManagerModules.nixvim
-    # inputs.ghostty.packages."${pkgs.system}".default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.nix-output-monitor # provides `nom` command, works like `nix`

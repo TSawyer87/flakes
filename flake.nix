@@ -84,7 +84,6 @@
             ({ pkgs, ... }: {
               home.packages = with pkgs; [
                 pokemon-colorscripts
-                nix-index-database.hmModules.nix-index
                 # Other home-manager packages
               ];
             })
