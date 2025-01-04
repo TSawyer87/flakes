@@ -266,6 +266,7 @@ in {
         autoLoad = true;
         # lazyLoad.settings.ft = "markdown";
       };
+      obsidian = { enable = true; };
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
