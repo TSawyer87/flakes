@@ -254,7 +254,7 @@ in {
       };
       grug-far = {
         enable = true;
-        lazyLoad = { settings = { cmd = "GrugFar"; }; };
+        # lazyLoad = { settings = { cmd = "GrugFar"; }; };
       };
       glow = {
         enable = true;
