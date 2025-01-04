@@ -20,7 +20,7 @@ in {
     ./plugins/trouble.nix
     #    ./plugins/alpha.nix
     ./plugins/oil.nix
-    # ./plugins/flash.nix
+    ./plugins/flash.nix
     ./plugins/bufferline.nix
     ./plugins/lualine.nix
   ];
