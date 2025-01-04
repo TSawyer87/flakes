@@ -210,19 +210,6 @@ in {
         action = "<CMD>Oil<CR>";
         options = { desc = "Open parent directory"; };
       }
-      {
-        mode = [ "n" "x" "o" ];
-        key = "s";
-        action = "function()
-                 require("flash").jump(), end,";
-        options = { desc = "Open parent directory"; };
-      }
-      {
-        mode = "c";
-        key = "<c-s>";
-        action = "require("flash").toggle()";
-        options = { desc = "Toggle Flash Search"; };
-      }
     ];
 
     # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
