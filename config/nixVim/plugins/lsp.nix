@@ -91,12 +91,12 @@
         #  enable = true;
         #}
         nil_ls = {
-          autostart = true,
+          autostart = true;
             settings = {
               formatting = {
-              command = { "nixfmt" },
-            },
-            },
+              command = { "nixfmt" };
+            };
+            };
         }
 
         lua_ls = {
