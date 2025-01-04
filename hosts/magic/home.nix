@@ -3,7 +3,7 @@ let inherit (import ./variables.nix) gitUsername gitEmail;
 in {
   # Home Manager Settings
   home.username = "${username}";
-  home.homeDirectory = "/home/${username}"; 
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
 
   # Import Program Configurations
@@ -25,6 +25,7 @@ in {
     ../../config/kitty.nix
     ../../config/zed.nix
     ../../config/starship.nix
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   # Place Files Inside Home Directory
@@ -89,7 +90,7 @@ in {
 
   programs.nix-index = { enable = true; }; # nix-locate
 
-  # programs.nixvim = { enable = true; };
+  programs.nixvim = { enable = true; };
   # programs.foot = {
   #   enable = true;
   #   server.enable = true;
@@ -134,7 +135,6 @@ in {
       font-feature = [ "-liga" "-dlig" "-calt" ];
     };
   };
-
 
   # Create XDG Dirs
   xdg = {
