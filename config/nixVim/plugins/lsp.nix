@@ -93,6 +93,10 @@
         nil_ls = {
           autostart = true;
             cmd = "nixfmt";
+          package = pkgs.nil;
+          extraOptions = {
+            testSetting = 42;
+          }
         };
 
         lua_ls = {
