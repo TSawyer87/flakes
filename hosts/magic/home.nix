@@ -25,7 +25,8 @@ in {
     ../../config/kitty.nix
     ../../config/zed.nix
     ../../config/starship.nix
-    inputs.nixvim.homeManagerModules.nixvim
+    # inputs.nixvim.homeManagerModules.nixvim
+    ../../config/nixvim.nix
   ];
 
   # Place Files Inside Home Directory
@@ -90,7 +91,7 @@ in {
 
   programs.nix-index = { enable = true; }; # nix-locate
 
-  programs.nixvim = { enable = true; };
+  # programs.nixvim = { enable = true; };
   # programs.foot = {
   #   enable = true;
   #   server.enable = true;

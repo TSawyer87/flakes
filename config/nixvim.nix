@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ nixvim.homeModules.nixvim ];
+  imports =  [ inputs.nixvim.homeManagerModules.nixvim ];
 
   programs.nixvim = {
     enable = true;
@@ -9,6 +9,7 @@
     options = {
       number = true; # Show line numbers
       relativenumber = true; # Show relative line numbers
+      colorcolumn = "80";
     };
     plugins = {
       # Enable plugins
@@ -16,7 +17,7 @@
     };
     colorschemes = {
       # Set up a colorscheme
-      gruvbox.enable = true;
+      catppuccin.enable = true;
     };
     extraConfigLua = ''
       -- Add custom Lua here for additional configurations
