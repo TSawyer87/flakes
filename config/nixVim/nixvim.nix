@@ -211,7 +211,7 @@ in {
         options = { desc = "Open parent directory"; };
       }
       {
-        mode = [ "n", "x", "o" ];
+        mode = [ "n" "x" "o" ];
         key = "s";
         action = "function()
                  require("flash").jump(), end,";
