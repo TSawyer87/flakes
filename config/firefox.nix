@@ -12,7 +12,7 @@ let
 in {
   programs.firefox = {
     enable = true;
-    languagePacks = [ "de" "en-US" ];
+    languagePacks = [ "en-US" ];
 
     policies = {
       # Disable Telemetry and Studies
@@ -23,14 +23,14 @@ in {
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
+        Cryptomining = false;
+        Fingerprinting = false;
       };
 
       # Disable various features
-      DisablePocket = true;
-      DisableFirefoxAccounts = true;
-      DisableAccounts = true;
+      DisablePocket = false;
+      DisableFirefoxAccounts = false;
+      DisableAccounts = false;
       DisableFirefoxScreenshots = true;
 
       # UI Modifications
@@ -56,11 +56,11 @@ in {
             "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
         };
-        "{d634138d-c276-4fc8-924b-40a0ea21d284}" = { # 1Password
-          install_url =
-            "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
-          installation_mode = "force_installed";
-        };
+        # "{d634138d-c276-4fc8-924b-40a0ea21d284}" = { # 1Password
+        #   install_url =
+        #     "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
+        #   installation_mode = "force_installed";
+        # };
       };
 
       # Preferences
