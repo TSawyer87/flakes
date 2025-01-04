@@ -98,7 +98,7 @@ in
 
       # Keep signcolumn on by default
       signcolumn = "yes";
-      colorcolumn = 80;
+      colorcolumn = "80";
 
       # Decrease update time
       updatetime = 250;
