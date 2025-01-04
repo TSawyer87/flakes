@@ -93,7 +93,6 @@
         nil_ls = {
           enable = true;
           autostart = true;
-            cmd = "nixfmt";
         };
 
         lua_ls = {
