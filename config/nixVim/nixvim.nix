@@ -19,6 +19,7 @@ in {
     ./plugins/neo-tree.nix
     ./plugins/trouble.nix
     ./plugins/alpha.nix
+    ./plugins/oil.nix
   ];
 
   programs.nixvim = {
@@ -201,6 +202,12 @@ in {
         key = "<C-k>";
         action = "<C-w><C-k>";
         options = { desc = "Move focus to the upper window"; };
+      }
+      {
+        mode = "n";
+        key = "-";
+        action = "<CMD>Oil<CR>";
+        options = { desc = "Open parent directory"; };
       }
     ];
 
