@@ -53,7 +53,7 @@ in
       maplocalleader = " ";
 
       # Set to true if you have a Nerd Font installed and selected in the terminal
-      have_nerd_font = false;
+      have_nerd_font = true;
     };
 
     # [[ Setting options ]]
@@ -66,7 +66,7 @@ in
       number = true;
       # You can also add relative line numbers, to help with jumping.
       #  Experiment for yourself to see if you like it!
-      #relativenumber = true
+      relativenumber = true;
 
       # Enable mouse mode, can be useful for resizing splits for example!
       mouse = "a";
@@ -98,6 +98,7 @@ in
 
       # Keep signcolumn on by default
       signcolumn = "yes";
+      colorcolumn = 80;
 
       # Decrease update time
       updatetime = 250;
