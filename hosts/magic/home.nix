@@ -185,7 +185,7 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
-    (import ../../config/nixVim { inherit pkgs; })
+    (import ../../config/nixVim)
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
