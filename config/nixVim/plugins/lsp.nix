@@ -92,6 +92,8 @@
 
         nixd = { enable = true; };
 
+        marksman = { enable = true; };
+
         lua_ls = {
           enable = true;
 

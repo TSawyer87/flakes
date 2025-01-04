@@ -23,9 +23,7 @@
           '';
         };
 
-        completion = {
-          completeopt = "menu,menuone,noinsert";
-        };
+        completion = { completeopt = "menu,menuone,noinsert"; };
 
         # For an understanding of why these mappings were
         # chosen, you will need to read `:help ins-completion`
@@ -43,6 +41,7 @@
           #  This will auto-import if your LSP supports it.
           #  This will expand snippets if the LSP sent a snippet.
           "<C-y>" = "cmp.mapping.confirm { select = true }";
+          "<C-;>" = "cmp.mapping.confirm { select = true }";
           # If you prefer more traditional completion keymaps,
           # you can uncomment the following lines.
           # "<CR>" = "cmp.mapping.confirm { select = true }";
@@ -101,9 +100,7 @@
             name = "nvim_lsp";
           }
           # https://nix-community.github.io/nixvim/plugins/cmp-path.html
-          {
-            name = "path";
-          }
+          { name = "path"; }
         ];
       };
     };
