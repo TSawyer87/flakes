@@ -94,7 +94,6 @@
           enable = true;
           autostart = true;
             cmd = "nixfmt";
-          package = pkgs.nil;
         };
 
         lua_ls = {
