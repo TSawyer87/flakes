@@ -25,7 +25,6 @@ in {
     ../../config/kitty.nix
     ../../config/zed.nix
     ../../config/starship.nix
-    ../../config/nixvim.nix
   ];
 
   # Place Files Inside Home Directory
