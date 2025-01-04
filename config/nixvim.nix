@@ -13,10 +13,7 @@
       # Enable plugins
       lualine.enable = true;
     };
-    colorschemes = {
-      # Set up a colorscheme
-      catppuccin.enable = true;
-    };
+    colorschemes.catppuccin.enable = true;
     extraConfigLua = ''
       -- Add custom Lua here for additional configurations
       vim.wo.signcolumn = "yes"
