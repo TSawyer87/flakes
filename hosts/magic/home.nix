@@ -25,6 +25,7 @@ in {
     ../../config/kitty.nix
     ../../config/zed.nix
     ../../config/starship.nix
+    ../../config/nixVim
   ];
 
   # Place Files Inside Home Directory
@@ -185,7 +186,6 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
-    (import ../../config/nixVim)
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
