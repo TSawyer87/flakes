@@ -7,7 +7,7 @@ in {
     ./plugins/lsp.nix
     ./plugins/lspsaga.nix
     ./plugins/gitsigns.nix
-    ./plugins/mini.nix
+    #    ./plugins/mini.nix
     ./plugins/nvim-cmp.nix
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
@@ -22,6 +22,7 @@ in {
     ./plugins/oil.nix
     # ./plugins/flash.nix
     ./plugins/bufferline.nix
+    ./plugins/lualine.nix
   ];
 
   programs.nixvim = {
