@@ -18,6 +18,7 @@ in
  ./plugins/indent-blankline.nix
  ./plugins/lint.nix
  ./plugins/neo-tree.nix
+ ./plugins/trouble.nix
  ];
 
   programs.nixvim = {
