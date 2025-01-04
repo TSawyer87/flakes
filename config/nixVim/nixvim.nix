@@ -7,6 +7,7 @@ in
  inputs.nixvim.homeManagerModules.nixvim
  ./plugins/conform.nix
  ./plugins/lsp.nix
+ ./plugins/lspsaga.nix
  ./plugins/gitsigns.nix
  ./plugins/mini.nix
  ./plugins/nvim-cmp.nix
