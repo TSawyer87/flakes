@@ -1,4 +1,4 @@
-{ pkgs, username, host, system, inputs, nixvim, ... }:
+{ pkgs, username, host, system, inputs, ... }:
 let inherit (import ./variables.nix) gitUsername gitEmail;
 in {
   # Home Manager Settings
@@ -134,13 +134,6 @@ in {
     };
   };
 
-  programs.nixvim = {
-    enable = true;
-
-    colorschemes.catppuccin.enable = true;
-    plugins.lualine.enable = true;
-  };
-
   # Create XDG Dirs
   xdg = {
     # configFile."mimeapps.list".text = ''
@@ -185,6 +178,7 @@ in {
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".specific
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
+    inputs.nixvim.homeManagerModules.nixvim
     # inputs.ghostty.packages."${pkgs.system}".default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
