@@ -260,6 +260,10 @@ in {
         enable = true;
         lazyLoad.settings.ft = "markdown";
       };
+      render-markdown = {
+        enable = true;
+        lazyLoad.settings.ft = "markdown";
+      };
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
