@@ -30,7 +30,7 @@ in {
     ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
-    ../../config/firefox.nix
+    #    ../../config/firefox.nix
   ];
 
   # ===== Hardware Configuration =====
@@ -355,7 +355,7 @@ in {
   programs = {
     thunderbird.enable = true;
     yazi = { enable = true; };
-    #firefox.enable = true;
+    firefox.enable = true;
     starship = {
       enable = true;
       settings = {
