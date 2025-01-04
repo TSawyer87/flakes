@@ -258,11 +258,11 @@ in {
       };
       glow = {
         enable = true;
-        lazyLoad.settings.ft = "markdown";
+        # lazyLoad.settings.ft = "markdown";
       };
       render-markdown = {
         enable = true;
-        lazyLoad.settings.ft = "markdown";
+        # lazyLoad.settings.ft = "markdown";
       };
     };
 
