@@ -91,6 +91,7 @@
         #  enable = true;
         #}
         nil_ls = {
+          enable = true;
           autostart = true;
             cmd = "nixfmt";
           package = pkgs.nil;
