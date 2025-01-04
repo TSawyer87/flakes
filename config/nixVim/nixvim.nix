@@ -20,6 +20,7 @@ in {
     ./plugins/trouble.nix
     ./plugins/alpha.nix
     ./plugins/oil.nix
+    ./plugins/flash.nix
   ];
 
   programs.nixvim = {
@@ -207,6 +208,18 @@ in {
         mode = "n";
         key = "-";
         action = "<CMD>Oil<CR>";
+        options = { desc = "Open parent directory"; };
+      }
+      {
+        mode = { "n" "x" "o" };
+        key = "s";
+        action = "require("flash").jump()";
+        options = { desc = "Open parent directory"; };
+      }
+      {
+        mode = "c";
+        key = "<c-s>";
+        action = "require("flash").toggle()";
         options = { desc = "Open parent directory"; };
       }
     ];
