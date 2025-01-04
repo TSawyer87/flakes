@@ -211,16 +211,17 @@ in {
         options = { desc = "Open parent directory"; };
       }
       {
-        mode = "n";
+        mode = [ "n", "x", "o" ];
         key = "s";
-        action = "require("flash").jump()";
+        action = "function()
+                 require("flash").jump(), end,";
         options = { desc = "Open parent directory"; };
       }
       {
         mode = "c";
         key = "<c-s>";
         action = "require("flash").toggle()";
-        options = { desc = "Open parent directory"; };
+        options = { desc = "Toggle Flash Search"; };
       }
     ];
 
