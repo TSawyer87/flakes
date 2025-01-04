@@ -6,6 +6,10 @@
     extraPackages = with pkgs; [
       # Used to format Lua code
       stylua
+      shfmt
+      shellcheck
+      prettierd
+      nixfmt-classic
     ];
 
     # Autoformat
@@ -28,6 +32,10 @@
         '';
         formatters_by_ft = {
           lua = ["stylua"];
+          markdown = ["prettierd"];
+          nix = ["nixfmt"];
+          bash = ["shfmt"];
+          zsh = ["shfmt"];
           # Conform can also run multiple formatters sequentially
           # python = [ "isort "black" ];
           #
