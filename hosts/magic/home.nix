@@ -26,7 +26,7 @@ in {
     ../../config/zed.nix
     ../../config/starship.nix
     #inputs.nixvim.homeManagerModules.nixvim
-    ../../config/nixvim.nix
+    ../../config/nixVim/nixvim.nix
   ];
 
   # Place Files Inside Home Directory
