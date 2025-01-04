@@ -252,6 +252,14 @@ in {
           signs = true;
         };
       };
+      grug-far = {
+        enable = true;
+        lazyLoad = { settings = { cmd = "GrugFar"; }; };
+      };
+      glow = {
+        enable = true;
+        lazyLoad.settings.ft = "markdown";
+      };
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
