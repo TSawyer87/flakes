@@ -1,9 +1,9 @@
-{ pkgs, username, host, system, inputs, ... }:
+{ pkgs, username, host, system, inputs, nixvim, ... }:
 let inherit (import ./variables.nix) gitUsername gitEmail;
 in {
   # Home Manager Settings
   home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  home.homeDirectory = "/home/${username}"; nixvim,
   home.stateVersion = "23.11";
 
   # Import Program Configurations
