@@ -89,7 +89,7 @@ in {
 
   programs.nix-index = { enable = true; }; # nix-locate
 
-  programs.nixvim = { enable = true; };
+  # programs.nixvim = { enable = true; };
   # programs.foot = {
   #   enable = true;
   #   server.enable = true;
