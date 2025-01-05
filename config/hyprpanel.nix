@@ -61,7 +61,7 @@
           military = true;
           hideSeconds = true;
         };
-        location = "New York";
+        weather.location = "New York";
         weather.unit = "imperial";
       };
 
