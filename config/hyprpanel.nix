@@ -66,7 +66,7 @@
           military = true;
           hideSeconds = true;
         };
-        weather.location = "Sanford";
+        weather.location = "Eustis";
         weather.unit = "imperial";
       };
 
