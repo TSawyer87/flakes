@@ -16,7 +16,7 @@ in {
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
     ../../config/swaync.nix
-    ../../config/waybar.nix
+    #../../config/waybar.nix
     ../../config/wlogout.nix
     ../../config/fastfetch
     ../../config/zsh.nix
