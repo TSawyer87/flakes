@@ -55,7 +55,7 @@
             ({ config, pkgs, ... }: {
               # Apply the overlays to the NixOS system
               nixpkgs.overlays = overlays;
-              environment.systemPackages = with pkgs; [ pokemon-colorscripts ];
+              #environment.systemPackages = with pkgs; [ pokemon-colorscripts ];
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
@@ -86,7 +86,7 @@
             ({ pkgs, ... }: {
               home.packages = with pkgs;
                 [
-                  pokemon-colorscripts
+                  #pokemon-colorscripts
                   # Other home-manager packages
                 ];
             })

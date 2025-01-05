@@ -180,6 +180,7 @@ in {
     cmatrix
     lolcat
     htop
+    pokemon-colorscripts
     libvirt
     lxqt.lxqt-policykit
     lm_sensors
