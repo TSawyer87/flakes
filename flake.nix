@@ -52,10 +52,9 @@
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
-            ({ config, pkgs, ... }: {
+            {
               # Apply the overlays to the NixOS system
               nixpkgs.overlays = overlays;
-              #environment.systemPackages = with pkgs; [ pokemon-colorscripts ];
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
@@ -66,7 +65,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
-            })
+            }
           ];
         };
       };
@@ -80,18 +79,7 @@
             inherit system;
             inherit username;
           };
-          modules = [
-            ghostty.homeModules.default
-            #<nixvim>.homeManagerModules.nixvim
-            ({ pkgs, ... }: {
-              home.packages = with pkgs;
-                [
-                  #pokemon-colorscripts
-                  # Other home-manager packages
-                ];
-            })
-            ./hosts/${host}/home.nix
-          ];
+          modules = [ ghostty.homeModules.default ./hosts/${host}/home.nix ];
         };
     };
 }
