@@ -27,7 +27,7 @@
 
     # Import a theme from './themes/*.json'.
     # Default: ""
-    theme = "Tokyo Night";
+    theme = "tokyo_night";
 
     # Override the final config with an arbitrary set.
     # Useful for overriding colors in your selected theme.
