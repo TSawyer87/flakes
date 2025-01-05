@@ -126,8 +126,8 @@ in {
 
     # Make /tmp a tmpfs
     tmp = {
-      useTmpfs = false;
-      tmpfsSize = "30%";
+      useTmpfs = true;
+      tmpfsSize = "50%";
     };
 
     # Appimage Support

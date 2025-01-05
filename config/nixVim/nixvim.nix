@@ -45,21 +45,8 @@
       maplocalleader = " ";
 
       # Set to true if you have a Nerd Font installed and selected in the terminal
-      have_nerd_font = false;
+      have_nerd_font = true;
     };
-
-    # [[ Setting options ]]
-    # See `:help vim.opt`
-    # NOTE: You can change these options as you wish!
-    #  For more options, you can see `:help option-list`
-    # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=globals#opts
-
-    # [[ Basic Keymaps ]]
-    #  See `:help vim.keymap.set()`
-    # https://nix-community.github.io/nixvim/keymaps/index.html
-
-    # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
-    autoGroups = { kickstart-highlight-yank = { clear = true; }; };
 
     # [[ Basic Autocommands ]]
     #  See `:help lua-guide-autocommands`
@@ -71,7 +58,6 @@
       {
         event = [ "TextYankPost" ];
         desc = "Highlight when yanking (copying) text";
-        group = "kickstart-highlight-yank";
         callback.__raw = ''
           function()
             vim.highlight.on_yank()
