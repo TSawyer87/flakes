@@ -27,7 +27,7 @@
 
     # Import a theme from './themes/*.json'.
     # Default: ""
-    theme = "gruvbox_split";
+    theme = "Tokyo Night";
 
     # Override the final config with an arbitrary set.
     # Useful for overriding colors in your selected theme.
@@ -70,6 +70,9 @@
       menus.dashboard.shortcuts.left.shortcut1.tooltip = "Firefox";
       menus.dashboard.shortcuts.left.shortcut1.command = "firefox";
       menus.dashboard.shortcuts.left.shortcut1.icon = "🦊";
+      menus.dashboard.shortcuts.left.shortcut2.tooltip = "Btop";
+      menus.dashboard.shortcuts.left.shortcut2.command = "btop";
+      menus.dashboard.shortcuts.left.shortcut2.icon = "📈";
 
       theme.bar.transparent = true;
 
