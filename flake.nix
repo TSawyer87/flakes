@@ -10,7 +10,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixvim.url = "github:nix-community/nixvim";
     wezterm.url = "github:wez/wezterm?dir=nix";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    #zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     ghostty.url = "github:clo4/ghostty-hm-module";
     stylix.url = "github:danth/stylix";
@@ -20,8 +20,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
-    , wezterm, neovim-nightly-overlay, hyprland-qtutils, ghostty, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, wezterm
+    , neovim-nightly-overlay, hyprland-qtutils, ghostty, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -80,7 +80,7 @@
           };
           modules = [
             ghostty.homeModules.default
-            <nixvim>.homeManagerModules.nixvim
+            #<nixvim>.homeManagerModules.nixvim
             ({ pkgs, ... }: {
               home.packages = with pkgs;
                 [
