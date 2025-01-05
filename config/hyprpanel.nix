@@ -44,6 +44,11 @@
           middle = [ "media" ];
           right = [ "volume" "systray" "notifications" ];
         };
+        "1" = {
+          left = [ "dashboard" "workspaces" "weather" ];
+          middle = [ "ram" "cpu" ];
+          right = [ "volume" "systray" "power" ];
+        };
       };
     };
 
