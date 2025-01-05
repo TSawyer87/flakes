@@ -39,12 +39,12 @@
     # Default: null
     layout = {
       "bar.layouts" = {
-        "0" = {
+        "1" = {
           left = [ "dashboard" "workspaces" ];
-          middle = [ "media" ];
+          middle = [ "ram" "cpu" ];
           right = [ "volume" "systray" "notifications" ];
         };
-        "1" = {
+        "2" = {
           left = [ "dashboard" "workspaces" "weather" ];
           middle = [ "ram" "cpu" ];
           right = [ "volume" "systray" "power" ];
