@@ -27,6 +27,7 @@ in {
     ../../config/starship.nix
     #inputs.nixvim.homeManagerModules.nixvim
     ../../config/nixVim/nixvim.nix
+    ../../config/hyprpanel.nix
   ];
 
   # Place Files Inside Home Directory
