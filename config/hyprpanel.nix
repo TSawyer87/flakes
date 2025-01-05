@@ -66,7 +66,7 @@
           military = true;
           hideSeconds = true;
         };
-        weather.location = "Orlando";
+        weather.location = "Sanford";
         weather.unit = "imperial";
       };
 
