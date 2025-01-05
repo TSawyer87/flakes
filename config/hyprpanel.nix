@@ -61,11 +61,13 @@
           military = true;
           hideSeconds = true;
         };
-        weather.unit = "metric";
+        location = "New York";
+        weather.unit = "imperial";
       };
 
-      menus.dashboard.directories.enabled = false;
+      menus.dashboard.directories.enabled = true;
       menus.dashboard.stats.enable_gpu = true;
+      menus.dashboard.shortcuts.left.shortcut1.tooltip = "Firefox";
 
       theme.bar.transparent = true;
 
