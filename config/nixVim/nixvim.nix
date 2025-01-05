@@ -16,6 +16,7 @@
     ./plugins/bufferline.nix
     ./plugins/lualine.nix
     ./plugins/oil.nix
+    ./plugins/flash.nix
     ./options.nix
     ./keymaps.nix
   ];
