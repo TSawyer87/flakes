@@ -13,7 +13,6 @@
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     ghostty.url = "github:clo4/ghostty-hm-module";
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
@@ -23,7 +22,8 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, wezterm
-    , neovim-nightly-overlay, hyprland-qtutils, ghostty, ... }@inputs:
+    , hyprpanel, neovim-nightly-overlay, hyprland-qtutils, ghostty, ...
+    }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -38,7 +38,7 @@
       };
 
       # Combine all overlays
-      overlays = [ pokemonColorscriptsOverlay ];
+      overlays = [ pokemonColorscriptsOverlay inputs.hyprpanel.overlay ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
