@@ -13,6 +13,7 @@
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     ghostty.url = "github:clo4/ghostty-hm-module";
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
