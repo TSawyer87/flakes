@@ -15,7 +15,7 @@ in {
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
-    ../../config/swaync.nix
+    #../../config/swaync.nix
     #../../config/waybar.nix
     ../../config/wlogout.nix
     ../../config/fastfetch
@@ -182,7 +182,7 @@ in {
   home.packages = [
     #inputs.zen-browser.packages."${pkgs.system}".specific
     inputs.hyprland-qtutils.packages."${pkgs.system}".default
-    pkgs.hyprpanel
+    # pkgs.hyprpanel
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.nix-output-monitor # provides `nom` command, works like `nix`
