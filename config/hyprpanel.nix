@@ -70,6 +70,9 @@
         weather.unit = "imperial";
       };
 
+      bar.customModules.weather.label = true;
+      bar.customModules.weather.unit = "imperial";
+
       menus.dashboard.directories.enabled = true;
       menus.dashboard.stats.enable_gpu = true;
       menus.dashboard.shortcuts.left.shortcut1.tooltip = "Firefox";
