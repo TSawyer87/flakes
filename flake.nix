@@ -23,7 +23,8 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, wezterm
-    , neovim-nightly-overlay, hyprland-qtutils, ghostty, ... }@inputs:
+    , hyprpanel, neovim-nightly-overlay, hyprland-qtutils, ghostty, ...
+    }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -38,7 +39,7 @@
       };
 
       # Combine all overlays
-      overlays = [ pokemonColorscriptsOverlay ];
+      overlays = [ pokemonColorscriptsOverlay inputs.hyprpanel.overlay ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
