@@ -7,6 +7,7 @@
     # Enable the module.
     # Default: false
     enable = true;
+    overlay.enable = true;
 
     # Automatically restart HyprPanel with systemd.
     # Useful when updating your config so that you
@@ -32,7 +33,6 @@
     # Useful for overriding colors in your selected theme.
     # Default: {}
     override = { theme.bar.menus.text = "#123ABC"; };
-    overlay.enable = true;
 
     # Configure bar layouts for monitors.
     # See 'https://hyprpanel.com/configuration/panel.html'.
