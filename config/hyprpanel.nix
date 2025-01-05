@@ -68,6 +68,7 @@
       menus.dashboard.directories.enabled = true;
       menus.dashboard.stats.enable_gpu = true;
       menus.dashboard.shortcuts.left.shortcut1.tooltip = "Firefox";
+      menus.dashboard.shortcuts.left.shortcut1.command = "firefox";
       menus.dashboard.shortcuts.left.shortcut1.icon = "🦊";
 
       theme.bar.transparent = true;
