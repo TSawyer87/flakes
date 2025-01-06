@@ -1,4 +1,4 @@
-{ config, pkgs, host, username, options, lib, ... }:
+{ config, pkgs, host, username, options, lib, inputs, ... }:
 let
   drivers = [
     "amdgpu"
