@@ -4,9 +4,7 @@
     #    See the README about individual language/framework/plugin snippets:
     #    https://github.com/rafamadriz/friendly-snippets
     # https://nix-community.github.io/nixvim/plugins/friendly-snippets.html
-    # plugins.friendly-snippets = {
-    #   enable = true;
-    # };
+    plugins.friendly-snippets = { enable = true; };
 
     # Autocompletion
     # See `:help cmp`
@@ -37,20 +35,8 @@
           # Scroll the documentation window [b]ack / [f]orward
           "<C-b>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          # Accept ([y]es) the completion.
-          #  This will auto-import if your LSP supports it.
-          #  This will expand snippets if the LSP sent a snippet.
           "<C-y>" = "cmp.mapping.confirm { select = true }";
           "<C-;>" = "cmp.mapping.confirm { select = true }";
-          # If you prefer more traditional completion keymaps,
-          # you can uncomment the following lines.
-          # "<CR>" = "cmp.mapping.confirm { select = true }";
-          # "<Tab>" = "cmp.mapping.select_next_item()";
-          # "<S-Tab>" = "cmp.mapping.select_prev_item()";
-
-          # Manually trigger a completion from nvim-cmp.
-          #  Generally you don't need this, because nvim-cmp will display
-          #  completions whenever it has completion options available.
           "<C-Space>" = "cmp.mapping.complete {}";
 
           # Think of <c-l> as moving to the right of your snippet expansion.
@@ -89,8 +75,10 @@
         sources = [
           # Snippet Engine & its associated nvim-cmp source
           # https://nix-community.github.io/nixvim/plugins/luasnip/index.html
+          { name = "luasnip"; }
+          { name = "buffer"; }
           {
-            name = "luasnip";
+            name = "codeium";
           }
           # Adds other completion capabilites.
           #  nvim-cmp does not ship with all sources by default. They are split
