@@ -20,8 +20,7 @@ let
 
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
-in
-{
+in {
   imports = [
     ./hardware.nix
     ./users.nix
@@ -112,8 +111,7 @@ in
 
     # Module blacklisting
     blacklistedKernelModules = with pkgs.lib;
-      (optionals hasAmdGpu [ "radeon" ])
-      ++ (optionals hasNvidia [ "nouveau" ]);
+      (optionals hasAmdGpu [ "radeon" ]) ++ (optionals hasNvidia [ "nouveau" ]);
 
     # Extra modprobe config for Nvidia
     extraModprobeConfig = pkgs.lib.mkIf hasNvidia ''
@@ -217,6 +215,7 @@ in
     nh
     nixfmt-classic
     #discord
+    stdenv
     swww
     grim
     slurp
@@ -528,7 +527,7 @@ in
   services.blueman.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   #   hardware.printers = {
   #   ensurePrinters = [
