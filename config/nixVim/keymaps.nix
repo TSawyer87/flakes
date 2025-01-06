@@ -50,18 +50,20 @@
         options = { desc = "Open parent directory"; };
       }
       {
-        mode = [ "n" "x" "o" ];
-        key = "s";
-        action = ''
-          <CMD>require("flash").jump()
-        '';
-        options = { desc = "Flash Jump"; };
-      }
-      {
         mode = "c";
         key = "<c-s>";
         action = "<CMD>require('flash').toggle()";
         options = { desc = "Toggle Flash Search"; };
+      }
+      {
+        key = "s";
+        action.__raw = ''
+          function()
+            require'flash'.jump({
+            })
+          end
+        '';
+        options.remap = true;
       }
       {
         key = "f";
