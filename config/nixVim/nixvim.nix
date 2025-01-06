@@ -18,7 +18,7 @@
     ./plugins/oil.nix
     ./plugins/flash.nix
     ./plugins/codeium.nix
-    # ./plugins/markdown.nix
+    ./plugins/markdown.nix
     ./options.nix
     ./keymaps.nix
     ./autocmds.nix
