@@ -261,6 +261,11 @@ in {
     nwg-look
     pfetch-rs
   ];
+  environment.interactiveShellInit = ''
+    alias gs='git status'
+    alias cmp='!f() { git add -A && git commit -m "$@" && git push; }; f'
+    alias ac='!git add -A && git commit -m '
+  '';
   # Styling Options
   stylix = {
     enable = true;
