@@ -42,7 +42,7 @@
         "1" = {
           left = [ "dashboard" "workspaces" ];
           middle = [ "ram" "cpu" ];
-          right = [ "volume" "systray" "notifications" ];
+          right = [ "volume" "systray" "notifications" "power" ];
         };
         "0" = {
           left = [ "dashboard" "workspaces" "weather" ];
