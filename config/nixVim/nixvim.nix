@@ -18,7 +18,7 @@ in {
     ./plugins/bufferline.nix
     ./plugins/lualine.nix
     ./plugins/oil.nix
-    ./plugins/alpha.nix
+    #./plugins/alpha.nix
     #./plugins/ufo.nix
     ./plugins/flash.nix
     ./plugins/codeium.nix
