@@ -140,7 +140,7 @@ in {
     };
     plymouth.enable = true;
   };
-  powerManagement.cpuFreqGovernor = "performance";
+  #powerManagement.cpuFreqGovernor = "performance";
 
   environment.systemPackages = with pkgs; [
     # (writeScriptBin "performance_hook" ''
