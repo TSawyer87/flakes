@@ -73,7 +73,8 @@ let
     }
     footer
   ];
-in {
+in
+{
   extra = {
     packages = with pkgs.vimPlugins; [ alpha-nvim nvim-web-devicons ];
 

@@ -5,14 +5,14 @@ in {
   autoCmd = [{
     event = [ "BufEnter" "BufNew" ];
     desc = "disable statuscolumn for neo-tree and dashboard";
-    callback = (helpers.mkRaw ''
+    callback = helpers.mkRaw ''
       function()
         local ft_ignore = { "dashboard", "neo-tree", "snacks_dashboard" }
         if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
           vim.cmd("setlocal foldcolumn=0")
         end
       end
-    '');
+    '';
   }];
 
   plugins = {
@@ -39,7 +39,7 @@ in {
     foldlevelstart = 99;
     foldenable = true;
     fillchars =
-      (helpers.mkRaw "[[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]");
+      helpers.mkRaw "[[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]";
   };
 
   keymaps = [
@@ -49,14 +49,15 @@ in {
     (mkKeymap "n" "zM"
       (helpers.mkRaw ''function() require("ufo").closeAllFolds() end'')
       "Close All Folds")
-    (mkKeymap "n" "zK" (helpers.mkRaw # lua
-      ''
-        function()
-          local winid = require("ufo").peekFoldedLinesUnderCursor()
-          if not winid then
-            vim.lsp.buf.hover()
+    (mkKeymap "n" "zK"
+      (helpers.mkRaw # lua
+        ''
+          function()
+            local winid = require("ufo").peekFoldedLinesUnderCursor()
+            if not winid then
+              vim.lsp.buf.hover()
+            end
           end
-        end
-      '') "Peek Folded Lines")
+        '') "Peek Folded Lines")
   ];
 }

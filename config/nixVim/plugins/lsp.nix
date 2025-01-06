@@ -83,10 +83,10 @@
         # tsserver = {
         #  enable = true;
         #}
-        nil_ls = {
-          enable = true;
-          autostart = true;
-        };
+        # nil_ls = {
+        #   enable = true;
+        #   autostart = true;
+        # };
 
         bashls = { enable = true; };
 

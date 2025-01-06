@@ -5,7 +5,8 @@ let
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
-in {
+in
+{
   programs = {
     neovim = {
       enable = false;

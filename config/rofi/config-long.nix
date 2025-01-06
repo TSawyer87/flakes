@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   home.file.".config/rofi/config-long.rasi".text = ''

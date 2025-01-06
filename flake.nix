@@ -23,19 +23,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-formatter-pack, home-manager
-    , nix-index-database, wezterm, neovim-nightly-overlay, hyprland-qtutils
-    , ghostty, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, ghostty, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
 
       # Define the overlay for pokemon-colorscripts
-      pokemonColorscriptsOverlay = final: prev: {
+      pokemonColorscriptsOverlay = final: _prev: {
         pokemon-colorscripts = import ./modules/pokemon-colorscripts.nix {
           pkgs = final;
-          lib = final.lib;
+          inherit (final) lib;
         };
       };
 
@@ -75,7 +73,7 @@
       homeConfigurations."${username}@${host}" =
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}.extend
-            (final: prev: final.lib.composeManyExtensions overlays);
+            (final: _prev: final.lib.composeManyExtensions overlays);
           extraSpecialArgs = {
             inherit inputs;
             inherit host;
@@ -88,7 +86,7 @@
       # Add the formatter configuration
       formatter.${system} = nix-formatter-pack.lib.mkFormatter {
         inherit nixpkgs;
-        system = system;
+        inherit system;
         config = {
           tools = {
             deadnix.enable = true;

@@ -1,7 +1,6 @@
-{
-  host,
-  username,
-  ...
+{ host
+, username
+, ...
 }:
 
 {

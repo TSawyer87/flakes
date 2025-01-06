@@ -1,16 +1,17 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }:
 let
   sources = {
     pokemon-colorscripts = import ./pokemon-colorscripts.nix { inherit pkgs lib; };
   };
 
-  overlays = builtins.mapAttrs (name: value: self: super: {
-    ${name} = value;
-  }) sources;
+  overlays = builtins.mapAttrs
+    (name: value: _self: _super: {
+      ${name} = value;
+    })
+    sources;
 
 in
 {

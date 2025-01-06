@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+_:
 
 let
   lockFalse = {
@@ -9,7 +9,8 @@ let
     Value = true;
     Status = "locked";
   };
-in {
+in
+{
   programs.firefox = {
     enable = true;
     languagePacks = [ "en-US" ];

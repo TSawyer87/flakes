@@ -20,7 +20,8 @@ let
 
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
-in {
+in
+{
   imports = [
     ./hardware.nix
     ./users.nix
@@ -100,7 +101,7 @@ in {
       ++ (optionals hasNvidia [ "nvidia" "nvidia_drm" "nvidia_modeset" ]);
 
     kernelParams = with pkgs.lib;
-      [ ] ++ (optionals hasAmdCpu [ "amd_pstate=active" ])
+      (optionals hasAmdCpu [ "amd_pstate=active" ])
       ++ (optionals hasAmdGpu [ "radeon.si_support=0" "amdgpu.si_support=1" ])
       ++ (optionals hasNvidia [ "nvidia-drm.modeset=1" ]);
 
@@ -111,7 +112,7 @@ in {
 
     # Module blacklisting
     blacklistedKernelModules = with pkgs.lib;
-      [ ] ++ (optionals hasAmdGpu [ "radeon" ])
+      (optionals hasAmdGpu [ "radeon" ])
       ++ (optionals hasNvidia [ "nouveau" ]);
 
     # Extra modprobe config for Nvidia
@@ -588,7 +589,8 @@ in {
         "neovim-nightly.cachix.org-1:feIoInHRevVEplgdZvQDjhp11kYASYCE2NGY9hNrwxY="
       ];
     };
-    gc = { # Auto weekly garbage collection
+    gc = {
+      # Auto weekly garbage collection
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";

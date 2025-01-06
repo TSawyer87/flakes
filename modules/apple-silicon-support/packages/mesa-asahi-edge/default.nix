@@ -1,7 +1,6 @@
 { lib
 , fetchFromGitLab
 , pkgs
-, meson
 , llvmPackages
 }:
 
