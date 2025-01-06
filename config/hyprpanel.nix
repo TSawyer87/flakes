@@ -28,7 +28,6 @@
     # Import a theme from './themes/*.json'.
     # Default: ""
     theme = "tokyo_night";
-
     # Override the final config with an arbitrary set.
     # Useful for overriding colors in your selected theme.
     # Default: {}
@@ -41,7 +40,7 @@
       "bar.layouts" = {
         "1" = {
           left = [ "dashboard" "workspaces" "cpu" "ram" ];
-          middle = [ "weather" "clock" "updates" ];
+          middle = [ "weather" "clock" ];
           right = [ "volume" "bluetooth" "systray" "notifications" "power" ];
         };
         "0" = {
@@ -66,12 +65,12 @@
           military = false;
           hideSeconds = true;
         };
-        weather.location = "";
-        weather.unit = "metric";
+        weather.location = "Orlando";
+        weather.unit = "imperial";
       };
 
       bar.customModules.weather.label = true;
-      bar.customModules.weather.unit = "metric";
+      bar.customModules.weather.unit = "imperial";
 
       bar.clock.format = "%a %b %d  %I:%M %p";
       bar.clock.icon = "󰸗";
