@@ -1,4 +1,4 @@
-{ pkgs }: {
+{ pkgs, ... }: {
   programs.nixvim = {
     plugins = {
       markdown-nvim = {
