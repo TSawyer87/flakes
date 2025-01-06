@@ -40,14 +40,14 @@
     layout = {
       "bar.layouts" = {
         "1" = {
-          left = [ "dashboard" "workspaces" ];
-          middle = [ "ram" "clock" "cpu" ];
-          right = [ "volume" "systray" "notifications" "power" ];
+          left = [ "dashboard" "workspaces" "cpu" "ram" ];
+          middle = [ "weather" "clock" "updates" ];
+          right = [ "volume" "bluetooth" "systray" "notifications" "power" ];
         };
         "0" = {
-          left = [ "dashboard" "workspaces" "weather" ];
-          middle = [ "ram" "clock" "cpu" ];
-          right = [ "volume" "systray" "power" ];
+          left = [ "dashboard" "workspaces" "cpu" "ram" ];
+          middle = [ "weather" "clock" ];
+          right = [ "volume" "bluetooth" "systray" "notifications" "power" ];
         };
       };
     };
@@ -73,7 +73,7 @@
       bar.customModules.weather.label = true;
       bar.customModules.weather.unit = "metric";
 
-      bar.clock.format = "%a %b %d  %I:%M:%S %p";
+      bar.clock.format = "%a %b %d  %I:%M %p";
       bar.clock.icon = "󰸗";
       bar.customModules.cpu.leftClick = "htop";
       menus.dashboard.directories.enabled = true;
