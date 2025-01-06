@@ -20,6 +20,7 @@
     ./plugins/hop.nix
     ./options.nix
     ./keymaps.nix
+    ./autocmds.nix
   ];
   programs.nixvim = {
     enable = true;
@@ -49,24 +50,6 @@
       # Set to true if you have a Nerd Font installed and selected in the terminal
       have_nerd_font = true;
     };
-
-    # [[ Basic Autocommands ]]
-    #  See `:help lua-guide-autocommands`
-    # https://nix-community.github.io/nixvim/NeovimOptions/autoCmd/index.html
-    autoCmd = [
-      # Highlight when yanking (copying) text
-      #  Try it with `yap` in normal mode
-      #  See `:help vim.highlight.on_yank()`
-      {
-        event = [ "TextYankPost" ];
-        desc = "Highlight when yanking (copying) text";
-        callback.__raw = ''
-          function()
-            vim.highlight.on_yank()
-          end
-        '';
-      }
-    ];
 
     plugins = {
       # Adds icons for plugins to utilize in ui
