@@ -53,16 +53,14 @@
         mode = [ "n" "x" "o" ];
         key = "s";
         action = ''
-          function()
-            require("flash").jump()
-          end
+          <CMD>require("flash").jump()
         '';
         options = { desc = "Flash Jump"; };
       }
       {
         mode = "c";
         key = "<c-s>";
-        action = "require('flash').toggle()";
+        action = "<CMD>require('flash').toggle()";
         options = { desc = "Toggle Flash Search"; };
       }
 
