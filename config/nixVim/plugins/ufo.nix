@@ -14,43 +14,42 @@ in {
       end
     '';
   }];
-
-  plugins = {
-    nvim-ufo = {
-      enable = true;
-      settings = {
-        provider_selector = # lua
-          ''
-            function()
-              return { "lsp", "indent" }
-            end
-          '';
-        preview.mappings = {
-          close = "q";
-          switch = "K";
+  programs.nixvim = {
+    plugins = {
+      nvim-ufo = {
+        enable = true;
+        settings = {
+          provider_selector = # lua
+            ''
+              function()
+                return { "lsp", "indent" }
+              end
+            '';
+          preview.mappings = {
+            close = "q";
+            switch = "K";
+          };
         };
       };
     };
-  };
 
-  opts = {
-    foldcolumn = "1";
-    foldlevel = 99;
-    foldlevelstart = 99;
-    foldenable = true;
-    fillchars =
-      helpers.mkRaw "[[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]";
-  };
+    opts = {
+      foldcolumn = "1";
+      foldlevel = 99;
+      foldlevelstart = 99;
+      foldenable = true;
+      fillchars =
+        helpers.mkRaw "[[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]";
+    };
 
-  keymaps = [
-    (mkKeymap "n" "zR"
-      (helpers.mkRaw ''function() require("ufo").openAllFolds() end'')
-      "Open all folds")
-    (mkKeymap "n" "zM"
-      (helpers.mkRaw ''function() require("ufo").closeAllFolds() end'')
-      "Close All Folds")
-    (mkKeymap "n" "zK"
-      (helpers.mkRaw # lua
+    keymaps = [
+      (mkKeymap "n" "zR"
+        (helpers.mkRaw ''function() require("ufo").openAllFolds() end'')
+        "Open all folds")
+      (mkKeymap "n" "zM"
+        (helpers.mkRaw ''function() require("ufo").closeAllFolds() end'')
+        "Close All Folds")
+      (mkKeymap "n" "zK" (helpers.mkRaw # lua
         ''
           function()
             local winid = require("ufo").peekFoldedLinesUnderCursor()
@@ -59,5 +58,6 @@ in {
             end
           end
         '') "Peek Folded Lines")
-  ];
+    ];
+  };
 }
