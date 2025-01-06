@@ -38,7 +38,7 @@
       # Keep signcolumn on by default
       signcolumn = "yes";
       colorcolumn = "80";
-      conceallevel = "2";
+      conceallevel = 2;
 
       # Decrease update time
       updatetime = 250;
