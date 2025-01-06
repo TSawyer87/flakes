@@ -260,6 +260,7 @@ in {
     rose-pine-cursor
     nwg-look
     pfetch-rs
+    vimPlugins.markdown-nvim
   ];
   # Styling Options
   stylix = {
