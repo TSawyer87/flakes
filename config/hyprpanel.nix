@@ -63,16 +63,19 @@
 
       menus.clock = {
         time = {
-          military = true;
+          military = false;
           hideSeconds = true;
         };
-        weather.location = "Eustis";
-        weather.unit = "imperial";
+        weather.location = "";
+        weather.unit = "metric";
       };
 
       bar.customModules.weather.label = true;
-      bar.customModules.weather.unit = "imperial";
+      bar.customModules.weather.unit = "metric";
 
+      bar.clock.format = "%a %b %d  %I:%M:%S %p";
+      bar.clock.icon = "󰸗";
+      bar.customModules.cpu.leftClick = "htop";
       menus.dashboard.directories.enabled = true;
       menus.dashboard.stats.enable_gpu = true;
       menus.dashboard.shortcuts.left.shortcut1.tooltip = "Firefox";
