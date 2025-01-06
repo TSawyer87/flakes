@@ -94,6 +94,10 @@
         enable = true;
         lazyLoad.settings.ft = "markdown";
       };
+      render-markdown = {
+        enable = true;
+        lazyLoad.settings.ft = "markdown";
+      };
       obsidian = {
         enable = true;
         settings = {
