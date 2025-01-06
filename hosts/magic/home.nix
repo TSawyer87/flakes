@@ -64,6 +64,12 @@ in {
     enable = true;
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
+    aliases = {
+      ci = "commit";
+      co = "checkout";
+      s = "status";
+      ac = "!git add -A && git commit -m ";
+    };
   };
 
   # Install & Configure tmux
