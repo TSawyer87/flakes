@@ -2,7 +2,7 @@
   programs.nixvim = {
     plugins = {
       markdown-nvim.enable = true;
-      markdown.package = pkgs.vimPlugins.markdown-nvim;
+      markdown-nvim.package = pkgs.vimPlugins.markdown-nvim;
     };
   };
 }
