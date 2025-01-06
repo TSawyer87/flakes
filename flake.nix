@@ -9,6 +9,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixvim.url = "github:nix-community/nixvim";
+    nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     wezterm.url = "github:wez/wezterm?dir=nix";
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
@@ -22,8 +23,9 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, wezterm
-    , neovim-nightly-overlay, hyprland-qtutils, ghostty, ... }@inputs:
+  outputs = { self, nixpkgs, nix-formatter-pack, home-manager
+    , nix-index-database, wezterm, neovim-nightly-overlay, hyprland-qtutils
+    , ghostty, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -69,6 +71,7 @@
           ];
         };
       };
+
       homeConfigurations."${username}@${host}" =
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}.extend
@@ -81,5 +84,18 @@
           };
           modules = [ ghostty.homeModules.default ./hosts/${host}/home.nix ];
         };
+
+      # Add the formatter configuration
+      formatter.${system} = nix-formatter-pack.lib.mkFormatter {
+        inherit nixpkgs;
+        system = system;
+        config = {
+          tools = {
+            deadnix.enable = true;
+            nixpkgs-fmt.enable = true;
+            statix.enable = true;
+          };
+        };
+      };
     };
 }
