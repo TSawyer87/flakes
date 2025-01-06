@@ -121,7 +121,7 @@ in with lib; {
       }
       bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier},F1,exec, kitty
-      bind = ${modifier},T,exec, ghostty
+      bind = ${modifier},T,exec, wezterm
       bind = ${modifier},D,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}ALT,W,exec,wallsetter
