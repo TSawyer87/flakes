@@ -1,4 +1,6 @@
-{ pkgs, inputs, ... }: {
+{ config, pkgs, inputs, ... }:
+let helpers = config.lib.nixvim;
+in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./plugins/gitsigns.nix
@@ -16,7 +18,7 @@
     ./plugins/bufferline.nix
     ./plugins/lualine.nix
     ./plugins/oil.nix
-    #./plugins/alpha.nix
+    ./plugins/alpha.nix
     #./plugins/ufo.nix
     ./plugins/flash.nix
     ./plugins/codeium.nix
