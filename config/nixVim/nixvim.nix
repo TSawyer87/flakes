@@ -90,6 +90,7 @@
         enable = true;
         lazyLoad = { settings = { cmd = "GrugFar"; }; };
       };
+      marks = { enable = true; };
       glow = {
         enable = true;
         lazyLoad.settings.ft = "markdown";
