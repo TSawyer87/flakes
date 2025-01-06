@@ -18,6 +18,7 @@
     ./plugins/oil.nix
     ./plugins/flash.nix
     ./plugins/codeium.nix
+    ./plugins/cmp.nix
     ./plugins/hop.nix
     ./options.nix
     ./keymaps.nix
