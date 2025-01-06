@@ -208,6 +208,8 @@ in {
     swappy
     appimage-run
     networkmanagerapplet
+    markdownlint-cli
+    markdownlint-cli2
     yad
     inxi
     playerctl
