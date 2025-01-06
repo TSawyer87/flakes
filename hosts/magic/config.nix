@@ -140,6 +140,7 @@ in {
     };
     plymouth.enable = true;
   };
+  powerManagement.cpuFreqGovernor = "performance";
 
   environment.systemPackages = with pkgs; [
     # (writeScriptBin "performance_hook" ''
@@ -260,6 +261,7 @@ in {
     rose-pine-cursor
     nwg-look
     pfetch-rs
+    fwupd
   ];
   # Styling Options
   stylix = {
@@ -441,7 +443,7 @@ in {
   };
 
   # Services to start
-  services.psd = {
+  services.psd = { # profile-sync-daemon
     enable = true;
     resyncTimer = "1h";
   };
@@ -471,7 +473,7 @@ in {
       };
     };
     smartd = {
-      enable = false;
+      enable = true;
       autodetect = true;
     };
     libinput.enable = true;
@@ -528,6 +530,18 @@ in {
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
+
+  services.fwupd.enable = true;
+
+  services.ollama = {
+    enable = false;
+    acceleration = "rocm";
+    environmentVariables = {
+      HCC_AMDGPU_TARGET =
+        "gfx1031"; # used to be necessary, but doesn't seem to anymore
+    };
+    rocmOverrideGfx = "10.3.1";
+  };
 
   #   hardware.printers = {
   #   ensurePrinters = [
