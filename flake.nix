@@ -10,6 +10,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixvim.url = "github:nix-community/nixvim";
     nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
+    nix-inspect.url = "github:bluskript/nix-inspect";
     wezterm.url = "github:wez/wezterm?dir=nix";
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
