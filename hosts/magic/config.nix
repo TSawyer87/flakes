@@ -166,7 +166,7 @@ in {
     # vulkan-tools
     # vulkan-loader
     # vulkan-validation-layers
-    inputs.nix-inspect.packages
+    inputs.nix-inspect.packages.${pkgs.system}.default
     vim
     mesa
     vulkan-tools
