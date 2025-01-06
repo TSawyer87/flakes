@@ -16,6 +16,7 @@
     ./plugins/bufferline.nix
     ./plugins/lualine.nix
     ./plugins/oil.nix
+    ./plugins/alpha.nix
     ./plugins/flash.nix
     ./plugins/codeium.nix
     ./plugins/markdown.nix
