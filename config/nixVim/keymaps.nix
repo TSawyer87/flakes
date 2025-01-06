@@ -50,12 +50,6 @@
         options = { desc = "Open parent directory"; };
       }
       {
-        mode = "c";
-        key = "<c-s>";
-        action = "<CMD>require('flash').toggle()";
-        options = { desc = "Toggle Flash Search"; };
-      }
-      {
         key = "s";
         action.__raw = ''
           function()
@@ -66,18 +60,15 @@
         options.remap = true;
       }
       {
-        key = "f";
+        key = "<c-s>";
         action.__raw = ''
           function()
-            require'hop'.hint_char1({
-              direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-              current_line_only = true
+            require'flash'.toggle({
             })
           end
         '';
         options.remap = true;
       }
-
     ];
   };
 }
