@@ -64,17 +64,17 @@
         options = { desc = "Toggle Flash Search"; };
       }
       {
-      key = "f";
-      action.__raw = \'\'
-        function()
-          require'hop'.hint_char1({
-            direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-            current_line_only = true
-          })
-        end
-      \'\';
-      options.remap = true;
-    }
+        key = "f";
+        action.__raw = ''
+          function()
+            require'hop'.hint_char1({
+              direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+              current_line_only = true
+            })
+          end
+        '';
+        options.remap = true;
+      }
 
     ];
   };
