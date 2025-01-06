@@ -41,12 +41,12 @@
       "bar.layouts" = {
         "1" = {
           left = [ "dashboard" "workspaces" ];
-          middle = [ "ram" "cpu" ];
+          middle = [ "ram" "clock" "cpu" ];
           right = [ "volume" "systray" "notifications" "power" ];
         };
         "0" = {
           left = [ "dashboard" "workspaces" "weather" ];
-          middle = [ "ram" "cpu" ];
+          middle = [ "ram" "clock" "cpu" ];
           right = [ "volume" "systray" "power" ];
         };
       };
