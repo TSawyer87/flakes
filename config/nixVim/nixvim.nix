@@ -20,7 +20,7 @@ in {
     ./plugins/undotree.nix
     ./plugins/oil.nix
     #./plugins/alpha.nix
-    #./plugins/ufo.nix
+    ./plugins/ufo.nix
     ./plugins/flash.nix
     ./plugins/neoscroll.nix
     ./plugins/toggleterm.nix
