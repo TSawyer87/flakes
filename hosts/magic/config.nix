@@ -124,8 +124,7 @@ in {
     # loader.efi.canTouchEfiVariables = true;
     loader.grub = {
       enable = true;
-      version = 2;
-      device = "/dev/disk/by-uuid/4D68-4FE9";
+      device = "nodev";
       efiSupport = true;
       useOSProber = true;
     };
