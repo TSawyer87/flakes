@@ -125,7 +125,7 @@ in {
     loader.grub = {
       enable = true;
       version = 2;
-      device = "nodev";
+      device = "/dev/nvme0n1p1";
       efiSupport = true;
       useOSProber = true;
     };
