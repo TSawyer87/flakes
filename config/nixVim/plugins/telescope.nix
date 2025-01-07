@@ -1,169 +1,188 @@
-{
+{ pkgs, ... }: {
   programs.nixvim = {
-    # Fuzzy Finder (files, lsp, etc)
-    # https://nix-community.github.io/nixvim/plugins/telescope/index.html
     plugins.telescope = {
-      # Telescope is a fuzzy finder that comes with a lot of different things that
-      # it can fuzzy find! It's more than just a "file finder", it can search
-      # many different aspects of Neovim, your workspace, LSP, and more!
-      #
-      # The easiest way to use Telescope, is to start by doing something like:
-      #  :Telescope help_tags
-      #
-      # After running this command, a window will open up and you're able to
-      # type in the prompt window. You'll see a list of `help_tags` options and
-      # a corresponding preview of the help.
-      #
-      # Two important keymaps to use while in Telescope are:
-      #  - Insert mode: <c-/>
-      #  - Normal mode: ?
-      #
-      # This opens a window that shows you all of the keymaps for the current
-      # Telescope picker. This is really useful to discover what Telescope can
-      # do as well as how to actually do it!
-      #
-      # [[ Configure Telescope ]]
-      # See `:help telescope` and `:help telescope.setup()`
       enable = true;
 
       # Enable Telescope extensions
       extensions = {
         fzf-native.enable = true;
-        ui-select.enable = true;
+        undo.enable = true;
+        ui-select = {
+          settings = { specific_opts = { codeactions = true; }; };
+        };
       };
 
-      # You can put your default mappings / updates / etc. in here
-      #  See `:help telescope.builtin`
-      keymaps = {
-        "<leader>sh" = {
-          mode = "n";
-          action = "help_tags";
-          options = {
-            desc = "[S]earch [H]elp";
-          };
+      settings.defaults = {
+        prompt_prefix = "   ";
+        color_devicons = true;
+        set_env.COLORTERM = "truecolor";
+      };
+
+      mappings = {
+        i = {
+          # Have Telescope not to enter a normal-like mode when hitting escape (and instead exiting), you can map <Esc> to do so via:
+          "<esc>".__raw = ''
+            function(...)
+              return require("telescope.actions").close(...)
+            end'';
+          "<c-t>".__raw = ''
+            function(...)
+              require('trouble.providers.telescope').open_with_trouble(...);
+            end
+          '';
         };
-        "<leader>sk" = {
-          mode = "n";
-          action = "keymaps";
-          options = {
-            desc = "[S]earch [K]eymaps";
-          };
-        };
-        "<leader>sf" = {
-          mode = "n";
-          action = "find_files";
-          options = {
-            desc = "[S]earch [F]iles";
-          };
-        };
-        "<leader>ss" = {
-          mode = "n";
-          action = "builtin";
-          options = {
-            desc = "[S]earch [S]elect Telescope";
-          };
-        };
-        "<leader>sw" = {
-          mode = "n";
-          action = "grep_string";
-          options = {
-            desc = "[S]earch current [W]ord";
-          };
-        };
-        "<leader>sg" = {
-          mode = "n";
-          action = "live_grep";
-          options = {
-            desc = "[S]earch by [G]rep";
-          };
-        };
-        "<leader>sd" = {
-          mode = "n";
-          action = "diagnostics";
-          options = {
-            desc = "[S]earch [D]iagnostics";
-          };
-        };
-        "<leader>sr" = {
-          mode = "n";
-          action = "resume";
-          options = {
-            desc = "[S]earch [R]esume";
-          };
-        };
-        "<leader>s" = {
-          mode = "n";
-          action = "oldfiles";
-          options = {
-            desc = "[S]earch Recent Files ('.' for repeat)";
-          };
-        };
-        "<leader><leader>" = {
-          mode = "n";
-          action = "buffers";
-          options = {
-            desc = "[ ] Find existing buffers";
-          };
+        n = {
+          "<c-t>".__raw = ''
+            function(...)
+              require('trouble.providers.telescope').open_with_trouble(...);
+            end
+          '';
         };
       };
-      settings = {
-        extensions.__raw = "{ ['ui-select'] = { require('telescope.themes').get_dropdown() } }";
-      };
+      # trim leading whitespace from grep
+      vimgrep_arguments = [
+        "${pkgs.ripgrep}/bin/rg"
+        "--color=never"
+        "--no-heading"
+        "--with-filename"
+        "--line-number"
+        "--column"
+        "--smart-case"
+        "--trim"
+      ];
     };
 
-    # https://nix-community.github.io/nixvim/keymaps/index.html
-    keymaps = [
-      # Slightly advanced example of overriding default behavior and theme
-      {
+    # You can put your default mappings / updates / etc. in here
+    #  See `:help telescope.builtin`
+    keymaps = {
+      "<leader>sh" = {
         mode = "n";
-        key = "<leader>/";
-        # You can pass additional configuration to Telescope to change the theme, layout, etc.
-        action.__raw = ''
-          function()
-            require('telescope.builtin').current_buffer_fuzzy_find(
-              require('telescope.themes').get_dropdown {
-                winblend = 10,
-                previewer = false
-              }
-            )
-          end
-        '';
-        options = {
-          desc = "[/] Fuzzily search in current buffer";
-        };
-      }
-      {
+        action = "help_tags";
+        options = { desc = "[S]earch [H]elp"; };
+      };
+      "<leader>sk" = {
         mode = "n";
-        key = "<leader>s/";
-        # It's also possible to pass additional configuration options.
-        #  See `:help telescope.builtin.live_grep()` for information about particular keys
-        action.__raw = ''
-          function()
-            require('telescope.builtin').live_grep {
-              grep_open_files = true,
-              prompt_title = 'Live Grep in Open Files'
-            }
-          end
-        '';
-        options = {
-          desc = "[S]earch [/] in Open Files";
-        };
-      }
-      # Shortcut for searching your Neovim configuration files
-      {
+        action = "keymaps";
+        options = { desc = "[S]earch [K]eymaps"; };
+      };
+      "<leader>sf" = {
         mode = "n";
-        key = "<leader>sn";
-        action.__raw = ''
-          function()
-            require('telescope.builtin').find_files {
-              cwd = vim.fn.stdpath 'config'
-            }
-          end
-        '';
-        options = {
-          desc = "[S]earch [N]eovim files";
-        };
-      }
-    ];
+        action = "find_files";
+        options = { desc = "[S]earch [F]iles"; };
+      };
+      "<leader>ss" = {
+        mode = "n";
+        action = "builtin";
+        options = { desc = "[S]earch [S]elect Telescope"; };
+      };
+      "<leader>sw" = {
+        mode = "n";
+        action = "grep_string";
+        options = { desc = "[S]earch current [W]ord"; };
+      };
+      "<leader>sg" = {
+        mode = "n";
+        action = "live_grep";
+        options = { desc = "[S]earch by [G]rep"; };
+      };
+      "<leader>sd" = {
+        mode = "n";
+        action = "diagnostics";
+        options = { desc = "[S]earch [D]iagnostics"; };
+      };
+      "<leader>sr" = {
+        mode = "n";
+        action = "resume";
+        options = { desc = "[S]earch [R]esume"; };
+      };
+      "<leader>s" = {
+        mode = "n";
+        action = "oldfiles";
+        options = { desc = "[S]earch Recent Files ('.' for repeat)"; };
+      };
+      "<leader><leader>" = {
+        mode = "n";
+        action = "buffers";
+        options = { desc = "[ ] Find existing buffers"; };
+      };
+      "<c-p>" = {
+        mode = [ "n" "i" ];
+        action = "registers";
+        options.desc = "Select register to paste";
+      };
+      "<leader>sk" = {
+        action = "keymaps";
+        options.desc = "Key maps";
+      };
+      "<leader>sM" = {
+        action = "man_pages";
+        options.desc = "Man pages";
+      };
+      "<leader>sm" = {
+        action = "marks";
+        options.desc = "Jump to Mark";
+      };
+      "<leader>so" = {
+        action = "vim_options";
+        options.desc = "Options";
+      };
+      "<leader>uC" = {
+        action = "colorscheme";
+        options.desc = "Colorscheme preview";
+      };
+    };
+    settings = {
+      extensions.__raw =
+        "{ ['ui-select'] = { require('telescope.themes').get_dropdown() } }";
+    };
   };
+
+  # https://nix-community.github.io/nixvim/keymaps/index.html
+  keymaps = [
+    # Slightly advanced example of overriding default behavior and theme
+    {
+      mode = "n";
+      key = "<leader>/";
+      # You can pass additional configuration to Telescope to change the theme, layout, etc.
+      action.__raw = ''
+        function()
+          require('telescope.builtin').current_buffer_fuzzy_find(
+            require('telescope.themes').get_dropdown {
+              winblend = 10,
+              previewer = false
+            }
+          )
+        end
+      '';
+      options = { desc = "[/] Fuzzily search in current buffer"; };
+    }
+    {
+      mode = "n";
+      key = "<leader>s/";
+      # It's also possible to pass additional configuration options.
+      #  See `:help telescope.builtin.live_grep()` for information about particular keys
+      action.__raw = ''
+        function()
+          require('telescope.builtin').live_grep {
+            grep_open_files = true,
+            prompt_title = 'Live Grep in Open Files'
+          }
+        end
+      '';
+      options = { desc = "[S]earch [/] in Open Files"; };
+    }
+    # Shortcut for searching your Neovim configuration files
+    {
+      mode = "n";
+      key = "<leader>sn";
+      action.__raw = ''
+        function()
+          require('telescope.builtin').find_files {
+            cwd = vim.fn.stdpath 'config'
+          }
+        end
+      '';
+      options = { desc = "[S]earch [N]eovim files"; };
+    }
+  ];
 }
