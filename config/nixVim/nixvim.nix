@@ -21,6 +21,7 @@ in {
     #./plugins/alpha.nix
     #./plugins/ufo.nix
     ./plugins/flash.nix
+    ./plugins/neoscroll.nix
     ./plugins/codeium.nix
     ./plugins/markdown.nix
     ./options.nix
