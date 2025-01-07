@@ -1,10 +1,10 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, icons, ... }:
 let helpers = config.lib.nixvim;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     (import ./plugins/ufo.nix { inherit helpers; })
-    (import ./plugins/alpha.nix { inherit helpers pkgs; })
+    (import ./plugins/alpha.nix { inherit helpers icons pkgs; })
     ./plugins/gitsigns.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
