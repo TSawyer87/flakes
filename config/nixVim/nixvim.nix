@@ -22,6 +22,7 @@ in {
     #./plugins/ufo.nix
     ./plugins/flash.nix
     ./plugins/neoscroll.nix
+    ./plugins/toggleterm.nix
     ./plugins/codeium.nix
     ./plugins/markdown.nix
     ./options.nix
