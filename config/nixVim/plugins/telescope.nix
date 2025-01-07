@@ -18,27 +18,6 @@
         set_env.COLORTERM = "truecolor";
       };
 
-      mappings = {
-        i = {
-          # Have Telescope not to enter a normal-like mode when hitting escape (and instead exiting), you can map <Esc> to do so via:
-          "<esc>".__raw = ''
-            function(...)
-              return require("telescope.actions").close(...)
-            end'';
-          "<c-t>".__raw = ''
-            function(...)
-              require('trouble.providers.telescope').open_with_trouble(...);
-            end
-          '';
-        };
-        n = {
-          "<c-t>".__raw = ''
-            function(...)
-              require('trouble.providers.telescope').open_with_trouble(...);
-            end
-          '';
-        };
-      };
       # trim leading whitespace from grep
       vimgrep_arguments = [
         "${pkgs.ripgrep}/bin/rg"
