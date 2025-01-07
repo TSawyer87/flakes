@@ -3,6 +3,7 @@ let helpers = config.lib.nixvim;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
+    (import ./plugins/ufo.nix { inherit helpers; })
     ./plugins/gitsigns.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
@@ -20,7 +21,6 @@ in {
     ./plugins/undotree.nix
     ./plugins/oil.nix
     #./plugins/alpha.nix
-    ./plugins/ufo.nix
     ./plugins/flash.nix
     ./plugins/neoscroll.nix
     ./plugins/toggleterm.nix
