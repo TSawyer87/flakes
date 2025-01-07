@@ -264,6 +264,7 @@ in {
     nwg-look
     pfetch-rs
     fwupd
+    nox
   ];
   # Styling Options
   stylix = {
