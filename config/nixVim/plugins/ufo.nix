@@ -1,16 +1,18 @@
 { helpers, ... }: {
-  autoCmd = [{
-    event = [ "BufEnter" "BufNew" ];
-    desc = "disable statuscolumn for neo-tree and dashboard";
-    callback = helpers.mkRaw ''
-      function()
-        local ft_ignore = { "dashboard", "neo-tree" }
-        if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
-          vim.cmd("setlocal foldcolumn=0")
+  programs.nixvim = {
+    autoCmd = [{
+      event = [ "BufEnter" "BufNew" ];
+      desc = "disable statuscolumn for neo-tree and dashboard";
+      callback = helpers.mkRaw ''
+        function()
+          local ft_ignore = { "dashboard", "neo-tree" }
+          if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
+            vim.cmd("setlocal foldcolumn=0")
+          end
         end
-      end
-    '';
-  }];
+      '';
+    }];
+  };
 
   programs.nixvim = {
     plugins = {
