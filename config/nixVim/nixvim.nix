@@ -4,7 +4,6 @@ in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     (import ./plugins/ufo.nix { inherit helpers; })
-    (import ./plugins/alpha.nix { inherit helpers icons pkgs; })
     ./plugins/gitsigns.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
@@ -24,6 +23,7 @@ in {
     ./plugins/flash.nix
     ./plugins/neoscroll.nix
     ./plugins/toggleterm.nix
+    ./plugins/alpha.nix
     ./plugins/codeium.nix
     ./plugins/markdown.nix
     ./options.nix
