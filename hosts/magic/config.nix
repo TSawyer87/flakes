@@ -129,7 +129,7 @@ in {
       efiSupport = true;
       useOSProber = true;
     };
-    boot.loader.grub.efi.canTouchEfiVariables = true;
+    loader.grub.efi.canTouchEfiVariables = true;
 
     # Make /tmp a tmpfs
     tmp = {
