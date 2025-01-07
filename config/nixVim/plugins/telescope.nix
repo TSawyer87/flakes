@@ -19,17 +19,17 @@
       };
 
       # trim leading whitespace from grep
-      vimgrep_arguments = [
-        "${pkgs.ripgrep}/bin/rg"
-        "--color=never"
-        "--no-heading"
-        "--with-filename"
-        "--line-number"
-        "--column"
-        "--smart-case"
-        "--trim"
-      ];
-    };
+    #   vimgrep_arguments = [
+    #     "${pkgs.ripgrep}/bin/rg"
+    #     "--color=never"
+    #     "--no-heading"
+    #     "--with-filename"
+    #     "--line-number"
+    #     "--column"
+    #     "--smart-case"
+    #     "--trim"
+    #   ];
+    # };
 
     # You can put your default mappings / updates / etc. in here
     #  See `:help telescope.builtin`
