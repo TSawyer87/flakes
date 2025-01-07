@@ -189,6 +189,7 @@ in {
     git
     cmatrix
     lolcat
+    efibootmgr
     htop
     pokemon-colorscripts
     libvirt
