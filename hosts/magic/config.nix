@@ -100,10 +100,9 @@ in {
       ++ (optionals hasNvidia [ "nvidia" "nvidia_drm" "nvidia_modeset" ]);
 
     kernelParams = with pkgs.lib;
-      (optionals hasAmdCpu [ "amd_pstate=active" ])
+      (optionals hasAmdCpu [ "amd_pstate=active" "tsc=unstable" ])
       ++ (optionals hasAmdGpu [ "radeon.si_support=0" "amdgpu.si_support=1" ])
       ++ (optionals hasNvidia [ "nvidia-drm.modeset=1" ]);
-       [ "tsc=unstable" ];
 
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
