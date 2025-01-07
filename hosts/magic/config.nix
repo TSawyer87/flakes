@@ -103,7 +103,7 @@ in {
       (optionals hasAmdCpu [ "amd_pstate=active" ])
       ++ (optionals hasAmdGpu [ "radeon.si_support=0" "amdgpu.si_support=1" ])
       ++ (optionals hasNvidia [ "nvidia-drm.modeset=1" ]);
-      ++ [ "tsc=unstable" ];
+       [ "tsc=unstable" ];
 
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
