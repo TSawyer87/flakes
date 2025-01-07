@@ -120,8 +120,16 @@ in {
     '';
 
     # Bootloader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    # loader.systemd-boot.enable = true;
+    # loader.efi.canTouchEfiVariables = true;
+    loader.grub = {
+      enable = true;
+      version = 2;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
+    boot.loader.grub.efi.canTouchEfiVariables = true;
 
     # Make /tmp a tmpfs
     tmp = {
