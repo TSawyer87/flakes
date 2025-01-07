@@ -110,15 +110,7 @@
         action = "registers";
         options.desc = "Select register to paste";
       };
-      "<leader>sk" = {
-        action = "keymaps";
-        options.desc = "Key maps";
-      };
-      "<leader>sM" = {
-        action = "man_pages";
-        options.desc = "Man pages";
-      };
-      "<leader>sm" = {
+      "<leader>mm" = {
         action = "marks";
         options.desc = "Jump to Mark";
       };
