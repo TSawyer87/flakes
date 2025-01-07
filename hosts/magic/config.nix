@@ -127,6 +127,7 @@ in {
     tmp = {
       useTmpfs = true;
       tmpfsSize = "50%";
+      cleanOnBoot = true;
     };
 
     # Appimage Support
