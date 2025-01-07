@@ -92,17 +92,23 @@ in {
     kernelPackages = pkgs.linuxPackages_zen;
 
     # Kernel modules and parameters for GPU support
-    kernelModules = with pkgs.lib;
-      [ "v4l2loopback" ] # For OBS Virtual Cam Support
-      ++ (optionals hasAmdCpu [ "kvm-amd" ])
-      ++ (optionals (hasIntelCpu || hasOlderIntelCpu) [ "kvm-intel" ])
-      ++ (optionals hasAmdGpu [ "amdgpu" ])
-      ++ (optionals hasNvidia [ "nvidia" "nvidia_drm" "nvidia_modeset" ]);
+    kernelModules = [ "kvm-amd" "amdgpu" "v4l2loopback" ];
+    #with pkgs.lib;
+    #[ "v4l2loopback" ] # For OBS Virtual Cam Support
+    #  ++ (optionals hasAmdCpu [ "kvm-amd" ])
+    #++ (optionals (hasIntelCpu || hasOlderIntelCpu) [ "kvm-intel" ])
+    #++ (optionals hasAmdGpu [ "amdgpu" ])
+    #++ (optionals hasNvidia [ "nvidia" "nvidia_drm" "nvidia_modeset" ]);
 
-    kernelParams = with pkgs.lib;
-      (optionals hasAmdCpu [ "amd_pstate=active" "tsc=unstable" ])
-      ++ (optionals hasAmdGpu [ "radeon.si_support=0" "amdgpu.si_support=1" ])
-      ++ (optionals hasNvidia [ "nvidia-drm.modeset=1" ]);
+    kernelParams = [
+      "amd_pstate=active"
+      "tsc=unstable"
+      "radeon.si_support=0"
+      "amdgpu.si_support=1"
+    ]; # pkgs.lib;
+    #(optionals hasAmdCpu [ "amd_pstate=active" "tsc=unstable" ]#)
+    #++ (optionals hasAmdGpu [ "radeon.si_support=0" "amdgpu.si_support=1" ])
+    #++ (optionals hasNvidia [ "nvidia-drm.modeset=1" ]);
 
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
@@ -110,14 +116,15 @@ in {
     kernel.sysctl = { "vm.max_map_count" = 2147483642; };
 
     # Module blacklisting
-    blacklistedKernelModules = with pkgs.lib;
-      (optionals hasAmdGpu [ "radeon" ]) ++ (optionals hasNvidia [ "nouveau" ]);
+    blacklistedKernelModules = [ "radeon" ];
+    #with pkgs.lib;
+    #(optionals hasAmdGpu [ "radeon" ]) ++ (optionals hasNvidia [ "nouveau" ]);
 
     # Extra modprobe config for Nvidia
-    extraModprobeConfig = pkgs.lib.mkIf hasNvidia ''
-      options nvidia-drm modeset=1
-      options nvidia NVreg_PreserveVideoMemoryAllocations=1
-    '';
+    # extraModprobeConfig = pkgs.lib.mkIf hasNvidia ''
+    #   options nvidia-drm modeset=1
+    #   options nvidia NVreg_PreserveVideoMemoryAllocations=1
+    # '';
 
     # Bootloader.
     # loader.systemd-boot.enable = true;
