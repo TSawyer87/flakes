@@ -7,10 +7,7 @@
         key = "<Esc>";
         action = "<cmd>nohlsearch<CR>";
       }
-      # Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
-      # for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
-      # is not what someone will guess without a bit more experience.
-      #
+      # Exit terminal mode 
       # NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
       # or just use <C-\><C-n> to exit terminal mode
       {
@@ -43,11 +40,115 @@
         action = "<C-w><C-k>";
         options = { desc = "Move focus to the upper window"; };
       }
+      # Move Lines
+      {
+        mode = "n";
+        key = "<A-Up>";
+        action = "<cmd>m .-2<cr>==";
+        options.desc = "Move line up";
+      }
+
+      {
+        mode = "v";
+        key = "<A-Up>";
+        action = ":m '<-2<cr>gv=gv";
+        options.desc = "Move line up";
+      }
+
+      {
+        mode = "n";
+        key = "<A-Down>";
+        action = "<cmd>m .+1<cr>==";
+        options.desc = "Move line down";
+      }
+
+      {
+        mode = "v";
+        key = "<A-Down>";
+        action = ":m '>+1<cr>gv=gv";
+        options.desc = "Move line Down";
+      }
+
+      # Better indenting
+      {
+        mode = "v";
+        key = "<";
+        action = "<gv";
+      }
+
+      {
+        mode = "v";
+        key = ">";
+        action = ">gv";
+      }
+
+      {
+        mode = "i";
+        key = "<C-a>";
+        action = "<cmd> norm! ggVG<cr>";
+        options.desc = "Select all lines in buffer";
+      }
+
+      {
+        mode = "n";
+        key = "J";
+        action = "mzJ`z";
+        options.desc =
+          "Allow cursor to stay in the same place after appending to current line ";
+      }
       {
         mode = "n";
         key = "-";
         action = "<CMD>Oil<CR>";
         options = { desc = "Open parent directory"; };
+      }
+      {
+        mode = "n";
+        key = "n";
+        action = "nzzzv";
+        options.desc = "Allow search terms to stay in the middle";
+      }
+
+      {
+        mode = "n";
+        key = "N";
+        action = "Nzzzv";
+        options.desc = "Allow search terms to stay in the middle";
+      }
+
+      # Clear search with ESC
+      {
+        mode = [ "n" "i" ];
+        key = "<esc>";
+        action = "<cmd>noh<cr><esc>";
+        options = {
+          silent = true;
+          desc = "Escape and clear hlsearch";
+        };
+      }
+
+      # Paste stuff without saving the deleted word into the buffer
+      {
+        mode = "x";
+        key = "p";
+        action = ''"_dP'';
+        options.desc = "Deletes to void register and paste over";
+      }
+
+      # Copy stuff to system clipboard with <leader> + y or just y to have it just in vim
+      {
+        mode = [ "n" "v" ];
+        key = "<leader>y";
+        action = ''"+y'';
+        options.desc = "Copy to system clipboard";
+      }
+
+      # Delete to void register
+      {
+        mode = [ "n" "v" ];
+        key = "<leader>D";
+        action = ''"_d'';
+        options.desc = "Delete to void register";
       }
       {
         key = "s";

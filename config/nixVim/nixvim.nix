@@ -17,6 +17,7 @@ in {
     ./plugins/indent-blankline.nix
     ./plugins/bufferline.nix
     ./plugins/lualine.nix
+    ./plugins/undotree.nix
     ./plugins/oil.nix
     #./plugins/alpha.nix
     #./plugins/ufo.nix
@@ -76,11 +77,11 @@ in {
           signs = true;
         };
       };
+      lazygit = { enable = true; };
       grug-far = {
         enable = true;
         lazyLoad = { settings = { cmd = "GrugFar"; }; };
       };
-      undotree = { enable = true; };
       marks = { enable = true; };
       glow = {
         enable = true;
