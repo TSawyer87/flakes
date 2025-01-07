@@ -1,6 +1,6 @@
 # homepage: https://github.com/goolord/alpha-nvim
 # nixvim doc: https://nix-community.github.io/nixvim/plugins/alpha/index.html
-{ helpers, icons, pkgs, ... }:
+{ helpers, pkgs, ... }:
 
 let
   header = {
