@@ -80,6 +80,7 @@ in {
         enable = true;
         lazyLoad = { settings = { cmd = "GrugFar"; }; };
       };
+      undotree = { enable = true; };
       marks = { enable = true; };
       glow = {
         enable = true;
@@ -91,6 +92,7 @@ in {
       };
       obsidian = {
         enable = true;
+        lazyLoad.settings.ft = "markdown";
         settings = {
           completion = {
             min_chars = 2;
