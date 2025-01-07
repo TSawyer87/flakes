@@ -125,7 +125,7 @@ in {
     loader.grub = {
       enable = true;
       version = 2;
-      device = "/dev/nvme0n1p1";
+      device = "/dev/disk/by-uuid/4D68-4FE9";
       efiSupport = true;
       useOSProber = true;
     };
