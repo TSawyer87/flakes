@@ -134,11 +134,12 @@ in {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
       };
-      grub = {
-        efiSupport = true;
-        device = "nodev";
-        useOSProber = true;
-      };
+      systemd-boot = { enable = true; };
+      # grub = {
+      #   efiSupport = true;
+      #   device = "nodev";
+      #   useOSProber = false;
+      # };
     };
 
     # Make /tmp a tmpfs
