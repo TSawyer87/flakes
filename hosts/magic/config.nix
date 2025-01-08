@@ -131,15 +131,15 @@ in {
     # loader.efi.canTouchEfiVariables = true;
     loader = {
       efi = {
-        canTouchEfiVariables = true;
+        canTouchEfiVariables = false;
         efiSysMountPoint = "/boot/efi";
       };
-      systemd-boot = { enable = true; };
-      # grub = {
-      #   efiSupport = true;
-      #   device = "nodev";
-      #   useOSProber = false;
-      # };
+      #systemd-boot = { enable = true; };
+      grub = {
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = false;
+      };
     };
 
     # Make /tmp a tmpfs
