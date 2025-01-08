@@ -1,4 +1,4 @@
-{ ghostty, ... }: {
+{ ... }: {
   programs.ghostty = {
     enable = true;
     # keybindings = {
@@ -29,5 +29,13 @@
       # Disables ligatures
       font-feature = [ "-liga" "-dlig" "-calt" ];
     };
+    extraConfig = ''
+      keybind = super+shift+h=goto_split:left;
+      keybind = super+shift+j=goto_split:bottom;
+      keybind = super+shift+k=goto_split:top;
+      keybind = super+shift+l=goto_split:right;
+
+      keybind = ctrl+page_up=jump_to_prompt:-1;
+    '';
   };
 }
