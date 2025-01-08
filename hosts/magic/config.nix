@@ -465,7 +465,7 @@ in {
   };
 
   # Services to start
-  services.psd = { # profile-sync-daemon
+  services.psd = { # profile-sync-daemon for firefox
     enable = true;
     resyncTimer = "1h";
   };
