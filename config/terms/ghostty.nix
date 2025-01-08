@@ -1,7 +1,6 @@
-{ inputs, ... }: {
+{ ... }: {
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty.homeModules.default;
     # keybindings = {
     #   "super+c" = "copy_to_clipboard";
     #
