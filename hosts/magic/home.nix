@@ -23,6 +23,7 @@ in {
     ../../config/bash.nix
     ../../config/wezterm.nix
     ../../config/kitty.nix
+    ../../config/ghostty.nix
     ../../config/zed.nix
     ../../config/starship.nix
     #inputs.nixvim.homeManagerModules.nixvim
@@ -120,28 +121,6 @@ in {
     };
 
     bash.enable = true; # see note on other shells below
-  };
-
-  programs.ghostty = {
-    enable = true;
-    settings = {
-      font-size = 14;
-      font-family = "Fira-Code-Mono Nerd Font";
-      window-decoration = false;
-      confirm-close-surface = false;
-
-      # The default is a bit intense for my liking
-      # but it looks good with some themes
-      unfocused-split-opacity = 0.9;
-      background-opacity = 0.8;
-      background-blur-radius = 20;
-
-      # Some macOS settings
-      window-theme = "dark";
-
-      # Disables ligatures
-      font-feature = [ "-liga" "-dlig" "-calt" ];
-    };
   };
 
   # Create XDG Dirs
