@@ -220,6 +220,7 @@ in {
     flake = "/home/jr/flakes";
   };
   programs = {
+    bat.enable = true;
     gh.enable = true;
     btop = {
       enable = true;
