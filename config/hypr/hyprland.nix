@@ -2,7 +2,7 @@
 
 let
   inherit (import ../hosts/${host}/variables.nix)
-    browser terminal extraMonitorSettings keyboardLayout;
+    browser terminal keyboardLayout;
 in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -34,7 +34,7 @@ in with lib; {
       exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
       exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/Bonsai-Plant.png
       monitor=,preferred,auto,1
-      ${extraMonitorSettings}
+      monitor=DP-1, 3840x2160, 0x0, 1.5
       general {
         gaps_in = 6
         gaps_out = 8
