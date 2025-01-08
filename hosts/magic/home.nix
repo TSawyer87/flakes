@@ -39,7 +39,7 @@ in {
     recursive = true;
   };
   home.file.".config/hypr/pyprland.toml" = {
-    source = ../../config/pyprland.toml;
+    source = ../../config/hypr/pyprland.toml;
     recursive = true;
   };
 
