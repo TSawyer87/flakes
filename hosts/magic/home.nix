@@ -9,26 +9,24 @@ in {
   # Import Program Configurations
   imports = [
     ../../config/emoji.nix
-    ../../config/fastfetch
-    ../../config/hyprland.nix
-    ../../config/neovim.nix
+    ../../config/hypr/hyprland.nix
+    ../../config/hypr/hyprpanel.nix
+    #../../config/hypr/swaync.nix
+    #../../config/hypr/waybar.nix
+    ../../config/hypr/wlogout.nix
+    #../../config/neovim.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
-    #../../config/swaync.nix
-    #../../config/waybar.nix
-    ../../config/wlogout.nix
-    ../../config/fastfetch
-    ../../config/zsh.nix
-    ../../config/bash.nix
-    ../../config/wezterm.nix
-    ../../config/kitty.nix
-    ../../config/ghostty.nix
+    ../../config/shells/zsh.nix
+    ../../config/shells/bash.nix
+    ../../config/shells/starship.nix
+    ../../config/shells/fastfetch
+    ../../config/terms/wezterm.nix
+    ../../config/terms/kitty.nix
+    ../../config/terms/ghostty.nix
     ../../config/zed.nix
-    ../../config/starship.nix
-    #inputs.nixvim.homeManagerModules.nixvim
     ../../config/nixVim/nixvim.nix
-    ../../config/hyprpanel.nix
   ];
 
   # Place Files Inside Home Directory
