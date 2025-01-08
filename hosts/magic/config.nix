@@ -626,12 +626,12 @@ in {
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       ];
     };
-    gc = {
-      # Auto weekly garbage collection
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
+    # gc = {
+    #   # Auto weekly garbage collection
+    #   automatic = true;
+    #   dates = "weekly";
+    #   options = "--delete-older-than 7d";
+    # };
   };
 
   # Virtualization / Containers
