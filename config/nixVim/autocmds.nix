@@ -16,6 +16,48 @@
           end
         '';
       }
+      {
+        event = [ "FileType" ];
+        pattern = [ "qf" "help" "man" "lspinfo" ];
+        command = "nnoremap <silent> <buffer> q :close<CR>";
+      }
+      # Markdown
+      {
+        event = [ "FileType" ];
+        pattern = [ "markdown" ];
+        command = "setlocal wrap";
+      }
+      {
+        event = [ "FileType" ];
+        pattern = [ "markdown" ];
+        command = "setlocal spell";
+      }
+      # Save manual folds automatically
+      {
+        event = [ "BufWrite" ];
+        pattern = [ "*" ];
+        command = "mkview";
+      }
+      {
+        event = [ "BufRead" ];
+        pattern = [ "*" ];
+        command = "silent! loadview";
+      }
+
+      # Set indent folds for python
+      {
+        event = [ "FileType" ];
+        pattern = [ "python" ];
+        command = "set foldmethod=indent";
+      }
+
+      # Display images for specific file types
+      {
+        event = [ "BufRead" ];
+        pattern = [ "*.png" "*.jpg" "*.jpeg" ];
+        command = ":call DisplayImage()";
+      }
+
       # Restore Cursor Position
       {
         event = [ "BufReadPost" ];
