@@ -26,6 +26,7 @@ in {
     ./plugins/alpha.nix
     ./plugins/codeium.nix
     ./plugins/markdown.nix
+    ./plugins/zen-mode.nix
     ./options.nix
     ./keymaps.nix
     ./autocmds.nix
