@@ -131,6 +131,7 @@ in with lib; {
       bind = ${modifier},S,exec,screenshootin
       bind = ${modifier},B,exec,discord
       bind = ${modifier},O,exec,obs
+      bind = ${modifier}Alt,Delete,exec,wlogout
       bind = ${modifier},C,exec,hyprpicker -a
       bindr=SUPER, SUPER_L, exec, pkill wofi || wofi --normal-window --show drun --allow-images
       bind = ${modifier},G,exec,gimp
