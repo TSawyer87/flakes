@@ -291,7 +291,7 @@ in {
     pkg-config
     gccgo14
     go
-    # gomuks
+    gomuks
     olm
   ];
   # Styling Options
