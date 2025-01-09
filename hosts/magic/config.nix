@@ -284,7 +284,7 @@ in {
     pfetch-rs
     fwupd
     weechat
-    weechat-matrix
+    weechatScripts.weechat-matrix-bridge
   ];
   # Styling Options
   stylix = {
