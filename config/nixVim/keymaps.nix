@@ -101,6 +101,15 @@
         options.desc = "Decrement";
       }
       {
+        key = "<C-a>";
+        action.__raw = ''
+          function()
+            require("dial.map").inc_normal()
+            end
+        '';
+        options.remap = true;
+      }
+      {
         mode = "n";
         key = "J";
         action = "mzJ`z";
