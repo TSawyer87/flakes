@@ -163,6 +163,12 @@
         options.desc = "Launch LazyGit";
       }
       {
+        mode = [ "n" ];
+        key = "<leader>dv";
+        action = "<cmd>DiffViewOpen<CR>";
+        options.desc = "Launch LazyGit";
+      }
+      {
         key = "s";
         action.__raw = ''
           function()
