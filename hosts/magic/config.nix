@@ -291,7 +291,7 @@ in {
     pkg-config
     gccgo14
     go
-    gomuks
+    # gomuks
     olm
   ];
   # Styling Options
@@ -441,6 +441,7 @@ in {
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = "olm-3.2.16";
 
   users = { mutableUsers = true; };
 
