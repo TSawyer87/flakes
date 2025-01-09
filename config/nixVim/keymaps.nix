@@ -151,6 +151,12 @@
         options.desc = "Delete to void register";
       }
       {
+        mode = [ "n" ];
+        key = "<leader>zm";
+        action = "<cmd>ZenMode<CR>";
+        options.desc = "Activate ZenMode";
+      }
+      {
         key = "s";
         action.__raw = ''
           function()
