@@ -460,8 +460,6 @@ in {
   environment.variables = {
     NIXOS = "true";
     NIXOS_VERSION = "25.05";
-    OPENSSL_DIR =
-      /nix/store/3za4imd3c8r7zm6x62khahdf5dwn2ihq-openssl-3.0.14-bin;
   };
 
   # Extra Portal Configuration
