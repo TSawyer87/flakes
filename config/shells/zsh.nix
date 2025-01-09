@@ -8,10 +8,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-        "sudo"
-      ];
+      plugins = [ "git" "sudo" ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -114,6 +111,7 @@
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";
+      keys = "ghostty +list-keybinds";
     };
   };
 
