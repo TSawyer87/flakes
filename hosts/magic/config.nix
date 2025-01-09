@@ -292,6 +292,9 @@ in {
     gccgo14
     go
     gomuks
+    olm-3
+    0.2
+    0.16
   ];
   # Styling Options
   stylix = {
