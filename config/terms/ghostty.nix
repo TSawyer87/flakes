@@ -8,10 +8,10 @@
       # Correct keybind format
       keybind = [
         "super+c=copy_to_clipboard"
-        "super+shift+h=goto_split:left"
-        "super+shift+j=goto_split:bottom"
-        "super+shift+k=goto_split:top"
-        "super+shift+l=goto_split:right"
+        "ctrl+shift+h=goto_split:left"
+        "ctrl+shift+j=goto_split:bottom"
+        "ctrl+shift+k=goto_split:top"
+        "ctrl+shift+l=goto_split:right"
         "ctrl+page_up=jump_to_prompt:-1"
       ];
       font-size = 14;
