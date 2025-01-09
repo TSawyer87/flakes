@@ -84,6 +84,7 @@ in {
         };
       };
       lazygit = { enable = true; };
+      nvim-bqf = { enable = true; };
       grug-far = {
         enable = true;
         lazyLoad = { settings = { cmd = "GrugFar"; }; };
