@@ -6,6 +6,12 @@
     installVimSyntax = true;
     settings = {
       keybind = [
+        "ctrl+a>n=new_window"
+        "ctrl+a>t=new_tab"
+        "ctrl+a>h=move_split:left"
+        "ctrl+a>l=move_split:right"
+        "ctrl+a>j=move_split:bottom"
+        "ctrl+a>k=move_split:top"
         "ctrl+alt+h=goto_split:left"
         "ctrl+alt+j=goto_split:bottom"
         "ctrl+alt+k=goto_split:top"
