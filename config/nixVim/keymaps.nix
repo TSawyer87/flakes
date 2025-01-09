@@ -101,7 +101,7 @@
         options.desc = "Decrement";
       }
       {
-        key = "<C-a>";
+        key = "<leader>a";
         action.__raw = ''
           function()
             require("dial.map").inc_normal()

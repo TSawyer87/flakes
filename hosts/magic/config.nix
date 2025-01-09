@@ -32,7 +32,6 @@ in {
     ../../modules/local-hardware-clock.nix
     #    ../../config/firefox.nix
   ];
-
   # ===== Hardware Configuration =====
   hardware = {
     # Existing config
