@@ -290,6 +290,7 @@ in {
     weechat
     openssl
     pkg-config
+    gccgo14
   ];
   # Styling Options
   stylix = {
