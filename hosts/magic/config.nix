@@ -290,6 +290,7 @@ in {
     openssl
     pkg-config
     gccgo14
+    go
     gomuks
   ];
   # Styling Options
