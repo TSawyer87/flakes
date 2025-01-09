@@ -283,7 +283,7 @@ in {
     nwg-look
     pfetch-rs
     fwupd
-    matrix-commander-rs
+    matrix-commander
   ];
   # Styling Options
   stylix = {
