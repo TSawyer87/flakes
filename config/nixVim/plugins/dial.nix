@@ -41,6 +41,11 @@
       					cyclic = true,
       				}),
       				augend.constant.new({
+      					elements = { "true", "false" },
+      					word = true,
+      					cyclic = true,
+      				}),
+      				augend.constant.new({
       					elements = { "lower", "upper" },
       					word = false,
       					cyclic = true,
