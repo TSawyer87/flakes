@@ -288,6 +288,8 @@ in {
     cargo
     fwupd
     weechat
+    openssl
+    pkg-config
   ];
   # Styling Options
   stylix = {
