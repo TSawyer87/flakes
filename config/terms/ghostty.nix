@@ -5,13 +5,11 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     settings = {
-      # Correct keybind format
       keybind = [
-        "super+c=copy_to_clipboard"
-        "ctrl+shift+h=goto_split:left"
-        "ctrl+shift+j=goto_split:bottom"
-        "ctrl+shift+k=goto_split:top"
-        "ctrl+shift+l=goto_split:right"
+        "ctrl+alt+h=goto_split:left"
+        "ctrl+alt+j=goto_split:bottom"
+        "ctrl+alt+k=goto_split:top"
+        "ctrl+alt+l=goto_split:right"
         "ctrl+page_up=jump_to_prompt:-1"
       ];
       font-size = 14;
