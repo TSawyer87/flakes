@@ -22,6 +22,7 @@ in {
     ./plugins/oil.nix
     ./plugins/flash.nix
     ./plugins/neoscroll.nix
+    ./plugins/dial.nix
     ./plugins/toggleterm.nix
     ./plugins/alpha.nix
     ./plugins/codeium.nix
