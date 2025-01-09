@@ -283,7 +283,8 @@ in {
     nwg-look
     pfetch-rs
     fwupd
-    matrix-commander
+    weechat
+    weechat-matrix
   ];
   # Styling Options
   stylix = {
