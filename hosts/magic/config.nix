@@ -282,9 +282,12 @@ in {
     rose-pine-cursor
     nwg-look
     pfetch-rs
+    rustup
+    rustc
+    rustfmt
+    cargo
     fwupd
     weechat
-    weechatScripts.weechat-matrix-bridge
   ];
   # Styling Options
   stylix = {
