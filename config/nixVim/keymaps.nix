@@ -164,9 +164,15 @@
       }
       {
         mode = [ "n" ];
-        key = "<leader>dv";
+        key = "<leader>do";
         action = "<cmd>DiffviewOpen<CR>";
-        options.desc = "DiffViewOpen";
+        options.desc = "Open Diffview";
+      }
+      {
+        mode = [ "n" ];
+        key = "<leader>dc";
+        action = "<cmd>DiffviewClose<CR>";
+        options.desc = "Close Diffview";
       }
       {
         key = "s";

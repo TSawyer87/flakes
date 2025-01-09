@@ -63,6 +63,7 @@ in {
     plugins = {
       # Adds icons for plugins to utilize in ui
       web-devicons.enable = true;
+      rainbow-delimiters = { enable = true; };
 
       # Detect tabstop and shiftwidth automatically
       # https://nix-community.github.io/nixvim/plugins/sleuth/index.html
