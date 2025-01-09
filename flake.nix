@@ -16,7 +16,6 @@
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
-    ghostty.url = "github:clo4/ghostty-hm-module";
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
@@ -24,7 +23,7 @@
     };
   };
 
-  outputs = { nixpkgs, nix-formatter-pack, home-manager, ghostty, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -81,7 +80,7 @@
             inherit system;
             inherit username;
           };
-          modules = [ ghostty.homeModules.default ./hosts/${host}/home.nix ];
+          modules = [ ./hosts/${host}/home.nix ];
         };
 
       # Add the formatter configuration
