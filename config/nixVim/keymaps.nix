@@ -157,6 +157,12 @@
         options.desc = "Activate ZenMode";
       }
       {
+        mode = [ "n" ];
+        key = "<leader>lg";
+        action = "<cmd>LazyGit<CR>";
+        options.desc = "Launch LazyGit";
+      }
+      {
         key = "s";
         action.__raw = ''
           function()

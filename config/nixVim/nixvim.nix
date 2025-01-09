@@ -70,6 +70,8 @@ in {
 
       lz-n = { enable = true; }; # lazy loading
 
+      diffview = { enable = true; };
+
       persistence = { enable = true; };
       # Highlight todo, notes, etc in comments
       # https://nix-community.github.io/nixvim/plugins/todo-comments/index.html
