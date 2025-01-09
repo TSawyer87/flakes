@@ -165,8 +165,8 @@
       {
         mode = [ "n" ];
         key = "<leader>dv";
-        action = "<cmd>DiffViewOpen<CR>";
-        options.desc = "Launch LazyGit";
+        action = "<cmd>DiffviewOpen<CR>";
+        options.desc = "DiffViewOpen";
       }
       {
         key = "s";
