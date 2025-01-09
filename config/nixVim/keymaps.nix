@@ -84,11 +84,22 @@
 
       {
         mode = "i";
-        key = "<C-a>";
+        key = "<C-b>";
         action = "<cmd> norm! ggVG<cr>";
         options.desc = "Select all lines in buffer";
       }
-
+      {
+        mode = [ "n" "v" ];
+        key = "<C-a>";
+        action = "<cmd>DialIncrement<cr>";
+        options.desc = "Increment";
+      }
+      {
+        mode = [ "n" "v" ];
+        key = "<C-x>";
+        action = "<cmd>DialDecrement<cr>";
+        options.desc = "Decrement";
+      }
       {
         mode = "n";
         key = "J";
