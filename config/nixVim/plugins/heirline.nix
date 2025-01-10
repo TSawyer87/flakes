@@ -3,7 +3,7 @@
 
 {
   programs.nixvim = {
-    extra = {
+    extraPlugins = {
       packages = [ pkgs.vimPlugins.heirline-nvim ];
 
       # Config from AstroNvim
