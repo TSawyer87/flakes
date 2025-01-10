@@ -96,7 +96,7 @@ in {
           }];
         };
 
-        tabline = lib.mkIf (!config.plugins.bufferline.enable) {
+        # tabline = lib.mkIf (!config.plugins.bufferline.enable) {
           lualine_a = [
             # NOTE: not high priority since i use bufferline now, but should fix left separator color
             {
