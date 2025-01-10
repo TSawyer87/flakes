@@ -15,8 +15,6 @@
           };
         };
       };
-
-      which-key = import ./which-key.nix { inherit config lib; };
     };
   };
 }
