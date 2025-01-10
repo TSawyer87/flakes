@@ -34,6 +34,7 @@ in {
     ./plugins/colorizer.nix
     ./plugins/notify.nix
     ./plugins/noice.nix
+    ./plugins/yazi.nix
     ./options.nix
     # ./plugin-module.nix
     ./keymaps.nix
