@@ -300,7 +300,8 @@ in {
   stylix = {
     enable = true;
     #image = ../../config/wallpapers/Lofi-Cafe1.png;
-    image = ../../config/wallpapers/bookmarks.png;
+    # image = ../../config/wallpapers/bookmarks.png;
+    image = ../../config/wallpapers/keinbackup.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
