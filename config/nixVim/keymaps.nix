@@ -232,27 +232,22 @@
         mode = [ "n" "x" "o" ];
         options.desc = "Flash Line";
       }
+      {
+        mode = "n";
+        key = "<leader>uC";
+        action.__raw = ''
+          function ()
+           vim.g.colorizing_enabled = not vim.g.colorizing_enabled
+           vim.cmd('ColorizerToggle')
+           vim.notify(string.format("Colorizing %s", bool2str(vim.g.colorizing_enabled), "info"))
+          end
+        '';
+        options = {
+          desc = "Colorizing toggle";
+          silent = true;
+        };
+      }
       # { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     ];
   };
 }
-# {
-#   key = "s";
-#   action.__raw = ''
-#     function()
-#       require'flash'.jump({
-#       })
-#     end
-#   '';
-#   options.remap = true;
-# }
-# {
-#   key = "<c-s>";
-#   action.__raw = ''
-#     function()
-#       require'flash'.toggle({
-#       })
-#     end
-#   '';
-#   options.remap = true;
-# }

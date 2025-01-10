@@ -31,6 +31,7 @@ in {
     ./plugins/markdown.nix
     ./plugins/zen-mode.nix
     ./plugins/dressing.nix
+    ./plugins/colorizer.nix
     ./options.nix
     ./keymaps.nix
     ./autocmds.nix
