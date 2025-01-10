@@ -34,6 +34,7 @@ in {
     ./options.nix
     ./keymaps.nix
     ./autocmds.nix
+    ./performance.nix
   ];
   programs.nixvim = {
     enable = true;
