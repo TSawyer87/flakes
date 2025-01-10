@@ -7,7 +7,7 @@
           globalstatus = true;
           extensions = [ "fzf" "neo-tree" ];
           disabledFiletypes = { statusline = [ "startup" "alpha" ]; };
-          theme = "tokyonight";
+          theme = "onedark";
         };
         sections = {
           lualine_a = [{
