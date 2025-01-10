@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs.nixvim = {
     plugins = {
       flash = {
