@@ -4,7 +4,7 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     installVimSyntax = true;
-    clearDefaultKeybindings = true;
+    clearDefaultKeybinds = true;
     settings = {
       keybind = [
         "alt+n=new_window"
