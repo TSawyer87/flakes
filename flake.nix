@@ -16,6 +16,7 @@
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
