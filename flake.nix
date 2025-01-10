@@ -8,8 +8,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    #nixvim.url = "github:nix-community/nixvim";
-    nvf.url = "github:notashelf/nvf";
+    nixvim.url = "github:nix-community/nixvim";
     nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     nix-inspect.url = "github:bluskript/nix-inspect";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -26,8 +25,7 @@
     };
   };
 
-  outputs =
-    { nixpkgs, nix-formatter-pack, nvf, home-manager, chaotic, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, chaotic, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -53,7 +51,6 @@
             inherit host;
           };
           modules = [
-            nvf.nixosModules.default
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
@@ -85,11 +82,8 @@
             inherit system;
             inherit username;
           };
-          modules = [
-            ./hosts/${host}/home.nix
-            chaotic.homeManagerModules.default
-            inputs.nvf.homeManagerModules.default
-          ];
+          modules =
+            [ ./hosts/${host}/home.nix chaotic.homeManagerModules.default ];
         };
 
       # Add the formatter configuration
