@@ -26,7 +26,7 @@ in {
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
     ../../config/zed.nix
-    ../../config/nixVim/nixvim.nix
+    # ../../config/nixVim/nixvim.nix
   ];
 
   # Place Files Inside Home Directory

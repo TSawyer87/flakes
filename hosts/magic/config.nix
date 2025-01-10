@@ -24,6 +24,7 @@ in {
   imports = [
     ./hardware.nix
     ./users.nix
+    ./nvf.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
