@@ -107,7 +107,7 @@ in {
         lualine_z = [ "tabs" ];
       };
 
-      winbar = {
+      settings.winbar = {
         lualine_c = [{
           __unkeyed = "navic";
           inherit cond;
