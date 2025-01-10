@@ -327,10 +327,11 @@ in {
     # };
     polarity = "dark";
     opacity.terminal = 0.8;
-    cursor.package = pkgs.bibata-cursors;
-    #cursor.package = pkgs.rose-pine-cursor;
-    #cursor.name = "Rose-Pine-Moon";
-    cursor.name = "Bibata-Modern-Ice";
+    # cursor.package = pkgs.bibata-cursors;
+    cursor.package =
+      inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+    cursor.name = "BreezeX-RosePine-Linux";
+    # cursor.name = "Bibata-Modern-Ice";
     cursor.size = 24;
     fonts = {
       monospace = {

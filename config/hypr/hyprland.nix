@@ -33,6 +33,8 @@ in with lib; {
       exec-once = wl-paste --type text --watch cliphist store # clipboard store text data
       exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
       exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/Bonsai-Plant.png
+      exec-once = gsettings set org.gnome.desktop.interface cursor-theme BreezX-RosePine-Linux
+      exec-once = gsettings set org.gnome.desktop.interface cursor-size 24
       monitor=,preferred,auto,1
       monitor=DP-1, 3840x2160, 0x0, 1.5
       general {
