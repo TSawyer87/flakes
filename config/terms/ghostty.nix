@@ -34,6 +34,8 @@
       font-family = "Fira-Code-Mono Nerd Font";
       window-decoration = false;
       confirm-close-surface = false;
+      cursor-style = "block";
+      cursor-style-blink = false;
 
       unfocused-split-opacity = 0.9;
       background-opacity = 0.8;
