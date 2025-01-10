@@ -32,6 +32,7 @@ in {
     ./plugins/zen-mode.nix
     ./plugins/dressing.nix
     ./plugins/colorizer.nix
+    ./plugins/notify.nix
     ./options.nix
     ./keymaps.nix
     ./autocmds.nix
