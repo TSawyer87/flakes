@@ -17,7 +17,8 @@ in {
     ./plugins/debug.nix
     ./plugins/indent-blankline.nix
     ./plugins/bufferline.nix
-    ./plugins/lualine.nix
+    # ./plugins/lualine.nix
+    ./plugins/heirline.nix
     ./plugins/undotree.nix
     ./plugins/oil.nix
     ./plugins/flash.nix
