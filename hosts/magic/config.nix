@@ -330,7 +330,7 @@ in {
     # cursor.package = pkgs.bibata-cursors;
     cursor.package =
       inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
-    # cursor.name = "BreezeX-RosePine-Linux";
+    cursor.name = "BreezeX-RosePine-Linux";
     # cursor.name = "Bibata-Modern-Ice";
     cursor.size = 26;
     fonts = {
