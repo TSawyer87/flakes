@@ -278,6 +278,7 @@ in {
     dmidecode
     alsa-utils
     nix-diff
+    manix
     linuxKernel.packages.linux_zen.cpupower
     tradingview
     dconf-editor
