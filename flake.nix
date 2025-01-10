@@ -11,6 +11,7 @@
     nixvim.url = "github:nix-community/nixvim";
     nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     nix-inspect.url = "github:bluskript/nix-inspect";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     wezterm.url = "github:wez/wezterm?dir=nix";
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
@@ -24,7 +25,7 @@
     };
   };
 
-  outputs = { nixpkgs, nix-formatter-pack, home-manager, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, chaotic, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -81,7 +82,8 @@
             inherit system;
             inherit username;
           };
-          modules = [ ./hosts/${host}/home.nix ];
+          modules =
+            [ ./hosts/${host}/home.nix chaotic.homeManagerModules.default ];
         };
 
       # Add the formatter configuration

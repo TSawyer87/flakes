@@ -105,7 +105,6 @@
         "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
       # Get the error messages from journalctl
       jctl = "journalctl -p 3 -xb";
-
       mkdir = "mkdir -p";
       yz = "yazi";
       ".." = "cd ..";
