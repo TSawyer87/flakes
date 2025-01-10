@@ -282,7 +282,6 @@ in {
     tradingview
     dconf-editor
     rose-pine-cursor
-    nwg-look
     pfetch-rs
     rustup
     rustc
