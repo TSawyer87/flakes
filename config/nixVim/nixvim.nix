@@ -33,7 +33,9 @@ in {
     ./plugins/dressing.nix
     ./plugins/colorizer.nix
     ./plugins/notify.nix
+    ./plugins/noice.nix
     ./options.nix
+    # ./plugin-module.nix
     ./keymaps.nix
     ./autocmds.nix
     ./performance.nix
