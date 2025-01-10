@@ -23,11 +23,11 @@
         # "ctrl+r>l=resize_split:right"
         # "ctrl+r>j=resize_split:bottom"
         # "ctrl+r>k=resize_split:top"
-        # "ctrl+h=goto_split:left"
-        # "ctrl+j=goto_split:bottom"
-        # "ctrl+k=goto_split:top"
-        # "ctrl+l=goto_split:right"
-        # "ctrl+page_up=jump_to_prompt:-1"
+        "ctrl+h=goto_split:left"
+        "ctrl+j=goto_split:bottom"
+        "ctrl+k=goto_split:top"
+        "ctrl+l=goto_split:right"
+        "ctrl+page_up=jump_to_prompt:-1"
         # "ctrl+shift+z toggle_split_zoom"
       ];
       font-size = 14;
