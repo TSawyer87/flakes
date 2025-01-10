@@ -194,26 +194,26 @@
         action = "<cmd>DiffviewClose<CR>";
         options.desc = "Close Diffview";
       }
-      {
-        key = "s";
-        action.__raw = ''
-          function()
-            require'flash'.jump({
-            })
-          end
-        '';
-        options.remap = true;
-      }
-      {
-        key = "<c-s>";
-        action.__raw = ''
-          function()
-            require'flash'.toggle({
-            })
-          end
-        '';
-        options.remap = true;
-      }
+      # {
+      #   key = "s";
+      #   action.__raw = ''
+      #     function()
+      #       require'flash'.jump({
+      #       })
+      #     end
+      #   '';
+      #   options.remap = true;
+      # }
+      # {
+      #   key = "<c-s>";
+      #   action.__raw = ''
+      #     function()
+      #       require'flash'.toggle({
+      #       })
+      #     end
+      #   '';
+      #   options.remap = true;
+      # }
     ];
   };
 }
