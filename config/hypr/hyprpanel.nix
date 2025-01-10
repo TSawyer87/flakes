@@ -27,7 +27,7 @@
 
     # Import a theme from './themes/*.json'.
     # Default: ""
-    theme = "Dracula";
+    theme = "dracula";
     # Override the final config with an arbitrary set.
     # Useful for overriding colors in your selected theme.
     # Default: {}
