@@ -37,6 +37,36 @@
             group = "Git [H]unk";
             mode = [ "n" "v" ];
           }
+          {
+            __unkeyed = "<leader>h";
+            group = "Harpoon";
+            icon = "󱡀 ";
+          }
+          {
+            __unkeyed = "<leader>ha";
+            desc = "Add";
+          }
+          {
+            __unkeyed = "<leader>he";
+            desc = "QuickMenu";
+          }
+          {
+            __unkeyed = "<leader>hj";
+            desc = "1";
+          }
+          {
+            __unkeyed = "<leader>hk";
+            desc = "2";
+          }
+          {
+            __unkeyed = "<leader>hl";
+            desc = "3";
+          }
+          {
+            __unkeyed = "<leader>hm";
+            desc = "4";
+          }
+
         ];
       };
     };
