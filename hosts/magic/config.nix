@@ -332,7 +332,7 @@ in {
       inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
     cursor.name = "BreezeX-RosePine-Linux";
     # cursor.name = "Bibata-Modern-Ice";
-    cursor.size = 24;
+    cursor.size = 26;
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.fira-mono;

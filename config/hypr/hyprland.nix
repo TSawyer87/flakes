@@ -23,7 +23,7 @@ in with lib; {
       env = SDL_VIDEODRIVER, x11
       env = MOZ_ENABLE_WAYLAND, 1
       env = HYPRCURSOR_THEME,rose-pine-hyprcursor
-      env = HYPRCURSOR_SIZE,24
+      env = HYPRCURSOR_SIZE,26
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = killall -q swww;sleep .5 && swww init
@@ -34,7 +34,7 @@ in with lib; {
       exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
       exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/Bonsai-Plant.png
       exec-once = gsettings set org.gnome.desktop.interface cursor-theme BreezX-RosePine-Linux
-      exec-once = gsettings set org.gnome.desktop.interface cursor-size 24
+      exec-once = gsettings set org.gnome.desktop.interface cursor-size 26
       monitor=,preferred,auto,1
       monitor=DP-1, 3840x2160, 0x0, 1.5
       general {
