@@ -20,6 +20,7 @@ in {
     ./plugins/lualine.nix
     ./plugins/undotree.nix
     ./plugins/navic.nix
+    ./plugins/harpoon.nix
     ./plugins/oil.nix
     ./plugins/flash.nix
     ./plugins/neoscroll.nix
