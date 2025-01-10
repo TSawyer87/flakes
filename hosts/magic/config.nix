@@ -187,7 +187,7 @@ in {
     # vulkan-validation-layers
     inputs.nix-inspect.packages.${pkgs.system}.default
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    rose-pine-cursor
+    #rose-pine-cursor
     vim
     mesa
     vulkan-tools
