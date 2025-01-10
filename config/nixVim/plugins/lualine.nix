@@ -97,31 +97,30 @@ in {
         };
 
         # tabline = lib.mkIf (!config.plugins.bufferline.enable) {
-          lualine_a = [
-            # NOTE: not high priority since i use bufferline now, but should fix left separator color
-            {
-              __unkeyed = "buffers";
-              symbols = { alternate_file = ""; };
-            }
-          ];
-          lualine_z = [ "tabs" ];
-        };
+        lualine_a = [
+          # NOTE: not high priority since i use bufferline now, but should fix left separator color
+          {
+            __unkeyed = "buffers";
+            symbols = { alternate_file = ""; };
+          }
+        ];
+        lualine_z = [ "tabs" ];
+      };
 
-        winbar = {
-          lualine_c = [{
-            __unkeyed = "navic";
-            inherit cond;
-          }];
+      winbar = {
+        lualine_c = [{
+          __unkeyed = "navic";
+          inherit cond;
+        }];
 
-          # TODO: Need to dynamically hide/show component so navic takes precedence on smaller width
-          lualine_x = [{
-            __unkeyed = "filename";
-            newfile_status = true;
-            path = 3;
-            # Shorten path names to fit navic component
-            shorting_target = 150;
-          }];
-        };
+        # TODO: Need to dynamically hide/show component so navic takes precedence on smaller width
+        lualine_x = [{
+          __unkeyed = "filename";
+          newfile_status = true;
+          path = 3;
+          # Shorten path names to fit navic component
+          shorting_target = 150;
+        }];
       };
     };
   };
