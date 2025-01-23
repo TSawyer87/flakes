@@ -1,4 +1,4 @@
-{ pkgs, username, host, system, inputs, nvf, ... }:
+{ pkgs, username, host, system, inputs, ... }:
 let inherit (import ./variables.nix) gitUsername gitEmail;
 in {
   # Home Manager Settings
