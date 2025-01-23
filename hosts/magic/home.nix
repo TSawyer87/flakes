@@ -1,4 +1,4 @@
-{ pkgs, username, host, system, inputs, ... }:
+{ pkgs, username, host, system, inputs, nvf, ... }:
 let inherit (import ./variables.nix) gitUsername gitEmail;
 in {
   # Home Manager Settings
@@ -171,10 +171,7 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
-    (import (builtins.fetchGit {
-      url = "https://github.com/notashelf/nvf";
-      ref = "main";
-    }).homeManagerModules.nvf)
+    nvf.homeManagerModules.default
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
