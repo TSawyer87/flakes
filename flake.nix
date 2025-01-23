@@ -11,21 +11,16 @@
     nixvim.url = "github:nix-community/nixvim";
     nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     nix-inspect.url = "github:bluskript/nix-inspect";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    wezterm.url = "github:wez/wezterm?dir=nix";
+    # wezterm.url = "github:wez/wezterm?dir=nix";
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
+    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
-    fine-cmdline = {
-      url = "github:VonHeikemen/fine-cmdline.nvim";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, nix-formatter-pack, home-manager, chaotic, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -40,7 +35,7 @@
       };
 
       # Combine all overlays
-      overlays = [ pokemonColorscriptsOverlay inputs.hyprpanel.overlay ];
+      overlays = [ pokemonColorscriptsOverlay ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -71,20 +66,6 @@
           ];
         };
       };
-
-      homeConfigurations."${username}@${host}" =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system}.extend
-            (final: _prev: final.lib.composeManyExtensions overlays);
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit host;
-            inherit system;
-            inherit username;
-          };
-          modules =
-            [ ./hosts/${host}/home.nix chaotic.homeManagerModules.default ];
-        };
 
       # Add the formatter configuration
       formatter.${system} = nix-formatter-pack.lib.mkFormatter {
