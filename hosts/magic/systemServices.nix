@@ -57,7 +57,25 @@ in {
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    psd = {
+      enable = true;
+      resyncTimer = "1h";
+    };
+    ollama = {
+      enable = false;
+      acceleration = "rocm";
+      environmentVariables = {
+        HCC_AMDGPU_TARGET =
+          "gfx1031"; # used to be necessary, but doesn't seem to anymore
+      };
+      rocmOverrideGfx = "10.3.1";
+    };
+    fwupd.enable = true;
     rpcbind.enable = false;
     nfs.server.enable = false;
+    # use pipewire
+    pulseaudio.enable = false;
+    # bluetooth
+    blueman.enable = true;
   };
 }
