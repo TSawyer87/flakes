@@ -22,7 +22,7 @@ in {
     ../../config/shells/bash.nix
     ../../config/shells/starship.nix
     ../../config/shells/fastfetch
-    ../../config/terms/wezterm.nix
+    # ../../config/terms/wezterm.nix
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
     ../../config/zed.nix
