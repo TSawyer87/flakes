@@ -25,6 +25,9 @@ in {
   # Enable User module
   users.enable = true;
 
+  # Custom Cachix enable
+  gytix.cachix.enable = true;
+
   # Extra Module Options
   # drivers.amdgpu.enable = true;
   drivers.nvidia.enable = false;
@@ -158,34 +161,34 @@ in {
   security.pam.services.hyprlock = { };
 
   # Optimization settings and garbage collection automation
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
-      substituters = [
-        "https://hyprland.cachix.org"
-        "https://ghostty.cachix.org"
-        "https://neovim-nightly.cachix.org"
-        "https://yazi.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://nixpkgs-wayland.cachix.org"
-      ];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
-        "neovim-nightly.cachix.org-1:feIoInHRevVEplgdZvQDjhp11kYASYCE2NGY9hNrwxY="
-        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
-        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-    };
-    # gc = {
-    #   # Auto weekly garbage collection
-    #   automatic = true;
-    #   dates = "weekly";
-    #   options = "--delete-older-than 7d";
-    # };
-  };
+  # nix = {
+  #   settings = {
+  #     auto-optimise-store = true;
+  #     experimental-features = [ "nix-command" "flakes" ];
+  #     substituters = [
+  #       "https://hyprland.cachix.org"
+  #       "https://ghostty.cachix.org"
+  #       "https://neovim-nightly.cachix.org"
+  #       "https://yazi.cachix.org"
+  #       "https://nix-community.cachix.org"
+  #       "https://nixpkgs-wayland.cachix.org"
+  #     ];
+  #     trusted-public-keys = [
+  #       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+  #       "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+  #       "neovim-nightly.cachix.org-1:feIoInHRevVEplgdZvQDjhp11kYASYCE2NGY9hNrwxY="
+  #       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
+  #       "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+  #       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  #     ];
+  #   };
+  #   # gc = {
+  #   #   # Auto weekly garbage collection
+  #   #   automatic = true;
+  #   #   dates = "weekly";
+  #   #   options = "--delete-older-than 7d";
+  #   # };
+  # };
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = true;
