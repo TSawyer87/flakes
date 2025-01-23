@@ -168,6 +168,7 @@ in {
     vim
     vulkan-loader
     vulkan-validation-layers
+    vulkan-tools
     amdvlk
     profile-sync-daemon
     wget

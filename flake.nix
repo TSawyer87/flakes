@@ -18,14 +18,23 @@
     # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, nix-formatter-pack, home-manager, ... }@inputs:
+  outputs =
+    { self, nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
+      packages.${system} = {
+        nvf = (nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          modules = [ ./nvf-configuration.nix ];
+        }).neovim;
+      };
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -68,5 +77,6 @@
           };
         };
       };
+      defaultPackage.${system} = self.packages.${system}.nvf;
     };
 }
