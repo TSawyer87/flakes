@@ -63,7 +63,6 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
-              home-manager.modules = [ nvf.homeManagerModules.default ];
             }
           ];
         };
