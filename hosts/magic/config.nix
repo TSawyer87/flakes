@@ -21,6 +21,10 @@ in {
   ];
   # Enable or Disable Stylix
   stylixModule.enable = true;
+
+  # Enable User module
+  users.enable = true;
+
   # Extra Module Options
   # drivers.amdgpu.enable = true;
   drivers.nvidia.enable = false;
