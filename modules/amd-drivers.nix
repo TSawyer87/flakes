@@ -42,21 +42,21 @@ in {
         ]);
       };
 
-      # CPU microcode updates
-      cpu = { amd.updateMicrocode = hasAmdCpu; };
+    };
+    # CPU microcode updates
+    cpu = { amd.updateMicrocode = hasAmdCpu; };
 
-      # Boot configuration for AMD GPU support
-      boot = {
-        kernelModules = [ "kvm-amd" "amdgpu" ];
-        kernelParams = [
-          "amd_pstate=active"
-          "tsc=unstable"
-          "radeon.si_support=0"
-          "amdgpu.si_support=1"
-        ];
-        extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-        blacklistedKernelModules = [ "radeon" ];
-      };
+    # Boot configuration for AMD GPU support
+    boot = {
+      kernelModules = [ "kvm-amd" "amdgpu" ];
+      kernelParams = [
+        "amd_pstate=active"
+        "tsc=unstable"
+        "radeon.si_support=0"
+        "amdgpu.si_support=1"
+      ];
+      extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+      blacklistedKernelModules = [ "radeon" ];
     };
   };
 }
