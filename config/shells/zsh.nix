@@ -84,6 +84,7 @@
       untar = "tar -zxvf ";
       egrep = "grep -E --color=auto";
       fgrep = "grep -F --color=auto";
+      nixrun = "cd ~/flakes && nix run .";
       grep = "grep --color=auto";
       vdir = "vdir --color=auto";
       dir = "dir --color=auto";
