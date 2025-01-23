@@ -26,17 +26,6 @@
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-
-      # Define the overlay for pokemon-colorscripts
-      # pokemonColorscriptsOverlay = final: _prev: {
-      #   pokemon-colorscripts = import ./modules/pokemon-colorscripts.nix {
-      #     pkgs = final;
-      #     inherit (final) lib;
-      #   };
-      # };
-      #
-      # # Combine all overlays
-      # overlays = [ pokemonColorscriptsOverlay ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -62,7 +51,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} = import ./hosts/${host}/home.nix;
+              home-manager.users.${username} =
+                import ./hosts/${host}/home.nix { inherit inputs; };
             }
           ];
         };
