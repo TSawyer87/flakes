@@ -18,10 +18,9 @@
     # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
-    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
