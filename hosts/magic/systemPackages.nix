@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
