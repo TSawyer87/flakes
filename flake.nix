@@ -18,9 +18,10 @@
     # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, nix-formatter-pack, home-manager, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -62,6 +63,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
+              home-manager.modules = [ nvf.homeManagerModules.default ];
             }
           ];
         };
