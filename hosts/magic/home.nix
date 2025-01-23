@@ -171,7 +171,7 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
-    nvf.homeManagerModules.default
+    nvf.homeManagerModules."${system}".default
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
