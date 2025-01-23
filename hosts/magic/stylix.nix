@@ -1,8 +1,8 @@
 { pkgs, inputs, config, lib, ... }:
 with lib; {
-  options = { stylix = { enable = mkEnableOption "enables stylix"; }; };
+  options = { stylixModule = { enable = mkEnableOption "enables stylix"; }; };
 
-  config = mkIf config.stylix.enable {
+  config = mkIf config.stylixModule.enable {
     stylix = {
       # enable = true;
       #image = ../../config/wallpapers/Lofi-Cafe1.png;

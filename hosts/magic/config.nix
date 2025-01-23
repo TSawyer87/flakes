@@ -20,7 +20,7 @@ in {
     #    ../../config/firefox.nix
   ];
   # Enable or Disable Stylix
-  stylix.enable = true;
+  stylixModule.enable = true;
   # Extra Module Options
   # drivers.amdgpu.enable = true;
   drivers.nvidia.enable = false;
