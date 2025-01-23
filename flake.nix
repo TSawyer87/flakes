@@ -47,6 +47,7 @@
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
+            nvf.nixosModules.default
             {
               # Apply the overlays to the NixOS system
               # nixpkgs.overlays = overlays;
