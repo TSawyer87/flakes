@@ -11,6 +11,7 @@ in {
     ./systemPrograms.nix
     ./systemServices.nix
     ./stylix.nix
+    ./cachix.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
