@@ -35,6 +35,7 @@
              fi
              source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
              source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+             pokemon-colorscripts --no-title -r
              function rbs() {
           local host="$1"
           local username="$2"
