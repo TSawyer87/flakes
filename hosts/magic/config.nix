@@ -203,7 +203,7 @@ in {
     lolcat
     efibootmgr
     htop
-    pokemon-colorscripts
+    pokemon-colorscripts-mac
     libvirt
     lxqt.lxqt-policykit
     lm_sensors

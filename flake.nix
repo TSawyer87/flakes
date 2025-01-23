@@ -27,15 +27,15 @@
       username = "jr";
 
       # Define the overlay for pokemon-colorscripts
-      pokemonColorscriptsOverlay = final: _prev: {
-        pokemon-colorscripts = import ./modules/pokemon-colorscripts.nix {
-          pkgs = final;
-          inherit (final) lib;
-        };
-      };
-
-      # Combine all overlays
-      overlays = [ pokemonColorscriptsOverlay ];
+      # pokemonColorscriptsOverlay = final: _prev: {
+      #   pokemon-colorscripts = import ./modules/pokemon-colorscripts.nix {
+      #     pkgs = final;
+      #     inherit (final) lib;
+      #   };
+      # };
+      #
+      # # Combine all overlays
+      # overlays = [ pokemonColorscriptsOverlay ];
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -51,7 +51,7 @@
             home-manager.nixosModules.home-manager
             {
               # Apply the overlays to the NixOS system
-              nixpkgs.overlays = overlays;
+              # nixpkgs.overlays = overlays;
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;

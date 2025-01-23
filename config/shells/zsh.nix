@@ -36,10 +36,10 @@
              source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
              source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
              # You can now call pokemon-colorscripts from here
-             function random_pokemon() {
-               ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
-             }
-             random_pokemon
+             # function random_pokemon() {
+             #   ${pkgs.pokemon-colorscripts}/bin/pokemon-colorscripts -r --no-title
+             # }
+             # random_pokemon
              function rbs() {
           local host="$1"
           local username="$2"
