@@ -13,6 +13,8 @@ in {
 
     nix.extraOptions = "gc-keep-outputs = true";
     nix.settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
       substituters = [
         "https://nix-community.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
