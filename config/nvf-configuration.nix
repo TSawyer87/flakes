@@ -5,7 +5,7 @@
     theme = {
       enable = true;
       name = "tokyonight";
-      style = "dark";
+      style = "night";
     };
     statusline.lualine.enable = true;
     telescope.enable = true;
