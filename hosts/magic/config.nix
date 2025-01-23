@@ -39,7 +39,7 @@ in {
     nvidiaBusID = "";
   };
   drivers.intel.enable = false;
-  vm.guest-services.enable = false;
+  vm.guest-services.enable = true;
   local.hardware-clock.enable = false;
 
   # Enable networking
