@@ -6,6 +6,7 @@ in {
   imports = [
     ./hardware.nix
     ./users.nix
+    ./boot.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
@@ -15,22 +16,22 @@ in {
     #    ../../config/firefox.nix
   ];
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
-      #systemd-boot = { enable = true; };
-      grub = {
-        efiSupport = true;
-        device = "nodev";
-        useOSProber = false;
-      };
-    };
-    plymouth.enable = true;
-  };
+  # boot = {
+  #   kernelPackages = pkgs.linuxPackages_zen;
+  #   loader = {
+  #     efi = {
+  #       canTouchEfiVariables = true;
+  #       efiSysMountPoint = "/boot/efi";
+  #     };
+  #     #systemd-boot = { enable = true; };
+  #     grub = {
+  #       efiSupport = true;
+  #       device = "nodev";
+  #       useOSProber = false;
+  #     };
+  #   };
+  #   plymouth.enable = true;
+  # };
 
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
