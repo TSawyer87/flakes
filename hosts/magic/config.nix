@@ -24,12 +24,14 @@ in {
   imports = [
     ./hardware.nix
     ./users.nix
+    inputs.nvf.nixosModules.default
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
     ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
+    ../../config/nvf-configuration.nix
     #    ../../config/firefox.nix
   ];
   # ===== Hardware Configuration =====

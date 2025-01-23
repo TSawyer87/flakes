@@ -21,7 +21,7 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
+  outputs = { nixpkgs, nix-formatter-pack, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -51,8 +51,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} =
-                import ./hosts/${host}/home.nix { inherit inputs; };
+              home-manager.users.${username} = import ./hosts/${host}/home.nix;
             }
           ];
         };
