@@ -7,6 +7,7 @@ in {
     ./hardware.nix
     ./users.nix
     ./boot.nix
+    ./systemPackages.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
@@ -16,134 +17,117 @@ in {
     #    ../../config/firefox.nix
   ];
 
-  # boot = {
-  #   kernelPackages = pkgs.linuxPackages_zen;
-  #   loader = {
-  #     efi = {
-  #       canTouchEfiVariables = true;
-  #       efiSysMountPoint = "/boot/efi";
-  #     };
-  #     #systemd-boot = { enable = true; };
-  #     grub = {
-  #       efiSupport = true;
-  #       device = "nodev";
-  #       useOSProber = false;
-  #     };
-  #   };
-  #   plymouth.enable = true;
-  # };
-
-  environment.systemPackages = with pkgs; [
-    inputs.nix-inspect.packages.${pkgs.system}.default
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    #rose-pine-cursor
-    vim
-    vulkan-loader
-    vulkan-validation-layers
-    vulkan-tools
-    amdvlk
-    profile-sync-daemon
-    wget
-    killall
-    eza
-    git
-    cmatrix
-    lolcat
-    efibootmgr
-    htop
-    pokemon-colorscripts-mac
-    libvirt
-    lxqt.lxqt-policykit
-    lm_sensors
-    unzip
-    unrar
-    libnotify
-    v4l-utils
-    ydotool
-    duf
-    ncdu
-    wl-clipboard
-    pciutils
-    ffmpeg
-    socat
-    cowsay
-    ripgrep
-    lshw
-    bat
-    pkg-config
-    meson
-    hyprpicker
-    ninja
-    brightnessctl
-    virt-viewer
-    swappy
-    appimage-run
-    networkmanagerapplet
-    markdownlint-cli
-    markdownlint-cli2
-    yad
-    inxi
-    playerctl
-    nh
-    nixfmt-classic
-    #discord
-    stdenv
-    swww
-    grim
-    slurp
-    file-roller
-    swaynotificationcenter
-    imv
-    mpv
-    gimp
-    pavucontrol
-    tree
-    cachix
-    #spotify
-    #neovide
-    dconf2nix
-    greetd.tuigreet
-    hyprls
-    jq
-    nodePackages.prettier
-    prettierd
-    ruff
-    lazygit
-    shfmt
-    shellcheck
-    nixd
-    nodejs_22
-    nil
-    lua-language-server
-    bash-language-server
-    stylua
-    cliphist
-    wofi
-    pyprland
-    zig_0_12
-    unipicker
-    nvtopPackages.amd
-    dmidecode
-    alsa-utils
-    nix-diff
-    manix
-    linuxKernel.packages.linux_zen.cpupower
-    tradingview
-    dconf-editor
-    rose-pine-cursor
-    pfetch-rs
-    rustup
-    rustc
-    rustfmt
-    cargo
-    fwupd
-    openssl
-    pkg-config
-    gccgo14
-    go
-    gomuks
-    olm
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   inputs.nix-inspect.packages.${pkgs.system}.default
+  #   inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+  #   #rose-pine-cursor
+  #   vim
+  #   vulkan-loader
+  #   vulkan-validation-layers
+  #   vulkan-tools
+  #   amdvlk
+  #   profile-sync-daemon
+  #   wget
+  #   killall
+  #   eza
+  #   git
+  #   cmatrix
+  #   lolcat
+  #   efibootmgr
+  #   htop
+  #   pokemon-colorscripts-mac
+  #   libvirt
+  #   lxqt.lxqt-policykit
+  #   lm_sensors
+  #   unzip
+  #   unrar
+  #   libnotify
+  #   v4l-utils
+  #   ydotool
+  #   duf
+  #   ncdu
+  #   wl-clipboard
+  #   pciutils
+  #   ffmpeg
+  #   socat
+  #   cowsay
+  #   ripgrep
+  #   lshw
+  #   bat
+  #   pkg-config
+  #   meson
+  #   hyprpicker
+  #   ninja
+  #   brightnessctl
+  #   virt-viewer
+  #   swappy
+  #   appimage-run
+  #   networkmanagerapplet
+  #   markdownlint-cli
+  #   markdownlint-cli2
+  #   yad
+  #   inxi
+  #   playerctl
+  #   nh
+  #   nixfmt-classic
+  #   #discord
+  #   stdenv
+  #   swww
+  #   grim
+  #   slurp
+  #   file-roller
+  #   swaynotificationcenter
+  #   imv
+  #   mpv
+  #   gimp
+  #   pavucontrol
+  #   tree
+  #   cachix
+  #   #spotify
+  #   #neovide
+  #   dconf2nix
+  #   greetd.tuigreet
+  #   hyprls
+  #   jq
+  #   nodePackages.prettier
+  #   prettierd
+  #   ruff
+  #   lazygit
+  #   shfmt
+  #   shellcheck
+  #   nixd
+  #   nodejs_22
+  #   nil
+  #   lua-language-server
+  #   bash-language-server
+  #   stylua
+  #   cliphist
+  #   wofi
+  #   pyprland
+  #   zig_0_12
+  #   unipicker
+  #   nvtopPackages.amd
+  #   dmidecode
+  #   alsa-utils
+  #   nix-diff
+  #   manix
+  #   linuxKernel.packages.linux_zen.cpupower
+  #   tradingview
+  #   dconf-editor
+  #   rose-pine-cursor
+  #   pfetch-rs
+  #   rustup
+  #   rustc
+  #   rustfmt
+  #   cargo
+  #   fwupd
+  #   openssl
+  #   pkg-config
+  #   gccgo14
+  #   go
+  #   gomuks
+  #   olm
+  # ];
   # Styling Options
   stylix = {
     enable = true;
