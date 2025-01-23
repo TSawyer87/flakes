@@ -10,9 +10,9 @@ in {
   imports = [
     ../../config/emoji.nix
     ../../config/hypr/hyprland.nix
-    ../../config/hypr/hyprpanel.nix
+    #../../config/hypr/hyprpanel.nix
     #../../config/hypr/swaync.nix
-    #../../config/hypr/waybar.nix
+    ../../config/hypr/waybar.nix
     ../../config/hypr/wlogout.nix
     #../../config/neovim.nix
     ../../config/rofi/rofi.nix
