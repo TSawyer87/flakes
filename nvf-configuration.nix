@@ -1,5 +1,5 @@
 { pkgs, lib, nvf, ... }: {
-  programs.nvf = {
+  nvf = {
     enable = true;
     settings = {
       vim.viAlias = true;
