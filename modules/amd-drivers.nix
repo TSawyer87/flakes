@@ -42,9 +42,10 @@ in {
         ]);
       };
 
+      # CPU microcode updates
+      cpu = { amd.updateMicrocode = hasAmdCpu; };
+
     };
-    # CPU microcode updates
-    cpu = { amd.updateMicrocode = hasAmdCpu; };
 
     # Boot configuration for AMD GPU support
     boot = {
