@@ -4,7 +4,7 @@
   vim = {
     theme = {
       enable = true;
-      name = "gruvbox";
+      name = "tokyonight";
       style = "dark";
     };
     statusline.lualine.enable = true;
