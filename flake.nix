@@ -32,7 +32,7 @@
       packages.${system} = {
         nvf = (nvf.lib.neovimConfiguration {
           inherit pkgs;
-          modules = [ ./nvf-configuration.nix ];
+          modules = [ ./config/nvf-configuration.nix ];
         }).neovim;
       };
       nixosConfigurations = {
