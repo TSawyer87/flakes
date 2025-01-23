@@ -1,5 +1,5 @@
 { pkgs, lib, host, config, username, ... }:
-let inherit (import ../hosts/${host}/variables.nix) keyboardLayout;
+let inherit (import ./variables.nix) keyboardLayout;
 in {
   services = {
     xserver = {
