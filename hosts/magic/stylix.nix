@@ -4,7 +4,7 @@ with lib; {
 
   config = mkIf config.stylixModule.enable {
     stylix = {
-      # enable = true;
+      enable = true;
       #image = ../../config/wallpapers/Lofi-Cafe1.png;
       # image = ../../config/wallpapers/bookmarks.png;
       # image = ../../config/wallpapers/keinbackup.png;
