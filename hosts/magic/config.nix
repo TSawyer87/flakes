@@ -8,6 +8,7 @@ in {
     ./users.nix
     ./boot.nix
     ./systemPackages.nix
+    ./systemPrograms.nix
     ./stylix.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
@@ -17,61 +18,6 @@ in {
     ../../modules/local-hardware-clock.nix
     #    ../../config/firefox.nix
   ];
-
-  # Styling Options
-  # stylix = {
-  #   enable = true;
-  #   #image = ../../config/wallpapers/Lofi-Cafe1.png;
-  #   # image = ../../config/wallpapers/bookmarks.png;
-  #   # image = ../../config/wallpapers/keinbackup.png;
-  #   image = ../../config/wallpapers/Under_Starlit_Sky.png;
-  #   base16Scheme = {
-  #     base00 = "1D2021";
-  #     base01 = "32302F";
-  #     base02 = "504945";
-  #     base03 = "665C54";
-  #     base04 = "928374";
-  #     base05 = "A89984";
-  #     base06 = "D5C4A1";
-  #     base07 = "FDF4C1";
-  #     base08 = "FB543F";
-  #     base09 = "FE8625";
-  #     base0A = "FAC03B";
-  #     base0B = "95C085";
-  #     base0C = "8BA59B";
-  #     base0D = "0D6678";
-  #     base0E = "8F4673";
-  #     base0F = "A87322";
-  #   };
-  #   polarity = "dark";
-  #   opacity.terminal = 0.8;
-  #   # cursor.package = pkgs.bibata-cursors;
-  #   cursor.package =
-  #     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
-  #   cursor.name = "BreezeX-RosePine-Linux";
-  #   # cursor.name = "Bibata-Modern-Ice";
-  #   cursor.size = 26;
-  #   fonts = {
-  #     monospace = {
-  #       package = pkgs.nerd-fonts.fira-mono;
-  #       name = "Fira-Mono";
-  #     };
-  #     sansSerif = {
-  #       package = pkgs.montserrat;
-  #       name = "Montserrat";
-  #     };
-  #     serif = {
-  #       package = pkgs.montserrat;
-  #       name = "Montserrat";
-  #     };
-  #     sizes = {
-  #       applications = 12;
-  #       terminal = 15;
-  #       desktop = 11;
-  #       popups = 12;
-  #     };
-  #   };
-  # };
 
   # Extra Module Options
   # drivers.amdgpu.enable = true;
@@ -109,57 +55,57 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  programs = {
-    thunderbird.enable = true;
-    yazi = { enable = true; };
-    firefox.enable = true;
-    starship = {
-      enable = true;
-      settings = {
-        add_newline = false;
-        buf = { symbol = " "; };
-        c = { symbol = " "; };
-        directory = { read_only = " 󰌾"; };
-        docker_context = { symbol = " "; };
-        fossil_branch = { symbol = " "; };
-        git_branch = { symbol = " "; };
-        golang = { symbol = " "; };
-        hg_branch = { symbol = " "; };
-        hostname = { ssh_symbol = " "; };
-        lua = { symbol = " "; };
-        memory_usage = { symbol = "󰍛 "; };
-        meson = { symbol = "󰔷 "; };
-        nim = { symbol = "󰆥 "; };
-        nix_shell = { symbol = " "; };
-        nodejs = { symbol = " "; };
-        ocaml = { symbol = " "; };
-        package = { symbol = "󰏗 "; };
-        python = { symbol = " "; };
-        rust = { symbol = " "; };
-        swift = { symbol = " "; };
-        zig = { symbol = " "; };
-      };
-    };
-    dconf.enable = true;
-    seahorse.enable = true;
-    fuse.userAllowOther = true;
-    mtr.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    virt-manager.enable = true;
-    steam = {
-      enable = false;
-      gamescopeSession.enable = false;
-      remotePlay.openFirewall = false;
-      dedicatedServer.openFirewall = false;
-    };
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
-    };
-  };
+  # programs = {
+  #   thunderbird.enable = true;
+  #   yazi = { enable = true; };
+  #   firefox.enable = true;
+  #   starship = {
+  #     enable = true;
+  #     settings = {
+  #       add_newline = false;
+  #       buf = { symbol = " "; };
+  #       c = { symbol = " "; };
+  #       directory = { read_only = " 󰌾"; };
+  #       docker_context = { symbol = " "; };
+  #       fossil_branch = { symbol = " "; };
+  #       git_branch = { symbol = " "; };
+  #       golang = { symbol = " "; };
+  #       hg_branch = { symbol = " "; };
+  #       hostname = { ssh_symbol = " "; };
+  #       lua = { symbol = " "; };
+  #       memory_usage = { symbol = "󰍛 "; };
+  #       meson = { symbol = "󰔷 "; };
+  #       nim = { symbol = "󰆥 "; };
+  #       nix_shell = { symbol = " "; };
+  #       nodejs = { symbol = " "; };
+  #       ocaml = { symbol = " "; };
+  #       package = { symbol = "󰏗 "; };
+  #       python = { symbol = " "; };
+  #       rust = { symbol = " "; };
+  #       swift = { symbol = " "; };
+  #       zig = { symbol = " "; };
+  #     };
+  #   };
+  #   dconf.enable = true;
+  #   seahorse.enable = true;
+  #   fuse.userAllowOther = true;
+  #   mtr.enable = true;
+  #   gnupg.agent = {
+  #     enable = true;
+  #     enableSSHSupport = true;
+  #   };
+  #   virt-manager.enable = true;
+  #   steam = {
+  #     enable = false;
+  #     gamescopeSession.enable = false;
+  #     remotePlay.openFirewall = false;
+  #     dedicatedServer.openFirewall = false;
+  #   };
+  #   thunar = {
+  #     enable = true;
+  #     plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+  #   };
+  # };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
