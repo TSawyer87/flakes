@@ -24,14 +24,12 @@ in {
   imports = [
     ./hardware.nix
     ./users.nix
-    inputs.nvf.nixosModules.default
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
     ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
-    ../../config/nvf-configuration.nix
     #    ../../config/firefox.nix
   ];
   # ===== Hardware Configuration =====
@@ -164,35 +162,10 @@ in {
   #powerManagement.cpuFreqGovernor = "performance";
 
   environment.systemPackages = with pkgs; [
-    # (writeScriptBin "performance_hook" ''
-    #   #!/usr/bin/env bash
-    #   ${pkgs.bash}/bin/bash /home/jr/scripts/performance_hook.sh
-    # '')
-    # GPU support packages
-    # (lib.optional needsMesa mesa)
-    # (lib.optional hasAmdGpu vulkan-tools)
-    # (lib.optional hasAmdGpu vulkan-loader)
-    # (lib.optional hasAmdGpu vulkan-validation-layers)
-    # (lib.optional hasAmdGpu amdvlk)
-    # (lib.optional hasNvidia nvidia-vaapi-driver)
-    # (lib.optional hasNvidia libva-vdpau-driver)
-    # (lib.optional hasNvidia vulkan-tools)
-    # (lib.optional hasNvidia vulkan-loader)
-    # (lib.optional hasNvidia vulkan-validation-layers)
-
-    # Additional system packages
-    # For Nvidia uncomment the following
-    # nvidia-vaapi-driver
-    # libva-vdpau-driver
-    # vulkan-tools
-    # vulkan-loader
-    # vulkan-validation-layers
     inputs.nix-inspect.packages.${pkgs.system}.default
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     #rose-pine-cursor
     vim
-    mesa
-    vulkan-tools
     vulkan-loader
     vulkan-validation-layers
     amdvlk
@@ -305,24 +278,24 @@ in {
     # image = ../../config/wallpapers/bookmarks.png;
     # image = ../../config/wallpapers/keinbackup.png;
     image = ../../config/wallpapers/Under_Starlit_Sky.png;
-    # base16Scheme = {
-    #   base00 = "232136";
-    #   base01 = "2a273f";
-    #   base02 = "393552";
-    #   base03 = "6e6a86";
-    #   base04 = "908caa";
-    #   base05 = "e0def4";
-    #   base06 = "e0def4";
-    #   base07 = "56526e";
-    #   base08 = "eb6f92";
-    #   base09 = "f6c177";
-    #   base0A = "ea9a97";
-    #   base0B = "3e8fb0";
-    #   base0C = "9ccfd8";
-    #   base0D = "c4a7e7";
-    #   base0E = "f6c177";
-    #   base0F = "56526e";
-    # };
+    base16Scheme = {
+      base00 = "1D2021";
+      base01 = "32302F";
+      base02 = "504945";
+      base03 = "665C54";
+      base04 = "928374";
+      base05 = "A89984";
+      base06 = "D5C4A1";
+      base07 = "FDF4C1";
+      base08 = "FB543F";
+      base09 = "FE8625";
+      base0A = "FAC03B";
+      base0B = "95C085";
+      base0C = "8BA59B";
+      base0D = "0D6678";
+      base0E = "8F4673";
+      base0F = "A87322";
+    };
     polarity = "dark";
     opacity.terminal = 0.8;
     # cursor.package = pkgs.bibata-cursors;
