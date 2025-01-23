@@ -19,7 +19,8 @@ in {
     ../../modules/local-hardware-clock.nix
     #    ../../config/firefox.nix
   ];
-
+  # Enable or Disable Stylix
+  stylix.enable = true;
   # Extra Module Options
   # drivers.amdgpu.enable = true;
   drivers.nvidia.enable = false;
@@ -90,12 +91,6 @@ in {
     ];
   };
 
-  # Services to start
-  services.psd = { # profile-sync-daemon for firefox
-    enable = true;
-    resyncTimer = "1h";
-  };
-
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];
     script = ''
@@ -115,22 +110,7 @@ in {
   # Bluetooth Support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-
-  services.fwupd.enable = true;
-
-  services.ollama = {
-    enable = false;
-    acceleration = "rocm";
-    environmentVariables = {
-      HCC_AMDGPU_TARGET =
-        "gfx1031"; # used to be necessary, but doesn't seem to anymore
-    };
-    rocmOverrideGfx = "10.3.1";
-  };
+  # services.blueman.enable = true;
 
   #   hardware.printers = {
   #   ensurePrinters = [
