@@ -14,9 +14,8 @@ in {
     ../../modules/local-hardware-clock.nix
     #    ../../config/firefox.nix
   ];
-    # Bootloader.
-    # loader.systemd-boot.enable = true;
-    # loader.efi.canTouchEfiVariables = true;
+
+  boot = {
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -29,26 +28,8 @@ in {
         useOSProber = false;
       };
     };
-
-    # Make /tmp a tmpfs
-    tmp = {
-      useTmpfs = true;
-      tmpfsSize = "50%";
-      cleanOnBoot = true;
-    };
-
-    # Appimage Support
-    binfmt.registrations.appimage = {
-      wrapInterpreterInShell = false;
-      interpreter = "${pkgs.appimage-run}/bin/appimage-run";
-      recognitionType = "magic";
-      offset = 0;
-      mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
-      magicOrExtension = "\\x7fELF....AI\\x02";
-    };
     plymouth.enable = true;
   };
-  #powerManagement.cpuFreqGovernor = "performance";
 
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
