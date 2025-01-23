@@ -1,23 +1,5 @@
 { config, pkgs, host, username, options, lib, inputs, ... }:
 let
-  drivers = [
-    "amdgpu"
-    #"intel"
-    # "nvidia"
-    "amdcpu"
-    # "intel-old"
-  ];
-
-  # Define the hardware configuration based on config
-  hasAmdCpu = builtins.elem "amdcpu" drivers;
-  hasIntelCpu = builtins.elem "intel" drivers;
-  hasAmdGpu = builtins.elem "amdgpu" drivers;
-  hasNvidia = builtins.elem "nvidia" drivers;
-  hasOlderIntelCpu = builtins.elem "intel-old" drivers;
-
-  # Define when Mesa is needed based on hardware configuration
-  needsMesa = hasAmdGpu || hasIntelCpu || hasOlderIntelCpu;
-
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
 in {
@@ -32,99 +14,6 @@ in {
     ../../modules/local-hardware-clock.nix
     #    ../../config/firefox.nix
   ];
-  # ===== Hardware Configuration =====
-  hardware = {
-    # Existing config
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = pkgs.lib.flatten (with pkgs; [
-        # AMD GPU packages
-        (lib.optional hasAmdGpu amdvlk)
-
-        # Nvidia GPU packages
-        (lib.optional hasNvidia nvidia-vaapi-driver)
-        (lib.optional hasNvidia libva-vdpau-driver)
-
-        # Intel Cpu packages
-        (lib.optional hasIntelCpu intel-media-driver)
-        (lib.optional hasOlderIntelCpu intel-vaapi-driver)
-
-        # Mesa
-        (lib.optional needsMesa mesa)
-      ]);
-      extraPackages32 = pkgs.lib.flatten (with pkgs; [
-        # AMD GPU packages
-        (lib.optional hasAmdGpu amdvlk)
-
-        # Nvidia GPU packages
-        (lib.optional hasNvidia libva-vdpau-driver)
-
-        # Intel Cpu packages
-        (lib.optional hasIntelCpu intel-media-driver)
-        (lib.optional hasOlderIntelCpu intel-vaapi-driver)
-
-        # Mesa
-        (lib.optional needsMesa mesa)
-      ]);
-    };
-
-    # CPU Configuration
-    cpu = {
-      amd.updateMicrocode = hasAmdCpu;
-      intel.updateMicrocode = hasIntelCpu || hasOlderIntelCpu;
-    };
-
-    # Nvidia specific configuration
-    nvidia = pkgs.lib.mkIf hasNvidia {
-      modesetting.enable = true;
-      powerManagement = { enable = false; };
-      open = false;
-      nvidiaSettings = true;
-      forceFullCompositionPipeline = true;
-    };
-  };
-
-  # Boot configuration for GPU support
-  boot = {
-    # Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
-
-    # Kernel modules and parameters for GPU support
-    kernelModules = [ "kvm-amd" "amdgpu" "v4l2loopback" ];
-    #with pkgs.lib;
-    #[ "v4l2loopback" ] # For OBS Virtual Cam Support
-    #  ++ (optionals hasAmdCpu [ "kvm-amd" ])
-    #++ (optionals (hasIntelCpu || hasOlderIntelCpu) [ "kvm-intel" ])
-    #++ (optionals hasAmdGpu [ "amdgpu" ])
-    #++ (optionals hasNvidia [ "nvidia" "nvidia_drm" "nvidia_modeset" ]);
-
-    kernelParams = [
-      "amd_pstate=active"
-      "tsc=unstable"
-      "radeon.si_support=0"
-      "amdgpu.si_support=1"
-    ]; # pkgs.lib;
-    #(optionals hasAmdCpu [ "amd_pstate=active" "tsc=unstable" ]#)
-    #++ (optionals hasAmdGpu [ "radeon.si_support=0" "amdgpu.si_support=1" ])
-    #++ (optionals hasNvidia [ "nvidia-drm.modeset=1" ]);
-
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-
-    # Needed For Some Steam Games
-    kernel.sysctl = { "vm.max_map_count" = 2147483642; };
-
-    # Module blacklisting
-    blacklistedKernelModules = [ "radeon" ];
-    #with pkgs.lib;
-    #(optionals hasAmdGpu [ "radeon" ]) ++ (optionals hasNvidia [ "nouveau" ]);
-
-    # Extra modprobe config for Nvidia
-    # extraModprobeConfig = pkgs.lib.mkIf hasNvidia ''
-    #   options nvidia-drm modeset=1
-    #   options nvidia NVreg_PreserveVideoMemoryAllocations=1
-    # '';
-
     # Bootloader.
     # loader.systemd-boot.enable = true;
     # loader.efi.canTouchEfiVariables = true;

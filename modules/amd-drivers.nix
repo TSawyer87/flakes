@@ -1,19 +1,62 @@
-{ lib
-, pkgs
-, config
-, ...
-}:
+{ lib, pkgs, config, ... }:
 with lib;
 let
+  drivers = [
+    "amdgpu"
+    #"intel"
+    # "nvidia"
+    "amdcpu"
+    # "intel-old"
+  ];
+
+  hasAmdCpu = builtins.elem "amdcpu" drivers;
+  hasIntelCpu = builtins.elem "intel" drivers;
+  hasAmdGpu = builtins.elem "amdgpu" drivers;
+
+  needsMesa = hasAmdGpu;
+
   cfg = config.drivers.amdgpu;
-in
-{
-  options.drivers.amdgpu = {
-    enable = mkEnableOption "Enable AMD Drivers";
-  };
+in {
+  options.drivers.amdgpu = { enable = mkEnableOption "Enable AMD Drivers"; };
 
   config = mkIf cfg.enable {
-    systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
+    # Systemd tmpfiles rules for ROCm HIP
+    systemd.tmpfiles.rules =
+      [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
+
+    # Video drivers configuration for X server
     services.xserver.videoDrivers = [ "amdgpu" ];
+
+    # Additional hardware configuration based on AMD GPU presence
+    hardware = {
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+        extraPackages = pkgs.lib.flatten (with pkgs; [
+          (lib.optional hasAmdGpu amdvlk)
+          (lib.optional needsMesa mesa)
+        ]);
+        extraPackages32 = pkgs.lib.flatten (with pkgs; [
+          (lib.optional hasAmdGpu amdvlk)
+          (lib.optional needsMesa mesa)
+        ]);
+      };
+
+      # CPU microcode updates
+      cpu = { amd.updateMicrocode = hasAmdCpu; };
+
+      # Boot configuration for AMD GPU support
+      boot = {
+        kernelModules = [ "kvm-amd" "amdgpu" ];
+        kernelParams = [
+          "amd_pstate=active"
+          "tsc=unstable"
+          "radeon.si_support=0"
+          "amdgpu.si_support=1"
+        ];
+        extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+        blacklistedKernelModules = [ "radeon" ];
+      };
+    };
   };
 }
