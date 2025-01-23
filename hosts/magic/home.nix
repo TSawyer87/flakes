@@ -11,7 +11,7 @@ in {
     ../../config/emoji.nix
     ../../config/hypr/hyprland.nix
     #../../config/hypr/hyprpanel.nix
-    #../../config/hypr/swaync.nix
+    ../../config/hypr/swaync.nix
     ../../config/hypr/waybar.nix
     ../../config/hypr/wlogout.nix
     #../../config/neovim.nix
@@ -91,12 +91,6 @@ in {
     '';
   };
 
-  programs.zathura = { enable = true; };
-
-  programs.go = { enable = true; };
-
-  programs.nix-index = { enable = true; }; # nix-locate
-
   # programs.nixvim = { enable = true; };
   # programs.foot = {
   #   enable = true;
@@ -119,6 +113,12 @@ in {
     };
 
     bash.enable = true; # see note on other shells below
+
+    programs.zathura = { enable = true; };
+
+    programs.go = { enable = true; };
+
+    programs.nix-index = { enable = true; }; # nix-locate
   };
 
   # Create XDG Dirs
@@ -145,7 +145,6 @@ in {
 
   # Styling Options
   stylix.targets.waybar.enable = false;
-  stylix.targets.wezterm.enable = true;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
   gtk = {
