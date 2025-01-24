@@ -66,6 +66,7 @@ in with lib; {
       exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
       exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/nord-space.png
       exec-once = waybar &
+      exec-once = foot --server
       monitor=,preferred,auto,1
       monitor=DP-1, 3840x2160, 0x0, 1.5
       general {
@@ -152,7 +153,7 @@ in with lib; {
       }
       bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier},F1,exec, kitty
-      bind = ${modifier},T,exec, wezterm
+      bind = ${modifier},T,exec, footclient
       bind = ${modifier},D,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}ALT,W,exec,wallsetter
