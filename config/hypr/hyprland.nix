@@ -6,7 +6,7 @@ let
 in with lib; {
   home.packages = with pkgs; [
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    inputs.hyprland-qtutils.packages."${pkgs.system}".default
+    # inputs.hyprland-qtutils.packages."${pkgs.system}".default
     wl-clipboard
     cliphist
     wlogout

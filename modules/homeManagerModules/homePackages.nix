@@ -1,7 +1,7 @@
 { pkgs, host, username, inputs, ... }: {
   home.packages = [
     #inputs.zen-browser.packages."${pkgs.system}".specific
-    # inputs.hyprland-qtutils.packages."${pkgs.system}".default
+    inputs.hyprland-qtutils.packages."${pkgs.system}".default
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.iotop # io monitoring
