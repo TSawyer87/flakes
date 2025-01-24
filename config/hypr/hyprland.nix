@@ -26,7 +26,6 @@ in with lib; {
     #brightnessctl
   ];
   xdg = {
-    xdg.portal.config.common.default = "*";
     portal = {
       enable = true;
       config = { common = { default = [ "*" ]; }; };
