@@ -1,4 +1,4 @@
-{ lib, username, host, config, inputs, ... }:
+{ pkgs, lib, username, host, config, inputs, system, ... }:
 
 let
   inherit (import ../../hosts/${host}/variables.nix)
