@@ -33,35 +33,6 @@ in {
     ../../modules/homeManagerModules/homeFiles.nix
   ];
 
-  # Place Files Inside Home Directory
-  # home.file."Pictures/Wallpapers" = {
-  #   source = ../../config/wallpapers;
-  #   recursive = true;
-  # };
-  # home.file.".config/wlogout/icons" = {
-  #   source = ../../config/wlogout;
-  #   recursive = true;
-  # };
-  # home.file.".config/hypr/pyprland.toml" = {
-  #   source = ../../config/hypr/pyprland.toml;
-  #   recursive = true;
-  # };
-  #
-  # # home.file.".face.icon".source = ../../config/face.jpg;
-  # # home.file.".config/face.jpg".source = ../../config/face.jpg;
-  # home.file.".config/swappy/config".text = ''
-  #   [Default]
-  #   save_dir=/home/${username}/Pictures/Screenshots
-  #   save_filename_format=swappy-%Y%m%d-%H%M%S.png
-  #   show_panel=false
-  #   line_size=5
-  #   text_size=20
-  #   text_font=Ubuntu
-  #   paint_mode=brush
-  #   early_exit=true
-  #   fill_shape=false
-  # '';
-
   # Create XDG Dirs
   xdg = {
     # configFile."mimeapps.list".text = ''
@@ -101,28 +72,5 @@ in {
     style.name = "adwaita-dark";
     platformTheme.name = "gtk3";
   };
-  # services = {
-  #
-  #   hypridle = {
-  #     settings = {
-  #       general = {
-  #         after_sleep_cmd = "hyprctl dispatch dpms on";
-  #         ignore_dbus_inhibit = false;
-  #         lock_cmd = "hyprlock";
-  #       };
-  #       listener = [
-  #         {
-  #           timeout = 900;
-  #           on-timeout = "hyprlock";
-  #         }
-  #         {
-  #           timeout = 1200;
-  #           on-timeout = "hyprctl dispatch dpms off";
-  #           on-resume = "hyprctl dispatch dpms on";
-  #         }
-  #       ];
-  #     };
-  #   };
-  # };
 
 }
