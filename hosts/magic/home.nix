@@ -1,7 +1,8 @@
 { pkgs, username, homeDirectory, stateVersion, ... }: {
   # Home Manager Settings
   home = {
-    inherit homeDirectory stateVersion username;
+    username = "${username}";
+    stateVersion = "${stateVersion}";
 
     # Import Program Configurations
     imports = [
