@@ -7,7 +7,7 @@
         main = {
           term = "xterm-256color";
           font = "JetBrainsMono Nerd Font Mono:size=15";
-          dpi-aware = "no";
+          dpi-aware = "yes";
         };
         mouse = { hide-when-typing = "yes"; };
       };
