@@ -93,18 +93,9 @@ in {
     NIXOS_VERSION = "25.05";
   };
 
-  # Extra Portal Configuration
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal
-    ];
-  };
+  xdg.portal.wlr.enable = true;
 
+  # Extra Portal Configuration
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];
     script = ''
