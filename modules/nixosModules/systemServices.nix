@@ -1,5 +1,5 @@
 { pkgs, lib, host, config, username, ... }:
-let inherit (import ./variables.nix) keyboardLayout;
+let inherit (import ../../hosts/magic/variables.nix) keyboardLayout;
 in {
   services = {
     xserver = {
