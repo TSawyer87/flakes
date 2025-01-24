@@ -17,22 +17,16 @@
 
       nix.enable = true;
     };
-    lazy.plugins = {
-      "aerial.nvim" = {
-        package = pkgs.vimPlugins.aerial-nvim;
-        setupModule = "aerial";
-        lazy = true;
+    extraPlugins = with pkgs.vimPlugins; {
+      aerial = {
+        package = aerial-nvim;
+        setup = "require('aerial').setup {}";
+      };
 
-        # load on command
-        # cmd = ["AerialOpen"];
-
-        # load on event
-        # event = ["BufEnter"];
-
-        keys = [{
-          key = "<leader>a";
-          action = ":AerialToggle<CR>";
-        }];
+      harpoon = {
+        package = harpoon;
+        setup = "require('harpoon').setup {}";
+        after = [ "aerial" ]; # place harpoon configuration after aerial
       };
     };
   };
