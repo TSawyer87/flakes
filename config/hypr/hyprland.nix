@@ -28,7 +28,7 @@ in with lib; {
   xdg = {
     portal = {
       enable = true;
-      config = { common = { default = [ "*" ]; }; };
+      config.common.default = "*";
       extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
       configPackages = [
         pkgs.xdg-desktop-portal-gtk
