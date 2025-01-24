@@ -1,6 +1,6 @@
 { pkgs, username, lib, config, ... }:
 
-let inherit (import ./variables.nix) gitUsername;
+let inherit (import ../../hosts/magic/variables.nix) gitUsername;
 in {
   options = { users.enable = lib.mkEnableOption "Enables users module"; };
 
