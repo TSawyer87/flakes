@@ -1,10 +1,10 @@
 # Flakes Structure and Usage
 
--   This flake provides two NixOS configurations:
+- This flake provides two NixOS configurations:
 
-    -   magic: A desktop configuration for AMD hardware.
+  - magic: A desktop configuration for AMD hardware.
 
-    -   laptop: A desktop configuration for Intel hardware.
+  - laptop: A desktop configuration for Intel hardware.
 
 **Customizing the Flake**
 
@@ -16,10 +16,10 @@ To personalize this flake for your system, follow these steps:
 sudo nixos-generate-config --show-hardware-config > hardware.nix
 ```
 
--   If the above command fails, I've found that `nh` picks up everything better
-    initially. Also `nh` is what is used in the `fr` and `fu` aliases.
+- If the above command fails, I've found that `nh` picks up everything better
+  initially. Also `nh` is what is used in the `fr` and `fu` aliases.
 
--   You can use `nix-shell -p nh`, then run the command:
+- You can use `nix-shell -p nh`, then run the command:
 
 ```nix
 nh os switch --hostname ${host} /home/${username}/flakes
@@ -41,41 +41,56 @@ sudo nixos-rebuild switch --flake /home/<username>/flakes#<hostname>
 
 After your flake is initialized, a few aliases:
 
--   `fr` = flake rebuild, # use this after making any changes to make them take effect and persist.
+- `fr` = flake rebuild, # use this after making any changes to make them take effect and persist.
 
--   `fu` = flake update, # updates the dependencies of your current flake project.
+- `fu` = flake update, # updates the dependencies of your current flake project.
 
--   `ncg` = Nix Collect Garbage
+- `ncg` = Nix Collect Garbage
 
--   `Super+Return` = launch Wezterm
+- `Super+Return` = launch Wezterm
 
--   `v`, `vi` = Neovim, I'm pretty happy with the config so far.
+- `v`, `vi` = Neovim, I'm pretty happy with the config so far.
 
-| Nvim Keybind         | Description                  |
-| -------------------- | ---------------------------- |
-| `leader`             | Space                        |
-| `leader + fm`        | conform format manual        |
-| `leader + j`         | hop-nvim                     |
-| `leader + s`         | splits                       |
-| `leader+zm`          | Zen-Mode                     |
-| `Shift+ h`           | switch buffer left           |
-| `Shift+ l`           | switch buffer right          |
-| `-`                  | launch oil.nvim file browser |
-| `Ctrl+;` or `Ctrl+y` | accept cmp or codeium        |
-| `Ctrl+`              | Launch toggleterm            |
-| `Ctrl+/`             | Close toggleterm             |
-| `zR`                 | open all folds (ufo)         |
-| `zM`                 | close all folds              |
+| Nvim Keybind         | Description                                         |
+| -------------------- | --------------------------------------------------- |
+| `leader`             | Space                                               |
+| `leader + fm`        | conform format manual can be used to check nix code |
+| `leader + j`         | Treesj splits & joins blocks of code                |
+| `leader + s`         | splits                                              |
+| `leader+zm`          | Zen-Mode                                            |
+| `Shift+ h`           | switch buffer left                                  |
+| `Shift+ l`           | switch buffer right                                 |
+| `-`                  | launch oil.nvim file browser                        |
+| `Ctrl+;` or `Ctrl+y` | accept cmp or codeium                               |
+| `Ctrl+ tik char`     | Launch toggleterm                                   |
+| `Ctrl+/`             | Close toggleterm                                    |
+| `zR`                 | open all folds (ufo)                                |
+| `zM`                 | close all folds                                     |
+| `s`                  | flash-nvim movement                                 |
+| `leader + e`         | yazi-nvim file browser                              |
+| `leader + ha`        | harpoon add                                         |
 
--   `yz` = Yazi, terminal based file manager, uses `vim` bindings.
+- `yz` = Yazi, terminal based file manager, uses `vim` bindings.
 
--   `Ctrl-r` = Mcfly history search
+- `Ctrl-r` = Mcfly history search
 
--   `tldr` = Tealdeer example-based docs.
+- `tldr` = Tealdeer example-based docs.
 
--   `z` = Zoxide
+- `z` = Zoxide
 
--   `zed` = Zed-Editor
+- `zed` = Zed-Editor
+
+- `vi` = Neovim with NixVim, I also have a regular neovim config through home-manager that can be changed to by uncommenting the import of `neovim.nix`. I also added a standalone NVF neovim configuration that can be run with `nv` or `nix run` when in the `flakes` directory.
+
+### Structure
+
+- The main `config.nix` and `home.nix` files are located in the `~/flakes/hosts/${host}/` directory.
+
+- In the `~/flakes/modules/nixosModules/` directory are the modules imported into your `config.nix`, this is where you can add system packages, programs, and services.
+
+- The same for home-manager, the modules imported into the `home.nix` are located in `~/flakes/modules/homeManagerModules/` you can add home packages, programs, and more there.
+
+- Most of the actual configuration is done in the `~/flakes/config/` directory, thats where you'll find the neovim configuration as well as hyprland and more.
 
 ### This flake is inspired by the ZaneyOS project:
 

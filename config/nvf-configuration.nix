@@ -17,5 +17,23 @@
 
       nix.enable = true;
     };
+    lazy.plugins = {
+      "aerial.nvim" = {
+        package = pkgs.vimPlugins.aerial-nvim;
+        setupModule = "aerial";
+        lazy = true;
+
+        # load on command
+        # cmd = ["AerialOpen"];
+
+        # load on event
+        # event = ["BufEnter"];
+
+        keys = [{
+          key = "<leader>a";
+          action = ":AerialToggle<CR>";
+        }];
+      };
+    };
   };
 }
