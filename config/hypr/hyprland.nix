@@ -23,6 +23,7 @@ in with lib; {
     wofi
     pyprland
     yad
+    hyprlang
     #brightnessctl
   ];
   xdg = {
