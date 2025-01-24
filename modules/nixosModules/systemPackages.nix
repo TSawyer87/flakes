@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    #inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     #rose-pine-cursor
     vim
     vulkan-loader
@@ -28,7 +28,7 @@
     ydotool
     duf
     ncdu
-    wl-clipboard
+    # wl-clipboard
     pciutils
     ffmpeg
     socat
@@ -38,31 +38,31 @@
     bat
     pkg-config
     meson
-    hyprpicker
+    #hyprpicker
     ninja
-    brightnessctl
-    virt-viewer
-    swappy
+    #brightnessctl
+    virt-viewer # graphical consol client for qemu
+    #swappy
     appimage-run
-    networkmanagerapplet
+    #networkmanagerapplet
     markdownlint-cli
     markdownlint-cli2
-    yad
+    #yad
     inxi
-    playerctl
+    #playerctl
     nh
     nixfmt-classic
     #discord
     stdenv
-    swww
-    grim
-    slurp
+    #swww
+    #grim
+    # slurp
     file-roller
-    swaynotificationcenter
+    # swaynotificationcenter
     imv
     mpv
     gimp
-    pavucontrol
+    # pavucontrol
     tree
     cachix
     #spotify
@@ -83,9 +83,9 @@
     lua-language-server
     bash-language-server
     stylua
-    cliphist
-    wofi
-    pyprland
+    #cliphist
+    #wofi
+    #pyprland
     zig_0_12
     unipicker
     nvtopPackages.amd

@@ -1,9 +1,30 @@
-{ lib, username, host, config, ... }:
+{ lib, username, host, config, inputs, ... }:
 
 let
   inherit (import ../../hosts/${host}/variables.nix)
     browser terminal keyboardLayout;
 in with lib; {
+  home.packages = with pkgs; [
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    wayland
+    wl-clipboard
+    cliphist
+    wlogout
+    wofi
+    rofi-wayland
+    slurp
+    grim
+    swww
+    swaynotificationcenter
+    pavucontrol
+    hyprpicker
+    swappy
+    networkmanagerapplet
+    wofi
+    pyprland
+    yad
+    #brightnessctl
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
