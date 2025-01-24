@@ -14,7 +14,7 @@
     # wezterm.url = "github:wez/wezterm?dir=nix";
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     # hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
+    # hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
