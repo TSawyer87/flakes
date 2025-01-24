@@ -28,6 +28,11 @@ in with lib; {
   xdg = {
     portal = {
       enable = true;
+      config = {
+        common = { default = [ "hyprland" "gtk" "qt" ]; };
+        "org.freedesktop.portal.ScreenCast" = [ "wlr" ];
+        "org.freedesktop.portal.ScreenShot" = [ "wlr" ];
+      };
       extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
       configPackages = [
         pkgs.xdg-desktop-portal-gtk
