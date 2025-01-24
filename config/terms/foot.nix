@@ -6,7 +6,7 @@
       settings = {
         main = {
           term = "xterm-256color";
-          font = "Fira-Mono:size=15";
+          font = "Fira-Code:size=15";
           dpi-aware = "no";
         };
         mouse = { hide-when-typing = "yes"; };
