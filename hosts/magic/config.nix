@@ -7,7 +7,7 @@ in {
     ./hardware.nix
     ../../modules/nixosModules/users.nix
     ../../modules/nixosModules/boot.nix
-    # ./security.nix
+    ../../modules/nixosModules/security.nix
     ../../modules/nixosModules/systemPackages.nix
     ../../modules/nixosModules/systemPrograms.nix
     ../../modules/nixosModules/systemServices.nix
@@ -141,31 +141,31 @@ in {
   #   ensureDefaultPrinter = "HP_OfficeJet_Pro_6970_F7873C";
   # };
   # Security / Polkit
-  security.rtkit.enable = true;
-  security.polkit.enable = true;
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (
-        subject.isInGroup("users")
-          && (
-            action.id == "org.freedesktop.login1.reboot" ||
-            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-            action.id == "org.freedesktop.login1.power-off" ||
-            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-          )
-        )
-      {
-        return polkit.Result.YES;
-      }
-    })
-  '';
-  security.pam.services.swaylock = {
-    text = ''
-      auth include login
-    '';
-  };
-
-  security.pam.services.hyprlock = { };
+  # security.rtkit.enable = true;
+  # security.polkit.enable = true;
+  # security.polkit.extraConfig = ''
+  #   polkit.addRule(function(action, subject) {
+  #     if (
+  #       subject.isInGroup("users")
+  #         && (
+  #           action.id == "org.freedesktop.login1.reboot" ||
+  #           action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+  #           action.id == "org.freedesktop.login1.power-off" ||
+  #           action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+  #         )
+  #       )
+  #     {
+  #       return polkit.Result.YES;
+  #     }
+  #   })
+  # '';
+  # security.pam.services.swaylock = {
+  #   text = ''
+  #     auth include login
+  #   '';
+  # };
+  #
+  # security.pam.services.hyprlock = { };
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = true;
@@ -174,9 +174,6 @@ in {
     dockerCompat = true;
     defaultNetwork.settings.dns_enabled = true;
   };
-
-  # OpenGL
-  #hardware.graphics = { enable = true; };
 
   console.keyMap = "${keyboardLayout}";
 
