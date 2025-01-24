@@ -27,7 +27,8 @@
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = inputs.nixpkgs;
+      #pkgs = nixpkgs.legacyPackages.${system};
     in {
       packages.${system} = {
         nvf = (nvf.lib.neovimConfiguration {
