@@ -32,7 +32,6 @@
 
       config = { allowUnfree = true; };
 
-      homeDirectory = "/home/${username}";
       #pkgs = nixpkgs.legacyPackages.${system};
     in {
       packages.${system} = {
@@ -66,9 +65,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} = import ./hosts/${host}/home.nix {
-                inherit homeDirectory stateVersion;
-              };
+              home-manager.users.${username} =
+                import ./hosts/${host}/home.nix { inherit stateVersion; };
             }
           ];
         };
