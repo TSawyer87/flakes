@@ -5,14 +5,14 @@ let
 in {
   imports = [
     ./hardware.nix
-    ./users.nix
-    ./boot.nix
+    ../../modules/nixosModules/users.nix
+    ../../modules/nixosModules/boot.nix
     # ./security.nix
-    ./systemPackages.nix
-    ./systemPrograms.nix
-    ./systemServices.nix
-    ./stylix.nix
-    ./cachix.nix
+    ../../modules/nixosModules/systemPackages.nix
+    ../../modules/nixosModules/systemPrograms.nix
+    ../../modules/nixosModules/systemServices.nix
+    ../../modules/nixosModules/stylix.nix
+    ../../modules/nixosModules/cachix.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
