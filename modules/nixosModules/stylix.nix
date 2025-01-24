@@ -74,8 +74,8 @@ with lib; {
       cursor.size = 26;
       fonts = {
         monospace = {
-          package = pkgs.nerd-fonts.fira-mono;
-          name = "Fira-Mono";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font Mono";
         };
         sansSerif = {
           package = pkgs.montserrat;
