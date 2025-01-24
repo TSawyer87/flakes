@@ -13,8 +13,8 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
     # wezterm.url = "github:wez/wezterm?dir=nix";
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
@@ -22,8 +22,8 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, nix-formatter-pack, home-manager, nvf, hyprland
-    , ... }@inputs:
+  outputs =
+    { self, nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
