@@ -26,9 +26,10 @@ in with lib; {
     #brightnessctl
   ];
   xdg = {
+    xdg.portal.config.common.default = "*";
     portal = {
       enable = true;
-      config = { common = { default = [ "hyprland" "gtk" "qt" ]; }; };
+      config = { common = { default = [ "*" ]; }; };
       extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
       configPackages = [
         pkgs.xdg-desktop-portal-gtk
