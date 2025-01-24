@@ -1,4 +1,4 @@
-{ pkgs, lib, host, config, username, ... }:
+{ pkgs, username, ... }:
 let inherit (import ../../hosts/magic/variables.nix) keyboardLayout;
 in {
   services = {
@@ -57,6 +57,8 @@ in {
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    # use pipewire
+    pulseaudio.enable = false;
     psd = {
       enable = true;
       resyncTimer = "1h";
@@ -74,8 +76,6 @@ in {
     fwupd.enable = true;
     rpcbind.enable = false;
     nfs.server.enable = false;
-    # use pipewire
-    pulseaudio.enable = false;
     # bluetooth
     blueman.enable = true;
   };
