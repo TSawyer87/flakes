@@ -29,7 +29,6 @@
       username = "jr";
       stateVersion = 23.11;
       pkgs = import nixpkgs;
-      inherit system;
 
       config = { allowUnfree = true; };
 
