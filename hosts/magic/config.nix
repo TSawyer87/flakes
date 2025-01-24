@@ -1,4 +1,4 @@
-{ config, pkgs, host, username, options, lib, inputs, ... }:
+{ pkgs, host, options, ... }:
 let
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
@@ -13,6 +13,7 @@ in {
     ../../modules/nixosModules/systemServices.nix
     ../../modules/nixosModules/stylix.nix
     ../../modules/nixosModules/cachix.nix
+    ../../modules/nixosModules/xdg.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
