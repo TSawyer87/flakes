@@ -27,12 +27,7 @@
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      stateVersion = 23.11;
-      pkgs = import nixpkgs;
-
-      config = { allowUnfree = true; };
-
-      #pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
       packages.${system} = {
         nvf = (nvf.lib.neovimConfiguration {
@@ -65,8 +60,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} =
-                import ./hosts/${host}/home.nix { inherit stateVersion; };
+              home-manager.users.${username} = import ./hosts/${host}/home.nix;
             }
           ];
         };
