@@ -94,16 +94,16 @@ in {
   };
 
   # Extra Portal Configuration
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal
-    ];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   wlr.enable = true;
+  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal ];
+  #   configPackages = [
+  #     pkgs.xdg-desktop-portal-gtk
+  #     pkgs.xdg-desktop-portal-hyprland
+  #     pkgs.xdg-desktop-portal
+  #   ];
+  # };
 
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];
@@ -140,32 +140,6 @@ in {
   #   ];
   #   ensureDefaultPrinter = "HP_OfficeJet_Pro_6970_F7873C";
   # };
-  # Security / Polkit
-  # security.rtkit.enable = true;
-  # security.polkit.enable = true;
-  # security.polkit.extraConfig = ''
-  #   polkit.addRule(function(action, subject) {
-  #     if (
-  #       subject.isInGroup("users")
-  #         && (
-  #           action.id == "org.freedesktop.login1.reboot" ||
-  #           action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-  #           action.id == "org.freedesktop.login1.power-off" ||
-  #           action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-  #         )
-  #       )
-  #     {
-  #       return polkit.Result.YES;
-  #     }
-  #   })
-  # '';
-  # security.pam.services.swaylock = {
-  #   text = ''
-  #     auth include login
-  #   '';
-  # };
-  #
-  # security.pam.services.hyprlock = { };
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = true;
