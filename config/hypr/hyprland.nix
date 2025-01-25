@@ -152,7 +152,7 @@ in with lib; {
         preserve_split = true
       }
       bind = ${modifier},Return,exec,${terminal}
-      bind = ${modifier},K,exec, kitty
+      bind = ${modifier},T,exec, kitty
       bind = ${modifier},D,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}ALT,W,exec,wallsetter

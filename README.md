@@ -51,6 +51,8 @@ After your flake is initialized, a few aliases:
 
 - `Super+T` = launch Kitty terminal
 
+- `Super+Shift+Return` = launch kitty dropdown scratchpad
+
 - `v`, `vi` = Neovim, I'm pretty happy with the config so far.
 
 | Nvim Keybind         | Description                                         |
