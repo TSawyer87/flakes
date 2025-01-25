@@ -75,7 +75,7 @@ with lib; {
       fonts = {
         monospace = {
           package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font Mono";
+          name = "JetBrains Mono";
         };
         # sansSerif = {
         #   package = pkgs.montserrat;
