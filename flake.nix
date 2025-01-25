@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    hydenix-nixpkgs.url =
-      "github:nixos/nixpkgs/5df43628fdf08d642be8ba5b3625a6c70731c19c";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -30,7 +28,7 @@
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      pkgs = inputs.hydenix-nixpkgs {
+      pkgs = inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
