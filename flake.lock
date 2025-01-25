@@ -624,22 +624,6 @@
         "type": "github"
       }
     },
-    "hydenix-nixpkgs": {
-      "locked": {
-        "lastModified": 1737062831,
-        "narHash": "sha256-Tbk1MZbtV2s5aG+iM99U8FqwxU/YNArMcWAv6clcsBc=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "5df43628fdf08d642be8ba5b3625a6c70731c19c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "5df43628fdf08d642be8ba5b3625a6c70731c19c",
-        "type": "github"
-      }
-    },
     "hyprlang": {
       "inputs": {
         "nixpkgs": [
@@ -4051,7 +4035,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "hydenix-nixpkgs": "hydenix-nixpkgs",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-formatter-pack": "nix-formatter-pack",
         "nix-index-database": "nix-index-database",

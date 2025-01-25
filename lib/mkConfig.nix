@@ -8,5 +8,5 @@
 
   nix-vm = import ../hosts/vm/nix-vm.nix { inherit userConfig; };
 
-  arch-vm = import ../hosts/vm/arch-vm.nix { inherit pkgs userConfig; };
+  arch-vm = (import ../hosts/vm/arch-vm.nix { inherit pkgs userConfig; });
 }
