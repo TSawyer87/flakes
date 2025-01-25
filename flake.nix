@@ -28,14 +28,19 @@
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      packages.${system} = {
-        nvf = (nvf.lib.neovimConfiguration {
-          inherit pkgs;
-          modules = [ ./config/nvf-configuration.nix ];
-        }).neovim;
+      pkgs = inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
+
+      mkConfig = import ./lib/mkConfig.nix { inherit inputs pkgs system; };
+
+      defaultConfig = mkConfig {
+        userConfig = import ./hosts/${host}/config.nix;
+        extraInputs = { };
+      };
+    in {
+      lib = { inherit mkConfig; };
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -79,6 +84,11 @@
           };
         };
       };
-      defaultPackage.${system} = self.packages.${system}.nvf;
+      default = defaultConfig.nixosConfiguration.config.system.build.toplevel;
+
+      arch-vm = defaultConfig.arch-vm;
+
+      devShells.${system}.default =
+        import ./lib/dev-shell.nix { inherit pkgs; };
     };
 }

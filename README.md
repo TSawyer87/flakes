@@ -47,11 +47,19 @@ After your flake is initialized, a few aliases:
 
 - `ncg` = Nix Collect Garbage
 
+- `upd` = `sudo nixos-rebuild switch --upgrade`
+
 - `Super+Return` = launch Ghostty terminal
 
 - `Super+T` = launch Kitty terminal
 
 - `Super+Shift+Return` = launch kitty dropdown scratchpad
+
+- `Super+D` = rofi
+
+- `Super` = wofi
+
+- Click the top right keys for a cheatsheet that might be out of date
 
 - `v`, `vi` = Neovim, I'm pretty happy with the config so far.
 
