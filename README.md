@@ -49,7 +49,7 @@ After your flake is initialized, a few aliases:
 
 - `Super+Return` = launch Ghostty terminal
 
-- `Super+T` = launch footclient terminal
+- `Super+T` = launch Kitty terminal
 
 - `v`, `vi` = Neovim, I'm pretty happy with the config so far.
 

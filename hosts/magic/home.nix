@@ -22,7 +22,6 @@
     ../../config/shells/fastfetch
     # ../../config/terms/wezterm.nix
     ../../config/terms/kitty.nix
-    ../../config/terms/foot.nix
     ../../config/terms/ghostty.nix
     ../../config/zed.nix
     ../../config/nixVim/nixvim.nix
