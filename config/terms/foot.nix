@@ -8,7 +8,7 @@
     settings = {
       main = {
         term = "xterm-256color";
-        font = "JetBrains Mono Nerd Font Mono:size=15";
+        font = "JetBrainsMono Nerd Font Mono:size=15";
       };
 
     };
