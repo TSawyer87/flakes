@@ -11,7 +11,7 @@ in with lib; {
     settings = [{
       layer = "top";
       position = "top";
-      modules-center = [ "hyprland/workspaces" ];
+      modules-center = [ "hyprland/workspaces" "clock" ];
       modules-left = [
         "custom/startmenu"
         "hyprland/window"
@@ -23,10 +23,9 @@ in with lib; {
       modules-right = [
         "custom/hyprbindings"
         "custom/notification"
-        "custom/exit"
         "battery"
         "tray"
-        "clock"
+        "custom/exit"
       ];
 
       "hyprland/workspaces" = {
