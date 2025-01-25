@@ -6,7 +6,7 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrains Mono:size=12";
+        font = "JetBrains Mono:size=15";
         # Adjust spacing and line-height if needed
         spacing = 0;
         line-height = "1.0";
@@ -16,18 +16,6 @@
         regular = {
           family = "JetBrains Mono";
           style = "Regular";
-        };
-        bold = {
-          family = "JetBrains Mono";
-          style = "Bold";
-        };
-        italic = {
-          family = "JetBrains Mono";
-          style = "Italic";
-        };
-        boldItalic = {
-          family = "JetBrains Mono";
-          style = "Bold Italic";
         };
       };
     };
