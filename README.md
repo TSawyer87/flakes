@@ -47,7 +47,9 @@ After your flake is initialized, a few aliases:
 
 - `ncg` = Nix Collect Garbage
 
-- `Super+Return` = launch Wezterm
+- `Super+Return` = launch Ghostty terminal
+
+- `Super+T` = launch footclient terminal
 
 - `v`, `vi` = Neovim, I'm pretty happy with the config so far.
 
@@ -91,6 +93,8 @@ After your flake is initialized, a few aliases:
 - The same for home-manager, the modules imported into the `home.nix` are located in `~/flakes/modules/homeManagerModules/` you can add home packages, programs, and more there.
 
 - Most of the actual configuration is done in the `~/flakes/config/` directory, thats where you'll find the neovim configuration as well as hyprland and more.
+
+- I set my cursor with stylix so to change cursors the directory is `~/flakes/modules/nixosModules/stylix.nix`
 
 ### This flake is inspired by the ZaneyOS project:
 

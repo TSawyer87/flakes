@@ -1,17 +1,35 @@
-{ ... }: {
-  programs = {
-    foot = {
-      enable = true;
-      server.enable = true;
-      settings = {
-        main = {
-          term = "xterm-256color";
-          font = "JetBrainsMono Nerd Font Mono:size=15";
-          dpi-aware = "no";
+{ ... }:
+
+{
+
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        font = "JetBrains Mono:size=12";
+        # Adjust spacing and line-height if needed
+        spacing = 0;
+        line-height = "1.0";
+      };
+
+      fonts = {
+        regular = {
+          family = "JetBrains Mono";
+          style = "Regular";
         };
-        mouse = { hide-when-typing = "yes"; };
+        bold = {
+          family = "JetBrains Mono";
+          style = "Bold";
+        };
+        italic = {
+          family = "JetBrains Mono";
+          style = "Italic";
+        };
+        boldItalic = {
+          family = "JetBrains Mono";
+          style = "Bold Italic";
+        };
       };
     };
-
   };
 }
