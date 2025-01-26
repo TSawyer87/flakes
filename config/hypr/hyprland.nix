@@ -6,7 +6,6 @@ let
 in with lib; {
   home.packages = with pkgs; [
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    # inputs.hyprland-qtutils.packages."${pkgs.system}".default
     wl-clipboard
     cliphist
     wlogout
@@ -23,7 +22,7 @@ in with lib; {
     wofi
     pyprland
     yad
-    hyprlang
+    libsForQt5.qt5ct
     #brightnessctl
   ];
   # xdg = {
@@ -66,7 +65,6 @@ in with lib; {
       exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
       exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/nord-space.png
       exec-once = waybar &
-      exec-once = foot --server
       monitor=,preferred,auto,1
       monitor=DP-1, 3840x2160, 0x0, 1.5
       general {
