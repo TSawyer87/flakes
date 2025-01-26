@@ -24,7 +24,7 @@ let
       format            = "qcow2"
       accelerator       = "kvm"
       ssh_username      = "${userConfig.username}"
-      ssh_password      = "${userConfig.defaultPassword}"
+      ssh_password      = "${userConfig.users.users.username.hashedPassword}"
       ssh_timeout       = "20m"
       vm_name           = "arch-vm"
       memory            = "${toString userConfig.vm.memorySize}"
