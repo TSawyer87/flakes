@@ -7,7 +7,8 @@
     userPkgs = extraPkgs;
   };
 
-  nixosConfiguration = import ../hosts/nixos { inherit commonArgs; };
+  # nixosConfiguration = import ../hosts/nixos { inherit commonArgs; };
+  nixosConfiguration = import ../hosts/magic { inherit commonArgs; };
 
   # Add ISO configuration
   installer = import ./iso { inherit commonArgs; };
