@@ -27,10 +27,13 @@
         config.allowUnfree = true;
       };
 
-      userConfig = import ./hosts/${host}/config.nix;
-      extraInputs = { };
+      userConfig = import ./hosts/${host}/config.nix {
+        inherit config pkgs lib;
+        config = { };
+        lib = nixpkgs.lib;
+        extraInputs = { };
+      };
     in {
-      lib = { inherit userConfig; };
       # nixosConfigurations.nixos = defaultConfig.nixosConfiguration;
       # nixosConfigurations.${defaultConfig.userConfig.host} =
       # defaultConfig.nixosConfiguration;
@@ -69,13 +72,13 @@
       formatter.${system} = nix-formatter-pack.lib.mkFormatter {
         inherit nixpkgs;
         inherit system;
-        config = {
-          tools = {
-            deadnix.enable = true;
-            nixpkgs-fmt.enable = true;
-            statix.enable = true;
-          };
-        };
+        # config = {
+        #   tools = {
+        #     deadnix.enable = true;
+        #     nixpkgs-fmt.enable = true;
+        #     statix.enable = true;
+        #   };
+        # };
       };
       packages.${system} = {
 
