@@ -29,7 +29,7 @@
       lib = nixpkgs.lib;
 
       userConfig = import ./hosts/${host}/config.nix {
-        inherit config pkgs lib;
+        inherit pkgs lib;
         extraInputs = { };
       };
     in {
