@@ -23,6 +23,8 @@ in {
     #    ../../config/firefox.nix
   ];
 
+  defaultPassword = "Tbone123";
+
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
