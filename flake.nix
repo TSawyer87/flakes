@@ -11,31 +11,31 @@
     nixvim.url = "github:nix-community/nixvim";
     nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     nix-inspect.url = "github:bluskript/nix-inspect";
+    # wezterm.url = "github:wez/wezterm?dir=nix";
+    #zen-browser.url = "github:MarceColl/zen-browser-flake";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
+    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, config, nix-formatter-pack, home-manager, nvf, ...
-    }@inputs:
+  outputs =
+    { self, nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
-
-      userConfig = import ./hosts/${host}/config.nix {
-        inherit pkgs lib;
-        extraInputs = { };
-      };
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
-      # nixosConfigurations.nixos = defaultConfig.nixosConfiguration;
-      # nixosConfigurations.${defaultConfig.userConfig.host} =
-      # defaultConfig.nixosConfiguration;
+      packages.${system} = {
+        nvf = (nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          modules = [ ./config/nvf-configuration.nix ];
+        }).neovim;
+      };
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -79,15 +79,6 @@
           };
         };
       };
-      packages.${system} = {
-
-        default = userConfig.nixosConfiguration.config.system.build.toplevel;
-
-        # arch-vm = userConfig.arch-vm;
-        arch-vm = import ./hosts/vm/arch-vm.nix { inherit pkgs userConfig; };
-
-      };
-      devShells.${system}.default =
-        import ./lib/dev-shell.nix { inherit pkgs; };
+      defaultPackage.${system} = self.packages.${system}.nvf;
     };
 }
