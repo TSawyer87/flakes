@@ -27,14 +27,10 @@
         config.allowUnfree = true;
       };
 
-      mkConfig = import ./lib/mkConfig.nix { inherit inputs pkgs system; };
-
-      defaultConfig = mkConfig {
-        userConfig = import ./hosts/${host}/config.nix;
-        extraInputs = { };
-      };
+      userConfig = import ./hosts/${host}/config.nix;
+      extraInputs = { };
     in {
-      lib = { inherit mkConfig; };
+      lib = { inherit userConfig; };
       # nixosConfigurations.nixos = defaultConfig.nixosConfiguration;
       # nixosConfigurations.${defaultConfig.userConfig.host} =
       # defaultConfig.nixosConfiguration;
@@ -83,9 +79,9 @@
       };
       packages.${system} = {
 
-        default = defaultConfig.nixosConfiguration.config.system.build.toplevel;
+        default = userConfig.nixosConfiguration.config.system.build.toplevel;
 
-        arch-vm = defaultConfig.arch-vm;
+        arch-vm = userConfig.arch-vm;
 
       };
       devShells.${system}.default =
