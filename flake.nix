@@ -28,7 +28,7 @@
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      pkgs = inputs.nixpkgs {
+      pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
