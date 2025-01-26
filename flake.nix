@@ -16,8 +16,8 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs =
-    { self, nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
+  outputs = { self, nixpkgs, config, nix-formatter-pack, home-manager, nvf, ...
+    }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
@@ -26,11 +26,10 @@
         inherit system;
         config.allowUnfree = true;
       };
+      lib = nixpkgs.lib;
 
       userConfig = import ./hosts/${host}/config.nix {
         inherit config pkgs lib;
-        config = { };
-        lib = nixpkgs.lib;
         extraInputs = { };
       };
     in {
@@ -72,19 +71,20 @@
       formatter.${system} = nix-formatter-pack.lib.mkFormatter {
         inherit nixpkgs;
         inherit system;
-        # config = {
-        #   tools = {
-        #     deadnix.enable = true;
-        #     nixpkgs-fmt.enable = true;
-        #     statix.enable = true;
-        #   };
-        # };
+        config = {
+          tools = {
+            deadnix.enable = true;
+            nixpkgs-fmt.enable = true;
+            statix.enable = true;
+          };
+        };
       };
       packages.${system} = {
 
         default = userConfig.nixosConfiguration.config.system.build.toplevel;
 
-        arch-vm = userConfig.arch-vm;
+        # arch-vm = userConfig.arch-vm;
+        arch-vm = import ./hosts/vm/arch-vm.nix { inherit pkgs userConfig; };
 
       };
       devShells.${system}.default =
