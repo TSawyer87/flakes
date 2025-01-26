@@ -90,6 +90,8 @@
     unipicker
     nvtopPackages.amd
     dmidecode
+    _7zz
+    p7zip
     alsa-utils
     nix-diff
     manix
