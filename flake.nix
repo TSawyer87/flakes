@@ -11,12 +11,6 @@
     nixvim.url = "github:nix-community/nixvim";
     nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     nix-inspect.url = "github:bluskript/nix-inspect";
-    # wezterm.url = "github:wez/wezterm?dir=nix";
-    #zen-browser.url = "github:MarceColl/zen-browser-flake";
-    # hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
-    # hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    # hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
     nvf.url = "github:notashelf/nvf";
@@ -41,6 +35,9 @@
       };
     in {
       lib = { inherit mkConfig; };
+      # nixosConfigurations.nixos = defaultConfig.nixosConfiguration;
+      # nixosConfigurations.${defaultConfig.userConfig.host} =
+      # defaultConfig.nixosConfiguration;
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -84,10 +81,13 @@
           };
         };
       };
-      default = defaultConfig.nixosConfiguration.config.system.build.toplevel;
+      packages.${system} = {
 
-      arch-vm = defaultConfig.arch-vm;
+        default = defaultConfig.nixosConfiguration.config.system.build.toplevel;
 
+        arch-vm = defaultConfig.arch-vm;
+
+      };
       devShells.${system}.default =
         import ./lib/dev-shell.nix { inherit pkgs; };
     };
