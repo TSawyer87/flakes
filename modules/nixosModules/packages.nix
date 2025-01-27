@@ -81,10 +81,7 @@
     dconf-editor
     rose-pine-cursor
     pfetch-rs
-    rustup
     rustc
-    rustfmt
-    cargo
     fwupd
     openssl
     pkg-config

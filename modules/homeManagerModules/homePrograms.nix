@@ -22,7 +22,7 @@ in {
     };
     yazi = {
         enable = true;
-          shellWrapperName = "yy";
+          shellWrapperName = "y";
          settings = {
                                 manager = {
                                 show_hidden = true;
@@ -31,6 +31,10 @@ in {
                                 sort_reverse = true;
                                         editor = "nvim";
                         };
+                                opener = {
+                                        open = "nvim";
+                                        edit = "nvim";
+                                };
                         };
                 };
     tmux = {
