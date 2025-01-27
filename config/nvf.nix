@@ -26,6 +26,7 @@
     autopairs.nvim-autopairs.enable = true;
     statusline.lualine.enable = true;
     autocomplete = {
+                                        nvim-cmp.mappings.complete = "<C-y>";
     nvim-cmp.enable = true;
     };
     binds = {
