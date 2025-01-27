@@ -46,6 +46,9 @@ in {
       #   });
       # })
     ];
+                config = {
+                        allowUnfree = true;
+                };
   };
   # Enable or Disable Stylix
   stylixModule.enable = true;
@@ -92,7 +95,6 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
 
   users = { mutableUsers = true; };
@@ -102,7 +104,6 @@ in {
       noto-fonts-emoji
       noto-fonts-cjk-sans
       font-awesome
-      # Commenting Symbola out to fix install this will need to be fixed or an alternative found.
       symbola
       material-icons
       fira-code
@@ -125,35 +126,6 @@ in {
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
-  # hardware.sane = {
-  #   enable = true;
-  #   extraBackends = [pkgs.sane-airscan];
-  #   disabledDefaultBackends = ["escl"];
-  # };
-  #
-  # # Extra Logitech Support
-  # hardware.logitech.wireless.enable = false;
-  # hardware.logitech.wireless.enableGraphical = false;
-  #
-  # # Bluetooth Support
-  # hardware.bluetooth.enable = true;
-  # hardware.bluetooth.powerOnBoot = true;
-  # services.blueman.enable = true;
-
-  #   hardware.printers = {
-  #   ensurePrinters = [
-  #     {
-  #       name = "HP_OfficeJet_Pro_6970_F7873C";
-  #       location = "Home";
-  #       deviceUri = "ipp://192.168.0.24/ipp/print";
-  #       model = "everywhere";
-  #       ppdOptions = {
-  #         PageSize = "A4";
-  #       };
-  #     }
-  #   ];
-  #   ensureDefaultPrinter = "HP_OfficeJet_Pro_6970_F7873C";
-  # };
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = true;
