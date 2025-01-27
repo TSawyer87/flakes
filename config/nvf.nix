@@ -12,12 +12,19 @@
       languages = {
       nix.enable = true;
     };
+    autocomplete = {
+    nvim-cmp.enable = true;
+    };
     lazy.plugins = {
     toggleterm-nvim = {
       package = "toggleterm-nvim";
       setupModule = "toggleterm";
       cmd = ["ToggleTerm"];
     };
+    binds = {
+    whichKey.enable = true;
+    };
+
     };
   };
   };
