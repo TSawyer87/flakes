@@ -28,42 +28,42 @@ with lib; {
       #   base0F = "A87322";
       # };
 
-      base16Scheme = { # TokyoNightStorm
-        base00 = "24283B";
-        base01 = "16161E";
-        base02 = "343A52";
-        base03 = "444B6A";
-        base04 = "787C99";
-        base05 = "A9B1D6";
-        base06 = "CBCCD1";
-        base07 = "D5D6DB";
-        base08 = "C0CAF5";
-        base09 = "A9B1D6";
-        base0A = "0DB9D7";
-        base0B = "9ECE6A";
-        base0C = "B4F9F8";
-        base0D = "2AC3DE";
-        base0E = "BB9AF7";
-        base0F = "F7768E";
-      };
-      # base16Scheme = { # TokyoNightTerminal
-      #   base00 = "11121d";
-      #   base01 = "1A1B2A";
-      #   base02 = "212234";
-      #   base03 = "282c34";
-      #   base04 = "4a5057";
-      #   base05 = "a0a8cd";
-      #   base06 = "a0a8cd";
-      #   base07 = "a0a8cd";
-      #   base08 = "ee6d85";
-      #   base09 = "f6955b";
-      #   base0A = "d7a65f";
-      #   base0B = "95c561";
-      #   base0C = "38a89d";
-      #   base0D = "7199ee";
-      #   base0E = "a485dd";
-      #   base0F = "773440";
+      # base16Scheme = { # TokyoNightStorm
+      #   base00 = "24283B";
+      #   base01 = "16161E";
+      #   base02 = "343A52";
+      #   base03 = "444B6A";
+      #   base04 = "787C99";
+      #   base05 = "A9B1D6";
+      #   base06 = "CBCCD1";
+      #   base07 = "D5D6DB";
+      #   base08 = "C0CAF5";
+      #   base09 = "A9B1D6";
+      #   base0A = "0DB9D7";
+      #   base0B = "9ECE6A";
+      #   base0C = "B4F9F8";
+      #   base0D = "2AC3DE";
+      #   base0E = "BB9AF7";
+      #   base0F = "F7768E";
       # };
+      base16Scheme = { # TokyoNightTerminal
+        base00 = "11121d";
+        base01 = "1A1B2A";
+        base02 = "212234";
+        base03 = "282c34";
+        base04 = "4a5057";
+        base05 = "a0a8cd";
+        base06 = "a0a8cd";
+        base07 = "a0a8cd";
+        base08 = "ee6d85";
+        base09 = "f6955b";
+        base0A = "d7a65f";
+        base0B = "95c561";
+        base0C = "38a89d";
+        base0D = "7199ee";
+        base0E = "a485dd";
+        base0F = "773440";
+      };
       polarity = "dark";
       opacity.terminal = 0.8;
       # cursor.package = pkgs.bibata-cursors;
@@ -77,14 +77,14 @@ with lib; {
           package = pkgs.nerd-fonts.jetbrains-mono;
           name = "JetBrains Mono";
         };
-        # sansSerif = {
-        #   package = pkgs.montserrat;
-        #   name = "Montserrat";
-        # };
-        # serif = {
-        #   package = pkgs.montserrat;
-        #   name = "Montserrat";
-        # };
+        sansSerif = {
+          package = pkgs.montserrat;
+          name = "Montserrat";
+        };
+        serif = {
+          package = pkgs.montserrat;
+          name = "Montserrat";
+        };
         sizes = {
           applications = 12;
           terminal = 15;

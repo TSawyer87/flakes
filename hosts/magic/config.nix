@@ -8,9 +8,9 @@ in {
     ../../modules/nixosModules/users.nix
     ../../modules/nixosModules/boot.nix
     ../../modules/nixosModules/security.nix
-    ../../modules/nixosModules/systemPackages.nix
-    ../../modules/nixosModules/systemPrograms.nix
-    ../../modules/nixosModules/systemServices.nix
+    ../../modules/nixosModules/packages.nix
+    ../../modules/nixosModules/programs.nix
+    ../../modules/nixosModules/services.nix
     ../../modules/nixosModules/stylix.nix
     ../../modules/nixosModules/cachix.nix
     ../../modules/nixosModules/xdg.nix

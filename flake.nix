@@ -13,58 +13,66 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { ... }@inputs:
+  outputs =
+    { self, nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      mkConfig = import ./lib/mkConfig.nix { inherit inputs pkgs system; };
-
-      defaultConfig = mkConfig {
-        userConfig = import ./hosts/${host}/config.nix;
-        extraInputs = { };
-      };
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
-      # Main config builder
-      lib = { inherit mkConfig; };
-      nixosConfigurations.nixos = defaultConfig.nixosConfiguration;
-      nixosConfigurations.${defaultConfig.userConfig.host} =
-        defaultConfig.nixosConfiguration;
-
       packages.${system} = {
-        # generate-config script
-        gen-config = pkgs.writeShellScriptBin "gen-config"
-          (builtins.readFile ./lib/gen-config.sh);
-
-        # defaults to nix-vm
-        default = defaultConfig.nix-vm.config.system.build.vm;
-
-        # NixOS activation packages
-        hydenix = defaultConfig.nixosConfiguration.config.system.build.toplevel;
-
-        # Home activation packages
-        hm =
-          defaultConfig.homeConfigurations.${defaultConfig.userConfig.username}.activationPackage;
-        hm-generic =
-          defaultConfig.homeConfigurations."${defaultConfig.userConfig.username}-generic".activationPackage;
-
-        # EXPERIMENTAL VM BUILDERS
-        arch-vm = defaultConfig.arch-vm;
-        fedora-vm = defaultConfig.fedora-vm;
-
-        # Add the ISO builder
-        iso = defaultConfig.installer.iso;
-        burn-iso = defaultConfig.installer.burn-iso;
+        nvf = (nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          modules = [ ./config/nvf-configuration.nix ];
+        }).neovim;
+      };
+      nixosConfigurations = {
+        "${host}" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system;
+            inherit inputs;
+            inherit username;
+            inherit host;
+          };
+          modules = [
+            ./hosts/${host}/config.nix
+            inputs.stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            nvf.nixosModules.default
+            {
+              # Apply the overlays to the NixOS system
+              # nixpkgs.overlays = overlays;
+              home-manager.extraSpecialArgs = {
+                inherit username;
+                inherit inputs;
+                inherit host;
+                inherit system;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.users.${username} = import ./hosts/${host}/home.nix;
+            }
+          ];
+        };
       };
 
-      devShells.${system}.default =
-        import ./lib/dev-shell.nix { inherit pkgs; };
+      # Add the formatter configuration
+      formatter.${system} = nix-formatter-pack.lib.mkFormatter {
+        inherit nixpkgs;
+        inherit system;
+        config = {
+          tools = {
+            deadnix.enable = true;
+            nixpkgs-fmt.enable = true;
+            statix.enable = true;
+          };
+        };
+      };
+      defaultPackage.${system} = self.packages.${system}.nvf;
     };
 }
