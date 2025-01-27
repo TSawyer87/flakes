@@ -14,7 +14,7 @@
       nix.enable = true;
       nix.lsp.enable = true;
       nix.lsp.server = "nil";
-      nix.format.type = "alejandra",
+      nix.format.type = "alejandra";
       nix.treesitter.enable = true;
       markdown.enable = true;
     };
