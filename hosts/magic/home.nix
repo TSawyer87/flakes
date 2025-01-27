@@ -32,22 +32,27 @@
     ../../modules/homeManagerModules/homeFiles.nix
     ../../modules/homeManagerModules/gtk.nix
     ../../modules/homeManagerModules/qt.nix
+    ../../modules/homeManagerModules/xdg.nix
   ];
 
+  home.packages = with pkgs;
+    [
+
+    ];
   # Create XDG Dirs
-  xdg = {
-    # configFile."mimeapps.list".text = ''
-    # [Default Applications]
-    # x-scheme-handler/http=zen.desktop
-    # x-scheme-handler/https=zen.desktop
-    # text/html=zen.desktop
-    # application/pdf=org.pwmt.zathura.desktop
-    # '';
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };
-  };
+  # xdg = {
+  #   # configFile."mimeapps.list".text = ''
+  #   # [Default Applications]
+  #   # x-scheme-handler/http=zen.desktop
+  #   # x-scheme-handler/https=zen.desktop
+  #   # text/html=zen.desktop
+  #   # application/pdf=org.pwmt.zathura.desktop
+  #   # '';
+  #   userDirs = {
+  #     enable = true;
+  #     createDirectories = true;
+  #   };
+  # };
 
   dconf = {
     enable = true;
@@ -63,9 +68,4 @@
   stylix.targets.waybar.enable = false;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
-  # qt = {
-  #   enable = true;
-  #   style.name = "adwaita-dark";
-  #   platformTheme.name = "gtk3";
-  # };
 }
