@@ -60,13 +60,13 @@ let
 
       provisioner "shell" {
         inline = [
-          "mkdir -p /home/${userConfig.username}/hydenix"
+          "mkdir -p /home/${userConfig.username}/magic"
         ]
       }
 
       provisioner "file" {
         source      = "${toString ./.}/../../"
-        destination = "/home/${userConfig.username}/hydenix"
+        destination = "/home/${userConfig.username}/magic"
       }
 
       provisioner "shell" {
@@ -75,7 +75,7 @@ let
 
       provisioner "shell" {
         inline = [
-          "cd /home/${userConfig.username}/hydenix",
+          "cd /home/${userConfig.username}/magic",
           ". /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh",
           "nix run home-manager/master -- switch --flake .#${userConfig.username}-generic",
           "nix-channel --add https://github.com/guibou/nixGL/archive/main.tar.gz nixgl && nix-channel --update",
