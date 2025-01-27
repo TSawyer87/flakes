@@ -8,9 +8,10 @@
       vim.viAlias = true;
       vim.vimAlias = false;
       vim.lsp = { enable = true; };
+      vim.languages.nix.enable = true;
     };
-    config = {
-      vim.lazy.plugins = {
+    {
+      config.vim.lazy.plugins = {
       "aerial.nvim" = {
       package = pkgs.vimPlugins.aerial-nvim;
       setupModule = "aerial";
@@ -28,6 +29,4 @@
       ];
     };
   };
-      };
-    };
   }
