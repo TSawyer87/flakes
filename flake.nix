@@ -50,6 +50,7 @@
             inherit inputs;
             inherit username;
             inherit host;
+            inherit outputs;
           };
           modules = [
             ./hosts/${host}/config.nix
