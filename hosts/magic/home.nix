@@ -13,6 +13,7 @@
     ../../config/hypr/waybar.nix
     ../../config/hypr/wlogout.nix
     #../../config/neovim.nix
+    ../../config/nvf.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
