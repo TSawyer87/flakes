@@ -16,9 +16,6 @@
     toggleterm-nvim = {
       package = "toggleterm-nvim";
       setupModule = "toggleterm";
-      setupOpts = cfg.setupOpts;
-  
-      after = "require('toggleterm').do_something()";
       cmd = ["ToggleTerm"];
     };
     };
