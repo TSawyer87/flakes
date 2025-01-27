@@ -1,8 +1,10 @@
 { pkgs, username, inputs, ... }: {
   # Home Manager Settings
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
-  home.stateVersion = "23.11";
+  home = {
+  username = "${username}";
+  homeDirectory = "/home/${username}";
+  stateVersion = "23.11";
+        };
 
   # Import Program Configurations
   imports = [
@@ -33,36 +35,23 @@
     ../../modules/homeManagerModules/gtk.nix
     ../../modules/homeManagerModules/qt.nix
     ../../modules/homeManagerModules/xdg.nix
+    ../../modules/homeManagerModules/dconf.nix
   ];
 
   home.packages = with pkgs;
     [
 
     ];
-  # Create XDG Dirs
-  # xdg = {
-  #   # configFile."mimeapps.list".text = ''
-  #   # [Default Applications]
-  #   # x-scheme-handler/http=zen.desktop
-  #   # x-scheme-handler/https=zen.desktop
-  #   # text/html=zen.desktop
-  #   # application/pdf=org.pwmt.zathura.desktop
-  #   # '';
-  #   userDirs = {
-  #     enable = true;
-  #     createDirectories = true;
+
+  # dconf = {
+  #   enable = true;
+  #   settings = {
+  #     "org/virt-manager/virt-manager/connections" = {
+  #       autoconnect = [ "qemu:///system" ];
+  #       uris = [ "qemu:///system" ];
+  #     };
   #   };
   # };
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/virt-manager/virt-manager/connections" = {
-        autoconnect = [ "qemu:///system" ];
-        uris = [ "qemu:///system" ];
-      };
-    };
-  };
 
   # Styling Options
   stylix.targets.waybar.enable = false;
