@@ -9,7 +9,6 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixvim.url = "github:nix-community/nixvim";
-    nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
@@ -17,12 +16,20 @@
   };
 
   outputs =
-    { self, nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
+    { self, nixpkgs, home-manager, nvf, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
+      forSystem = nixpkgs.lib.genAttrs system;
     in {
+
+    packages = forSystem (system: import ./pkgs nixpkgs.legacyPackages.${system});
+
+    formatter = forSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#hostname'
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -53,18 +60,4 @@
         };
       };
 
-      # Add the formatter configuration
-      formatter.${system} = nix-formatter-pack.lib.mkFormatter {
-        inherit nixpkgs;
-        inherit system;
-        config = {
-          tools = {
-            deadnix.enable = true;
-            nixpkgs-fmt.enable = true;
-            statix.enable = true;
-          };
-        };
-      };
-      defaultPackage.${system} = self.packages.${system}.nvf;
-    };
 }
