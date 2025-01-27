@@ -32,8 +32,8 @@ in {
                                         editor = "nvim";
                         };
                                 opener = {
-                                        open = "nvim";
-                                        edit = "nvim";
+                                        open = ["nvim"] ;
+                                        edit = ["nvim"];
                                 };
                         };
                 };
