@@ -12,6 +12,9 @@
       languages = {
       nix.enable = true;
     };
+    theme.name = "tokyonight";
+    autopairs.nvim-autopairs.enable = true;
+    statusline.lualine.enable = true;
     autocomplete = {
     nvim-cmp.enable = true;
     };
