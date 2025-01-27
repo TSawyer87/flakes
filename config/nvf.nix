@@ -15,14 +15,14 @@
     autocomplete = {
     nvim-cmp.enable = true;
     };
+    binds = {
+    whichKey.enable = true;
+    };
     lazy.plugins = {
     toggleterm-nvim = {
       package = "toggleterm-nvim";
       setupModule = "toggleterm";
       cmd = ["ToggleTerm"];
-    };
-    binds = {
-    whichKey.enable = true;
     };
 
     };
