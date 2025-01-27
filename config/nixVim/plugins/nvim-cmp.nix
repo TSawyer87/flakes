@@ -77,9 +77,9 @@
           # https://nix-community.github.io/nixvim/plugins/luasnip/index.html
           {name = "luasnip";}
           {name = "buffer";}
-          {
-            name = "codeium";
-          }
+          # {
+          #   name = "codeium";
+          # }
           # Adds other completion capabilites.
           #  nvim-cmp does not ship with all sources by default. They are split
           #  into multiple repos for maintenance purposes.
