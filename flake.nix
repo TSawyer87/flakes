@@ -27,7 +27,6 @@
       "x86_64-darwin"
     ];
 
-      system = "x86_64-linux";
       host = "magic";
       username = "jr";
       forAllSystems = nixpkgs.lib.genAttrs system;
