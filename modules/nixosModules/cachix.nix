@@ -1,14 +1,17 @@
-{ config, pkgs, lib, ... }:
-
-with lib;
-let cfg = config.gytix.cachix;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.gytix.cachix;
 in {
   options = {
     gytix.cachix.enable = mkEnableOption "Enable custom cachix configuration";
   };
 
   config = mkIf cfg.enable {
-
     #environment.systemPackages = with pkgs; [ cachix ];
 
     nix.extraOptions = "gc-keep-outputs = true";
@@ -20,7 +23,6 @@ in {
         "https://ghostty.cachix.org"
         "https://neovim-nightly.cachix.org"
         "https://yazi.cachix.org"
-
       ];
       trusted-public-keys = [
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
@@ -29,7 +31,6 @@ in {
         "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
         "neovim-nightly.cachix.org-1:feIoInHRevVEplgdZvQDjhp11kYASYCE2NGY9hNrwxY="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
-
       ];
     };
   };

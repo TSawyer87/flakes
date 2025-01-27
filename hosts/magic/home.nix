@@ -1,4 +1,9 @@
-{ pkgs, username, inputs, ... }: {
+{
+  pkgs,
+  username,
+  inputs,
+  ...
+}: {
   # Home Manager Settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -52,8 +57,8 @@
     enable = true;
     settings = {
       "org/virt-manager/virt-manager/connections" = {
-        autoconnect = [ "qemu:///system" ];
-        uris = [ "qemu:///system" ];
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
       };
     };
   };
@@ -67,13 +72,12 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+    gtk3.extraConfig = {gtk-application-prefer-dark-theme = 1;};
+    gtk4.extraConfig = {gtk-application-prefer-dark-theme = 1;};
   };
   qt = {
     enable = true;
     style.name = "adwaita-dark";
     platformTheme.name = "gtk3";
   };
-
 }

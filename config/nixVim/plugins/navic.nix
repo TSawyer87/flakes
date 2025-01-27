@@ -6,7 +6,7 @@
       settings = {
         lsp = {
           auto_attach = true;
-          preference = [ "nixd" "shfmt" ];
+          preference = ["nixd" "shfmt"];
         };
       };
     };

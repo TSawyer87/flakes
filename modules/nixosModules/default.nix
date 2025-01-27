@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }: {
-
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./boot.nix
     ./stylix.nix
@@ -10,6 +13,5 @@
     ./hardware.nix
     ./users.nix
     ./variables.nix
-
   ];
 }

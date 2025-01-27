@@ -1,10 +1,8 @@
 # homepage: https://github.com/rebelot/heirline.nvim
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.nixvim = {
     extraPlugins = {
-      packages = [ pkgs.vimPlugins.heirline-nvim ];
+      packages = [pkgs.vimPlugins.heirline-nvim];
 
       # Config from AstroNvim
       # https://github.com/AstroNvim/AstroNvim/blob/v4.7.7/lua/astronvim/plugins/heirline.lua
@@ -111,14 +109,14 @@
 
     rootOpts = {
       autoGroups = {
-        bufferline = { };
-        heirline = { };
+        bufferline = {};
+        heirline = {};
       };
 
       autoCmd = [
         {
           desc = "Update buffers when adding new buffers";
-          event = [ "BufAdd" "BufEnter" "TabNewEntered" ];
+          event = ["BufAdd" "BufEnter" "TabNewEntered"];
           group = "bufferline";
 
           callback.__raw = ''
@@ -142,7 +140,7 @@
         }
         {
           desc = "Update buffers when deleting buffers";
-          event = [ "BufDelete" "TermClose" ];
+          event = ["BufDelete" "TermClose"];
           group = "bufferline";
 
           callback.__raw = ''
@@ -169,10 +167,9 @@
         }
         {
           desc = "Refresh heirline colors on colorscheme load";
-          event = [ "ColorScheme" ];
+          event = ["ColorScheme"];
           group = "heirline";
-          callback.__raw =
-            "function() require('astroui.status.heirline').refresh_colors() end";
+          callback.__raw = "function() require('astroui.status.heirline').refresh_colors() end";
         }
       ];
 

@@ -1,16 +1,17 @@
 # lib/plugin-module.nix
-{ config, lib, ... }:
-
-with lib;
-
 {
+  config,
+  lib,
+  ...
+}:
+with lib; {
   options = {
     plugins = mkOption {
       type = types.attrsOf types.attrs;
-      default = { };
+      default = {};
       description = "NixVim plugin configuration";
     };
   };
 
-  config = { programs.nixvim.plugins = config.plugins; };
+  config = {programs.nixvim.plugins = config.plugins;};
 }

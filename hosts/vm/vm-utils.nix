@@ -1,4 +1,4 @@
-{ pkgs }: rec {
+{pkgs}: rec {
   # Common function to create default network
   createDefaultNetwork = ''
     if ! sudo ${pkgs.libvirt}/bin/virsh net-list --all | grep -q "default"; then
@@ -44,7 +44,12 @@
   '';
 
   # Common function to create and start VM
-  createAndStartVM = { vmName, vmImage, osVariant, userConfig, }: ''
+  createAndStartVM = {
+    vmName,
+    vmImage,
+    osVariant,
+    userConfig,
+  }: ''
     ${createDefaultNetwork}
 
     ${cleanupVM vmName}

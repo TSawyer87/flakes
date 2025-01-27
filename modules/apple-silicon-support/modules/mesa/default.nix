@@ -1,10 +1,14 @@
-{ options, config, pkgs, lib, ... }:
 {
-  config =
-    let
-      isMode = mode: (config.hardware.asahi.useExperimentalGPUDriver
-        && config.hardware.asahi.experimentalGPUInstallMode == mode);
-    in
+  options,
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  config = let
+    isMode = mode: (config.hardware.asahi.useExperimentalGPUDriver
+      && config.hardware.asahi.experimentalGPUInstallMode == mode);
+  in
     lib.mkIf config.hardware.asahi.enable (lib.mkMerge [
       {
         # required for proper DRM setup even without GPU driver
@@ -17,15 +21,18 @@
           EndSection
         '';
       }
-      (lib.mkIf config.hardware.asahi.useExperimentalGPUDriver (
-        # install the drivers
-        if builtins.hasAttr "graphics" options.hardware then {
-          hardware.graphics.package = config.hardware.asahi.pkgs.mesa-asahi-edge.drivers;
-        } else {
-          # for 24.05
-          hardware.opengl.package = config.hardware.asahi.pkgs.mesa-asahi-edge.drivers;
-        }
-      )
+      (
+        lib.mkIf config.hardware.asahi.useExperimentalGPUDriver (
+          # install the drivers
+          if builtins.hasAttr "graphics" options.hardware
+          then {
+            hardware.graphics.package = config.hardware.asahi.pkgs.mesa-asahi-edge.drivers;
+          }
+          else {
+            # for 24.05
+            hardware.opengl.package = config.hardware.asahi.pkgs.mesa-asahi-edge.drivers;
+          }
+        )
       )
       (lib.mkIf config.hardware.asahi.useExperimentalGPUDriver {
         # required for in-kernel GPU driver
@@ -48,7 +55,10 @@
         nixpkgs.overlays = [
           (final: prev: {
             # prevent cross-built Mesas that might be evaluated using this config (e.g. Steam emulation via box64) from using the special Asahi Mesa
-            mesa = if prev.targetPlatform.isAarch64 then final.mesa-asahi-edge else prev.mesa;
+            mesa =
+              if prev.targetPlatform.isAarch64
+              then final.mesa-asahi-edge
+              else prev.mesa;
           })
         ];
       })
@@ -65,7 +75,7 @@
   };
 
   options.hardware.asahi.experimentalGPUInstallMode = lib.mkOption {
-    type = lib.types.enum [ "driver" "replace" "overlay" ];
+    type = lib.types.enum ["driver" "replace" "overlay"];
     default = "replace";
     description = ''
       Mode to use to install the experimental GPU driver into the system.

@@ -1,5 +1,5 @@
-{ ... }:
-let inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
+{...}: let
+  inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
 in {
   programs = {
     direnv = {
@@ -21,18 +21,18 @@ in {
       };
     };
     yazi = {
-        enable = true;
-          shellWrapperName = "y";
-         settings = {
-                                manager = {
-                                show_hidden = true;
-                                sort_dir_first = true;
-                                sort_by = "mtime";
-                                sort_reverse = true;
-                                        editor = "nvim";
-                        };
-                        };
-                };
+      enable = true;
+      shellWrapperName = "y";
+      settings = {
+        manager = {
+          show_hidden = true;
+          sort_dir_first = true;
+          sort_by = "mtime";
+          sort_reverse = true;
+          editor = "nvim";
+        };
+      };
+    };
     tmux = {
       enable = true;
       keyMode = "vi";
@@ -62,7 +62,7 @@ in {
     gh.enable = true;
     btop = {
       enable = true;
-      settings = { vim_keys = true; };
+      settings = {vim_keys = true;};
     };
     home-manager.enable = true;
     hyprlock = {
@@ -89,11 +89,10 @@ in {
     #   };
     # };
 
-    zathura = { enable = true; };
+    zathura = {enable = true;};
 
-    go = { enable = true; };
+    go = {enable = true;};
 
-    nix-index = { enable = true; }; # nix-locate
+    nix-index = {enable = true;}; # nix-locate
   };
-
 }

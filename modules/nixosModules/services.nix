@@ -1,5 +1,9 @@
-{ pkgs, username, ... }:
-let inherit (import ../../hosts/magic/variables.nix) keyboardLayout;
+{
+  pkgs,
+  username,
+  ...
+}: let
+  inherit (import ../../hosts/magic/variables.nix) keyboardLayout;
 in {
   services = {
     xserver = {
@@ -20,8 +24,7 @@ in {
           # with such a vendor-no-locking script, we can switch to another wayland compositor without modifying greetd's config here.
           #command =
           #  "$HOME/.wayland-session"; # start a wayland session directly without a login manager
-          command =
-            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
         };
       };
     };
@@ -36,7 +39,7 @@ in {
     flatpak.enable = false;
     printing = {
       enable = true;
-      drivers = [ pkgs.hplipWithPlugin ];
+      drivers = [pkgs.hplipWithPlugin];
     };
     gnome.gnome-keyring.enable = true;
     avahi = {
@@ -67,8 +70,7 @@ in {
       enable = false;
       acceleration = "rocm";
       environmentVariables = {
-        HCC_AMDGPU_TARGET =
-          "gfx1031"; # used to be necessary, but doesn't seem to anymore
+        HCC_AMDGPU_TARGET = "gfx1031"; # used to be necessary, but doesn't seem to anymore
       };
       rocmOverrideGfx = "10.3.1";
     };

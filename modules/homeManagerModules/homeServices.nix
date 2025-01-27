@@ -1,6 +1,5 @@
-{ ... }: {
+{...}: {
   services = {
-
     hypridle = {
       settings = {
         general = {
@@ -22,5 +21,4 @@
       };
     };
   };
-
 }

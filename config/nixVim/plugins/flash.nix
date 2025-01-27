@@ -3,7 +3,7 @@
     plugins.flash = {
       enable = true;
       settings = {
-        modes = { char = { jump_labels = true; }; };
+        modes = {char = {jump_labels = true;};};
         search = {
           exclude = [
             "notify"

@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     plugins = {
       codeium-nvim = {
@@ -22,7 +26,7 @@
         mode = "n";
         key = "<leader>ac";
         action = "<cmd>Codeium Chat<CR>";
-        options = { desc = "Codeium Chat"; };
+        options = {desc = "Codeium Chat";};
       }
       {
         mode = "i";

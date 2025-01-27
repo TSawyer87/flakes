@@ -1,8 +1,6 @@
-_:
-
-{
+_: {
   home.file.".config/rofi/config-long.rasi".text = ''
-    @import "~/.config/rofi/config.rasi" 
+    @import "~/.config/rofi/config.rasi"
     window {
       width: 50%;
     }

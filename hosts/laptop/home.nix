@@ -1,5 +1,12 @@
-{ pkgs, username, host, system, inputs, ... }:
-let inherit (import ./variables.nix) gitUsername gitEmail;
+{
+  pkgs,
+  username,
+  host,
+  system,
+  inputs,
+  ...
+}: let
+  inherit (import ./variables.nix) gitUsername gitEmail;
 in {
   # Home Manager Settings
   home.username = "${username}";
@@ -81,7 +88,7 @@ in {
     '';
   };
 
-  programs.zathura = { enable = true; };
+  programs.zathura = {enable = true;};
 
   programs.foot = {
     enable = true;
@@ -92,7 +99,7 @@ in {
         font = "JetBrainsMono Nerd Font Mono:size=15";
         dpi-aware = "no";
       };
-      mouse = { hide-when-typing = "yes"; };
+      mouse = {hide-when-typing = "yes";};
     };
   };
 
@@ -116,8 +123,8 @@ in {
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
   };
 
@@ -131,8 +138,8 @@ in {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+    gtk3.extraConfig = {gtk-application-prefer-dark-theme = 1;};
+    gtk4.extraConfig = {gtk-application-prefer-dark-theme = 1;};
   };
   qt = {
     enable = true;
@@ -151,17 +158,17 @@ in {
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
-    (import ../../scripts/emopicker9000.nix { inherit pkgs; })
-    (import ../../scripts/task-waybar.nix { inherit pkgs; })
-    (import ../../scripts/squirtle.nix { inherit pkgs; })
-    (import ../../scripts/nvidia-offload.nix { inherit pkgs; })
+    (import ../../scripts/emopicker9000.nix {inherit pkgs;})
+    (import ../../scripts/task-waybar.nix {inherit pkgs;})
+    (import ../../scripts/squirtle.nix {inherit pkgs;})
+    (import ../../scripts/nvidia-offload.nix {inherit pkgs;})
     (import ../../scripts/wallsetter.nix {
       inherit pkgs;
       inherit username;
     })
-    (import ../../scripts/web-search.nix { inherit pkgs; })
-    (import ../../scripts/rofi-launcher.nix { inherit pkgs; })
-    (import ../../scripts/screenshootin.nix { inherit pkgs; })
+    (import ../../scripts/web-search.nix {inherit pkgs;})
+    (import ../../scripts/rofi-launcher.nix {inherit pkgs;})
+    (import ../../scripts/screenshootin.nix {inherit pkgs;})
     (import ../../scripts/list-hypr-bindings.nix {
       inherit pkgs;
       inherit host;
@@ -195,7 +202,7 @@ in {
     gh.enable = true;
     btop = {
       enable = true;
-      settings = { vim_keys = true; };
+      settings = {vim_keys = true;};
     };
     starship = {
       enable = true;
@@ -247,6 +254,5 @@ in {
         # ];
       };
     };
-
   };
 }

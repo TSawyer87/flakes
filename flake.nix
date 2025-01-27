@@ -16,30 +16,31 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nvf, ... }@inputs: let
-       inherit (self) outputs;
+  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs:
+    let
+      inherit (self) outputs;
 
-       systems = [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
+      systems = [
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
 
       host = "magic";
       username = "jr";
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in {
+      packages =
+        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      # Or 'nixpkgs-fmt'
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    # Or 'nixpkgs-fmt'
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-     # Your custom packages and modifications, exported as overlays
-    overlays = import ./overlays {inherit inputs;};
+      # Your custom packages and modifications, exported as overlays
+      overlays = import ./overlays { inherit inputs; };
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#hostname'
@@ -73,6 +74,5 @@
           ];
         };
       };
-
-};
+    };
 }

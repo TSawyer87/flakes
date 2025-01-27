@@ -1,7 +1,6 @@
-{ pkgs }:
-
+{pkgs}:
 pkgs.mkShell {
-  buildInputs = with pkgs; [ nodejs commitlint direnv nix-direnv ];
+  buildInputs = with pkgs; [nodejs commitlint direnv nix-direnv];
 
   shellHook = ''
     export USE_DIRENV=1

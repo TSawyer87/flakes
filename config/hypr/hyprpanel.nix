@@ -1,9 +1,8 @@
 # *.nix
-{ inputs, ... }: {
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+{inputs, ...}: {
+  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
   programs.hyprpanel = {
-
     # Enable the module.
     # Default: false
     enable = true;
@@ -32,7 +31,7 @@
     # Override the final config with an arbitrary set.
     # Useful for overriding colors in your selected theme.
     # Default: {}
-    override = { theme.bar.menus.text = "#123ABC"; };
+    override = {theme.bar.menus.text = "#123ABC";};
 
     # Configure bar layouts for monitors.
     # See 'https://hyprpanel.com/configuration/panel.html'.
@@ -40,14 +39,14 @@
     layout = {
       "bar.layouts" = {
         "1" = {
-          left = [ "dashboard" "workspaces" "cpu" "ram" ];
-          middle = [ "weather" "clock" ];
-          right = [ "volume" "bluetooth" "systray" "notifications" "power" ];
+          left = ["dashboard" "workspaces" "cpu" "ram"];
+          middle = ["weather" "clock"];
+          right = ["volume" "bluetooth" "systray" "notifications" "power"];
         };
         "0" = {
-          left = [ "dashboard" "workspaces" "cpu" "ram" ];
-          middle = [ "weather" "clock" ];
-          right = [ "volume" "bluetooth" "systray" "notifications" "power" ];
+          left = ["dashboard" "workspaces" "cpu" "ram"];
+          middle = ["weather" "clock"];
+          right = ["volume" "bluetooth" "systray" "notifications" "power"];
         };
       };
     };

@@ -31,7 +31,7 @@
 
         indent = {
           enable = true;
-          disable = [ "ruby" ];
+          disable = ["ruby"];
         };
         incremental_selection = {
           enable = true;

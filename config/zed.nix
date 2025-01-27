@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -134,7 +136,5 @@
     #   dark = "One Dark";
     # };
     # ui_font_size = 16;
-
   };
-
 }

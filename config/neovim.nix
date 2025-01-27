@@ -1,12 +1,14 @@
-{ pkgs, inputs, ... }:
-let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   # Build the finecmdline plugin
   finecmdline = pkgs.vimUtils.buildVimPlugin {
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
-in
-{
+in {
   programs = {
     neovim = {
       enable = false;

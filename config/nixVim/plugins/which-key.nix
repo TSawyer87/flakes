@@ -35,7 +35,7 @@
           {
             __unkeyed-1 = "<leader>h";
             group = "Git [H]unk";
-            mode = [ "n" "v" ];
+            mode = ["n" "v"];
           }
           {
             __unkeyed = "<leader>h";
@@ -66,7 +66,6 @@
             __unkeyed = "<leader>hm";
             desc = "4";
           }
-
         ];
       };
     };

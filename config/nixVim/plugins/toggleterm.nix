@@ -1,6 +1,6 @@
 {
   programs.nixvim = {
-    plugins = { toggleterm.enable = true; };
+    plugins = {toggleterm.enable = true;};
     extraConfigLua = ''
               require("toggleterm").setup(
         ---@module 'toggleterm'

@@ -1,6 +1,9 @@
-{ pkgs, host, username, ... }:
-
 {
+  pkgs,
+  host,
+  username,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -8,7 +11,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" ];
+      plugins = ["git" "sudo"];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -72,14 +75,11 @@
     shellAliases = {
       sv = "sudo nvim";
       fr = "nh os switch --hostname ${host} /home/${username}/flakes";
-      ft =
-        "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
+      ft = "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
       fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
-      upd =
-        "sudo nixos-rebuild switch --upgrade --flake /home/${username}/flakes";
+      upd = "sudo nixos-rebuild switch --upgrade --flake /home/${username}/flakes";
       rebuild = "/home/jr/scripts/performance_hook.sh";
-      ncg =
-        "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       opts = "man home-configuration.nix";
       zed = "zeditor";
       lg = "lazygit";
@@ -100,10 +100,8 @@
       la = "eza -lah --icons --grid --group-directories-first --icons";
       ld = "eza -lhD --icons=auto";
       lt = "eza --icons=auto --tree"; # list folder as tree
-      rbs =
-        "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
-      powersave =
-        "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
+      rbs = "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
+      powersave = "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
       # Get the error messages from journalctl
       jctl = "journalctl -p 3 -xb";
       mkdir = "mkdir -p";
@@ -114,5 +112,4 @@
       keys = "ghostty +list-keybinds";
     };
   };
-
 }

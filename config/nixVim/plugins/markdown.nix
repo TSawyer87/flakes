@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
     enable = true;
-    extraPlugins = with pkgs.vimPlugins; [ markdown-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [markdown-nvim];
     # If there are specific configurations for markdown-nvim
     extraConfigLua = ''
             require('markdown').setup({

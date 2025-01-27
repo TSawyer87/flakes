@@ -7,38 +7,38 @@
         key = "<Esc>";
         action = "<cmd>nohlsearch<CR>";
       }
-      # Exit terminal mode 
+      # Exit terminal mode
       # NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
       # or just use <C-\><C-n> to exit terminal mode
       {
         mode = "t";
         key = "<Esc><Esc>";
         action = "<C-\\><C-n>";
-        options = { desc = "Exit terminal mode"; };
+        options = {desc = "Exit terminal mode";};
       }
       {
         mode = "n";
         key = "<C-h>";
         action = "<C-w><C-h>";
-        options = { desc = "Move focus to the left window"; };
+        options = {desc = "Move focus to the left window";};
       }
       {
         mode = "n";
         key = "<C-l>";
         action = "<C-w><C-l>";
-        options = { desc = "Move focus to the right window"; };
+        options = {desc = "Move focus to the right window";};
       }
       {
         mode = "n";
         key = "<C-j>";
         action = "<C-w><C-j>";
-        options = { desc = "Move focus to the lower window"; };
+        options = {desc = "Move focus to the lower window";};
       }
       {
         mode = "n";
         key = "<C-k>";
         action = "<C-w><C-k>";
-        options = { desc = "Move focus to the upper window"; };
+        options = {desc = "Move focus to the upper window";};
       }
       # Move Lines
       {
@@ -89,13 +89,13 @@
         options.desc = "Select all lines in buffer";
       }
       {
-        mode = [ "n" "v" ];
+        mode = ["n" "v"];
         key = "<C-a>";
         action = "<cmd>DialIncrement<cr>";
         options.desc = "Increment";
       }
       {
-        mode = [ "n" "v" ];
+        mode = ["n" "v"];
         key = "<C-x>";
         action = "<cmd>DialDecrement<cr>";
         options.desc = "Decrement";
@@ -113,14 +113,13 @@
         mode = "n";
         key = "J";
         action = "mzJ`z";
-        options.desc =
-          "Allow cursor to stay in the same place after appending to current line ";
+        options.desc = "Allow cursor to stay in the same place after appending to current line ";
       }
       {
         mode = "n";
         key = "-";
         action = "<CMD>Oil<CR>";
-        options = { desc = "Open parent directory"; };
+        options = {desc = "Open parent directory";};
       }
       {
         mode = "n";
@@ -138,7 +137,7 @@
 
       # Clear search with ESC
       {
-        mode = [ "n" "i" ];
+        mode = ["n" "i"];
         key = "<esc>";
         action = "<cmd>noh<cr><esc>";
         options = {
@@ -157,7 +156,7 @@
 
       # Copy stuff to system clipboard with <leader> + y or just y to have it just in vim
       {
-        mode = [ "n" "v" ];
+        mode = ["n" "v"];
         key = "<leader>y";
         action = ''"+y'';
         options.desc = "Copy to system clipboard";
@@ -165,31 +164,31 @@
 
       # Delete to void register
       {
-        mode = [ "n" "v" ];
+        mode = ["n" "v"];
         key = "<leader>D";
         action = ''"_d'';
         options.desc = "Delete to void register";
       }
       {
-        mode = [ "n" ];
+        mode = ["n"];
         key = "<leader>zm";
         action = "<cmd>ZenMode<CR>";
         options.desc = "Activate ZenMode";
       }
       {
-        mode = [ "n" ];
+        mode = ["n"];
         key = "<leader>lg";
         action = "<cmd>LazyGit<CR>";
         options.desc = "Launch LazyGit";
       }
       {
-        mode = [ "n" ];
+        mode = ["n"];
         key = "<leader>do";
         action = "<cmd>DiffviewOpen<CR>";
         options.desc = "Open Diffview";
       }
       {
-        mode = [ "n" ];
+        mode = ["n"];
         key = "<leader>dc";
         action = "<cmd>DiffviewClose<CR>";
         options.desc = "Close Diffview";
@@ -197,25 +196,25 @@
       {
         key = "s";
         action.__raw = ''function() require("flash").jump() end'';
-        mode = [ "n" "x" "o" ];
+        mode = ["n" "x" "o"];
         options.desc = "Flash";
       }
       {
         key = "S";
         action.__raw = ''function() require("flash").treesitter() end'';
-        mode = [ "n" "x" "o" ];
+        mode = ["n" "x" "o"];
         options.desc = "Flash Treesitter";
       }
       {
         key = "r";
         action.__raw = ''function() require("flash").remote() end'';
-        mode = [ "o" ];
+        mode = ["o"];
         options.desc = "Remote Flash";
       }
       {
         key = "R";
         action.__raw = ''function() require("flash").treesitter_search() end'';
-        mode = [ "o" ];
+        mode = ["o"];
         options.desc = "Treesitter Search";
       }
       {
@@ -229,7 +228,7 @@
             }
           end
         '';
-        mode = [ "n" "x" "o" ];
+        mode = ["n" "x" "o"];
         options.desc = "Flash Line";
       }
       {

@@ -1,1 +1,1 @@
-{ programs.nixvim = { plugins.hop = { enable = true; }; }; }
+{programs.nixvim = {plugins.hop = {enable = true;};};}

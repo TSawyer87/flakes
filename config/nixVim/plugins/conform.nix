@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
     # Dependencies
     #
@@ -31,11 +31,11 @@
           end
         '';
         formatters_by_ft = {
-          lua = [ "stylua" ];
-          markdown = [ "prettierd" ];
-          nix = [ "nixfmt" ];
-          bash = [ "shfmt" ];
-          zsh = [ "shfmt" ];
+          lua = ["stylua"];
+          markdown = ["prettierd"];
+          nix = ["nixfmt"];
+          bash = ["shfmt"];
+          zsh = ["shfmt"];
           # Conform can also run multiple formatters sequentially
           # python = [ "isort "black" ];
           #

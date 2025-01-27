@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   vim = {
     theme = {
       enable = true;
@@ -26,7 +28,7 @@
       harpoon = {
         package = harpoon;
         setup = "require('harpoon').setup {}";
-        after = [ "aerial" ]; # place harpoon configuration after aerial
+        after = ["aerial"]; # place harpoon configuration after aerial
       };
     };
   };

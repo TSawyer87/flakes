@@ -1,6 +1,4 @@
-_:
-
-let
+_: let
   lockFalse = {
     Value = false;
     Status = "locked";
@@ -9,11 +7,10 @@ let
     Value = true;
     Status = "locked";
   };
-in
-{
+in {
   programs.firefox = {
     enable = true;
-    languagePacks = [ "en-US" ];
+    languagePacks = ["en-US"];
 
     policies = {
       # Disable Telemetry and Studies
@@ -39,22 +36,18 @@ in
       OverridePostUpdatePage = "";
       DontCheckDefaultBrowser = true;
       DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
-      DisplayMenuBar =
-        "default-off"; # alternatives: "always", "never" or "default-on"
+      DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unified"; # alternative: "separate"
 
       # Extensions Management
       ExtensionSettings = {
-        "*".installation_mode =
-          "blocked"; # Blocks all addons except those explicitly allowed below
+        "*".installation_mode = "blocked"; # Blocks all addons except those explicitly allowed below
         "uBlock0@raymondhill.net" = {
-          install_url =
-            "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
         "jid1-MnnxcxisBPnSXQ@jetpack" = {
-          install_url =
-            "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
         };
         # "{d634138d-c276-4fc8-924b-40a0ea21d284}" = { # 1Password

@@ -1,12 +1,10 @@
-{ pkgs
-, username
-, ...
-}:
-
-let
-  inherit (import ./variables.nix) gitUsername;
-in
 {
+  pkgs,
+  username,
+  ...
+}: let
+  inherit (import ./variables.nix) gitUsername;
+in {
   users.users = {
     "${username}" = {
       homeMode = "755";

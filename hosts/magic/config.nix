@@ -1,4 +1,4 @@
-{ pkgs, host, options, outputs, lib, config, ... }:
+{ pkgs, host, options, outputs, ... }:
 let
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
@@ -11,6 +11,7 @@ in {
     ../../modules/nixosModules/packages.nix
     ../../modules/nixosModules/programs.nix
     ../../modules/nixosModules/services.nix
+    ../../modules/nixosModules/hardware.nix
     ../../modules/nixosModules/stylix.nix
     ../../modules/nixosModules/cachix.nix
     ../../modules/nixosModules/xdg.nix
@@ -27,7 +28,7 @@ in {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
   };
- nixpkgs = {
+  nixpkgs = {
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
@@ -124,19 +125,19 @@ in {
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
-  hardware.sane = {
-    enable = true;
-    extraBackends = [ pkgs.sane-airscan ];
-    disabledDefaultBackends = [ "escl" ];
-  };
-
-  # Extra Logitech Support
-  hardware.logitech.wireless.enable = false;
-  hardware.logitech.wireless.enableGraphical = false;
-
-  # Bluetooth Support
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  # hardware.sane = {
+  #   enable = true;
+  #   extraBackends = [pkgs.sane-airscan];
+  #   disabledDefaultBackends = ["escl"];
+  # };
+  #
+  # # Extra Logitech Support
+  # hardware.logitech.wireless.enable = false;
+  # hardware.logitech.wireless.enableGraphical = false;
+  #
+  # # Bluetooth Support
+  # hardware.bluetooth.enable = true;
+  # hardware.bluetooth.powerOnBoot = true;
   # services.blueman.enable = true;
 
   #   hardware.printers = {

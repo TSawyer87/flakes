@@ -1,6 +1,10 @@
-{ lib, pkgs, config, ... }:
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   drivers = [
     "amdgpu"
     #"intel"
@@ -17,15 +21,14 @@ let
 
   cfg = config.drivers.amdgpu;
 in {
-  options.drivers.amdgpu = { enable = mkEnableOption "Enable AMD Drivers"; };
+  options.drivers.amdgpu = {enable = mkEnableOption "Enable AMD Drivers";};
 
   config = mkIf cfg.enable {
     # Systemd tmpfiles rules for ROCm HIP
-    systemd.tmpfiles.rules =
-      [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
+    systemd.tmpfiles.rules = ["L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"];
 
     # Video drivers configuration for X server
-    services.xserver.videoDrivers = [ "amdgpu" ];
+    services.xserver.videoDrivers = ["amdgpu"];
 
     # Additional hardware configuration based on AMD GPU presence
     hardware = {
@@ -43,21 +46,20 @@ in {
       };
 
       # CPU microcode updates
-      cpu = { amd.updateMicrocode = hasAmdCpu; };
-
+      cpu = {amd.updateMicrocode = hasAmdCpu;};
     };
 
     # Boot configuration for AMD GPU support
     boot = {
-      kernelModules = [ "kvm-amd" "amdgpu" "v4l2loopback" ];
+      kernelModules = ["kvm-amd" "amdgpu" "v4l2loopback"];
       kernelParams = [
         "amd_pstate=active"
         "tsc=unstable"
         "radeon.si_support=0"
         "amdgpu.si_support=1"
       ];
-      extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-      blacklistedKernelModules = [ "radeon" ];
+      extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+      blacklistedKernelModules = ["radeon"];
     };
   };
 }

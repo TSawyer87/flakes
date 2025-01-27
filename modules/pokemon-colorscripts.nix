@@ -1,8 +1,7 @@
-{ lib
-, pkgs
-,
+{
+  lib,
+  pkgs,
 }:
-
 pkgs.stdenv.mkDerivation {
   pname = "pokemon-colorscripts";
   version = "main";

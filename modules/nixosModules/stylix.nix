@@ -1,6 +1,12 @@
-{ pkgs, inputs, config, lib, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
+}:
 with lib; {
-  options = { stylixModule = { enable = mkEnableOption "enables stylix"; }; };
+  options = {stylixModule = {enable = mkEnableOption "enables stylix";};};
 
   config = mkIf config.stylixModule.enable {
     stylix = {
@@ -46,7 +52,8 @@ with lib; {
       #   base0E = "BB9AF7";
       #   base0F = "F7768E";
       # };
-      base16Scheme = { # TokyoNightTerminal
+      base16Scheme = {
+        # TokyoNightTerminal
         base00 = "11121d";
         base01 = "1A1B2A";
         base02 = "212234";

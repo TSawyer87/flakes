@@ -1,7 +1,15 @@
-{ userConfig, nixosConfiguration, ... }:
+{
+  userConfig,
+  nixosConfiguration,
+  ...
+}:
 nixosConfiguration.extendModules {
   modules = [
-    ({ config, pkgs, ... }: {
+    ({
+      config,
+      pkgs,
+      ...
+    }: {
       virtualisation.vmVariant = {
         virtualisation = {
           memorySize = userConfig.vm.memorySize;
@@ -23,7 +31,7 @@ nixosConfiguration.extendModules {
           #   enable = true;
           #   user = userConfig.username;
           # };
-          videoDrivers = [ "virtio" ];
+          videoDrivers = ["virtio"];
         };
       };
       virtualisation.libvirtd.enable = true;
@@ -34,7 +42,7 @@ nixosConfiguration.extendModules {
         spice
       ];
       services.qemuGuest.enable = true;
-      services.spice-vdagentd = { enable = true; };
+      services.spice-vdagentd = {enable = true;};
       hardware.graphics.enable = true;
     })
   ];

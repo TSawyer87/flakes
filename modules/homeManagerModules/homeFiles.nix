@@ -1,4 +1,4 @@
-{ username, ... }: {
+{username, ...}: {
   # Place Files Inside Home Directory
   home.file."Pictures/Wallpapers" = {
     source = ../../config/wallpapers;
@@ -27,5 +27,4 @@
     early_exit=true
     fill_shape=false
   '';
-
 }

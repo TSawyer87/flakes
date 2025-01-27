@@ -99,7 +99,8 @@ _: {
         {
           type = "command";
           key = "│  ";
-          text = # bash
+          text =
+            # bash
             ''
               birth_install=$(stat -c %W /)
               current=$(date +%s)
@@ -126,4 +127,3 @@ _: {
     };
   };
 }
-

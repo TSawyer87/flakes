@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   pkgs' = config.hardware.asahi.pkgs;
 
   bootM1n1 = pkgs'.m1n1.override {
@@ -13,7 +17,7 @@ let
   };
 
   bootFiles = {
-    "m1n1/boot.bin" = pkgs.runCommand "boot.bin" { } ''
+    "m1n1/boot.bin" = pkgs.runCommand "boot.bin" {} ''
       cat ${bootM1n1}/build/m1n1.bin > $out
       cat ${config.boot.kernelPackages.kernel}/dtbs/apple/*.dtb >> $out
       cat ${bootUBoot}/u-boot-nodtb.bin.gz >> $out
@@ -22,15 +26,14 @@ let
       fi
     '';
   };
-in
-{
+in {
   config = lib.mkIf config.hardware.asahi.enable {
     # install m1n1 with the boot loader
     boot.loader.grub.extraFiles = bootFiles;
     boot.loader.systemd-boot.extraFiles = bootFiles;
 
     # ensure the installer has m1n1 in the image
-    system.extraDependencies = lib.mkForce [ bootM1n1 bootUBoot ];
+    system.extraDependencies = lib.mkForce [bootM1n1 bootUBoot];
     system.build.m1n1 = bootFiles."m1n1/boot.bin";
   };
 

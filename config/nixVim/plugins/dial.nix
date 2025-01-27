@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
-    extraPlugins = with pkgs.vimPlugins; [ dial-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [dial-nvim];
     extraConfigLua = ''
             local dial = {
       	"monaqa/dial.nvim",

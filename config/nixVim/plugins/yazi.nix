@@ -3,7 +3,7 @@
     plugins.yazi = {
       enable = true;
 
-      lazyLoad = { settings = { cmd = [ "Yazi" ]; }; };
+      lazyLoad = {settings = {cmd = ["Yazi"];};};
     };
 
     keymaps = [
@@ -11,13 +11,13 @@
         mode = "n";
         key = "<leader>e";
         action = "<CMD>Yazi<CR>";
-        options = { desc = "Yazi (current file)"; };
+        options = {desc = "Yazi (current file)";};
       }
       {
         mode = "n";
         key = "<leader>E";
         action = "<CMD>Yazi toggle<CR>";
-        options = { desc = "Yazi (resume)"; };
+        options = {desc = "Yazi (resume)";};
       }
     ];
   };

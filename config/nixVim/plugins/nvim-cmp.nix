@@ -4,7 +4,7 @@
     #    See the README about individual language/framework/plugin snippets:
     #    https://github.com/rafamadriz/friendly-snippets
     # https://nix-community.github.io/nixvim/plugins/friendly-snippets.html
-    plugins.friendly-snippets = { enable = true; };
+    plugins.friendly-snippets = {enable = true;};
 
     # Autocompletion
     # See `:help cmp`
@@ -21,7 +21,7 @@
           '';
         };
 
-        completion = { completeopt = "menu,menuone,noinsert"; };
+        completion = {completeopt = "menu,menuone,noinsert";};
 
         # For an understanding of why these mappings were
         # chosen, you will need to read `:help ins-completion`
@@ -75,8 +75,8 @@
         sources = [
           # Snippet Engine & its associated nvim-cmp source
           # https://nix-community.github.io/nixvim/plugins/luasnip/index.html
-          { name = "luasnip"; }
-          { name = "buffer"; }
+          {name = "luasnip";}
+          {name = "buffer";}
           {
             name = "codeium";
           }
@@ -88,7 +88,7 @@
             name = "nvim_lsp";
           }
           # https://nix-community.github.io/nixvim/plugins/cmp-path.html
-          { name = "path"; }
+          {name = "path";}
         ];
       };
     };

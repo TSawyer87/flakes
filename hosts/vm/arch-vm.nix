@@ -1,7 +1,9 @@
-{ pkgs, userConfig, ... }:
-
-let
-  vmUtils = import ./vm-utils.nix { inherit pkgs; };
+{
+  pkgs,
+  userConfig,
+  ...
+}: let
+  vmUtils = import ./vm-utils.nix {inherit pkgs;};
   vmName = "arch-vm";
   vmImage = "output-arch-vm/arch-vm";
 
@@ -85,28 +87,29 @@ let
 
     }
   '';
-in pkgs.writeShellScriptBin "run-arch-vm" ''
-  # Check if VM image exists, if not, build it
-  if [ ! -f "${vmImage}" ]; then
-    echo "VM image not found. Building it now..."
-    
-    # Clean up existing output directory
-    rm -rf output-arch-vm
-    
-    ${vmUtils.cleanupVM vmName}
-
-    ${pkgs.packer}/bin/packer init ${archVmHcl}
-    ${pkgs.packer}/bin/packer build ${archVmHcl}
-    
-    # Check if build was successful
+in
+  pkgs.writeShellScriptBin "run-arch-vm" ''
+    # Check if VM image exists, if not, build it
     if [ ! -f "${vmImage}" ]; then
-      echo "Failed to build VM image. Exiting."
-      exit 1
-    fi
-  fi
+      echo "VM image not found. Building it now..."
 
-  ${vmUtils.createAndStartVM {
-    inherit vmName vmImage userConfig;
-    osVariant = "archlinux";
-  }}
-''
+      # Clean up existing output directory
+      rm -rf output-arch-vm
+
+      ${vmUtils.cleanupVM vmName}
+
+      ${pkgs.packer}/bin/packer init ${archVmHcl}
+      ${pkgs.packer}/bin/packer build ${archVmHcl}
+
+      # Check if build was successful
+      if [ ! -f "${vmImage}" ]; then
+        echo "Failed to build VM image. Exiting."
+        exit 1
+      fi
+    fi
+
+    ${vmUtils.createAndStartVM {
+      inherit vmName vmImage userConfig;
+      osVariant = "archlinux";
+    }}
+  ''

@@ -19,7 +19,7 @@
           };
         };
         select = {
-          backend = [ "telescope" "fzf_lua" "fzf" "builtin" "nui" ];
+          backend = ["telescope" "fzf_lua" "fzf" "builtin" "nui"];
           builtin = {
             mappings = {
               "<C-c>" = "Close";

@@ -1,17 +1,19 @@
-{ helpers, ... }: {
+{helpers, ...}: {
   programs.nixvim = {
-    autoCmd = [{
-      event = [ "BufEnter" "BufNew" ];
-      desc = "disable statuscolumn for neo-tree and dashboard";
-      callback = helpers.mkRaw ''
-        function()
-          local ft_ignore = { "dashboard", "neo-tree" }
-          if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
-            vim.cmd("setlocal foldcolumn=0")
+    autoCmd = [
+      {
+        event = ["BufEnter" "BufNew"];
+        desc = "disable statuscolumn for neo-tree and dashboard";
+        callback = helpers.mkRaw ''
+          function()
+            local ft_ignore = { "dashboard", "neo-tree" }
+            if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
+              vim.cmd("setlocal foldcolumn=0")
+            end
           end
-        end
-      '';
-    }];
+        '';
+      }
+    ];
   };
 
   programs.nixvim = {
@@ -20,21 +22,19 @@
         enable = true;
         settings = {
           relculright = true;
-          ft_ignore = [ "dashboard" "neo-tree" ];
+          ft_ignore = ["dashboard" "neo-tree"];
           segments = [
             {
               click = "v:lua.ScFa";
-              text =
-                [ (helpers.mkRaw "require('statuscol.builtin').foldfunc") ];
+              text = [(helpers.mkRaw "require('statuscol.builtin').foldfunc")];
             }
             {
               click = "v:lua.ScSa";
-              text = [ " %s" ];
+              text = [" %s"];
             }
             {
               click = "v:lua.ScLa";
-              text =
-                [ (helpers.mkRaw "require('statuscol.builtin').lnumfunc") " " ];
+              text = [(helpers.mkRaw "require('statuscol.builtin').lnumfunc") " "];
             }
           ];
         };
@@ -43,7 +43,8 @@
       nvim-ufo = {
         enable = true;
         settings = {
-          provider_selector = # lua
+          provider_selector =
+            # lua
             ''
               function()
                 return { "lsp", "indent" }
@@ -82,11 +83,11 @@
       {
         mode = "n";
         key = "zK";
-        action = helpers.mkRaw
+        action =
+          helpers.mkRaw
           "function() local winid = require('ufo').peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end end";
         options.desc = "Peek Folded Lines";
       }
     ];
-
   };
 }

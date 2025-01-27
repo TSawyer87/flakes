@@ -70,6 +70,5 @@
       # See `:help hlsearch`
       hlsearch = true;
     };
-
   };
 }

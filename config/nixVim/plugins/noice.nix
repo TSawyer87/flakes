@@ -3,13 +3,13 @@
     enable = true;
     settings = {
       enable = true;
-      notify = { enabled = true; };
+      notify = {enabled = true;};
       messages = {
         enabled =
           true; # Adds a padding-bottom to neovim statusline when set to false for some reason
       };
       lsp = {
-        message = { enabled = false; };
+        message = {enabled = false;};
         progress = {
           enabled = false;
           view = "mini";
