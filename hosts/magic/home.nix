@@ -1,9 +1,4 @@
-{
-  pkgs,
-  username,
-  inputs,
-  ...
-}: {
+{ pkgs, username, inputs, ... }: {
   # Home Manager Settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -35,6 +30,7 @@
     ../../modules/homeManagerModules/packages.nix
     ../../modules/homeManagerModules/services.nix
     ../../modules/homeManagerModules/homeFiles.nix
+    ../../modules/homeManagerModules/gtk.nix
   ];
 
   # Create XDG Dirs
@@ -56,8 +52,8 @@
     enable = true;
     settings = {
       "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
       };
     };
   };
@@ -66,14 +62,14 @@
   stylix.targets.waybar.enable = false;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
-  gtk = {
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-    gtk3.extraConfig = {gtk-application-prefer-dark-theme = 1;};
-    gtk4.extraConfig = {gtk-application-prefer-dark-theme = 1;};
-  };
+  # gtk = {
+  #   iconTheme = {
+  #     name = "Papirus-Dark";
+  #     package = pkgs.papirus-icon-theme;
+  #   };
+  #   gtk3.extraConfig = {gtk-application-prefer-dark-theme = 1;};
+  #   gtk4.extraConfig = {gtk-application-prefer-dark-theme = 1;};
+  # };
   qt = {
     enable = true;
     style.name = "adwaita-dark";
