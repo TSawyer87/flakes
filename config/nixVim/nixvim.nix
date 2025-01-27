@@ -33,7 +33,7 @@ in {
     ./plugins/dial.nix
     ./plugins/toggleterm.nix
     ./plugins/alpha.nix
-    ./plugins/codeium.nix
+    #./plugins/codeium.nix
     ./plugins/markdown.nix
     ./plugins/zen-mode.nix
     ./plugins/dressing.nix
