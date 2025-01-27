@@ -1,4 +1,4 @@
-{ ... }: {
+{ inputs, pkgs, system, ... }: {
   programs.nvf = {
   vim.package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     enable = true;
