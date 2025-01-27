@@ -27,6 +27,14 @@ in {
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
   };
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
+    ];
+  };
   # Enable or Disable Stylix
   stylixModule.enable = true;
 

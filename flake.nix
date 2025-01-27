@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.uerl = "github:nixos/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -34,7 +35,11 @@
 
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
+    # Or 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+     # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#hostname'
