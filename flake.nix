@@ -17,7 +17,7 @@
 
   outputs =
     { self, nixpkgs, home-manager, nvf, ... }@inputs: let
-       inherit (self outputs;
+       inherit (self) outputs;
 
        systems = [
       "aarch64-linux"
