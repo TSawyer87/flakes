@@ -18,6 +18,10 @@
       nix.treesitter.enable = true;
       markdown.enable = true;
     };
+    tabline = {
+                                        nvimBufferline.enable = true;
+                                };
+                                
     theme.name = "tokyonight";
     autopairs.nvim-autopairs.enable = true;
     statusline.lualine.enable = true;
