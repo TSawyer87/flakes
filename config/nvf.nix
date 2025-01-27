@@ -10,22 +10,4 @@
       vim.lsp = { enable = true; };
       vim.languages.nix.enable = true;
     };
-      config.vim.lazy.plugins = {
-      "aerial.nvim" = {
-      package = pkgs.vimPlugins.aerial-nvim;
-      setupModule = "aerial";
-
-      # Explicitly mark plugin as lazy. You don't need this if you define one of
-      # the trigger "events" below
-      lazy = true;
-
-      # load on keymap
-      keys = [
-        {
-          key = "<leader>a";
-          action = ":AerialToggle<CR>";
-        }
-      ];
-    };
-  };
   }
