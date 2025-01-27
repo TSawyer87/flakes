@@ -46,6 +46,7 @@
           enable = true;
         };
 
+                };
     # https://nix-community.github.io/nixvim/keymaps/index.html
     keymaps = [
       {
@@ -143,5 +144,4 @@
       require('dap').listeners.before.event_exited['dapui_config'] = require('dapui').close
     '';
   };
-};
 }
