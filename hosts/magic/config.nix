@@ -156,4 +156,13 @@ in {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+  vm = {
+    # 4 GB minimum
+    memorySize = 4096;
+    # 2 cores minimum
+    cores = 2;
+    # 30GB minimum for one theme - 50GB for multiple themes - more for development and testing
+    diskSize = 20000;
+  };
+
 }

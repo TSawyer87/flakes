@@ -49,12 +49,12 @@ cat <<EOF >"$CONFIG_FILE"
     Default password is required for sudo support in systems
     !REMEMBER TO USE passwd TO CHANGE THE PASSWORD!
   */
-  defaultPassword = "hydenix";
-  timezone = "America/Vancouver";
+  defaultPassword = "Tbone123";
+  timezone = "America/New_York";
   locale = "en_US.UTF-8";
 
   # hardware config - sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
-  hardwareConfig = (toString ./hardware-configuration.nix);
+  hardwareConfig = (toString ./hosts/magic/hardware.nix);
 
   /*
     These will be imported after the default modules and override/merge any conflicting options
