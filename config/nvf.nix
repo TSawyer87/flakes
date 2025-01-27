@@ -10,7 +10,13 @@
       vimAlias = false;
       lsp = { enable = true; };
       languages = {
+      enableTreesitter = true;
       nix.enable = true;
+      nix.lsp.enable = true;
+      nix.lsp.server = "nil";
+      nix.format.type = "alejandra",
+      nix.treesitter.enable = true;
+      markdown.enable = true;
     };
     theme.name = "tokyonight";
     autopairs.nvim-autopairs.enable = true;
