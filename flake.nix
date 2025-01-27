@@ -41,7 +41,7 @@
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
+            inherit systems;
             inherit inputs;
             inherit username;
             inherit host;
@@ -57,7 +57,7 @@
                 inherit username;
                 inherit inputs;
                 inherit host;
-                inherit system;
+                inherit systems;
               };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
