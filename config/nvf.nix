@@ -7,7 +7,7 @@
       vim = {
       package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       viAlias = true;
-      vimAlias = false;
+      vimAlias = true;
       lsp = { enable = true; };
       languages = {
       enableTreesitter = true;

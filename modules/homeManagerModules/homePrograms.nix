@@ -31,10 +31,6 @@ in {
                                 sort_reverse = true;
                                         editor = "nvim";
                         };
-                                opener = {
-                                        open = ["nvim"] ;
-                                        edit = ["nvim"];
-                                };
                         };
                 };
     tmux = {

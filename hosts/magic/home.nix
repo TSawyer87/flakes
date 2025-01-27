@@ -25,7 +25,7 @@
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
     ../../config/zed.nix
-    #../../config/nixVim/nixvim.nix
+    ../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules/homePrograms.nix
     ../../modules/homeManagerModules/homePackages.nix
     ../../modules/homeManagerModules/homeServices.nix
