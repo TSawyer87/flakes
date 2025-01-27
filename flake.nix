@@ -29,7 +29,7 @@
 
       host = "magic";
       username = "jr";
-      forAllSystems = nixpkgs.lib.genAttrs system;
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in {
 
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
