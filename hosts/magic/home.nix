@@ -35,7 +35,7 @@
     ../../modules/homeManagerModules/homePackages.nix
     ../../modules/homeManagerModules/homeServices.nix
     ../../modules/homeManagerModules/homeFiles.nix
-    inputs.nvf.homeManagerModules.default
+                #    inputs.nvf.homeManagerModules.default
   ];
 
   # Create XDG Dirs

@@ -1,9 +1,9 @@
 {
   inputs,
   pkgs,
-  system,
   ...
 }: {
+        imports = [ inputs.nvf.homeManagerModules.default ];
   programs.nvf = {
     enable = true;
     # your settings need to go into the settings attribute set
