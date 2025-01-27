@@ -10,4 +10,4 @@
       vim.lsp = { enable = true; };
       vim.languages.nix.enable = true;
     };
-  }
+  };
