@@ -46,9 +46,9 @@ in {
       #   });
       # })
     ];
-                config = {
-                        allowUnfree = true;
-                };
+                # config = {
+                #         allowUnfree = true;
+                # };
   };
   # Enable or Disable Stylix
   stylixModule.enable = true;
@@ -136,6 +136,8 @@ in {
   };
 
   console.keyMap = "${keyboardLayout}";
+
+  nixpkgs.config.allowUnfree = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

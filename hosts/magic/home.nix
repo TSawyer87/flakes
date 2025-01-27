@@ -3,7 +3,6 @@
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
-        nixpkgs.config.allowUnfree = true;
 
   # Import Program Configurations
   imports = [
