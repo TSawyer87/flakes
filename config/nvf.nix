@@ -5,8 +5,8 @@
     # most settings are documented in the appendix
     settings = {
   vim.package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-      vim.viAlias = false;
-      vim.vimAlias = true;
+      vim.viAlias = true;
+      vim.vimAlias = false;
       vim.lsp = { enable = true; };
     };
   };
