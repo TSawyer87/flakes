@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   programs = {
     thunderbird.enable = true;
-    yazi = { enable = true; };
     firefox.enable = true;
     starship = {
       enable = true;

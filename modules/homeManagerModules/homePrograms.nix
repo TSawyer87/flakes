@@ -20,6 +20,18 @@ in {
         ac = "!git add -A && git commit -m ";
       };
     };
+    yazi = {
+        enable = true;
+          shellWrapperName = "yy";
+         settings = {
+                                manager = {
+                                show_hidden = true;
+                                sort_dir_first = true;
+                                sort_by = "mtime";
+                                sort_reverse = true;
+                        };
+                        };
+                };
     tmux = {
       enable = true;
       keyMode = "vi";
