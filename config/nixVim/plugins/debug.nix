@@ -6,7 +6,8 @@
     # be extended to other languages as well. That's why it's called
     # kickstart.nixvim and not kitchen-sink.nixvim ;)
     # https://nix-community.github.io/nixvim/plugins/dap/index.html
-    plugins.dap = {
+    plugins = {
+        dap = {
       enable = true;
 
         # Creates a beautiful debugger UI
@@ -142,4 +143,5 @@
       require('dap').listeners.before.event_exited['dapui_config'] = require('dapui').close
     '';
   };
+};
 }
