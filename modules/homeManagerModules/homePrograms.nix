@@ -29,6 +29,7 @@ in {
                                 sort_dir_first = true;
                                 sort_by = "mtime";
                                 sort_reverse = true;
+                                        editor = "nvim";
                         };
                         };
                 };
