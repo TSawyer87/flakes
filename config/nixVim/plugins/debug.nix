@@ -38,12 +38,12 @@
           };
         };
                         };
+    };
 
         # Add your own debuggers here
         dap-go = {
           enable = true;
         };
-    };
 
     # https://nix-community.github.io/nixvim/keymaps/index.html
     keymaps = [
