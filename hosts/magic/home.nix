@@ -1,20 +1,18 @@
 { pkgs, username, inputs, ... }: {
   # Home Manager Settings
   home = {
-  username = "${username}";
-  homeDirectory = "/home/${username}";
-  stateVersion = "23.11";
-        };
+    username = "${username}";
+    homeDirectory = "/home/${username}";
+    stateVersion = "23.11";
+  };
 
   # Import Program Configurations
   imports = [
     ../../config/emoji.nix
     ../../config/hypr/hyprland.nix
-    #../../config/hypr/hyprpanel.nix
     ../../config/hypr/swaync.nix
     ../../config/hypr/waybar.nix
     ../../config/hypr/wlogout.nix
-    #../../config/neovim.nix
     ../../config/nvf.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
@@ -23,7 +21,6 @@
     ../../config/shells/bash.nix
     ../../config/shells/starship.nix
     ../../config/shells/fastfetch
-    # ../../config/terms/wezterm.nix
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
     ../../config/zed.nix
@@ -43,15 +40,8 @@
 
     ];
 
-  # dconf = {
-  #   enable = true;
-  #   settings = {
-  #     "org/virt-manager/virt-manager/connections" = {
-  #       autoconnect = [ "qemu:///system" ];
-  #       uris = [ "qemu:///system" ];
-  #     };
-  #   };
-  # };
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
 
   # Styling Options
   stylix.targets.waybar.enable = false;
