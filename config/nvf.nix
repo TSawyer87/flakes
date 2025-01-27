@@ -13,7 +13,6 @@
       nix.enable = true;
     };
     lazy.plugins = {
-      {
     toggleterm-nvim = {
       package = "toggleterm-nvim";
       setupModule = "toggleterm";
@@ -21,7 +20,6 @@
   
       after = "require('toggleterm').do_something()";
       cmd = ["ToggleTerm"];
-    };
     };
     };
   };
