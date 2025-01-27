@@ -9,6 +9,7 @@
     plugins = {
         dap = {
       enable = true;
+                };
 
         # Creates a beautiful debugger UI
         dap-ui = {
@@ -38,7 +39,6 @@
             };
           };
         };
-                        };
     };
 
         # Add your own debuggers here
