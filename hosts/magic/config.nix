@@ -1,4 +1,4 @@
-{ pkgs, host, options, ... }:
+{ pkgs, host, options, outputs, lib, config, ... }:
 let
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
