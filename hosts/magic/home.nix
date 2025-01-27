@@ -1,4 +1,4 @@
-{ pkgs, username, homeDirectory, stateVersion, ... }: {
+{ pkgs, username, inputs, ... }: {
   # Home Manager Settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -29,6 +29,7 @@
     ../../modules/homeManagerModules/homePackages.nix
     ../../modules/homeManagerModules/homeServices.nix
     ../../modules/homeManagerModules/homeFiles.nix
+    inputs.nvf.homeManagerModules.default
   ];
 
   # Create XDG Dirs
