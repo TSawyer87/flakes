@@ -16,17 +16,26 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, nvf, ... }@inputs:
-    let
+    { self, nixpkgs, home-manager, nvf, ... }@inputs: let
+       inherit (self outputs;
+
+       systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+
       system = "x86_64-linux";
       host = "magic";
       username = "jr";
-      forSystem = nixpkgs.lib.genAttrs system;
+      forAllSystems = nixpkgs.lib.genAttrs system;
     in {
 
-    packages = forSystem (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-    formatter = forSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#hostname'
