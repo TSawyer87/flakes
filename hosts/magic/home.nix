@@ -31,11 +31,10 @@
     ../../config/terms/ghostty.nix
     ../../config/zed.nix
     ../../config/nixVim/nixvim.nix
-    ../../modules/homeManagerModules/homePrograms.nix
-    ../../modules/homeManagerModules/homePackages.nix
-    ../../modules/homeManagerModules/homeServices.nix
+    ../../modules/homeManagerModules/programs.nix
+    ../../modules/homeManagerModules/packages.nix
+    ../../modules/homeManagerModules/services.nix
     ../../modules/homeManagerModules/homeFiles.nix
-                #    inputs.nvf.homeManagerModules.default
   ];
 
   # Create XDG Dirs
