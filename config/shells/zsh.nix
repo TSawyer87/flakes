@@ -17,6 +17,8 @@
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
       #  exec Hyprland
       #fi
+      autoload -U compinit
+      compinit
       setopt correct                                                  # Auto correct mistakes
       setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
       setopt nocaseglob                                               # Case insensitive globbing
@@ -38,6 +40,7 @@
              fi
              source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
              source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+             source <(jj util completion zsh)
              pokemon-colorscripts -r
              function rbs() {
           local host="$1"
