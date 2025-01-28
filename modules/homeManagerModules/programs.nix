@@ -21,12 +21,12 @@ in {
       };
     };
     jujutsu = {
-        enable = true;
-          settings = {
-                                email = "sawyerjr.25@gmail.com";
-                                name = "TSawyer87";
-                        };
-                };
+      enable = true;
+      settings = {
+        email = "sawyerjr.25@gmail.com";
+        name = "TSawyer87";
+      };
+    };
     yazi = {
       enable = true;
       shellWrapperName = "y";
@@ -34,8 +34,9 @@ in {
         manager = {
           show_hidden = true;
           sort_dir_first = true;
-          sort_by = "mtime";
-          sort_reverse = true;
+          sort_by = "natural";
+          sort_reverse = false;
+          linemode = "size";
           editor = "nvim";
         };
       };
