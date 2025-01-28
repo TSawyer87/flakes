@@ -1,5 +1,9 @@
-{ inputs, pkgs, ... }: {
-  imports = [ inputs.nvf.homeManagerModules.default ];
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [inputs.nvf.homeManagerModules.default];
   programs.nvf = {
     enable = true;
     # your settings need to go into the settings attribute set
@@ -7,10 +11,9 @@
     settings = {
       vim = {
         package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-        theme.enable = false;
         viAlias = false;
         vimAlias = true;
-        spellcheck = { enable = true; };
+        spellcheck = {enable = true;};
         lsp = {
           formatOnSave = true;
           lspkind.enable = true;
@@ -60,11 +63,11 @@
         leaderKey = " ";
         lineNumberMode = "relative";
 
-        tabline = { nvimBufferline.enable = true; };
+        tabline = {nvimBufferline.enable = true;};
 
         snippets.luasnip.enable = true;
 
-        filetree = { neo-tree = { enable = true; }; };
+        filetree = {neo-tree = {enable = true;};};
 
         theme = {
           name = "tokyonight";
@@ -82,7 +85,7 @@
           nvim-cmp.mappings.confirm = "<C-;>";
           nvim-cmp.enable = true;
         };
-        binds = { whichKey.enable = true; };
+        binds = {whichKey.enable = true;};
         telescope.enable = true;
 
         git = {
@@ -101,9 +104,9 @@
           };
           # images = { image-nvim.enable = true; };
         };
-        dashboard = { alpha.enable = true; };
+        dashboard = {alpha.enable = true;};
 
-        notify = { nvim-notify.enable = true; };
+        notify = {nvim-notify.enable = true;};
 
         notes = {
           obsidian.enable = false;
@@ -146,15 +149,14 @@
           };
         };
 
-        session = { nvim-session-manager.enable = false; };
+        session = {nvim-session-manager.enable = false;};
 
-        gestures = { gesture-nvim.enable = false; };
+        gestures = {gesture-nvim.enable = false;};
 
-        comments = { comment-nvim.enable = true; };
+        comments = {comment-nvim.enable = true;};
 
-        presence = { neocord.enable = false; };
+        presence = {neocord.enable = false;};
       };
-
     };
   };
 }
