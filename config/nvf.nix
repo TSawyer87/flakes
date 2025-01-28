@@ -66,15 +66,16 @@
         filetree = { neo-tree = { enable = true; }; };
 
         theme = {
-          name = "tokyonight";
-          style = "storm";
+          enable = true;
+          name = "catppuccin";
+          style = "mocha";
           transparent = true;
         };
         autopairs.nvim-autopairs.enable = true;
         statusline = {
           lualine = {
             enable = true;
-            theme = "tokyonight";
+            theme = "catppuccin";
           };
         };
         autocomplete = {
