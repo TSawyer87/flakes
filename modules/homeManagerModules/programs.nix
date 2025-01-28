@@ -20,6 +20,13 @@ in {
         ac = "!git add -A && git commit -m ";
       };
     };
+    jujutsu = {
+        enable = true;
+          settings = {
+                                email = "sawyerjr.25@gmail.com";
+                                name = "TSawyer87";
+                        };
+                };
     yazi = {
       enable = true;
       shellWrapperName = "y";
