@@ -23,8 +23,10 @@ in {
     jujutsu = {
       enable = true;
       settings = {
-        email = "sawyerjr.25@gmail.com";
-        name = "TSawyer87";
+        user = {
+          email = "sawyerjr.25@gmail.com";
+          name = "TSawyer87";
+        };
       };
     };
     yazi = {
