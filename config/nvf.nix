@@ -10,15 +10,13 @@
         theme.enable = false;
         viAlias = false;
         vimAlias = true;
-        spellcheck = {
-          enable = true;
-        }
+        spellcheck = { enable = true; };
         lsp = {
-            formatOnSave = true;
-            lspkind.enable = true;
-            trouble.enable = true;
-            lsplines.enable = true;
-      };
+          formatOnSave = true;
+          lspkind.enable = true;
+          trouble.enable = true;
+          lsplines.enable = true;
+        };
 
         debugger = {
           nvim-dab = {
@@ -73,12 +71,11 @@
           surround.enable = true;
           diffview-nvim.enable = true;
           motion = {
-          hop.enable = true;
-          leap.enable = true;
-          precognition.enable = true;
+            hop.enable = true;
+            leap.enable = true;
+            precognition.enable = true;
+          };
         };
-        };
-
 
       };
     };
