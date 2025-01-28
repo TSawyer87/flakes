@@ -19,7 +19,7 @@
         };
 
         debugger = {
-          nvim-dab = {
+          nvim-dap = {
             enable = true;
             ui.enable = true;
           };
@@ -48,6 +48,10 @@
 
         tabline = { nvimBufferline.enable = true; };
 
+        snippets.luasnip.enable = true;
+
+        filetree = { neo-tree = { enable = true; }; };
+
         theme = {
           name = "tokyonight";
           style = "storm";
@@ -67,6 +71,12 @@
         binds = { whichKey.enable = true; };
         telescope.enable = true;
 
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+          gitsigns.codeActions.enable = false;
+        };
+
         utility = {
           surround.enable = true;
           diffview-nvim.enable = true;
@@ -75,9 +85,62 @@
             leap.enable = true;
             precognition.enable = true;
           };
+          images = { image-nvim.enable = true; };
+        };
+        dashboard = { alpha.enable = true; };
+
+        notify = { nvim-notify.enable = true; };
+
+        notes = {
+          obsidian.enable = false;
+          todo-comments.enable = true;
+          mind-nvim.enable = true;
         };
 
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+        };
+
+        ui = {
+          borders.enable = true;
+          noice.enable = true;
+          colorizer.enable = true;
+          modes-nvim.enable = false; # the theme looks terrible with catppuccin
+          illuminate.enable = true;
+          breadcrumbs = {
+            enable = true;
+            navbuddy.enable = true;
+          };
+          smartcolumn = {
+            enable = true;
+            setupOpts.custom_colorcolumn = {
+              nix = "110";
+              markdown = "80";
+            };
+          };
+          fastaction.enable = true;
+        };
+
+        assistant = {
+          chatgpt.enable = false;
+          copilot = {
+            enable = false;
+            cmp.enable = false;
+          };
+        };
+
+        session = { nvim-session-manager.enable = false; };
+
+        gestures = { gesture-nvim.enable = false; };
+
+        comments = { comment-nvim.enable = true; };
+
+        presence = { neocord.enable = false; };
       };
+
     };
   };
 }
