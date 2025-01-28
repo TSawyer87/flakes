@@ -36,7 +36,7 @@ in {
         manager = {
           show_hidden = true;
           sort_dir_first = true;
-          sort_by = "natural";
+          sort_by = "mtime";
           sort_reverse = false;
           linemode = "size";
           editor = "nvim";
