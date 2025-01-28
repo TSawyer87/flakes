@@ -69,8 +69,8 @@
              export MCFLY_RESULTS_SORT=LAST_RUN
              export MCFLY_INTERFACE_VIEW=BOTTOM
              export TERM=xterm-256color
-             export EDITOR=vim
-             export VISUAL=vim
+             export EDITOR=nvim
+             export VISUAL=nvim
     '';
     shellAliases = {
       sv = "sudo nvim";
