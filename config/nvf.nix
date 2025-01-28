@@ -99,7 +99,7 @@
             leap.enable = true;
             precognition.enable = true;
           };
-          images = { image-nvim.enable = true; };
+          # images = { image-nvim.enable = true; };
         };
         dashboard = { alpha.enable = true; };
 
