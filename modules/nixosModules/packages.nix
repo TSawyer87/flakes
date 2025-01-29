@@ -86,6 +86,9 @@
     rose-pine-cursor
     pfetch-rs
     rustc
+    cargo
+    rustfmt
+    rust-analyzer
     fwupd
     openssl
     pkg-config
