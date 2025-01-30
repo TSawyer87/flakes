@@ -6,7 +6,7 @@
   programs.nixvim = {
     plugins = {
       codeium-nvim = {
-        enable = false;
+        enable = true;
 
         settings = {
           enable_chat = true;
