@@ -1,8 +1,15 @@
-{ ... }: {
+{
   programs.nixvim = {
-
     plugins.codecompanion = {
       enable = true;
+
+      luaConfig = {
+        __raw = ''
+          vim.api.nvim_set_keymap("n", "c-l", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
+          vim.api.nvim_set_keymap("v", "c-l", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
+          vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionAdd<cr>", { noremap = true, silent = true })
+        '';
+      };
 
       settings = {
         adapters = {
@@ -10,18 +17,18 @@
             __raw = ''
               function()
                 return require('codecompanion.adapters').extend('ollama', {
-                    env = {
-                        url = "http://127.0.0.1:11434",
+                  env = {
+                    url = "http://127.0.0.1:11434",
+                  },
+                  schema = {
+                    model = {
+                      default = 'qwen2.5-coder:latest',
+                      -- default = "llama3.1:8b-instruct-q8_0",
                     },
-                    schema = {
-                        model = {
-                            default = 'qwen2.5-coder:latest',
-                            -- default = "llama3.1:8b-instruct-q8_0",
-                        },
-                        num_ctx = {
-                            default = 32768,
-                        },
+                    num_ctx = {
+                      default = 32768,
                     },
+                  },
                 })
               end
             '';
@@ -34,12 +41,11 @@
           use_default_prompts = true;
         };
         strategies = {
-          agent = { adapter = "ollama"; };
-          chat = { adapter = "ollama"; };
-          inline = { adapter = "ollama"; };
+          agent = {adapter = "ollama";};
+          chat = {adapter = "ollama";};
+          inline = {adapter = "ollama";};
         };
       };
     };
   };
 }
-
