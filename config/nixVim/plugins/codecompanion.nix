@@ -9,18 +9,18 @@
             __raw = ''
               function()
                 return require('codecompanion.adapters').extend('ollama', {
-                  env = {
-                    url = "http://127.0.0.1:11434",
-                  },
-                  schema = {
-                    model = {
-                      default = 'qwen2.5-coder:latest',
-                      -- default = "llama3.1:8b-instruct-q8_0",
+                    env = {
+                        url = "http://127.0.0.1:11434",
                     },
-                    num_ctx = {
-                      default = 32768,
+                    schema = {
+                        model = {
+                            default = 'qwen2.5-coder:latest',
+                            -- default = "llama3.1:8b-instruct-q8_0",
+                        },
+                        num_ctx = {
+                            default = 32768,
+                        },
                     },
-                  },
                 })
               end
             '';
@@ -33,9 +33,26 @@
           use_default_prompts = true;
         };
         strategies = {
-          agent = {adapter = "ollama";};
-          chat = {adapter = "ollama";};
-          inline = {adapter = "ollama";};
+          agent = {
+            adapter = "ollama";
+          };
+          chat = {
+            adapter = "ollama";
+          };
+          inline = {
+            adapter = "ollama";
+          };
+        };
+      };
+
+      lazyLoad = {
+        settings = {
+          cmd = [
+            "CodeCompanion"
+            "CodeCompanionActions"
+            "CodeCompanionChat"
+            "CodeCompanionCmd"
+          ];
         };
       };
     };

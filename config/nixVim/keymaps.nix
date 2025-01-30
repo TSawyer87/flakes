@@ -193,6 +193,46 @@
         action = "<cmd>DiffviewClose<CR>";
         options.desc = "Close Diffview";
       }
+
+      {
+        mode = ["n"];
+        key = "<leader>j";
+        action.__raw = ''function() require("treesj").toggle() end'';
+
+        options.desc = "Treesj Toggle";
+      }
+      {
+        mode = ["n"];
+        key = "<leader>J";
+        action.__raw = ''function() require("treesj").join() end'';
+
+        options.desc = "Treesj Join";
+      }
+      {
+        mode = ["n"];
+        key = "<leader>S";
+        action.__raw = ''function() require("treesj").split() end'';
+
+        options.desc = "Treesj Split";
+      }
+      {
+        mode = ["n" "v"];
+        key = "<C-a>";
+        action = "<cmd>CodeCompanionActions<CR>";
+        options = {desc = "CodeCompanionActions";};
+      }
+      {
+        mode = ["n" "v"];
+        key = "<leader>a";
+        action = "<cmd>CodeCompanionChat<CR>";
+        options = {desc = "CodeCompanionChat";};
+      }
+      {
+        mode = "v";
+        key = "ga";
+        action = "<cmd>CodeCompanionChat Add<CR>";
+        options = {desc = "CodeCompanionChatAdd";};
+      }
       {
         key = "s";
         action.__raw = ''function() require("flash").jump() end'';
