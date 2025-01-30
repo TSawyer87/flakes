@@ -1,15 +1,9 @@
-{
-  config,
-  pkgs,
-  inputs,
-  icons,
-  ...
-}: let
-  helpers = config.lib.nixvim;
+{ config, pkgs, inputs, icons, ... }:
+let helpers = config.lib.nixvim;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    (import ./plugins/ufo.nix {inherit helpers;})
+    (import ./plugins/ufo.nix { inherit helpers; })
     ./plugins/gitsigns.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
@@ -25,6 +19,7 @@ in {
     ./plugins/bufferline.nix
     ./plugins/lualine.nix
     ./plugins/undotree.nix
+    ./plugins/codecompanion.nix
     ./plugins/navic.nix
     ./plugins/harpoon.nix
     ./plugins/oil.nix
@@ -79,17 +74,17 @@ in {
     plugins = {
       # Adds icons for plugins to utilize in ui
       web-devicons.enable = true;
-      rainbow-delimiters = {enable = true;};
+      rainbow-delimiters = { enable = true; };
 
       # Detect tabstop and shiftwidth automatically
       # https://nix-community.github.io/nixvim/plugins/sleuth/index.html
-      sleuth = {enable = true;};
+      sleuth = { enable = true; };
 
-      lz-n = {enable = true;}; # lazy loading
+      lz-n = { enable = true; }; # lazy loading
 
-      diffview = {enable = true;};
+      diffview = { enable = true; };
 
-      persistence = {enable = true;};
+      persistence = { enable = true; };
       # Highlight todo, notes, etc in comments
       # https://nix-community.github.io/nixvim/plugins/todo-comments/index.html
       todo-comments = {
@@ -98,13 +93,13 @@ in {
           signs = true;
         };
       };
-      lazygit = {enable = true;};
-      nvim-bqf = {enable = true;};
+      lazygit = { enable = true; };
+      nvim-bqf = { enable = true; };
       grug-far = {
         enable = true;
-        lazyLoad = {settings = {cmd = "GrugFar";};};
+        lazyLoad = { settings = { cmd = "GrugFar"; }; };
       };
-      marks = {enable = true;};
+      marks = { enable = true; };
       glow = {
         enable = true;
         lazyLoad.settings.ft = "markdown";
@@ -137,10 +132,11 @@ in {
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
-    extraPlugins = with pkgs.vimPlugins; [
-      # Useful for getting pretty icons, but requires a Nerd Font.
-      nvim-web-devicons # TODO: Figure out how to configure using this with telescope
-    ];
+    extraPlugins = with pkgs.vimPlugins;
+      [
+        # Useful for getting pretty icons, but requires a Nerd Font.
+        nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+      ];
 
     # TODO: Figure out where to move this
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapre
