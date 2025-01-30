@@ -3,14 +3,6 @@
     plugins.codecompanion = {
       enable = true;
 
-      luaConfig = {
-        __raw = ''
-          vim.api.nvim_set_keymap("n", "c-l", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
-          vim.api.nvim_set_keymap("v", "c-l", "<cmd>CodeCompanionToggle<cr>", { noremap = true, silent = true })
-          vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionAdd<cr>", { noremap = true, silent = true })
-        '';
-      };
-
       settings = {
         adapters = {
           ollama = {

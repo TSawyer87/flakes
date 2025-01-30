@@ -33,6 +33,11 @@
 
       host = "magic";
       username = "jr";
+      pkgsForSystem = system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in {
       packages =
@@ -73,6 +78,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
+              nixpkgs.config.allowUnfree = true;
             }
           ];
         };

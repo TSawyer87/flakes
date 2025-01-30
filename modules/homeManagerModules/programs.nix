@@ -37,7 +37,7 @@ in {
           show_hidden = true;
           sort_dir_first = true;
           sort_by = "mtime";
-          sort_reverse = false;
+          sort_reverse = true;
           linemode = "size";
           editor = "nvim";
         };

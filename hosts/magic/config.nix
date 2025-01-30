@@ -1,5 +1,11 @@
-{ pkgs, host, options, outputs, ... }:
-let
+{
+  pkgs,
+  host,
+  options,
+  outputs,
+  lib,
+  ...
+}: let
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
 in {
@@ -26,7 +32,7 @@ in {
 
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
   };
   nixpkgs = {
     # You can add overlays here
@@ -46,9 +52,9 @@ in {
       #   });
       # })
     ];
-                # config = {
-                #         allowUnfree = true;
-                # };
+    # config = {
+    #         allowUnfree = true;
+    # };
   };
   # Enable or Disable Stylix
   stylixModule.enable = true;
@@ -74,8 +80,9 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = host;
-  networking.timeServers = options.networking.timeServers.default
-    ++ [ "pool.ntp.org" ];
+  networking.timeServers =
+    options.networking.timeServers.default
+    ++ ["pool.ntp.org"];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -95,9 +102,9 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
+  nixpkgs.config.permittedInsecurePackages = ["olm-3.2.16"];
 
-  users = { mutableUsers = true; };
+  users = {mutableUsers = true;};
 
   fonts = {
     packages = with pkgs; [
@@ -121,7 +128,7 @@ in {
 
   # Extra Portal Configuration
   systemd.services.flatpak-repo = {
-    path = [ pkgs.flatpak ];
+    path = [pkgs.flatpak];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
