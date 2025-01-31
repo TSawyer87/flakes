@@ -93,15 +93,6 @@ in {
 
   users = {mutableUsers = true;};
 
-  # environment.variables = {
-  #   NIXOS = "true";
-  #   NIXOS_VERSION = "25.05";
-  #   EDITOR = "nvim";
-  #   VISUAL = "nvim";
-  # };
-
-  xdg.portal.wlr.enable = true;
-
   # Extra Portal Configuration
   systemd.services.flatpak-repo = {
     path = [pkgs.flatpak];
