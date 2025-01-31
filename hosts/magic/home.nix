@@ -1,4 +1,9 @@
-{ pkgs, username, inputs, ... }: {
+{
+  pkgs,
+  username,
+  inputs,
+  ...
+}: {
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -13,7 +18,7 @@
     ../../config/hypr/swaync.nix
     ../../config/hypr/waybar.nix
     ../../config/hypr/wlogout.nix
-    ../../config/nvf.nix
+    #../../config/nvf.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
@@ -35,10 +40,8 @@
     ../../modules/homeManagerModules/dconf.nix
   ];
 
-  home.packages = with pkgs;
-    [
-
-    ];
+  home.packages = with pkgs; [
+  ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

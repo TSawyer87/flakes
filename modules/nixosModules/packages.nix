@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
+    pkgs.rust-bin.stable.lates.default
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
