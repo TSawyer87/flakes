@@ -19,6 +19,9 @@ in {
         s = "status";
         ac = "!git add -A && git commit -m ";
       };
+      ignores = [
+        "*.jj"
+      ];
     };
     jujutsu = {
       enable = true;

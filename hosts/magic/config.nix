@@ -18,6 +18,7 @@ in {
     ../../modules/nixosModules/programs.nix
     ../../modules/nixosModules/services.nix
     ../../modules/nixosModules/hardware.nix
+    ../../modules/nixosModules/zram.nix
     ../../modules/nixosModules/stylix.nix
     ../../modules/nixosModules/cachix.nix
     ../../modules/nixosModules/xdg.nix
@@ -27,13 +28,17 @@ in {
     ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
+    ../../modules/nixosModules/i18n.nix
+    ../../modules/nixosModules/nix.nix
+    ../../modules/nixosModules/guix.nix
+    ../../modules/nixosModules/fonts.nix
     #    ../../config/firefox.nix
   ];
 
-  nix.settings = {
-    auto-optimise-store = true;
-    experimental-features = ["nix-command" "flakes"];
-  };
+  # nix.settings = {
+  #   auto-optimise-store = true;
+  #   experimental-features = ["nix-command" "flakes"];
+  # };
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -87,35 +92,35 @@ in {
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
+  # # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  #
+  # i18n.extraLocaleSettings = {
+  #   LC_ADDRESS = "en_US.UTF-8";
+  #   LC_IDENTIFICATION = "en_US.UTF-8";
+  #   LC_MEASUREMENT = "en_US.UTF-8";
+  #   LC_MONETARY = "en_US.UTF-8";
+  #   LC_NAME = "en_US.UTF-8";
+  #   LC_NUMERIC = "en_US.UTF-8";
+  #   LC_PAPER = "en_US.UTF-8";
+  #   LC_TELEPHONE = "en_US.UTF-8";
+  #   LC_TIME = "en_US.UTF-8";
+  # };
 
   nixpkgs.config.permittedInsecurePackages = ["olm-3.2.16"];
 
   users = {mutableUsers = true;};
 
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts-emoji
-      noto-fonts-cjk-sans
-      font-awesome
-      symbola
-      material-icons
-      fira-code
-    ];
-  };
+  # fonts = {
+  #   packages = with pkgs; [
+  #     noto-fonts-emoji
+  #     noto-fonts-cjk-sans
+  #     font-awesome
+  #     symbola
+  #     material-icons
+  #     fira-code
+  #   ];
+  # };
 
   environment.variables = {
     NIXOS = "true";
