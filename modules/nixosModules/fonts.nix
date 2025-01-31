@@ -17,15 +17,12 @@
       source-han-sans
       source-han-serif
 
-      (nerdfonts.override {
-        fonts = [
-          # symbols icon only
-          "NerdFontsSymbolsOnly"
-          "FiraCode"
-          "JetBrainsMono"
-          "Iosevka"
-        ];
-      })
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+      nerd-fonts.iosevka
+      nerd-fonts.symbols-only
+
       dejavu_fonts
     ];
     # user defined fonts
