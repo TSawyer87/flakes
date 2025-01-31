@@ -1,5 +1,9 @@
 # This file defines overlays
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -7,9 +11,8 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
+    rust-overlay = import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz") final pkgs;
+    rustc = final.rust-overlay.rust-bin.stable.latest.default;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
