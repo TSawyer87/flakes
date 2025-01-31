@@ -41,7 +41,7 @@ in {
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
-      outputs.overlays.modifications
+      # outputs.overlays.modifications
       outputs.overlays.stable-packages
 
       # You can also add overlays exported from other flakes:
