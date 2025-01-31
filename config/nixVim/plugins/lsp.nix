@@ -34,7 +34,7 @@
         #}
         rust_analyzer = {
           enable = true;
-          cargoPackage = "pkgs.rust-bin.stable.latest.default";
+          # cargoPackage = "pkgs.rust-bin.nightly.latest.default";
           installRustc = true;
           installCargo = true;
         };
