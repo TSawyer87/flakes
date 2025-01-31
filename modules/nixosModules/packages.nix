@@ -89,6 +89,7 @@
     cargo
     rustfmt
     rust-analyzer
+    rustup
     fwupd
     openssl
     pkg-config
