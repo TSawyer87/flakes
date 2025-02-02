@@ -1,9 +1,4 @@
-{
-  pkgs,
-  username,
-  inputs,
-  ...
-}: {
+{ pkgs, username, inputs, ... }: {
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -28,8 +23,9 @@
     ../../config/shells/fastfetch
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
+    ../../config/neovim.nix
     ../../config/zed.nix
-    ../../config/nixVim/nixvim.nix
+    # ../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules/programs.nix
     ../../modules/homeManagerModules/packages.nix
     ../../modules/homeManagerModules/services.nix
@@ -40,8 +36,7 @@
     ../../modules/homeManagerModules/dconf.nix
   ];
 
-  home.packages = with pkgs; [
-  ];
+  home.packages = with pkgs; [ ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
