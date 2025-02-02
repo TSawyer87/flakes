@@ -81,7 +81,6 @@
     dconf-editor
     rose-pine-cursor
     pfetch-rs
-    rustup
     fwupd
     openssl
     pkg-config
