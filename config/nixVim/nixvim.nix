@@ -109,6 +109,10 @@ in {
         enable = true;
         lazyLoad.settings.ft = "markdown";
       };
+      rustaceanvim = {
+        enable = true;
+        # rustAnalyzerPackage = pkgs.rust-analyzer;
+      };
       obsidian = {
         enable = true;
         lazyLoad.settings.ft = "markdown";

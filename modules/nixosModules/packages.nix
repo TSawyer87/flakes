@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{ pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
@@ -86,10 +82,6 @@
     dconf-editor
     rose-pine-cursor
     pfetch-rs
-    rustc
-    cargo
-    rustfmt
-    rust-analyzer
     rustup
     fwupd
     openssl
