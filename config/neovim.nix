@@ -18,7 +18,6 @@
         luajitPackages.lua-lsp
         nil
         rust-analyzer
-        codelldb
         nodePackages.bash-language-server
         shfmt
         yaml-language-server
