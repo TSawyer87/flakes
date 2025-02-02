@@ -18,6 +18,7 @@
         luajitPackages.lua-lsp
         nil
         rust-analyzer
+        codelldb
         nodePackages.bash-language-server
         shfmt
         yaml-language-server
@@ -74,6 +75,7 @@
         which-key-nvim
         tokyonight-nvim
         rustaceanvim
+        crates-nvim
         #image-nvim
       ];
       extraLuaConfig = ''
@@ -105,6 +107,7 @@
         ${builtins.readFile ./nvim/plugins/lualine.lua}
         ${builtins.readFile ./nvim/plugins/which-key.lua}
         ${builtins.readFile ./nvim/plugins/flash.lua}
+        ${builtins.readFile ./nvim/plugins/crates.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()

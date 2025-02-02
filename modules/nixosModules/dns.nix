@@ -9,7 +9,7 @@
     dhcpcd.extraConfig = "nohook resolv.conf";
 
     # If using NetworkManager:
-    networkmanager.dns = "cloudflare-ipv6";
+    networkmanager.dns = "dnsmasq";
 
     # If using resolvconf:
     resolvconf = {
