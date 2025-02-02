@@ -1,5 +1,5 @@
-{...}: let
-  inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
+{ pkgs, ... }:
+let inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
 in {
   programs = {
     direnv = {
@@ -19,9 +19,7 @@ in {
         s = "status";
         ac = "!git add -A && git commit -m ";
       };
-      ignores = [
-        "*.jj"
-      ];
+      ignores = [ "*.jj" ];
     };
     jujutsu = {
       enable = true;
@@ -45,6 +43,11 @@ in {
           editor = "nvim";
         };
       };
+    };
+    helix = {
+      enable = true;
+      package = pkgs.evil-helix;
+      extraPackages = [ pkgs.marksman ];
     };
     tmux = {
       enable = true;
@@ -75,7 +78,7 @@ in {
     gh.enable = true;
     btop = {
       enable = true;
-      settings = {vim_keys = true;};
+      settings = { vim_keys = true; };
     };
     home-manager.enable = true;
     hyprlock = {
@@ -102,10 +105,10 @@ in {
     #   };
     # };
 
-    zathura = {enable = true;};
+    zathura = { enable = true; };
 
-    go = {enable = true;};
+    go = { enable = true; };
 
-    nix-index = {enable = true;}; # nix-locate
+    nix-index = { enable = true; }; # nix-locate
   };
 }
