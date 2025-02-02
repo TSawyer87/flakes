@@ -34,7 +34,7 @@ in {
     ../../modules/nixosModules/environmentVariables.nix
     ../../modules/nixosModules/fonts.nix
     ../../modules/nixosModules/firewall.nix
-    ../../modules/nixosModules/dns.nix
+    # ../../modules/nixosModules/dns.nix
     #    ../../config/firefox.nix
   ];
 

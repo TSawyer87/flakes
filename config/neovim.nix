@@ -23,6 +23,7 @@
         yaml-language-server
         pyright
         marksman
+        markdown-oxide
         prettierd
         ruff
         jq
