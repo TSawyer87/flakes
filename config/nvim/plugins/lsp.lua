@@ -32,7 +32,7 @@ lspconfig.lua_ls.setup({
   },
 })
 lspconfig.marksman.setup({})
-lspconfig.rust_analyzer.setup({})
+-- lspconfig.rust_analyzer.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.bashls.setup({})
 lspconfig.hyprls.setup({})

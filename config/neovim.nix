@@ -73,7 +73,7 @@
         toggleterm-nvim
         which-key-nvim
         tokyonight-nvim
-        #rustaceanvim
+        rustaceanvim
         #image-nvim
       ];
       extraLuaConfig = ''
