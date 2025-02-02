@@ -48,6 +48,24 @@ in {
       enable = true;
       package = pkgs.evil-helix;
       extraPackages = [ pkgs.marksman ];
+      languages = {
+        language = [{
+          name = "rust";
+          auto-format = true;
+        }];
+      };
+      settings = {
+        editor = {
+          line-number = "relative";
+          lsp.display-messages = true;
+        };
+        keys.normal = {
+          space.space = "file_picker";
+          space.w = ":w";
+          space.q = ":q";
+          esc = [ "collapse_selection" "keep_primary_selection" ];
+        };
+      };
     };
     tmux = {
       enable = true;
