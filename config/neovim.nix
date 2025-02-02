@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }: {
   programs = {
     neovim = {
-      enable = false;
+      enable = true;
       package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       defaultEditor = true;
       viAlias = true;
@@ -34,7 +34,6 @@
         dressing-nvim
         indent-blankline-nvim
         nui-nvim
-        finecmdline
         nvim-treesitter.withAllGrammars
         lualine-nvim
         nvim-autopairs
@@ -73,14 +72,10 @@
         flash-nvim
         toggleterm-nvim
         which-key-nvim
-        wezterm-nvim
         tokyonight-nvim
+        #rustaceanvim
         #image-nvim
       ];
-      extraConfig = ''
-        set noemoji
-        nnoremap : <cmd>FineCmdline<CR>
-      '';
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/options.lua}
         ${builtins.readFile ./nvim/keymaps.lua}
@@ -95,7 +90,6 @@
         ${builtins.readFile ./nvim/plugins/telescope.lua}
         ${builtins.readFile ./nvim/plugins/todo-comments.lua}
         ${builtins.readFile ./nvim/plugins/treesitter.lua}
-        ${builtins.readFile ./nvim/plugins/fine-cmdline.lua}
         ${builtins.readFile ./nvim/plugins/markdown.lua}
         ${builtins.readFile ./nvim/plugins/hop.lua}
         ${builtins.readFile ./nvim/plugins/oil.lua}
@@ -112,7 +106,6 @@
         ${builtins.readFile ./nvim/plugins/which-key.lua}
         ${builtins.readFile ./nvim/plugins/flash.lua}
         ${builtins.readFile ./.stylua.toml}
-        require("wezterm").setup{}
         require("render-markdown").setup{}
         require("ibl").setup()
         require("bufferline").setup{}

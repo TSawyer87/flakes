@@ -5,6 +5,7 @@
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
   };
+  environment.variables.EDITOR = "nvim";
 
   # Import Program Configurations
   imports = [
