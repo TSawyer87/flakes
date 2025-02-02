@@ -1,8 +1,9 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, rust-overlay, ... }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
-    rust-nightly
+    rust-bin.stable.latest.default
+    #rust-bin.beta.latest.default
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
