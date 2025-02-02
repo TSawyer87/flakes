@@ -13,14 +13,24 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
-    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # nvf = {
     #   url = "github:notashelf/nvf";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      rust-overlay,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
 
@@ -34,19 +44,19 @@
 
       host = "magic";
       username = "jr";
-      pkgsForSystem = system:
+      pkgsForSystem =
+        system:
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
-      packages =
-        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    in
+    {
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       # Or 'nixpkgs-fmt'
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
@@ -66,6 +76,10 @@
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
+            ({ pkgs, ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          })
             {
               # Apply the overlays to the NixOS system
               # nixpkgs.overlays = overlays;

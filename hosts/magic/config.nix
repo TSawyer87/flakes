@@ -33,6 +33,8 @@ in {
     ../../modules/nixosModules/guix.nix
     ../../modules/nixosModules/environmentVariables.nix
     ../../modules/nixosModules/fonts.nix
+    ../../modules/nixosModules/firewall.nix
+    ../../modules/nixosModules/dns.nix
     #    ../../config/firefox.nix
   ];
 
@@ -40,10 +42,10 @@ in {
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      # outputs.overlays.modifications
-      outputs.overlays.stable-packages
-      outputs.overlays.rust-overlay
+       outputs.overlays.additions
+       outputs.overlays.modifications
+       outputs.overlays.stable-packages
+      # outputs.overlays.rust-overlay
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -118,12 +120,6 @@ in {
     builtins.elem (lib.getName pkg) [
       "codeium"
     ];
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
