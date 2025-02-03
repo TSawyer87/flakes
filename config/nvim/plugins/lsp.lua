@@ -32,7 +32,7 @@ lspconfig.lua_ls.setup({
   },
 })
 lspconfig.marksman.setup({})
-lspconfig.markdown-oxide.setup({})
+lspconfig.markdown_oxide.setup({})
 -- lspconfig.rust_analyzer.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.bashls.setup({})
