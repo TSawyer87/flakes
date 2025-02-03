@@ -108,6 +108,7 @@
         ${builtins.readFile ./nvim/plugins/which-key.lua}
         ${builtins.readFile ./nvim/plugins/flash.lua}
         ${builtins.readFile ./nvim/plugins/crates.lua}
+        ${builtins.readFile ./nvim/plugins/rustaceanvim.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()

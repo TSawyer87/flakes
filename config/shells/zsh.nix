@@ -73,7 +73,7 @@
              export TERM=xterm-256color
              export EDITOR=nvim
              export VISUAL=nvim
-             export PATH="$HOME/jr/.cargo/bin:$PATH"
+             export PATH="$HOME/.cargo/bin:$PATH"
     '';
     shellAliases = {
       sv = "sudo nvim";
