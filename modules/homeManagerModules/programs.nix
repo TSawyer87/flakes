@@ -94,6 +94,7 @@ in {
 
     bat.enable = true;
     gh.enable = true;
+    bacon.enable = true;  # rust lsp
     btop = {
       enable = true;
       settings = { vim_keys = true; };

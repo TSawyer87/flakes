@@ -61,7 +61,6 @@
           sudo cpupower frequency-set -g powersave || echo "Failed to switch back to powersave mode"
       }
 
-      # Usage: rbs <hostname> <username>
              eval "$(zoxide init zsh)"
              eval "$(mcfly init zsh)"
              eval "$(direnv hook zsh)"
@@ -74,6 +73,7 @@
              export TERM=xterm-256color
              export EDITOR=nvim
              export VISUAL=nvim
+             export PATH="$HOME/jr/.cargo/bin:$PATH"
     '';
     shellAliases = {
       sv = "sudo nvim";
