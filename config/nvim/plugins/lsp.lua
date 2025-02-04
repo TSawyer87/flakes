@@ -34,6 +34,7 @@ lspconfig.lua_ls.setup({
 lspconfig.marksman.setup({})
 lspconfig.markdown_oxide.setup({})
 lspconfig.bacon_ls.setup({})
+lspconfig.taplo.setup({})
 -- lspconfig.rust_analyzer.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.bashls.setup({})

@@ -76,6 +76,7 @@
         tokyonight-nvim
         rustaceanvim
         crates-nvim
+        hunk-nvim
         #image-nvim
       ];
       extraLuaConfig = ''
@@ -108,6 +109,7 @@
         ${builtins.readFile ./nvim/plugins/which-key.lua}
         ${builtins.readFile ./nvim/plugins/flash.lua}
         ${builtins.readFile ./nvim/plugins/crates.lua}
+        ${builtins.readFile ./nvim/plugins/hunk.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()
