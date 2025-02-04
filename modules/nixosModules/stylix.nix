@@ -5,8 +5,13 @@
   lib,
   ...
 }:
-with lib; {
-  options = {stylixModule = {enable = mkEnableOption "enables stylix";};};
+with lib;
+{
+  options = {
+    stylixModule = {
+      enable = mkEnableOption "enables stylix";
+    };
+  };
 
   config = mkIf config.stylixModule.enable {
     stylix = {
@@ -52,30 +57,47 @@ with lib; {
       #   base0E = "BB9AF7";
       #   base0F = "F7768E";
       # };
-      base16Scheme = {
-        # TokyoNightTerminal
-        base00 = "11121d";
-        base01 = "1A1B2A";
-        base02 = "212234";
-        base03 = "282c34";
-        base04 = "4a5057";
-        base05 = "a0a8cd";
-        base06 = "a0a8cd";
-        base07 = "a0a8cd";
-        base08 = "ee6d85";
-        base09 = "f6955b";
-        base0A = "d7a65f";
-        base0B = "95c561";
-        base0C = "38a89d";
-        base0D = "7199ee";
-        base0E = "a485dd";
-        base0F = "773440";
+      # base16Scheme = {
+      #   # TokyoNightTerminal
+      #   base00 = "11121d";
+      #   base01 = "1A1B2A";
+      #   base02 = "212234";
+      #   base03 = "282c34";
+      #   base04 = "4a5057";
+      #   base05 = "a0a8cd";
+      #   base06 = "a0a8cd";
+      #   base07 = "a0a8cd";
+      #   base08 = "ee6d85";
+      #   base09 = "f6955b";
+      #   base0A = "d7a65f";
+      #   base0B = "95c561";
+      #   base0C = "38a89d";
+      #   base0D = "7199ee";
+      #   base0E = "a485dd";
+      #   base0F = "773440";
+      # };
+      base16Scheme = {  # Catppuccin Mocha
+        base00 = "1e1e2e"; # base
+        base01 = "181825"; # mantle
+        base02 = "313244"; # surface0
+        base03 = "45475a"; # surface1
+        base04 = "585b70"; # surface2
+        base05 = "cdd6f4"; # text
+        base06 = "f5e0dc"; # rosewater
+        base07 = "b4befe"; # lavender
+        base08 = "f38ba8"; # red
+        base09 = "fab387"; # peach
+        base0A = "f9e2af"; # yellow
+        base0B = "a6e3a1"; # green
+        base0C = "94e2d5"; # teal
+        base0D = "89b4fa"; # blue
+        base0E = "cba6f7"; # mauve
+        base0F = "f2cdcd"; # flamingo
       };
       polarity = "dark";
       opacity.terminal = 0.8;
       # cursor.package = pkgs.bibata-cursors;
-      cursor.package =
-        inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+      cursor.package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
       cursor.name = "BreezeX-RosePine-Linux";
       # cursor.name = "Bibata-Modern-Ice";
       cursor.size = 26;
