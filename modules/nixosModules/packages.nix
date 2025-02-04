@@ -2,12 +2,11 @@
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
-    (rust-bin.fromRustupToolchainFile ./rust-toolchain.toml)
     taplo # toml formatter and lsp
     cargo-watch
     cargo-spellcheck
     evcxr # rust repl
-    #rust-bin.beta.latest.default
+    rust-bin.beta.latest.default
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
