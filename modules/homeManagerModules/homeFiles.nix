@@ -33,6 +33,10 @@ vim.keymap.set(
   { silent = true, buffer = bufnr }
 )
   '';
+  home.file.".jj/config.toml".text = ''
+    [ui]
+    diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+  '';
 
   # home.file.".face.icon".source = ../../config/face.jpg;
   # home.file.".config/face.jpg".source = ../../config/face.jpg;

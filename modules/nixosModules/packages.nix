@@ -16,8 +16,8 @@
     killall
     eza
     git
-    cmatrix
-    lolcat
+    # cmatrix
+    # lolcat
     efibootmgr
     htop
     pokemon-colorscripts-mac
