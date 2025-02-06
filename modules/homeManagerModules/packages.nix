@@ -7,6 +7,7 @@
   home.packages = [
     #inputs.zen-browser.packages."${pkgs.system}".specific
     # inputs.hyprland-qtutils.packages."${pkgs.system}".default
+    pkgs.oh-my-zsh
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
     pkgs.iotop # io monitoring

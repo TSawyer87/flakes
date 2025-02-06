@@ -1,4 +1,10 @@
-{ pkgs, inputs, rust-overlay, ... }: {
+{
+  pkgs,
+  inputs,
+  rust-overlay,
+  ...
+}:
+{
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
@@ -16,8 +22,8 @@
     killall
     eza
     git
-    # cmatrix
-    # lolcat
+    cmatrix
+    lolcat
     efibootmgr
     htop
     pokemon-colorscripts-mac

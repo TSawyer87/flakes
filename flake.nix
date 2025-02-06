@@ -76,10 +76,13 @@
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
-            ({ pkgs, ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-          })
+            (
+              { pkgs, ... }:
+              {
+                nixpkgs.overlays = [ rust-overlay.overlays.default ];
+                environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+              }
+            )
             {
               # Apply the overlays to the NixOS system
               # nixpkgs.overlays = overlays;

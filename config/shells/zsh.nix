@@ -2,6 +2,7 @@
   pkgs,
   host,
   username,
+  inputs,
   ...
 }: {
   programs.zsh = {
@@ -10,8 +11,14 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
+      package = pkgs.oh-my-zsh;
       enable = true;
-      plugins = ["git" "sudo"];
+       plugins = [
+        "git"
+        "sudo"
+        "rust"
+        "fzf"
+    ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -40,6 +47,7 @@
              fi
              source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
              source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+             source /nix/store/0ajaww0dwlfj6sd9drslzjpw2grhv177-oh-my-zsh-2024-10-01/share/oh-my-zsh/plugins/rust/rust.plugin.zsh
              source <(jj util completion zsh)
              pokemon-colorscripts -r
              function rbs() {
@@ -61,6 +69,7 @@
           sudo cpupower frequency-set -g powersave || echo "Failed to switch back to powersave mode"
       }
 
+      # Usage: rbs <hostname> <username>
              eval "$(zoxide init zsh)"
              eval "$(mcfly init zsh)"
              eval "$(direnv hook zsh)"
@@ -73,7 +82,8 @@
              export TERM=xterm-256color
              export EDITOR=nvim
              export VISUAL=nvim
-             export PATH="$HOME/.cargo/bin:$PATH"
+             export PATH=$PATH:$HOME/.cargo/bin
+             export ZSH_CUSTOM=/nix/store/0ajaww0dwlfj6sd9drslzjpw2grhv177-oh-my-zsh-2024-10-01/share/oh-my-zsh/plugins
     '';
     shellAliases = {
       sv = "sudo nvim";
@@ -113,6 +123,12 @@
       "..." = "cd ../..";
       "...." = "cd ../../..";
       keys = "ghostty +list-keybinds";
+      cr = "cargo run";
+      cb = "cargo build";
+      ct = "cargo test";
+      cc = "cargo check";
+      rr = "rustc";
+      rc = "rustc --explain";
     };
   };
 }
