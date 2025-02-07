@@ -20,7 +20,7 @@ in {
         extraGroups = ["networkmanager" "wheel" "libvirtd" "scanner" "lp" "root" "jr"];
         shell = pkgs.zsh;
         ignoreShellProgramCheck = true;
-        packages = with pkgs; [tealdeer zoxide mcfly tokei inputs.home-manager.packages.${pkgs.system}.default];
+        packages = with pkgs; [tealdeer zoxide mcfly tokei stow inputs.home-manager.packages.${pkgs.system}.default];
       };
       # "newuser" = {
       #   homeMode = "755";
