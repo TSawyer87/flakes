@@ -38,23 +38,24 @@ with lib;
       #   base0E = "8F4673";
       #   base0F = "A87322";
       # };
-      base16Scheme = { # Gruvbox Material Dark, Hard
-        base00 = "202020";
-        base01 = "2a2827";
-        base02 = "504945";
-        base03 = "5a524c";
-        base04 = "bdae93";
-        base05 = "ddc7a1";
-        base06 = "ebdbb2";
-        base07 = "fbf1c7";
-        base08 = "ea6962";
-        base09 = "e78a4e";
-        base0A = "d8a657";
-        base0B = "a9b665";
-        base0C = "89b482";
-        base0D = "7daea3";
-        base0E = "d3869b";
-        base0F = "bd6f3e";
+      base16Scheme = {
+        # Ayu Dark
+        base00 = "0F1419";
+        base01 = "131721";
+        base02 = "272D38";
+        base03 = "3E4B59";
+        base04 = "BFBDB6";
+        base05 = "E6E1CF";
+        base06 = "E6E1CF";
+        base07 = "F3F4F5";
+        base08 = "F07178";
+        base09 = "FF8F40";
+        base0A = "FFB454";
+        base0B = "B8CC52";
+        base0C = "95E6CB";
+        base0D = "59C2FF";
+        base0E = "D2A6FF";
+        base0F = "E6B673";
       };
 
       # base16Scheme = { # TokyoNightStorm

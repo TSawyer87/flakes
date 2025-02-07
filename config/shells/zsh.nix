@@ -4,7 +4,8 @@
   username,
   inputs,
   ...
-}: {
+}:
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,12 +14,12 @@
     oh-my-zsh = {
       package = pkgs.oh-my-zsh;
       enable = true;
-       plugins = [
+      plugins = [
         "git"
         "sudo"
         "rust"
         "fzf"
-    ];
+      ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -50,6 +51,28 @@
              source /nix/store/0ajaww0dwlfj6sd9drslzjpw2grhv177-oh-my-zsh-2024-10-01/share/oh-my-zsh/plugins/rust/rust.plugin.zsh
              source <(jj util completion zsh)
              pokemon-colorscripts -r
+
+             nix-files() {
+               nix-locate -w "$1" | fzf --preview="bat --color=always --style=numbers --line-range=:100 {1}"| awk '{print $1}'| xargz nvim
+             }
+
+             nix-run() {
+               local binary
+               binary=$(nix-locate -w "bin/*"| rg -v 'man|share' | fzf | awk '{print $1}') [-n "$binary"] && nix run "$binary"
+             }
+
+             nix-lib() {
+               nix-locate -w "$1"| fzf
+             }
+
+             nix-grep() {
+               rg --files-with-matches --no-heading --line-number "$1" ~/flakes/hosts/magic | fzf --preview="bat --color=always --style=numbers --line-range=:100 {}"
+             }
+
+             nix-find() {
+               nix-locate -w "bin/*$1*"| fzf
+             }
+
              function rbs() {
           local host="$1"
           local username="$2"
