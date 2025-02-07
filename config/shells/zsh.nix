@@ -66,7 +66,7 @@
              }
 
              nix-grep() {
-               rg --files-with-matches --no-heading --line-number "$1" ~/flakes/hosts/magic | fzf --preview="bat --color=always --style=numbers --line-range=:100 {}"
+               rg --files-with-matches --no-heading --line-number "$1" ~/flakes/modules/nixosModules ~/flakes/modules/homeManagerModules | fzf --preview="bat --color=always --style=numbers --line-range=:100 {}"
              }
 
              nix-find() {

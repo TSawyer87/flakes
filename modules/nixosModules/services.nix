@@ -39,7 +39,7 @@ in {
     flatpak.enable = false;
     printing = {
       enable = true;
-      drivers = [pkgs.hplipWithPlugin];
+      # drivers = [pkgs.hplipWithPlugin];
     };
     gnome.gnome-keyring.enable = true;
     avahi = {

@@ -7,7 +7,7 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
-      withNodeJs = true;
+      # withNodeJs = true;
       extraPackages = with pkgs; [
         imagemagick
         lua-language-server

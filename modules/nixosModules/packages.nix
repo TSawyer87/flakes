@@ -51,6 +51,8 @@
     appimage-run
     markdownlint-cli
     markdownlint-cli2
+    marksman
+    markdown-oxide
     inxi
     nh
     nixfmt-rfc-style

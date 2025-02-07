@@ -29,6 +29,7 @@
       nixpkgs,
       home-manager,
       rust-overlay,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -76,6 +77,7 @@
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
+            nix-index-database.nixosModules.nix-index
             (
               { pkgs, ... }:
               {

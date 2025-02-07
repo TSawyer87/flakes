@@ -112,7 +112,20 @@ in {
       rustaceanvim = {
         enable = true;
         # rustAnalyzerPackage = pkgs.rust-analyzer;
+        settings = {
+          server = {
+            cmd = [ "rustup" "run" "nightly" "rust-analyzer" ];
+            default_settings = {
+              rust-analyzer = {
+                check = { command = "clippy"; };
+                inlayHints = { lifetimeElisionHints = { enable = "always"; }; };
+              };
+            };
+            standalone = false;
+          };
+        };
       };
+
       obsidian = {
         enable = true;
         lazyLoad.settings.ft = "markdown";

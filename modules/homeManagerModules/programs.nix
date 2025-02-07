@@ -127,6 +127,6 @@ in {
 
     go = { enable = true; };
 
-    nix-index = { enable = true; }; # nix-locate
+    # nix-index = { enable = true; }; # nix-locate
   };
 }

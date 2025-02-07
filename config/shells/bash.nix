@@ -2,7 +2,8 @@
   host,
   username,
   ...
-}: {
+}:
+{
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -14,6 +15,7 @@
     bashrcExtra = ''
       export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin
       export MANPAGER='nvim +Man!'
+      export PATH=$PATH:$HOME/.cargo/bin
     '';
     initExtra = ''
       fastfetch

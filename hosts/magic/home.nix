@@ -1,4 +1,4 @@
-{ pkgs, username, inputs, ... }: {
+{ pkgs, username, inputs, nix-index-database, ... }: {
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -23,9 +23,9 @@
     ../../config/shells/fastfetch
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
-    ../../config/neovim.nix
+    #../../config/neovim.nix
     ../../config/zed.nix
-    # ../../config/nixVim/nixvim.nix
+     ../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules/programs.nix
     ../../modules/homeManagerModules/packages.nix
     ../../modules/homeManagerModules/services.nix
