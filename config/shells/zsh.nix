@@ -106,6 +106,7 @@
       vdir = "vdir --color=auto";
       dir = "dir --color=auto";
       v = "nvim";
+      vz = "NVIM_APPNAME='lazy' nvim";
       cat = "bat --style snip --style changes --style header";
       l = "eza -lh --icons=auto"; # long list
       ls = "eza --icons=auto --group-directories-first --icons"; # short list
