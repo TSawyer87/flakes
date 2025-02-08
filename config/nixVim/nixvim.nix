@@ -109,6 +109,7 @@ in {
         enable = true;
         lazyLoad.settings.ft = "markdown";
       };
+      crates = { enable = true; };
       rustaceanvim = {
         enable = true;
         # rustAnalyzerPackage = pkgs.rust-analyzer;

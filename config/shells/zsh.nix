@@ -1,11 +1,4 @@
-{
-  pkgs,
-  host,
-  username,
-  inputs,
-  ...
-}:
-{
+{ pkgs, host, username, inputs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -14,12 +7,7 @@
     oh-my-zsh = {
       package = pkgs.oh-my-zsh;
       enable = true;
-      plugins = [
-        "git"
-        "sudo"
-        "rust"
-        "fzf"
-      ];
+      plugins = [ "git" "sudo" "rust" "fzf" ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -107,15 +95,20 @@
              export VISUAL=nvim
              export PATH=$PATH:$HOME/.cargo/bin
              export ZSH_CUSTOM=/nix/store/0ajaww0dwlfj6sd9drslzjpw2grhv177-oh-my-zsh-2024-10-01/share/oh-my-zsh/plugins
+             export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+             export FZF_DEFAULT_OPTS='-i --height=50%'
     '';
     shellAliases = {
       sv = "sudo nvim";
       fr = "nh os switch --hostname ${host} /home/${username}/flakes";
-      ft = "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
+      ft =
+        "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
       fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
-      upd = "sudo nixos-rebuild switch --upgrade --flake /home/${username}/flakes";
+      upd =
+        "sudo nixos-rebuild switch --upgrade --flake /home/${username}/flakes";
       rebuild = "/home/jr/scripts/performance_hook.sh";
-      ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      ncg =
+        "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       opts = "man home-configuration.nix";
       zed = "zeditor";
       lg = "lazygit";
@@ -137,8 +130,10 @@
       la = "eza -lah --icons --grid --group-directories-first --icons";
       ld = "eza -lhD --icons=auto";
       lt = "eza --icons=auto --tree"; # list folder as tree
-      rbs = "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
-      powersave = "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
+      rbs =
+        "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
+      powersave =
+        "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
       # Get the error messages from journalctl
       jctl = "journalctl -p 3 -xb";
       mkdir = "mkdir -p";
