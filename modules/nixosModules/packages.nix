@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  rust-overlay,
-  ...
-}:
-{
+{ pkgs, inputs, rust-overlay, ... }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
@@ -39,6 +33,7 @@
     ncdu
     pciutils
     ffmpeg
+    comma
     socat
     cowsay
     ripgrep

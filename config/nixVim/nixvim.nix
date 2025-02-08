@@ -33,6 +33,7 @@ in {
     ./plugins/zen-mode.nix
     ./plugins/dressing.nix
     ./plugins/colorizer.nix
+    # ./plugins/rustaceanvim.nix
     ./plugins/notify.nix
     ./plugins/noice.nix
     ./plugins/yazi.nix
@@ -76,6 +77,10 @@ in {
       web-devicons.enable = true;
       rainbow-delimiters = { enable = true; };
 
+      direnv.enable = true;
+      nix.enable = true;
+      nix-develop.enable = true;
+
       # Detect tabstop and shiftwidth automatically
       # https://nix-community.github.io/nixvim/plugins/sleuth/index.html
       sleuth = { enable = true; };
@@ -110,22 +115,6 @@ in {
         lazyLoad.settings.ft = "markdown";
       };
       crates = { enable = true; };
-      rustaceanvim = {
-        enable = true;
-        # rustAnalyzerPackage = pkgs.rust-analyzer;
-        settings = {
-          server = {
-            cmd = [ "rustup" "run" "nightly" "rust-analyzer" ];
-            default_settings = {
-              rust-analyzer = {
-                check = { command = "clippy"; };
-                inlayHints = { lifetimeElisionHints = { enable = "always"; }; };
-              };
-            };
-            standalone = false;
-          };
-        };
-      };
 
       obsidian = {
         enable = true;
@@ -146,6 +135,55 @@ in {
               path = "~/notes/2nd_brain";
             }
           ];
+        };
+      };
+      rustaceanvim = {
+        enable = true;
+        settings = {
+
+          dap = { autoloadConfigurations = true; };
+
+          server = {
+            default_settings = {
+              rust-analyzer = {
+                cargo = {
+                  buildScripts.enable = true;
+                  features = "all";
+                };
+
+                diagnostics = {
+                  enable = true;
+                  styleLints.enable = true;
+                };
+
+                checkOnSave = true;
+                check = {
+                  command = "clippy";
+                  features = "all";
+                };
+
+                files = {
+                  excludeDirs =
+                    [ ".cargo" ".direnv" ".git" "node_modules" "target" ];
+                };
+
+                inlayHints = {
+                  bindingModeHints.enable = true;
+                  closureStyle = "rust_analyzer";
+                  closureReturnTypeHints.enable = "always";
+                  discriminantHints.enable = "always";
+                  expressionAdjustmentHints.enable = "always";
+                  implicitDrops.enable = true;
+                  lifetimeElisionHints.enable = "always";
+                  rangeExclusiveHints.enable = true;
+                };
+
+                procMacro = { enable = true; };
+
+                rustc.source = "discover";
+              };
+            };
+          };
         };
       };
     };
