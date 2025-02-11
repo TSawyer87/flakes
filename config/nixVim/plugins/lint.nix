@@ -7,7 +7,7 @@
 
       # NOTE: Enabling these will cause errors unless these tools are installed
       lintersByFt = {
-        nix = [ "nix" "deadnix" ];
+        nix = [ "nix" ];
         markdown = [
           "markdownlint"
           #vale

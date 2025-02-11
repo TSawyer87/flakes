@@ -68,7 +68,7 @@
         nvim-ufo
         obsidian-nvim
         conform-nvim
-        codeium-nvim
+        #codeium-nvim
         trouble-nvim
         flash-nvim
         toggleterm-nvim
@@ -77,6 +77,7 @@
         rustaceanvim
         crates-nvim
         hunk-nvim
+        yazi-nvim
         #image-nvim
       ];
       extraLuaConfig = ''
@@ -101,7 +102,6 @@
         ${builtins.readFile ./nvim/plugins/zen-mode.lua}
         ${builtins.readFile ./nvim/plugins/obsidian.lua}
         ${builtins.readFile ./nvim/plugins/conform.lua}
-        ${builtins.readFile ./nvim/plugins/codeium.lua}
         ${builtins.readFile ./nvim/plugins/trouble.lua}
         ${builtins.readFile ./nvim/plugins/ufo.lua}
         ${builtins.readFile ./nvim/plugins/toggleterm.lua}
@@ -110,10 +110,12 @@
         ${builtins.readFile ./nvim/plugins/flash.lua}
         ${builtins.readFile ./nvim/plugins/crates.lua}
         ${builtins.readFile ./nvim/plugins/hunk.lua}
+        ${builtins.readFile ./nvim/plugins/yazi.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()
         require("bufferline").setup{}
+        require('hunk').setup{}
       '';
     };
   };

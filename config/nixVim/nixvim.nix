@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, icons, ... }:
+{ config, pkgs, inputs, lib, ... }:
 let helpers = config.lib.nixvim;
 in {
   imports = [
@@ -144,6 +144,7 @@ in {
           dap = { autoloadConfigurations = true; };
 
           server = {
+            cmd = [ (lib.getExe pkgs.rust-analyzer) ];
             default_settings = {
               rust-analyzer = {
                 cargo = {
@@ -159,6 +160,14 @@ in {
                 checkOnSave = true;
                 check = {
                   command = "clippy";
+                  extraArgs = [
+                    "--"
+                    "--no-deps"
+                    "-Dclippy::correctness"
+                    "-Dclippy::complexity"
+                    "-Wclippy::perf"
+                    "-Wclippy::pedantic"
+                  ];
                   features = "all";
                 };
 

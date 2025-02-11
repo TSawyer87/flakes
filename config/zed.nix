@@ -1,8 +1,5 @@
+{ pkgs, lib, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -63,7 +60,7 @@
           };
         };
         env = {
-          TERM = "kitty";
+          TERM = "ghostty";
         };
         font_family = "JetBrains Mono Nerd Font Mono";
         font_features = null;
@@ -88,53 +85,81 @@
           };
         };
 
+        rust-analyzer = {
+          binary = {
+            path = "/nix/store/lxc7w9pr0d83mi2ij82g27ydpz9kzcbh-rust-default-1.86.0-nightly-2025-02-04/bin/rust-analyzer";
+          };
+          # Settings for rust-analyzer
+          settings = {
+            diagnostics = {
+              enable = true;
+              styleLints.enable = true;
+            };
+
+            checkOnSave = true;
+            check = {
+              command = "clippy";
+              features = "all";
+            };
+
+            cargo = {
+              buildScripts.enable = true;
+              features = "all";
+            };
+
+            # Additional settings you might want to configure
+            inlayHints = {
+              bindingModeHints.enable = true;
+              closureStyle = "rust_analyzer";
+              closureReturnTypeHints.enable = "always";
+              discriminantHints.enable = "always";
+              expressionAdjustmentHints.enable = "always";
+              implicitDrops.enable = true;
+              lifetimeElisionHints.enable = "always";
+              rangeExclusiveHints.enable = true;
+            };
+
+            procMacro = {
+              enable = true;
+            };
+
+            rustc = {
+              source = "discover";
+            };
+
+            files = {
+              excludeDirs = [
+                ".cargo"
+                ".direnv"
+                ".git"
+                "node_modules"
+                "target"
+              ];
+            };
+          };
+        };
+
+        # Your existing LSP settings for other languages
         settings = {
           dialyzerEnabled = true;
         };
       };
     };
-    # "languages" = {
-    #   "Markdown" = {
-    #     "format_on_save" = {
-    #       "external" = {
-    #         "command" = "prettier";
-    #         "arguments" = [
-    #           "--stdin-filepath"
-    #           "{buffer_path}"
-    #         ];
-    #       };
-    #     };
-    #   };
-    # };
+    userKeymaps = [
+      {
+        context = "Editor && (vim_mode == normal || vim_mode == visual)";
+        bindings = {
+          "space g h d" = "editor::ToggleHunkDiff";
+          "space g h r" = "editor::RevertSelectedHunks";
+          # Toggle inlay hints
+          "space t i" = "editor::ToggleInlayHints";
+          # Toggle soft wrap
+          "space u w" = "editor::ToggleSoftWrap";
+          # Toggle Zen Mode
+          "space c z" = "workspace::ToggleCenteredLayout";
 
-    # languages = {
-    # "Elixir" = {
-    #   language_servers = [
-    #     "!lexical"
-    #     "elixir-ls"
-    #     "!next-ls"
-    #   ];
-    #   format_on_save = {
-    #     external = {
-    #       command = "mix";
-    #       arguments = [
-    #         "format"
-    #         "--stdin-filename"
-    #         "{buffer_path}"
-    #         "-"
-    #       ];
-    #     };
-    #   };
-    # };
-    # };
-
-    ## tell zed to use direnv and direnv can use a flake.nix enviroment.
-    # load_direnv = "shell_hook";
-    # theme = {
-    #   mode = "system";
-    #   light = "One Light";
-    #   dark = "One Dark";
-    # };
-    # ui_font_size = 16;
+        };
+      }
+    ];
   };
 }

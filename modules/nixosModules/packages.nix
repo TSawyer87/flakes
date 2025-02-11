@@ -7,6 +7,8 @@
     cargo-spellcheck
     evcxr # rust repl
     rust-bin.beta.latest.default
+    rust-analyzer
+    clippy
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
@@ -96,5 +98,6 @@
     go
     gomuks
     olm
+    transmission_4-gtk
   ];
 }
