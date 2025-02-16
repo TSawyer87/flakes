@@ -110,7 +110,7 @@
       ncg =
         "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       opts = "man home-configuration.nix";
-      zed = "zeditor";
+      zd = "zeditor";
       lg = "lazygit";
       ip = "ip -color";
       tarnow = "tar -acf ";

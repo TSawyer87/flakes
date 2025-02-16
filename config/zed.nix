@@ -9,9 +9,29 @@
       "basher"
     ];
 
-    ## everything inside of these brackets are Zed options.
     userSettings = {
       vim_mode = true;
+      vim = {
+        enable_vim_sneak = true;
+      };
+      relative_line_numbers = true;
+      tab_bar = {
+        show = true;
+      };
+      tabs = {
+        show_diagnostics = "errors";
+      };
+      indent_guides = {
+        enabled = true;
+        coloring = "indent_aware";
+      };
+      centered_layout = {
+        left_padding = "0.15";
+        right_padding = "0.15";
+      };
+      inlay_hints = {
+        enabled = true;
+      };
       inactive_opacity = "0.5";
       auto_install_extensions = true;
 
@@ -19,21 +39,11 @@
         enabled = false;
         version = "2";
         default_open_ai_model = null;
-        ### PROVIDER OPTIONS
-        ### zed.dev models { claude-3-5-sonnet-latest } requires github connected
-        ### anthropic models { claude-3-5-sonnet-latest claude-3-haiku-latest claude-3-opus-latest  } requires API_KEY
-        ### copilot_chat models { gpt-4o gpt-4 gpt-3.5-turbo o1-preview } requires github connected
+
         default_model = {
           provider = "zed.dev";
           model = "claude-3-5-sonnet-latest";
         };
-
-        #                inline_alternatives = [
-        #                    {
-        #                        provider = "copilot_chat";
-        #                        model = "gpt-3.5-turbo";
-        #                    }
-        #                ];
       };
 
       node = {
@@ -60,22 +70,28 @@
           };
         };
         env = {
+          EDITOR = "zed --wait";
           TERM = "ghostty";
         };
-        font_family = "JetBrains Mono Nerd Font Mono";
+        font_family = "FiraCode Nerd Font Mono";
         font_features = null;
-        font_size = null;
+        font_size = 14;
         line_height = "comfortable";
         option_as_meta = false;
         button = false;
         shell = "system";
-        #{
-        #                    program = "zsh";
-        #};
         toolbar = {
           title = true;
         };
         working_directory = "current_project_directory";
+      };
+      # File syntax highlighting
+      file_types = {
+        JSON = [
+          "json"
+          "jsonc"
+          "*.code-snippets"
+        ];
       };
 
       lsp = {
@@ -85,48 +101,59 @@
           };
         };
 
-        rust-analyzer = {
+        "rust-analyzer" = {
+          # Quote the LSP name
           binary = {
             path = "/nix/store/lxc7w9pr0d83mi2ij82g27ydpz9kzcbh-rust-default-1.86.0-nightly-2025-02-04/bin/rust-analyzer";
           };
-          # Settings for rust-analyzer
           settings = {
             diagnostics = {
               enable = true;
-              styleLints.enable = true;
+              styleLints = {
+                enable = true;
+              }; # Corrected styleLints access
             };
-
             checkOnSave = true;
             check = {
               command = "clippy";
               features = "all";
             };
-
             cargo = {
-              buildScripts.enable = true;
+              buildScripts = {
+                enable = true;
+              }; # Corrected buildScripts access
               features = "all";
             };
-
-            # Additional settings you might want to configure
             inlayHints = {
-              bindingModeHints.enable = true;
+              bindingModeHints = {
+                enable = true;
+              }; # Corrected access
               closureStyle = "rust_analyzer";
-              closureReturnTypeHints.enable = "always";
-              discriminantHints.enable = "always";
-              expressionAdjustmentHints.enable = "always";
-              implicitDrops.enable = true;
-              lifetimeElisionHints.enable = "always";
-              rangeExclusiveHints.enable = true;
+              closureReturnTypeHints = {
+                enable = "always";
+              }; # Corrected access
+              discriminantHints = {
+                enable = "always";
+              }; # Corrected access
+              expressionAdjustmentHints = {
+                enable = "always";
+              }; # Corrected access
+              implicitDrops = {
+                enable = true;
+              };
+              lifetimeElisionHints = {
+                enable = "always";
+              }; # Corrected access
+              rangeExclusiveHints = {
+                enable = true;
+              };
             };
-
             procMacro = {
               enable = true;
             };
-
             rustc = {
               source = "discover";
             };
-
             files = {
               excludeDirs = [
                 ".cargo"
@@ -139,25 +166,169 @@
           };
         };
 
-        # Your existing LSP settings for other languages
         settings = {
+          # This is for other LSP servers, keep it separate
           dialyzerEnabled = true;
         };
       };
     };
+
     userKeymaps = [
       {
         context = "Editor && (vim_mode == normal || vim_mode == visual)";
         bindings = {
           "space g h d" = "editor::ToggleHunkDiff";
           "space g h r" = "editor::RevertSelectedHunks";
-          # Toggle inlay hints
           "space t i" = "editor::ToggleInlayHints";
-          # Toggle soft wrap
           "space u w" = "editor::ToggleSoftWrap";
-          # Toggle Zen Mode
           "space c z" = "workspace::ToggleCenteredLayout";
+          "space m p" = "markdown::OpenPreview";
+          "space m P" = "markdown::OpenPreviewToTheSide";
+          "space f p" = "projects::OpenRecent";
+          "space f m" = "editor::Format";
+          "space f M" = "editor::FormatSelections";
+          "space s w" = "pane::DeploySearch";
+          "space a c" = "assistant::ToggleFocus";
+          "g f" = "editor::OpenExcerpts";
+        };
+      }
+      {
+        context = "Editor && vim_mode == normal && !VimWaiting && !menu";
+        bindings = {
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
+          "space c a" = "editor::ToggleCodeActions";
+          "space ." = "editor::ToggleCodeActions";
+          "space c r" = "editor::Rename";
+          "g d" = "editor::GoToDefinition";
+          "g D" = "editor::GoToDefinitionSplit";
+          "g i" = "editor::GoToImplementation";
+          "g I" = "editor::GoToImplementationSplit";
+          "g t" = "editor::GoToTypeDefinition";
+          "g T" = "editor::GoToTypeDefinitionSplit";
+          "g r" = "editor::FindAllReferences";
+          "] d" = "editor::GoToDiagnostic";
+          "[ d" = "editor::GoToPrevDiagnostic";
+          # TODO: Go to next/prev error
+          "] e" = "editor::GoToDiagnostic";
+          "[ e" = "editor::GoToPrevDiagnostic";
+          # Symbol search
+          "s s" = "outline::Toggle";
+          "s S" = "project_symbols::Toggle";
+          # Diagnostic
+          "space x x" = "diagnostics::Deploy";
 
+          # +Git
+          # Git prev/next hunk
+          "] h" = "editor::GoToHunk";
+          "[ h" = "editor::GoToPrevHunk";
+
+          # Buffers
+          # Switch between buffers
+          "shift-h" = "pane::ActivatePrevItem";
+          "shift-l" = "pane::ActivateNextItem";
+          # Close active panel
+          "shift-q" = "pane::CloseActiveItem";
+          "ctrl-q" = "pane::CloseActiveItem";
+          "space b d" = "pane::CloseActiveItem";
+          # Close other items
+          "space b o" = "pane::CloseInactiveItems";
+          # Save file
+          "ctrl-s" = "workspace::Save";
+          # File finder
+          "space space" = "file_finder::Toggle";
+          # Project search
+          "space /" = "pane::DeploySearch";
+          # TODO: Open other files
+          # Show project panel with current file
+          "space e" = "pane::RevealInProjectPanel";
+
+        };
+      }
+      {
+        context = "EmptyPane || SharedScreen";
+        bindings = {
+          # Open file finder
+          "space space" = "file_finder::Toggle";
+          # Open recent projects
+          "space f p" = "projects::OpenRecent";
+        };
+      }
+      {
+        context = "Editor && vim_mode == visual && !VimWaiting && !menu";
+        bindings = {
+          "g c" = "editor::ToggleComments";
+        };
+      }
+      # Better escape
+      {
+        context = "Editor && vim_mode == insert && !menu";
+        bindings = {
+          "j j" = "vim::NormalBefore"; # remap jj in insert mode to escape
+          "j k" = "vim::NormalBefore"; # remap jk in insert mode to escape
+        };
+      }
+      # Rename
+      {
+        context = "Editor && vim_operator == c";
+        bindings = {
+          "c" = "vim::CurrentLine";
+          "a" = "editor::ToggleCodeActions"; # zed specific
+        };
+      }
+      # Toggle Terminal
+      {
+        context = "Workspace";
+        bindings = {
+          "ctrl-\\" = "terminal_panel::ToggleFocus";
+        };
+      }
+      {
+        context = "Terminal";
+        bindings = {
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
+        };
+      }
+      # File panel (netrw)
+      {
+        context = "ProjectPanel && not_editing";
+        bindings = {
+          "a" = "project_panel::NewFile";
+          "A" = "project_panel::NewDirectory";
+          "r" = "project_panel::Rename";
+          "d" = "project_panel::Delete";
+          "x" = "project_panel::Cut";
+          "c" = "project_panel::Copy";
+          "p" = "project_panel::Paste";
+          # Close project panel as project file panel on the right
+          "q" = "workspace::ToggleRightDock";
+          "space e" = "workspace::ToggleRightDock";
+          # Navigate between panel
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
+        };
+      }
+      # Panel navigation
+      {
+        context = "Dock";
+        bindings = {
+          "ctrl-w h" = "workspace::ActivatePaneLeft";
+          "ctrl-w l" = "workspace::ActivatePaneRight";
+          "ctrl-w k" = "workspace::ActivatePaneUp";
+          "ctrl-w j" = "workspace::ActivatePaneDown";
+        };
+      }
+      {
+        context = "Workspace";
+        bindings = {
+          "ctrl-b" = "workspace::ToggleRightDock";
         };
       }
     ];
