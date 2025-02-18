@@ -17,7 +17,7 @@
       vim = {
         enable_vim_sneak = true;
       };
-      ui_font_size = 12;
+      ui_font_size = lib.mkDefault 12;
       buffer_font_size = 14;
       relative_line_numbers = true;
       tab_bar = {
