@@ -12,6 +12,7 @@
       "basher"
       "catppuccin"
     ];
+    extraPackages = [pkgs.nixd];
 
     userSettings = {
       vim_mode = true;
