@@ -18,7 +18,7 @@
         enable_vim_sneak = true;
       };
       ui_font_size = lib.mkForce 12;
-      buffer_font_size = 14;
+      buffer_font_size = lib.mkForce 14;
       relative_line_numbers = true;
       tab_bar = {
         show = true;
