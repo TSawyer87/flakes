@@ -17,6 +17,8 @@
       vim = {
         enable_vim_sneak = true;
       };
+      ui_font_size = 12;
+      buffer_font_size = 14;
       relative_line_numbers = true;
       tab_bar = {
         show = true;
@@ -78,7 +80,6 @@
         };
         font_family = "FiraCode Nerd Font Mono";
         font_features = null;
-        font_size = 14;
         line_height = "comfortable";
         option_as_meta = false;
         button = false;
