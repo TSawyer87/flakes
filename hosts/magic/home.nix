@@ -51,5 +51,5 @@
   stylix.targets.waybar.enable = false;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
-  stylix.targets.zeditor.enable = false;
+  stylix.targets.zed.enable = false;
 }
