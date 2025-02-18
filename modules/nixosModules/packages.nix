@@ -10,7 +10,7 @@
     taplo # toml formatter and lsp
     #cargo-watch
     #cargo-spellcheck
-    #evcxr # rust repl
+    evcxr # rust repl
     #rust-bin.beta.latest.default
     #rust-analyzer
     #clippy
