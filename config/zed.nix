@@ -17,7 +17,7 @@
       vim = {
         enable_vim_sneak = true;
       };
-      load_direnv = "direct";
+      load_direnv = true;
       relative_line_numbers = true;
       tab_bar = {
         show = true;
