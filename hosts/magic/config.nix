@@ -11,29 +11,30 @@
 in {
   imports = [
     ./hardware.nix
-    ../../modules/nixosModules/users.nix
-    ../../modules/nixosModules/boot.nix
-    ../../modules/nixosModules/security.nix
-    ../../modules/nixosModules/packages.nix
-    ../../modules/nixosModules/programs.nix
-    ../../modules/nixosModules/services.nix
-    ../../modules/nixosModules/hardware.nix
-    ../../modules/nixosModules/zram.nix
-    ../../modules/nixosModules/stylix.nix
-    ../../modules/nixosModules/cachix.nix
-    ../../modules/nixosModules/xdg.nix
+    # ../../modules/nixosModules/users.nix
+    # ../../modules/nixosModules/boot.nix
+    # ../../modules/nixosModules/security.nix
+    # ../../modules/nixosModules/packages.nix
+    # ../../modules/nixosModules/programs.nix
+    # ../../modules/nixosModules/services.nix
+    # ../../modules/nixosModules/hardware.nix
+    # ../../modules/nixosModules/zram.nix
+    # ../../modules/nixosModules/stylix.nix
+    # ../../modules/nixosModules/cachix.nix
+    # ../../modules/nixosModules/xdg.nix
+    ../../modules/nixosModules/default.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
     ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
-    ../../modules/nixosModules/i18n.nix
-    ../../modules/nixosModules/nix.nix
-    ../../modules/nixosModules/guix.nix
-    ../../modules/nixosModules/environmentVariables.nix
-    ../../modules/nixosModules/fonts.nix
-    ../../modules/nixosModules/firewall.nix
+    # ../../modules/nixosModules/i18n.nix
+    # ../../modules/nixosModules/nix.nix
+    # ../../modules/nixosModules/guix.nix
+    # ../../modules/nixosModules/environmentVariables.nix
+    # ../../modules/nixosModules/fonts.nix
+    # ../../modules/nixosModules/firewall.nix
     # ../../modules/nixosModules/dns.nix
     #    ../../config/firefox.nix
   ];
@@ -42,9 +43,9 @@ in {
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-       outputs.overlays.additions
-       outputs.overlays.modifications
-       outputs.overlays.stable-packages
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
       # outputs.overlays.rust-overlay
 
       # You can also add overlays exported from other flakes:
