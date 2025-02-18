@@ -12,12 +12,12 @@
       "basher"
     ];
 
-    load_direnv = "shell_hook";
     userSettings = {
       vim_mode = true;
       vim = {
         enable_vim_sneak = true;
       };
+      load_direnv = "direct";
       relative_line_numbers = true;
       tab_bar = {
         show = true;
