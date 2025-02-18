@@ -1,14 +1,19 @@
-{ pkgs, inputs, rust-overlay, ... }: {
+{
+  pkgs,
+  inputs,
+  rust-overlay,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
     taplo # toml formatter and lsp
-    cargo-watch
-    cargo-spellcheck
-    evcxr # rust repl
-    rust-bin.beta.latest.default
-    rust-analyzer
-    clippy
+    #cargo-watch
+    #cargo-spellcheck
+    #evcxr # rust repl
+    #rust-bin.beta.latest.default
+    #rust-analyzer
+    #clippy
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
