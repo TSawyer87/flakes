@@ -34,11 +34,13 @@ lspconfig.lua_ls.setup({
 lspconfig.marksman.setup({})
 lspconfig.markdown_oxide.setup({})
 lspconfig.bacon_ls.setup({
+	settings = {
     init_options = {
-        updateOnSave = true 
-        updateOnSaveWaitMillis = 1000
+        updateOnSave = true, 
+        updateOnSaveWaitMillis = 1000,
         updateOnChange = false
-    }
+    }, 
+    },
  })
 lspconfig.taplo.setup({})
 -- lspconfig.rust_analyzer.setup({})
