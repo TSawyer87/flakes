@@ -10,6 +10,7 @@
       "toml"
       "lua"
       "basher"
+      "catppuccin"
     ];
 
     userSettings = {
