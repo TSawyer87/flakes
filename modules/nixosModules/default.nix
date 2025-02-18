@@ -14,7 +14,6 @@
     ./nix.nix
     ./hardware.nix
     ./users.nix
-    ./variables.nix
     ./zram.nix
     ./i18n.nix
     ./fonts.nix
