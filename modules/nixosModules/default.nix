@@ -12,7 +12,6 @@
     ./security.nix
     ./environmentVariables.nix
     ./nix.nix
-    ./config.nix
     ./hardware.nix
     ./users.nix
     ./variables.nix
