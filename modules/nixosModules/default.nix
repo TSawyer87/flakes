@@ -19,5 +19,6 @@
     ./fonts.nix
     ./guix.nix
     ./cachix.nix
+    ./xdg.nix
   ];
 }
