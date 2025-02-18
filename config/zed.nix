@@ -19,8 +19,8 @@
         enable_vim_sneak = true;
       };
       theme = {
-        dark = lib.mkForce "catppuccin macchiatto";
-        light = lib.mkForce "Rose Pine Moon";
+        dark = "catppuccin macchiatto";
+        light = "Rose Pine Moon";
       };
       ui_font_size = lib.mkForce 12;
       buffer_font_size = lib.mkForce 14;
