@@ -31,10 +31,10 @@
         enabled = true;
         coloring = "indent_aware";
       };
-      centered_layout = {
-        left_padding = "0.15";
-        right_padding = "0.15";
-      };
+      # centered_layout = {
+      #   left_padding = "0.15";
+      #   right_padding = "0.15";
+      # };
       inlay_hints = {
         enabled = true;
       };
