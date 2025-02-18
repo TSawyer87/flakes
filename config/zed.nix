@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -104,7 +107,7 @@
         "rust-analyzer" = {
           # Quote the LSP name
           binary = {
-            path = "/nix/store/lxc7w9pr0d83mi2ij82g27ydpz9kzcbh-rust-default-1.86.0-nightly-2025-02-04/bin/rust-analyzer";
+            path = "/nix/store/3i6z4bh7ffyj99drw554nsmnspyizky6-rust-default-1.87.0-nightly-2025-02-18/bin/rust-analyzer";
           };
           settings = {
             diagnostics = {
@@ -244,7 +247,6 @@
           # TODO: Open other files
           # Show project panel with current file
           "space e" = "pane::RevealInProjectPanel";
-
         };
       }
       {
