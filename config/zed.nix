@@ -21,6 +21,7 @@
       tab_bar = {
         show = true;
       };
+      load_direnv = "shell_hook";
       tabs = {
         show_diagnostics = "errors";
       };
