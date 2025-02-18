@@ -6,12 +6,20 @@
   imports = [
     ./boot.nix
     ./stylix.nix
-    ./systemPackages.nix
-    ./systemPrograms.nix
-    ./systemServices.nix
+    ./packages.nix
+    ./programs.nix
+    ./services.nix
+    ./security.nix
+    ./environmentVariables.nix
+    ./nix.nix
     ./config.nix
     ./hardware.nix
     ./users.nix
     ./variables.nix
+    ./zram.nix
+    ./i18n.nix
+    ./fonts.nix
+    ./guix.nix
+    ./cachix.nix
   ];
 }

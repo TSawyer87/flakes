@@ -3,76 +3,100 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixvim.url = "github:nix-community/nixvim";
-    nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
-    nvf.url = "github:notashelf/nvf";
+    # rust-overlay = {
+    #   url = "github:oxalica/rust-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { self, nixpkgs, nix-formatter-pack, home-manager, nvf, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      host = "magic";
-      username = "jr";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      packages.${system} = {
-        nvf = (nvf.lib.neovimConfiguration {
-          inherit pkgs;
-          modules = [ ./config/nvf-configuration.nix ];
-        }).neovim;
-      };
-      nixosConfigurations = {
-        "${host}" = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit system;
-            inherit inputs;
-            inherit username;
-            inherit host;
-          };
-          modules = [
-            ./hosts/${host}/config.nix
-            inputs.stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            nvf.nixosModules.default
-            {
-              # Apply the overlays to the NixOS system
-              # nixpkgs.overlays = overlays;
-              home-manager.extraSpecialArgs = {
-                inherit username;
-                inherit inputs;
-                inherit host;
-                inherit system;
-              };
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} = import ./hosts/${host}/home.nix;
-            }
-          ];
-        };
-      };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nix-index-database,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
 
-      # Add the formatter configuration
-      formatter.${system} = nix-formatter-pack.lib.mkFormatter {
-        inherit nixpkgs;
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+
+    host = "magic";
+    username = "jr";
+    pkgsForSystem = system:
+      import nixpkgs {
         inherit system;
-        config = {
-          tools = {
-            deadnix.enable = true;
-            nixpkgs-fmt.enable = true;
-            statix.enable = true;
-          };
-        };
+        config.allowUnfree = true;
       };
-      defaultPackage.${system} = self.packages.${system}.nvf;
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages =
+      forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+
+    # Or 'nixpkgs-fmt'
+    formatter =
+      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
+
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#hostname'
+    nixosConfigurations = {
+      "${host}" = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit systems;
+          inherit inputs;
+          inherit username;
+          inherit host;
+          inherit outputs;
+        };
+        modules = [
+          ./hosts/${host}/config.nix
+          inputs.stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          nix-index-database.nixosModules.nix-index
+          # ({ pkgs, ... }: {
+          #   nixpkgs.overlays = [ rust-overlay.overlays.default ];
+          #   environment.systemPackages =
+          #     [ pkgs.rust-bin.stable.latest.default ];
+          # })
+          {
+            # Apply the overlays to the NixOS system
+            # nixpkgs.overlays = overlays;
+            home-manager.extraSpecialArgs = {
+              inherit username;
+              inherit inputs;
+              inherit host;
+              inherit systems;
+            };
+            # home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.${username} = import ./hosts/${host}/home.nix;
+            nixpkgs.config.allowUnfree = true;
+          }
+        ];
+      };
     };
+  };
 }
