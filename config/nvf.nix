@@ -92,7 +92,7 @@
         format.enable = true;
         crates = {
           enable = true;
-          codeActions.enable = true;
+          #codeActions.enable = true;
         };
       };
       python.enable = true;
