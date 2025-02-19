@@ -8,13 +8,14 @@
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
     taplo # toml formatter and lsp
-    #cargo-watch
-    #cargo-spellcheck
+    cargo-watch
+    cargo-spellcheck
     evcxr # rust repl
     #rust-bin.beta.latest.default
-    #rust-analyzer
+    rust-analyzer
+    rustfmt
     rustup
-    #clippy
+    clippy
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
