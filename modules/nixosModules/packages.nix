@@ -13,6 +13,7 @@
     evcxr # rust repl
     #rust-bin.beta.latest.default
     #rust-analyzer
+    rustup
     #clippy
     vulkan-loader
     vulkan-validation-layers
