@@ -148,6 +148,9 @@
       cc = "cargo check";
       rr = "rustc";
       rc = "rustc --explain";
+      cn = "cargo new";
+      cC = "cargo clippy";
+      cf = "cargo rustfmt";
     };
   };
 }
