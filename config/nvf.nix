@@ -6,10 +6,10 @@
 }: {
   imports = [inputs.nvf.homeManagerModules.default];
 
-  programs.nvf = {
-    enable = true;
+  
+    programs.nvf.enable = true;
    
-    settings.vim = {
+    programs.nvf.settings.vim = {
       package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       vimAlias = true;
       viAlias = true;
@@ -196,5 +196,3 @@
         };
     };
   };
-}
-
