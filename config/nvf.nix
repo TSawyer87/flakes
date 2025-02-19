@@ -8,7 +8,7 @@
 
   programs.nvf = {
     enable = true;
-
+   
     settings.vim = {
       package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       vimAlias = true;
@@ -22,6 +22,10 @@
       };
 
       keymaps = [
+        {
+          key = "<leader>a";
+          action = ":AerialToggle<CR>";
+        }
         {
           key = "jk";
           mode = ["i"];
@@ -175,6 +179,21 @@
       comments = {
         comment-nvim.enable = true;
       };
+      config.vim.extraPlugins = with pkgs.vimPlugins; { # Added here!
+        aerial = {
+          package = aerial-nvim;
+          setup = ''
+            require('aerial').setup {
+              -- some lua configuration here
+            }
+          '';
+        };
+
+        harpoon = {
+          package = harpoon;
+          setup = "require('harpoon').setup {}";
+          after = ["aerial"];
+        };
     };
   };
 }
