@@ -21,10 +21,10 @@
     };
 
     keymaps = [
-      {
-        key = "<leader>a";
-        action = ":AerialToggle<CR>";
-      }
+      # {
+      #   key = "<leader>a";
+      #   action = ":AerialToggle<CR>";
+      # }
       {
         key = "jk";
         mode = ["i"];
