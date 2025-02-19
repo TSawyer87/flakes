@@ -19,7 +19,7 @@
     ../../config/hypr/swaync.nix
     ../../config/hypr/waybar.nix
     ../../config/hypr/wlogout.nix
-    #../../config/nvf.nix
+    ../../config/nvf.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
@@ -29,7 +29,7 @@
     ../../config/shells/fastfetch
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
-    ../../config/neovim.nix
+    #../../config/neovim.nix
     ../../config/zed.nix
     #../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules/programs.nix
