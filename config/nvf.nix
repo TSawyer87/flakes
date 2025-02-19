@@ -88,6 +88,7 @@
       rust = {
         enable = true;
         lsp.enable = true;
+        lsp.package = pkgs.rust-analyzer;
         dap.enable = true;
         format.enable = true;
         crates = {
