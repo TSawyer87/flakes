@@ -91,6 +91,7 @@
         lsp.package = pkgs.rust-analyzer;
         dap.enable = true;
         format.enable = true;
+        format.package = pkgs.rustfmt;
         crates = {
           enable = true;
           #codeActions.enable = true;
