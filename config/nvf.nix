@@ -85,7 +85,16 @@
       nix.enable = true;
       clang.enable = true;
       zig.enable = true;
-      rust.enable = true;
+      rust = {
+        enable = true;
+        lsp.enable = true;
+        dap.enable = true;
+        format.enable = true;
+        crates = {
+          enable = true;
+          codeActions.enable = true;
+        };
+      };
       python.enable = true;
       markdown.enable = true;
       ts.enable = true;
@@ -177,23 +186,6 @@
 
     comments = {
       comment-nvim.enable = true;
-    };
-    config.vim.extraPlugins = with pkgs.vimPlugins; {
-      # Added here!
-      aerial = {
-        package = aerial-nvim;
-        setup = ''
-          require('aerial').setup {
-            -- some lua configuration here
-          }
-        '';
-      };
-
-      harpoon = {
-        package = harpoon;
-        setup = "require('harpoon').setup {}";
-        after = ["aerial"];
-      };
     };
   };
 }
