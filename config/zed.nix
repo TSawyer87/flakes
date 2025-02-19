@@ -41,6 +41,18 @@
       };
       inactive_opacity = "0.5";
       auto_install_extensions = true;
+      outline_panel = {
+        dock = "right";
+      };
+      collaboration_panel = {
+        dock = "left";
+      };
+      notification_panel = {
+        dock = "left";
+      };
+      chat_panel = {
+        dock = "left";
+      };
 
       assistant = {
         enabled = false;
