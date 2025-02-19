@@ -10,7 +10,6 @@
       "toml"
       "lua"
       "basher"
-      "catppuccin"
     ];
     extraPackages = [pkgs.nixd];
 
@@ -22,6 +21,9 @@
       ui_font_size = lib.mkForce 12;
       buffer_font_size = lib.mkForce 14;
       relative_line_numbers = true;
+      file_finder = {
+        modal_width = "medium";
+      };
       tab_bar = {
         show = true;
       };
