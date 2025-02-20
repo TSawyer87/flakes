@@ -120,6 +120,12 @@
         Markdown = {
           formatter = "prettier";
         };
+        JSON = {
+          formatter = "prettier";
+        };
+        TOML = {
+          formatter = "taplo";
+        };
       };
 
       lsp = {
