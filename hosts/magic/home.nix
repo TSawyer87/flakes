@@ -32,14 +32,7 @@
     ../../config/neovim.nix
     ../../config/zed.nix
     #../../config/nixVim/nixvim.nix
-    ../../modules/homeManagerModules/programs.nix
-    ../../modules/homeManagerModules/packages.nix
-    ../../modules/homeManagerModules/services.nix
-    ../../modules/homeManagerModules/homeFiles.nix
-    ../../modules/homeManagerModules/gtk.nix
-    ../../modules/homeManagerModules/qt.nix
-    ../../modules/homeManagerModules/xdg.nix
-    ../../modules/homeManagerModules/dconf.nix
+    ../../modules/homeManagerModules
   ];
 
   home.packages = with pkgs; [];

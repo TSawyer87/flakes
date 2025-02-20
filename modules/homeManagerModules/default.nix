@@ -1,0 +1,17 @@
+
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    ./programs.nix
+    ./packages.nix
+    ./services.nix
+    ./homeFiles.nix
+    ./gtk.nix
+    ./qt.nix
+    ./xdg.nix
+    ./dconf.nix
+  ];
+}
