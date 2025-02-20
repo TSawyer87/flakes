@@ -194,6 +194,11 @@
         };
       };
     };
+    languages = {
+      Markdown = {
+        formatter = "prettier";
+      };
+    };
 
     userKeymaps = [
       {
