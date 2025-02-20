@@ -20,7 +20,10 @@
       vim = {
         enable_vim_sneak = true;
       };
-      theme = "Dracula";
+      theme = {
+        dark = "Dracula";
+        light = "Dracula";
+      };
       ui_font_size = lib.mkForce 12;
       buffer_font_size = lib.mkForce 14;
       relative_line_numbers = true;
