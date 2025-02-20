@@ -5,7 +5,8 @@
   lib,
   ...
 }:
-with lib; {
+with lib;
+{
   options = {
     stylixModule = {
       enable = mkEnableOption "enables stylix";
@@ -57,24 +58,42 @@ with lib; {
       #   base0F = "E6B673";
       # };
 
-      base16Scheme = {
-        # TokyoNightStorm
-        base00 = "24283B";
-        base01 = "16161E";
-        base02 = "343A52";
-        base03 = "444B6A";
-        base04 = "787C99";
-        base05 = "A9B1D6";
-        base06 = "CBCCD1";
-        base07 = "D5D6DB";
-        base08 = "C0CAF5";
-        base09 = "A9B1D6";
-        base0A = "0DB9D7";
-        base0B = "9ECE6A";
-        base0C = "B4F9F8";
-        base0D = "2AC3DE";
-        base0E = "BB9AF7";
-        base0F = "F7768E";
+      # base16Scheme = {
+      #   # TokyoNightStorm
+      #   base00 = "24283B";
+      #   base01 = "16161E";
+      #   base02 = "343A52";
+      #   base03 = "444B6A";
+      #   base04 = "787C99";
+      #   base05 = "A9B1D6";
+      #   base06 = "CBCCD1";
+      #   base07 = "D5D6DB";
+      #   base08 = "C0CAF5";
+      #   base09 = "A9B1D6";
+      #   base0A = "0DB9D7";
+      #   base0B = "9ECE6A";
+      #   base0C = "B4F9F8";
+      #   base0D = "2AC3DE";
+      #   base0E = "BB9AF7";
+      #   base0F = "F7768E";
+      # };
+      base16Scheme = { # Dracula
+        base00 = "2b2b2b"; # background
+        base01 = "323232"; # line cursor
+        base02 = "323232"; # statusline
+        base03 = "606366"; # line numbers
+        base04 = "a4a3a3"; # selected line number
+        base05 = "a9b7c6"; # foreground
+        base06 = "ffc66d"; # function bright yellow
+        base07 = "ffffff";
+        base08 = "4eade5"; # cyan
+        base09 = "689757"; # blue
+        base0A = "bbb529"; # yellow
+        base0B = "6a8759"; # string green
+        base0C = "629755"; # comment green
+        base0D = "9876aa"; # purple
+        base0E = "cc7832"; # orange
+        base0F = "808080"; # gray
       };
       # base16Scheme = {
       #   # TokyoNightTerminal
