@@ -152,6 +152,7 @@
       cC = "cargo clippy";
       cP = "cargo clippy -- -W clippy::all -W clippy::pedantic";
       cf = "cargo rustfmt";
+      repl = "evcxr";
     };
   };
 }
