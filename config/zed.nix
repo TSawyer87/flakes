@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -12,7 +13,7 @@
       "basher"
       "dracula"
     ];
-    extraPackages = [pkgs.nixd];
+    extraPackages = [ pkgs.nixd ];
 
     userSettings = {
       vim_mode = true;
@@ -115,6 +116,11 @@
           "*.code-snippets"
         ];
       };
+      languages = {
+        Markdown = {
+          formatter = "prettier";
+        };
+      };
 
       lsp = {
         nix = {
@@ -192,11 +198,6 @@
           # This is for other LSP servers, keep it separate
           dialyzerEnabled = true;
         };
-      };
-    };
-    languages = {
-      Markdown = {
-        formatter = "prettier";
       };
     };
 
