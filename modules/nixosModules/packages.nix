@@ -11,11 +11,7 @@
     cargo-watch
     cargo-spellcheck
     evcxr # rust repl
-    #rust-bin.beta.latest.default
-    rust-analyzer
-    rustfmt
     rustup
-    clippy
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
