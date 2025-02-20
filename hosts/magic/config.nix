@@ -11,7 +11,7 @@
 in {
   imports = [
     ./hardware.nix
-    ../../modules/nixosModules/default.nix
+    ../../modules/nixosModules
     ../../modules/amd-drivers.nix
     # ../../modules/nvidia-drivers.nix
     # ../../modules/nvidia-prime-drivers.nix
