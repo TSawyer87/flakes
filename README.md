@@ -2,9 +2,9 @@
 
 - This flake provides two NixOS configurations:
 
-  - magic: A desktop configuration for AMD hardware.
+    - magic: A desktop configuration for AMD hardware. More recent updates.
 
-  - laptop: A desktop configuration for Intel hardware.
+    - laptop: A desktop configuration for Intel hardware.
 
 **Customizing the Flake**
 
@@ -59,6 +59,10 @@ After your flake is initialized, a few aliases:
 
 - `Super` = wofi
 
+- `Alt+Return` = Full Screen
+
+- `Super+Alt+w`
+
 - Click the top right keys for a cheatsheet that might be out of date
 
 - `v`, `vi` = Neovim, I'm pretty happy with the config so far.
@@ -67,7 +71,7 @@ After your flake is initialized, a few aliases:
 | -------------------- | --------------------------------------------------- |
 | `leader`             | Space                                               |
 | `leader + fm`        | conform format manual can be used to check nix code |
-| `leader + j`         | Treesj splits & joins blocks of code                |
+| `leader + j`         | Hop nvim navigation                                 |
 | `leader + s`         | splits                                              |
 | `leader+zm`          | Zen-Mode                                            |
 | `Shift+ h`           | switch buffer left                                  |
@@ -90,17 +94,21 @@ After your flake is initialized, a few aliases:
 
 - `z` = Zoxide
 
-- `zed` = Zed-Editor
+- `zd` = Zed-Editor (configured for Rust development)
 
-- `vi` = Neovim with NixVim, I also have a regular neovim config through home-manager that can be changed to by uncommenting the import of `neovim.nix`. I also added a standalone NVF neovim configuration that can be run with `nv` or `nix run` when in the `flakes` directory.
+- `vi` = Recently switched back to standard NixOS neovim, all the configs are there if you choose to use NixVim or NVF just uncomment one in the `home.nix`. Be aware of
+  2 programs trying to use the same `vi` or `vim` aliases.
 
 ### Structure
 
 - The main `config.nix` and `home.nix` files are located in the `~/flakes/hosts/${host}/` directory.
 
-- In the `~/flakes/modules/nixosModules/` directory are the modules imported into your `config.nix`, this is where you can add system packages, programs, and services.
+- In the `~/flakes/modules/nixosModules/` directory you can add packages, services, programs, and modules. If you add a module just make sure to add the module name to the
+  `default.nix` in the directory. NixOS automatically searches for a `default.nix` in whichever directory you import to your `config.nix` so all we have to import is
+  the `nixosModules` directory and the `default.nix` bundles all of the files making less implicit import statements necessary.
 
-- The same for home-manager, the modules imported into the `home.nix` are located in `~/flakes/modules/homeManagerModules/` you can add home packages, programs, and more there.
+- The same for home-manager, the modules imported into the `home.nix` are located in `~/flakes/modules/homeManagerModules/` you can add home packages, programs, and more there. Same
+  applies here with the `default.nix`.
 
 - Most of the actual configuration is done in the `~/flakes/config/` directory, thats where you'll find the neovim configuration as well as hyprland and more.
 
@@ -115,6 +123,7 @@ For a more in-depth look at Flakes:
 [Nix Flakes: an Introduction](https://xeiaso.net/blog/nix-flakes-1-2022-02-21/)
 
 [Practical Nix Flakes](https://serokell.io/blog/practical-nix-flakes)
+
 For NixLang docs:
 
 [NixLang One Pager](https://github.com/tazjin/nix-1p)
