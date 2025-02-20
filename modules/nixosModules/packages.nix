@@ -45,6 +45,7 @@
     lshw
     bat
     pkg-config
+    nwg-look
     meson
     ninja
     virt-viewer # graphical consol client for qemu
