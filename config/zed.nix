@@ -142,6 +142,7 @@
           # Quote the LSP name
           binary = {
             path_lookup = true;
+          };
               enable = true;
               styleLints = {
                 enable = true;
