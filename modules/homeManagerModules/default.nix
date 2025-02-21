@@ -13,5 +13,6 @@
     ./qt.nix
     ./xdg.nix
     ./dconf.nix
+    ./yazi.nix
   ];
 }
