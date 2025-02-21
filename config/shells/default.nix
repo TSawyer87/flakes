@@ -6,7 +6,7 @@
     ./zsh.nix
     ./bash.nix
     ./starship.nix
-    ./fastfetch/
+    ./fastfetch
   ];
 }
 
