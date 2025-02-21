@@ -7,28 +7,15 @@ in {
       enableBashIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
-
-    # git = {
+    # jujutsu = {
     #   enable = true;
-    #   userName = "${gitUsername}";
-    #   userEmail = "${gitEmail}";
-    #   aliases = {
-    #     ci = "commit";
-    #     co = "checkout";
-    #     s = "status";
-    #     ac = "!git add -A && git commit -m ";
+    #   settings = {
+    #     user = {
+    #       email = "sawyerjr.25@gmail.com";
+    #       name = "TSawyer87";
+    #     };
     #   };
-    #   ignores = [ "*.jj" "/target" ];
     # };
-    jujutsu = {
-      enable = true;
-      settings = {
-        user = {
-          email = "sawyerjr.25@gmail.com";
-          name = "TSawyer87";
-        };
-      };
-    };
     helix = {
       enable = true;
       package = pkgs.evil-helix;

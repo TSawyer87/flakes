@@ -15,5 +15,6 @@
     ./dconf.nix
     ./yazi.nix
     ./git.nix
+    ./jj.nix
   ];
 }
