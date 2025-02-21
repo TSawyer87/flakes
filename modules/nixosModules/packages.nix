@@ -11,7 +11,7 @@
     #cargo-watch
     #cargo-spellcheck
     evcxr # rust repl
-    #rustup
+    rustup
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
