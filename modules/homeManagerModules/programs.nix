@@ -8,19 +8,18 @@ in {
       nix-direnv.enable = true;
     };
 
-    bash.enable = true; # see note on other shells below
-    git = {
-      enable = true;
-      userName = "${gitUsername}";
-      userEmail = "${gitEmail}";
-      aliases = {
-        ci = "commit";
-        co = "checkout";
-        s = "status";
-        ac = "!git add -A && git commit -m ";
-      };
-      ignores = [ "*.jj" ];
-    };
+    # git = {
+    #   enable = true;
+    #   userName = "${gitUsername}";
+    #   userEmail = "${gitEmail}";
+    #   aliases = {
+    #     ci = "commit";
+    #     co = "checkout";
+    #     s = "status";
+    #     ac = "!git add -A && git commit -m ";
+    #   };
+    #   ignores = [ "*.jj" "/target" ];
+    # };
     jujutsu = {
       enable = true;
       settings = {
@@ -30,20 +29,6 @@ in {
         };
       };
     };
-    # yazi = {
-    #   enable = true;
-    #   shellWrapperName = "y";
-    #   settings = {
-    #     manager = {
-    #       show_hidden = false;
-    #       sort_dir_first = true;
-    #       sort_by = "mtime";
-    #       sort_reverse = true;
-    #       linemode = "size";
-    #       editor = "nvim";
-    #     };
-    #   };
-    # };
     helix = {
       enable = true;
       package = pkgs.evil-helix;
