@@ -20,10 +20,7 @@
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
-    ../../config/shells/zsh.nix
-    ../../config/shells/bash.nix
-    ../../config/shells/starship.nix
-    ../../config/shells/fastfetch
+    ../../config/shells
     ../../config/terms/kitty.nix
     ../../config/terms/ghostty.nix
     ../../config/neovim.nix
