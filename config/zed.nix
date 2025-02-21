@@ -138,11 +138,14 @@
           };
         };
 
-        "rust-analyzer" = {
+       
+"rust-analyzer" = {
           # Quote the LSP name
           binary = {
             path_lookup = true;
           };
+          settings = {
+            diagnostics = {
               enable = true;
               styleLints = {
                 enable = true;
