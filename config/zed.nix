@@ -142,7 +142,7 @@
 "rust-analyzer" = {
           # Quote the LSP name
           binary = {
-            path = "run/current-system/sw/bin/rust-analyzer";
+            path_lookup = true;
           };
           settings = {
             diagnostics = {
