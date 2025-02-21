@@ -17,12 +17,9 @@
     ../../config/emoji.nix
     ../../config/hypr
     #../../config/nvf.nix
-    ../../config/rofi/rofi.nix
-    ../../config/rofi/config-emoji.nix
-    ../../config/rofi/config-long.nix
+    ../../config/rofi
     ../../config/shells
-    ../../config/terms/kitty.nix
-    ../../config/terms/ghostty.nix
+    ../../config/terms
     ../../config/neovim.nix
     ../../config/zed.nix
     #../../config/nixVim/nixvim.nix
