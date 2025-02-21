@@ -1,4 +1,4 @@
-{...}: {
+{..., lib }: {
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
@@ -30,7 +30,7 @@
         "ctrl+page_up=jump_to_prompt:-1"
         # "ctrl+shift+z toggle_split_zoom"
       ];
-      font-size = 12;
+      font-size = lib.mkForce 12;
       font-family = "Fira-Code-Mono Nerd Font";
       window-decoration = false;
       confirm-close-surface = false;
