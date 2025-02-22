@@ -68,7 +68,7 @@
         nvim-ufo
         obsidian-nvim
         conform-nvim
-        #codeium-nvim
+        codeium-nvim
         trouble-nvim
         flash-nvim
         toggleterm-nvim
@@ -111,6 +111,7 @@
         ${builtins.readFile ./nvim/plugins/crates.lua}
         ${builtins.readFile ./nvim/plugins/hunk.lua}
         ${builtins.readFile ./nvim/plugins/yazi.lua}
+        ${builtins.readFile ./nvim/plugins/codeium.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()
