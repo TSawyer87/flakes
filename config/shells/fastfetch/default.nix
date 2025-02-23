@@ -11,7 +11,7 @@ _: {
       };
 
       logo = {
-        source = ./grim_reaper.png;
+        source = ./pngegg.png;
         type = "kitty";
         height = 18;
         width = 30;
