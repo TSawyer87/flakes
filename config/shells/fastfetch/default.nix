@@ -11,7 +11,7 @@ _: {
       };
 
       logo = {
-        source = ./pochita.png;
+        source = ./grim_reaper.png;
         type = "kitty";
         height = 18;
         width = 30;
