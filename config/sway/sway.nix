@@ -15,21 +15,22 @@ in {
     enable = true;
     extraConfig = ''
       # ... other sway config
+      $launcher = 
       exec waybar &
       exec nm-applet --indicator
       exec killall -q swww;sleep .5 && swww init
 
-      output DP-1 {
-        mode 3840x2160@65Hz
-        scale 1.5
-        pos 0 0
-      }
-
-      output HDMI-A-1 {
-        mode 1920x1080@100Hz
-        scale 1
-        pos 2560 0  
-      }
+      # output DP-1 {
+      #   mode 3840x2160@65Hz
+      #   scale 1.5
+      #   pos 0 0
+      # }
+      #
+      # output HDMI-A-1 {
+      #   mode 1920x1080@100Hz
+      #   scale 1
+      #   pos 2560 0  
+      # }
 
       input * {
         repeat_delay 300
@@ -103,6 +104,7 @@ in {
     wrapperFeatures = { gtk = true; };
   };
 
+  services.network-manager-applet.enable = true;
   # programs.waybar = {
   #   enable = true;
   #   systemd.enable = true;
@@ -115,21 +117,25 @@ in {
 
   services.cliphist.enable = true;
 
-  # services.kanshi = {
-  #   enable = true;
-  #   settings = [
-  #     {
-  #       output = {
-  #         DP-1 = {
-  #           status = "enable";
-  #           mode = "3840x2160@65Hz";
-  #           scale = 1.5;
-  #           position = "0,0";
-  #         };
-  #       };
-  #     }
-  #   ];
-  # };
+  services.kanshi = {
+    enable = true;
+    settings = [{
+      output = {
+        DP-1 = {
+          status = "enable";
+          mode = "3840x2160@65Hz";
+          scale = 1.5;
+          position = "0,0";
+        };
+        HDMI-A-1 = {
+          status = "enable";
+          mode = "1920x1080@100Hz";
+          scale = 1.0;
+          position = "2560,0";
+        };
+      };
+    }];
+  };
 
   home.packages = with pkgs; [
     grim
