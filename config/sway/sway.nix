@@ -16,7 +16,7 @@ in {
     extraConfig = ''
       # ... other sway config
       exec waybar &
-      exec swaybg -i /home/jr/Pictures/Wallpapers/mountains1.jpg -m fill
+      # exec swaybg -i /home/jr/Pictures/Wallpapers/mountains1.jpg -m fill
       exec pypr &
       output "*" bg /home/jr/Pictures/Wallpapers/mountains1.jpg fill
 
