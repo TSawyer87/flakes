@@ -15,7 +15,6 @@ in {
     enable = true;
     extraConfig = ''
       # ... other sway config
-      $launcher = 
       exec waybar &
       exec nm-applet --indicator
       exec killall -q swww;sleep .5 && swww init
@@ -36,6 +35,7 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
+      exec sleep 1.5 && swww img /home/jr/Pictures/Wallpapers/mountains1.jpg
       # exec swaybg -i /home/jr/Pictures/Wallpapers/mountains1.jpg -m fill
     '';
     config = {
