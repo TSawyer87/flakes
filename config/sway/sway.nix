@@ -16,7 +16,8 @@ in {
     extraConfig = ''
       # ... other sway config
       exec waybar &
-      exec pypr &
+      exec nm-applet --indicator
+      exec killall -q swww;sleep .5 && swww init
 
       output DP-1 {
         mode 3840x2160@65Hz
@@ -31,8 +32,8 @@ in {
       }
 
       input * {
-        repeat_delay 250
-        repeat_rate 25
+        repeat_delay 300
+        repeat_rate 50
       }
       exec swaybg -i /home/jr/Pictures/Wallpapers/mountains1.jpg -m fill
     '';
