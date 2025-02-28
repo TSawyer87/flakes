@@ -7,7 +7,7 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd sway
+          --cmd ${pkgs.sway}/bin/sway
       '';
     };
   };
