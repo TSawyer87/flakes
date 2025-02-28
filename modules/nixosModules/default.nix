@@ -17,5 +17,6 @@
     ./cachix.nix
     ./xdg.nix
     ./greetd.nix
+    #./greetdHypr.nix
   ];
 }
