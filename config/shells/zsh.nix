@@ -1,10 +1,4 @@
-{
-  pkgs,
-  host,
-  username,
-  inputs,
-  ...
-}: {
+{ pkgs, host, username, inputs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,7 +7,7 @@
     oh-my-zsh = {
       package = pkgs.oh-my-zsh;
       enable = true;
-      plugins = ["git" "sudo" "rust" "fzf"];
+      plugins = [ "git" "sudo" "rust" "fzf" ];
     };
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -36,14 +30,14 @@
       setopt pushdminus
     '';
     initExtra = ''
-            # fastfetch
+             fastfetch
              if [ -f $HOME/.zshrc-personal ]; then
                source $HOME/.zshrc-personal
              fi
              source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
              source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
              source <(jj util completion zsh)
-             pokemon-colorscripts -r
+             #pokemon-colorscripts -r
 
              nix-files() {
                nix-locate -w "$1" | fzf --preview="bat --color=always --style=numbers --line-range=:100 {1}"| awk '{print $1}'| xargz nvim
@@ -106,11 +100,14 @@
     shellAliases = {
       sv = "sudo nvim";
       fr = "nh os switch --hostname ${host} /home/${username}/flakes";
-      ft = "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
+      ft =
+        "nh os test --hostname ${host} /home/${username}/flakes"; # dont save generation to boot menu
       fu = "nh os switch --hostname ${host} --update /home/${username}/flakes";
-      upd = "sudo nixos-rebuild switch --upgrade --flake /home/${username}/flakes";
+      upd =
+        "sudo nixos-rebuild switch --upgrade --flake /home/${username}/flakes";
       rebuild = "/home/jr/scripts/performance_hook.sh";
-      ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      ncg =
+        "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       opts = "man home-configuration.nix";
       zd = "zeditor";
       lg = "lazygit";
@@ -125,6 +122,7 @@
       dir = "dir --color=auto";
       v = "nvim";
       vz = "NVIM_APPNAME='lazy' nvim";
+      vk = "NVIM_APPNAME='kick' nvim";
       cat = "bat --style snip --style changes --style header";
       l = "eza -lh --icons=auto"; # long list
       ls = "eza --icons=auto --group-directories-first --icons"; # short list
@@ -132,8 +130,10 @@
       la = "eza -lah --icons --grid --group-directories-first --icons";
       ld = "eza -lhD --icons=auto";
       lt = "eza --icons=auto --tree"; # list folder as tree
-      rbs = "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
-      powersave = "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
+      rbs =
+        "echo starting performance mode && sudo cpupower frequency-set -g performance && nh os switch --hostname ${host} --update /home/${username}/flakes"; # Amd pstate governor
+      powersave =
+        "sudo cpupower frequency-set -g powersave"; # Amd pstate governor
       # Get the error messages from journalctl
       jctl = "journalctl -p 3 -xb";
       mkdir = "mkdir -p";
