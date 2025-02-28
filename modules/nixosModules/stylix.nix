@@ -1,17 +1,6 @@
-{
-  pkgs,
-  inputs,
-  config,
-  lib,
-  ...
-}:
-with lib;
-{
-  options = {
-    stylixModule = {
-      enable = mkEnableOption "enables stylix";
-    };
-  };
+{ pkgs, inputs, config, lib, ... }:
+with lib; {
+  options = { stylixModule = { enable = mkEnableOption "enables stylix"; }; };
 
   config = mkIf config.stylixModule.enable {
     stylix = {
@@ -116,14 +105,14 @@ with lib;
       # };
       polarity = "dark";
       opacity.terminal = 0.8;
-      # cursor.package = pkgs.bibata-cursors;
-      cursor.package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
-      cursor.name = "BreezeX-RosePine-Linux";
-      # cursor.name = "Bibata-Modern-Ice";
+      cursor.package = pkgs.bibata-cursors;
+      # cursor.package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
+      # cursor.name = "BreezeX-RosePine-Linux";
+      cursor.name = "Bibata-Modern-Ice";
       cursor.size = 26;
       fonts = {
         monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
+          package = lib.mkDefault pkgs.nerd-fonts.jetbrains-mono;
           name = "JetBrains Mono";
         };
         sansSerif = {
@@ -144,3 +133,4 @@ with lib;
     };
   };
 }
+
