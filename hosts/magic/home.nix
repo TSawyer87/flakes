@@ -1,10 +1,4 @@
-{
-  pkgs,
-  username,
-  inputs,
-  nix-index-database,
-  ...
-}: {
+{ pkgs, username, inputs, nix-index-database, ... }: {
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -15,18 +9,19 @@
   # Import Program Configurations
   imports = [
     ../../config/emoji.nix
-    ../../config/hypr
+    #../../config/hypr
+    ../../config/sway
     #../../config/nvf.nix
     ../../config/rofi
     ../../config/shells
     ../../config/terms
-    ../../config/neovim.nix
+    #../../config/neovim.nix
     ../../config/zed.nix
-    #../../config/nixVim/nixvim.nix
+    ../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules
   ];
 
-  home.packages = with pkgs; [];
+  home.packages = with pkgs; [ ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
