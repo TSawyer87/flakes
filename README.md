@@ -1,10 +1,10 @@
-# Flakes Structure and Usage
+# Flakes Structure and Usage (Hyprland)
 
 - This flake provides two NixOS configurations:
 
-    - magic: A desktop configuration for AMD hardware. More recent updates.
+  - magic: A desktop configuration for AMD hardware. More recent updates.
 
-    - laptop: A desktop configuration for Intel hardware.
+  - laptop: A desktop configuration for Intel hardware.
 
 **Customizing the Flake**
 
@@ -131,3 +131,10 @@ For NixLang docs:
 [Learn Nix in Y Minutes](https://learnxinyminutes.com/nix/)
 
 ### Thank You for reading, please star the repo if you found it useful!
+
+### Sway WM
+
+- You can switch between Sway and Hyprland by adding a comment to one and
+  uncommenting the other in the `~/flakes/hosts/{host}/home.nix`. You'll also
+  have to switch the setting for greetd which can be uncommented in the
+  `~/flakes/modules/nixosModules/default.nix`

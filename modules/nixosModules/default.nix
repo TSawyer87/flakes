@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ pkgs, lib, ... }: {
   imports = [
     ./boot.nix
     ./stylix.nix
@@ -20,5 +16,6 @@
     ./guix.nix
     ./cachix.nix
     ./xdg.nix
+    ./greetd.nix
   ];
 }
