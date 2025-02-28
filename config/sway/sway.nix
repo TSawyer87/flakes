@@ -12,7 +12,6 @@ in {
     };
   };
   wayland.windowManager.sway = {
-    xwayland.enable = true;
     enable = true;
     extraConfig = ''
       # ... other sway config
@@ -83,6 +82,7 @@ in {
           "Alt+Return" = "fullscreen toggle";
           "${mod}+g" = "split h";
           "${mod}+s" = "layout stacking";
+          "${mod}+n" = "exec thunar";
           "${mod}+v" = "split v";
           "${mod}+w" = "layout tabbed";
           "${mod}+Shift+Return" = "exec pypr toggle term";
