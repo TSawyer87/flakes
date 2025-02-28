@@ -11,6 +11,7 @@ in {
       width = 250;
     };
   };
+  programs.sway.xwayland.enable = true;
   wayland.windowManager.sway = {
     enable = true;
     extraConfig = ''
