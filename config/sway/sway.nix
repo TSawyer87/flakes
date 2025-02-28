@@ -16,9 +16,7 @@ in {
     extraConfig = ''
       # ... other sway config
       exec waybar &
-      # exec swaybg -i /home/jr/Pictures/Wallpapers/mountains1.jpg -m fill
       exec pypr &
-      output "*" bg /home/jr/Pictures/Wallpapers/mountains1.jpg fill
 
       output DP-1 {
         mode 3840x2160@65Hz
@@ -36,6 +34,7 @@ in {
         repeat_delay 250
         repeat_rate 25
       }
+      exec swaybg -i /home/jr/Pictures/Wallpapers/mountains1.jpg -m fill
     '';
     config = {
       # gaps = {
