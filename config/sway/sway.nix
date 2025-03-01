@@ -1,8 +1,5 @@
 { pkgs, lib, ... }:
-let
-  mod = "Mod4";
-  # monitor="$(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name' -r)"
-  # ${pkgs.rofi}/bin/rofi -show drun -modi drun -monitor "$monitor" $@;
+let mod = "Mod4";
 in {
   programs.wofi = {
     enable = true;
@@ -86,7 +83,6 @@ in {
           "${mod}+v" = "exec cliphist list && wofi --dmenu";
           "${mod}+s" = "layout stacking";
           "${mod}+n" = "exec thunar";
-          "${mod}+|" = "split v";
           "${mod}+w" = "layout tabbed";
           "${mod}+Shift+Return" = "exec pypr toggle term";
 
