@@ -19,6 +19,8 @@ in {
       terminal = "${pkgs.ghostty}/bin/ghostty";
       startup = [{ command = "firefox"; }]; # Moved here
       # Keybindings will be merged from keybinds.nix
+      floating.border = 0;
+      window.border = 0;
     };
     extraConfig = ''
       seat * xcursor_theme bibata_modern_ice 26
