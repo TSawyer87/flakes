@@ -81,7 +81,7 @@ in {
           "Alt+Return" = "fullscreen toggle";
           "${mod}+g" = "split h";
           "${mod}+v" =
-            "exec cliphist list && wofi --dmenu && cliphist decode && wl-copy";
+            "exec bash -c 'cliphist list | ${pkgs.wofi}/bin/wofi --dmenu | cliphist decode | wl-copy'";
           "${mod}+s" = "layout stacking";
           "${mod}+Shift+W" = "exec wpaperd &";
           "${mod}+n" = "exec thunar";
