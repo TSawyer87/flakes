@@ -1,8 +1,7 @@
 { pkgs, lib, ... }:
-let
-  mod = "Mod4";
-  imports = [ ./keybinds.nix ];
+let mod = "Mod4";
 in {
+  imports = [ ./keybinds.nix ];
   programs.wofi = {
     enable = true;
     settings = {
