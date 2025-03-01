@@ -14,7 +14,6 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    terminal = "${pkgs.ghostty}/bin/ghostty";
     extraConfig = ''
       # Explicitly set modifier
       set $mod Mod4
@@ -45,6 +44,7 @@ in {
     '';
     config = {
       modifier = mod;
+      terminal = "${pkgs.ghostty}/bin/ghostty";
       startup = [{ command = "firefox"; }]; # Moved here
       # Keybindings will be merged from keybinds.nix
     };
