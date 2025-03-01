@@ -51,14 +51,6 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
-       # SwayFX settings
-      blur enable
-      blur_radius 5
-      corner_radius 10
-      shadows enable
-      shadow_blur_radius 20
-      shadow_color #0000007F
-      layer_effects "waybar" { blur enable; shadows enable; corner_radius 6; }
       exec ${pkgs.wpaperd}/bin/wpaperd -d
     '';
   };
