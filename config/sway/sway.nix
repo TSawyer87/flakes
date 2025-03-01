@@ -51,7 +51,7 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
-      exec sleep 5 && ${pkgs.wpaperd}/bin/wpaperd -d
+      # exec sleep 2 && ${pkgs.wpaperd}/bin/wpaperd -d
     '';
   };
 
@@ -67,6 +67,7 @@ in {
       RestartSec = 5;
     };
   };
+
   services = {
     network-manager-applet.enable = true;
     cliphist.enable = true;
