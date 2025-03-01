@@ -2,7 +2,7 @@
   home.file.".config/wpaperd/config.toml".text = ''
         [default]
     path = "/home/jr/Pictures/Wallpapers/"
-    duration = "1h"
+    duration = "30m"
     transition-time = 600
 
   '';

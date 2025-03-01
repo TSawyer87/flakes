@@ -51,22 +51,22 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
-      # exec sleep 2 && ${pkgs.wpaperd}/bin/wpaperd -d
+      exec sleep 2 && ${pkgs.wpaperd}/bin/wpaperd -d
     '';
   };
 
-  # systemd service for wpaperd
-  systemd.user.services.wpaperd = {
-    description = "wpaperd wallpaper daemon";
-    wantedBy = [ "sway-session.target" ];
-    after = [ "sway-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-  };
+  # # systemd service for wpaperd
+  # systemd.user.services.wpaperd = {
+  #   description = "wpaperd wallpaper daemon";
+  #   wantedBy = [ "sway-session.target" ];
+  #   after = [ "sway-session.target" ];
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
+  #     Restart = "on-failure";
+  #     RestartSec = 5;
+  #   };
+  # };
 
   services = {
     network-manager-applet.enable = true;
