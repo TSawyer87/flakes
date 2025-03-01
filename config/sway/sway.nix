@@ -92,7 +92,7 @@ in {
     yad
     findutils
     wtype
-    swayfx.packages.${system}.default
+    swayfx.pkgs.${system}.default
   ];
 }
 

@@ -1079,7 +1079,9 @@
         "nixvim": "nixvim",
         "nvf": "nvf",
         "rose-pine-hyprcursor": "rose-pine-hyprcursor",
-        "stylix": "stylix"
+        "scenefx": "scenefx",
+        "stylix": "stylix",
+        "swayfx": "swayfx"
       }
     },
     "rose-pine-hyprcursor": {
@@ -1146,6 +1148,26 @@
         "type": "github"
       }
     },
+    "scenefx": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740440098,
+        "narHash": "sha256-kcK57JKbQ+tr0W10ipe2yGvWa9nJD+mLCMo3w2sp8AQ=",
+        "owner": "wlrfx",
+        "repo": "scenefx",
+        "rev": "1775286a04a3c60d6b15221693586ac8174a0b88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wlrfx",
+        "repo": "scenefx",
+        "type": "github"
+      }
+    },
     "slimlock": {
       "inputs": {
         "nixpkgs": [
@@ -1202,6 +1224,29 @@
       "original": {
         "owner": "danth",
         "repo": "stylix",
+        "type": "github"
+      }
+    },
+    "swayfx": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "scenefx": [
+          "scenefx"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740508180,
+        "narHash": "sha256-gdab7zkjp/S7YVCP1t/OfOdUXZRwNvNSuRFGWEJScF8=",
+        "owner": "WillPower3309",
+        "repo": "swayfx",
+        "rev": "c17a9ca357f657912ffbfa3438d259d3d15e633b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "WillPower3309",
+        "repo": "swayfx",
         "type": "github"
       }
     },

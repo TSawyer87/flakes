@@ -5,7 +5,7 @@
     taplo # toml formatter and lsp
     #cargo-watch
     #cargo-spellcheck
-    swayfx.packages.${system}.default
+    swayfx.pkgs.${system}.default
     wlr-randr
     evcxr # rust repl
     rustup
