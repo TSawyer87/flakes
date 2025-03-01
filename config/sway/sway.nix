@@ -114,14 +114,14 @@ in {
   systemd.user.services.wpaperd = {
     description = "wpaperd wallpaper daemon";
     wantedBy = [ "sway-session.target" ];
-    after = [ "sway-session.target" ]; # Ensures Sway is up
+    after = [ "sway-session.target" ];
     serviceConfig = {
+      Type = "simple"; # Explicitly set type
       ExecStart = "${pkgs.wpaperd}/bin/wpaperd";
       Restart = "on-failure";
-      RestartSec = "5";
+      RestartSec = 5; # Integer, not string
     };
   };
-
   services.network-manager-applet.enable = true;
   # programs.waybar = {
   #   enable = true;
