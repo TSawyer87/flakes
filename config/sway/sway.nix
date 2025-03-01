@@ -55,7 +55,7 @@ in {
     Unit = {
       description = "wpaperd wallpaper daemon";
       wantedBy = [ "sway-session.target" ];
-      after = { "sway-session.target" = true; };
+      after = [ "sway-session.target" ]; # Use list of strings
     };
     Service = {
       Type = "simple";
