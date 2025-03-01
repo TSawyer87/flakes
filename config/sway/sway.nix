@@ -1,5 +1,7 @@
 { pkgs, lib, ... }:
-let mod = "Mod4";
+let
+  mod = "Mod4";
+  imports = [ ./keybinds.nix ];
 in {
   programs.wofi = {
     enable = true;
@@ -38,7 +40,6 @@ in {
       exec ${pkgs.wpaperd}/bin/wpaperd -d
     '';
     config = {
-      imports = [ ./keybinds.nix ];
       # gaps = {
       #   bottom = 5;
       #   horizontal = 5;
