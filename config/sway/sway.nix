@@ -116,8 +116,6 @@ in {
     NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "sway";
-    XKB_DEFAULT_OPTIONS =
-      "terminate:ctrl_alt_bksp,caps:escape,altwin:swap_alt_win";
     SDL_VIDEODRIVER = "wayland";
 
     # needs qt5.qtwayland in systemPackages
