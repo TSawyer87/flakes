@@ -76,5 +76,7 @@ in {
     networkmanagerapplet
     wofi
     yad
+    findutils
+    wtype
   ];
 }

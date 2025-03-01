@@ -33,6 +33,8 @@ in {
           "${mod}+a" = "focus parent";
           "${mod}+e" = "layout toggle split";
           "${mod}+f" = "exec firefox";
+          "${mod}+p" = ''
+            exec /bin/sh -c "cat /home/jr/notes/2nd_brain/commands | ${pkgs.rofi}/bin/rofi -dmenu | ${pkgs.findutils}/bin/xargs ${pkgs.wtype}/bin/wtype"'';
           "Alt+Return" = "fullscreen toggle";
           "${mod}+g" = "split h";
           "${mod}+v" =
