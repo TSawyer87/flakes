@@ -1,10 +1,3 @@
-
-{
-  ...
-}: {
-  imports = [
-    ./sway.nix
-    ./waybar.nix
-    ./wlogout.nix
-  ];
+{ ... }: {
+  imports = [ ./sway.nix ./waybar.nix ./wlogout.nix ./wpaperdFile.nix ];
 }
