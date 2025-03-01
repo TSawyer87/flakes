@@ -55,11 +55,10 @@ in {
     '';
   };
 
-  # systemd service for wpaperd
   systemd.user.services.wpaperd = {
     description = "wpaperd wallpaper daemon";
     wantedBy = [ "sway-session.target" ];
-    after = [ "sway-session.target" ];
+    after = { "sway-session.target" = true; };
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
@@ -67,7 +66,6 @@ in {
       RestartSec = 5;
     };
   };
-
   services = {
     network-manager-applet.enable = true;
     cliphist.enable = true;
