@@ -17,7 +17,6 @@ in {
       # ... other sway config
       exec waybar &
       exec nm-applet --indicator
-      exec killall -q swww;sleep .5 && swww init
 
       output DP-1 {
         mode 3840x2160@65Hz
@@ -35,8 +34,8 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
-      exec sleep 1.5 && swww img /home/jr/Pictures/Wallpapers/mountains1.jpg
-      # exec swaybg -i /home/jr/Pictures/Wallpapers/mountains1.jpg -m fill
+      exec swww init
+      exec swww img /home/jr/Pictures/Wallpapers/mountains1.jpg
     '';
     config = {
       # gaps = {
