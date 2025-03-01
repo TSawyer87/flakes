@@ -13,8 +13,9 @@ in {
   };
 
   wayland.windowManager.sway = {
-    package = pkgs.swayfx;
     enable = true;
+    package = pkgs.swayfx;
+    checkConfig = false;
     config = rec {
       modifier = mod;
       terminal = "${pkgs.ghostty}/bin/ghostty";
