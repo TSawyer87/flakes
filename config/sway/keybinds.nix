@@ -56,7 +56,6 @@ in {
       workspaceAutoBackAndForth = true;
     };
     systemd.enable = true;
-    systemd.user.enable = true;
     wrapperFeatures = { gtk = true; };
   };
 
