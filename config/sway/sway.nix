@@ -12,6 +12,8 @@ in {
     };
   };
 
+  services.displaymanager.background.enable = lib.mkForce false;
+
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
