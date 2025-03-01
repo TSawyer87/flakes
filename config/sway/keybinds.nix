@@ -37,11 +37,13 @@ in {
           "${mod}+p" = ''
             exec /bin/sh -c "cat /home/jr/notes/2nd_brain/commands | ${pkgs.rofi}/bin/rofi -dmenu | ${pkgs.findutils}/bin/xargs ${pkgs.wtype}/bin/wtype"'';
           "Alt+Return" = "fullscreen toggle";
-          "${mod}+g" = "split h";
-          "${mod}+v" =
+          "${mod}+c" =
             "exec bash -c 'cliphist list | ${pkgs.wofi}/bin/wofi --dmenu --width 800 --height 500 | cliphist decode | wl-copy'";
+          "${mod}+v" = "split v"
+          "${mod}+g" = "split h";
           "${mod}+s" = "layout stacking";
           "${mod}+Shift+W" = "exec wpaperd &";
+          "${mod}+Shift+Space" = "focus mode_toggle";
           "${mod}+n" = "exec thunar";
           "${mod}+w" = "layout tabbed";
 
@@ -50,6 +52,8 @@ in {
             "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
           "${mod}+Ctrl+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy";
           "${mod}+q" = "kill";
+          "${mod}+Backspace" = "kill";
+          "Ctrl+Alt+Delete" = "exec wlogout";
         }
       ];
       focus.followMouse = true;
