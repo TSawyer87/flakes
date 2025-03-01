@@ -5,6 +5,7 @@
     taplo # toml formatter and lsp
     #cargo-watch
     #cargo-spellcheck
+    swayfx
     wlr-randr
     evcxr # rust repl
     rustup

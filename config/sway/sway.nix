@@ -13,6 +13,7 @@ in {
   };
 
   wayland.windowManager.sway = {
+    package = pkgs.swayfx;
     enable = true;
     config = rec {
       modifier = mod;
