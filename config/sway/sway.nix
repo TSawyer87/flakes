@@ -178,7 +178,6 @@ in {
   home.packages = with pkgs; [
     grim
     mako # notifications
-    swaybg
     wl-clipboard
     cliphist
     wlogout
