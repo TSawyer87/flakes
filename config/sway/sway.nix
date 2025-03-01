@@ -1,4 +1,4 @@
-{ pkgs, inputs, swayfx, scenefx, ... }:
+{ pkgs, inputs, ... }:
 
 let
   mod = "Mod4";
@@ -54,22 +54,6 @@ in {
       exec sleep 2 && ${pkgs.wpaperd}/bin/wpaperd -d
     '';
   };
-
-  # systemd.user.services.wpaperd = {
-  #   Unit = {
-  #     description = "wpaperd wallpaper daemon";
-  #     wantedBy = [ "sway-session.target" ];
-  #     after = [ "sway-session.target" ];
-  #   };
-  #   Service = {
-  #     Type = "simple";
-  #     ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
-  #     ExecStartPre =
-  #       "${pkgs.coreutils}/bin/mkdir -p ~/.cache/fontconfig"; # Ensure cache directory
-  #     Restart = "on-failure";
-  #     RestartSec = 5;
-  #   };
-  # };
 
   services = {
     network-manager-applet.enable = true;
