@@ -14,7 +14,7 @@ in {
       # ... other sway config
       exec waybar &
       exec nm-applet --indicator
-      exec wpaperd
+      exec wpaperd &
       exec wl-paste --type text --watch cliphist store
       exec wl-paste --type image --watch cliphist store
 
@@ -80,7 +80,8 @@ in {
           "${mod}+f" = "exec firefox";
           "Alt+Return" = "fullscreen toggle";
           "${mod}+g" = "split h";
-          "${mod}+v" = "exec cliphist list && wofi --dmenu";
+          "${mod}+v" =
+            "exec cliphist list && wofi --dmenu && cliphist decode && wl-copy";
           "${mod}+s" = "layout stacking";
           "${mod}+n" = "exec thunar";
           "${mod}+w" = "layout tabbed";
