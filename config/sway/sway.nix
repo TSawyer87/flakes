@@ -102,6 +102,26 @@ in {
     wrapperFeatures = { gtk = true; };
   };
 
+  home.file.".config/wpaperd/config.toml".text = ''
+        [default]
+    path = "/home/jr/Pictures/Wallpapers/"
+    duration = "1h"
+    transition-time = 600
+
+  '';
+
+  # systemd service for wpaperd
+  systemd.user.services.wpaperd = {
+    description = "wpaperd wallpaper daemon";
+    wantedBy = [ "sway-session.target" ];
+    after = [ "sway-session.target" ]; # Ensures Sway is up
+    serviceConfig = {
+      ExecStart = "${pkgs.wpaperd}/bin/wpaperd";
+      Restart = "on-failure";
+      RestartSec = "5";
+    };
+  };
+
   services.network-manager-applet.enable = true;
   # programs.waybar = {
   #   enable = true;
