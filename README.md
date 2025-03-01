@@ -138,3 +138,14 @@ For NixLang docs:
   uncommenting the other in the `~/flakes/hosts/{host}/home.nix`. You'll also
   have to switch the setting for greetd which can be uncommented in the
   `~/flakes/modules/nixosModules/default.nix`
+
+| Keybind      | Description      |
+| ------------ | ---------------- |
+| `Mod+f`      | Launch Firefox   |
+| `Mod+Return` | Launch Ghostty   |
+| `Mod+T`      | Launch Kitty     |
+| `y`          | Yazi             |
+| `Mod+Space`  | Launch wofi drun |
+| `Mod+g`      | Split h          |
+| `Mod+n`      | Thunar           |
+| `Mod+v`      | cliphist history |
