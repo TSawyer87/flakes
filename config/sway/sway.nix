@@ -83,9 +83,9 @@ in {
           "${mod}+v" =
             "exec cliphist list && wofi --dmenu && cliphist decode && wl-copy";
           "${mod}+s" = "layout stacking";
+          "${mod}+Shift+W" = "exec wpaperd &";
           "${mod}+n" = "exec thunar";
           "${mod}+w" = "layout tabbed";
-          "${mod}+Shift+Return" = "exec pypr toggle term";
 
           "${mod}+Shift+r" = "exec swaymsg reload";
           "--release Print" =
