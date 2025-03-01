@@ -34,14 +34,14 @@ in {
       exec wl-paste --type image --watch cliphist store
 
       output DP-1 {
-      background ~/Pictures/Wallpapers/mountains1.jpg fill
+      # background ~/Pictures/Wallpapers/mountains1.jpg fill
         mode 3840x2160@65Hz
         scale 1.5
         pos 0 0
       }
 
       output HDMI-A-1 {
-      background ~/Pictures/Wallpapers/mountains2.jpg fill
+      # background ~/Pictures/Wallpapers/mountains2.jpg fill
         mode 1920x1080@100Hz
         scale 1
         pos 2560 0  
