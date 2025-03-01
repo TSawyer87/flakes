@@ -1,4 +1,4 @@
 { ... }: {
   imports =
-    [ ./sway.nix ./waybar.nix ./wlogout.nix ./wpaperdFile.nix ./envVars.nix ];
+    [ ./sway.nix ./waybar.nix ./wlogout.nix ./wpaperd.nix ./envVars.nix ];
 }
