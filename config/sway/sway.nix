@@ -62,12 +62,10 @@ in {
       after = { "sway-session.target" = true; };
     };
     Service = {
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
-        Restart = "on-failure";
-        RestartSec = 5;
-      };
+      Type = "simple";
+      ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
+      Restart = "on-failure";
+      RestartSec = 5;
     };
   };
   services = {
