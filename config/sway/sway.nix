@@ -51,19 +51,19 @@ in {
     '';
   };
 
-  systemd.user.services.wpaperd = {
-    Unit = {
-      description = "wpaperd wallpaper daemon";
-      wantedBy = [ "sway-session.target" ];
-      after = [ "sway-session.target" ]; # Use list of strings
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-  };
+  # systemd.user.services.wpaperd = {
+  #   Unit = {
+  #     description = "wpaperd wallpaper daemon";
+  #     wantedBy = [ "sway-session.target" ];
+  #     after = [ "sway-session.target" ]; # Use list of strings
+  #   };
+  #   Service = {
+  #     Type = "simple";
+  #     ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
+  #     Restart = "on-failure";
+  #     RestartSec = 5;
+  #   };
+  # };
 
   services = {
     network-manager-applet.enable = true;
