@@ -37,8 +37,8 @@ in {
       }
       exec ${pkgs.wpaperd}/bin/wpaperd -d
     '';
-    imports = [ ./keybinds.nix ];
     config = {
+      imports = [ ./keybinds.nix ];
       # gaps = {
       #   bottom = 5;
       #   horizontal = 5;
