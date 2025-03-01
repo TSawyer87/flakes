@@ -51,7 +51,7 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
-      exec ${pkgs.wpaperd}/bin/wpaperd -d
+      exec sleep 2 && ${pkgs.wpaperd}/bin/wpaperd -d
     '';
   };
 
