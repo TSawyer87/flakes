@@ -36,7 +36,7 @@ in {
           "Alt+Return" = "fullscreen toggle";
           "${mod}+g" = "split h";
           "${mod}+v" =
-            "exec bash -c 'cliphist list | ${pkgs.wofi}/bin/wofi --dmenu --width 600 --height 400 | cliphist decode | wl-copy'";
+            "exec bash -c 'cliphist list | ${pkgs.wofi}/bin/wofi --dmenu --width 800 --height 500 | cliphist decode | wl-copy'";
           "${mod}+s" = "layout stacking";
           "${mod}+Shift+W" = "exec wpaperd &";
           "${mod}+n" = "exec thunar";
