@@ -1,6 +1,8 @@
-{ pkgs, inputs, system, swayfx, scenefx, ... }:
+{ pkgs, inputs, swayfx, scenefx, ... }:
 
-let mod = "Mod4";
+let
+  mod = "Mod4";
+  system = "x86_64-linux";
 in {
   imports = [ ./keybinds.nix ];
 
