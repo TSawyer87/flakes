@@ -110,10 +110,32 @@ in {
   #   systemd.enable = true;
   # };
 
-  home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [
-    "export MOZ_ENABLE_WAYLAND=1"
-    "export NIXOS_OZONE_WL=1" # Electron
-  ];
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    MOZ_USE_XINPUT2 = "1";
+    NIXOS_OZONE_WL = "1";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "sway";
+    XKB_DEFAULT_OPTIONS =
+      "terminate:ctrl_alt_bksp,caps:escape,altwin:swap_alt_win";
+    SDL_VIDEODRIVER = "wayland";
+
+    # needs qt5.qtwayland in systemPackages
+    QT_QPA_PLATFORM = "wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+    # Fix for some Java AWT applications (e.g. Android Studio),
+    # use this if they aren't displayed properly:
+    # _JAVA_AWT_WM_NONREPARENTING = 1;
+
+    # gtk applications on wayland
+    # export GDK_BACKEND=wayland
+  };
+
+  # home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [
+  #   "export MOZ_ENABLE_WAYLAND=1"
+  #   "export NIXOS_OZONE_WL=1" # Electron
+  # ];
 
   services.cliphist.enable = true;
 
