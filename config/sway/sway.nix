@@ -34,8 +34,6 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
-      exec swww init
-      exec swww img /home/jr/Pictures/Wallpapers/mountains1.jpg
     '';
     config = {
       # gaps = {
@@ -166,7 +164,7 @@ in {
     rofi-wayland
     slurp
     grim
-    swww
+    wpaperd
     swaynotificationcenter
     pavucontrol
     swappy
