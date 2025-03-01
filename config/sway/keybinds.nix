@@ -43,7 +43,7 @@ in {
           "${mod}+g" = "split h";
           "${mod}+s" = "layout stacking";
           "${mod}+Shift+W" = "exec wpaperd &";
-          "${mod}+Shift+Space" = "focus mode_toggle";
+          # "${mod}+Shift+Space" = "focus mode_toggle";
           "${mod}+n" = "exec thunar";
           "${mod}+w" = "layout tabbed";
 
