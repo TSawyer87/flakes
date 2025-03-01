@@ -33,7 +33,7 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
-      exec wpaperd &
+      exec ${pkgs.wpaperd}/bin/wpaperd -d
     '';
     config = {
       # gaps = {
@@ -110,18 +110,6 @@ in {
 
   '';
 
-  # systemd service for wpaperd
-  systemd.user.services.wpaperd = {
-    description = "wpaperd wallpaper daemon";
-    wantedBy = [ "sway-session.target" ];
-    after = [ "sway-session.target" ];
-    serviceConfig = {
-      Type = "simple"; # Explicitly set type
-      ExecStart = "${pkgs.wpaperd}/bin/wpaperd";
-      Restart = "on-failure";
-      RestartSec = 5; # Integer, not string
-    };
-  };
   services.network-manager-applet.enable = true;
   # programs.waybar = {
   #   enable = true;
