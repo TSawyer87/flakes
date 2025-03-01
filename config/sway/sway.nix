@@ -14,7 +14,6 @@ in {
       # ... other sway config
       exec waybar &
       exec nm-applet --indicator
-      exec wpaperd &
       exec wl-paste --type text --watch cliphist store
       exec wl-paste --type image --watch cliphist store
 
@@ -34,6 +33,7 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
+      exec wpaperd &
     '';
     config = {
       # gaps = {
