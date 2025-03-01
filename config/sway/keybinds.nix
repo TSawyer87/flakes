@@ -31,6 +31,7 @@ in {
           "${mod}+Ctrl+x" = "exit";
 
           "${mod}+a" = "focus parent";
+          "${mod}+d" = "exec rofi -show drun";
           "${mod}+e" = "layout toggle split";
           "${mod}+f" = "exec firefox";
           "${mod}+p" = ''
