@@ -14,7 +14,14 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
+    config = rec {
+      modifier = mod;
+      terminal = "${pkgs.ghostty}/bin/ghostty";
+      startup = [{ command = "firefox"; }]; # Moved here
+      # Keybindings will be merged from keybinds.nix
+    };
     extraConfig = ''
+      seat * xcursor_theme bibata_modern_ice 26
       # Explicitly set modifier
       set $mod Mod4
 
@@ -42,31 +49,12 @@ in {
       }
       exec ${pkgs.wpaperd}/bin/wpaperd -d
     '';
-    config = {
-      modifier = mod;
-      terminal = "${pkgs.ghostty}/bin/ghostty";
-      startup = [{ command = "firefox"; }]; # Moved here
-      # Keybindings will be merged from keybinds.nix
-    };
   };
 
-  services.network-manager-applet.enable = true;
-
-  home.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
-    MOZ_USE_XINPUT2 = "1";
-    NIXOS_OZONE_WL = "1";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "sway";
-    SDL_VIDEODRIVER = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-
-    XCURSOR_SIZE = "26";
-    XCURSOR_THEME = "Bibata-Modern-Ice";
+  services = {
+    network-manager-applet.enable = true;
+    cliphist.enable = true;
   };
-
-  services.cliphist.enable = true;
 
   home.packages = with pkgs; [
     grim
@@ -83,7 +71,6 @@ in {
     swappy
     networkmanagerapplet
     wofi
-    pyprland
     yad
   ];
 }
