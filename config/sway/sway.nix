@@ -12,8 +12,6 @@ in {
     };
   };
 
-  services.displaymanager.background.enable = lib.mkForce false;
-
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
@@ -57,6 +55,18 @@ in {
     '';
   };
 
+  # systemd service for wpaperd
+  systemd.user.services.wpaperd = {
+    description = "wpaperd wallpaper daemon";
+    wantedBy = [ "sway-session.target" ];
+    after = [ "sway-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
   services = {
     network-manager-applet.enable = true;
     cliphist.enable = true;
