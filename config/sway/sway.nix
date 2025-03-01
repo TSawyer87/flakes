@@ -75,7 +75,7 @@ in {
   };
 
   home.packages = with pkgs; [
-    swayfx.packages.${system}.default
+    inputs.swayfx.packages.${system}.default
     grim
     mako
     wl-clipboard
