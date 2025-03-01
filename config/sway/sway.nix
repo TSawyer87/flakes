@@ -1,4 +1,4 @@
-{ pkgs, lib, system, ... }:
+{ pkgs, inputs, system, swayfx, scenefx, ... }:
 
 let mod = "Mod4";
 in {
@@ -14,7 +14,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.swayfx;
+    package = inputs.swayfx.packages.${pkgs.system}.default;
     checkConfig = false;
     config = rec {
       modifier = mod;
@@ -75,6 +75,7 @@ in {
   };
 
   home.packages = with pkgs; [
+    swayfx.packages.${system}.default
     grim
     mako
     wl-clipboard
@@ -92,7 +93,6 @@ in {
     yad
     findutils
     wtype
-    swayfx.pkgs.${system}.default
   ];
 }
 
