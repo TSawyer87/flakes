@@ -39,7 +39,7 @@ in {
           "Alt+Return" = "fullscreen toggle";
           "${mod}+c" =
             "exec bash -c 'cliphist list | ${pkgs.wofi}/bin/wofi --dmenu --width 800 --height 500 | cliphist decode | wl-copy'";
-          "${mod}+v" = "split v"
+          "${mod}+v" = "split v";
           "${mod}+g" = "split h";
           "${mod}+s" = "layout stacking";
           "${mod}+Shift+W" = "exec wpaperd &";
