@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, system, ... }:
 
 let mod = "Mod4";
 in {
@@ -92,6 +92,7 @@ in {
     yad
     findutils
     wtype
+    swayfx.packages.${system}.default
   ];
 }
 

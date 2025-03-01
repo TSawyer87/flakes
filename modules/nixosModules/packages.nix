@@ -1,11 +1,11 @@
-{ pkgs, inputs, rust-overlay, ... }: {
+{ pkgs, inputs, rust-overlay, system, ... }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
     taplo # toml formatter and lsp
     #cargo-watch
     #cargo-spellcheck
-    swayfx
+    swayfx.packages.${system}.default
     wlr-randr
     evcxr # rust repl
     rustup

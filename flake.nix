@@ -13,6 +13,15 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
+     scenefx = {
++      url = "github:wlrfx/scenefx";
++      inputs.nixpkgs.follows = "nixpkgs";
++    };
+     swayfx = {
+       url = "github:WillPower3309/swayfx";
++      inputs.nixpkgs.follows = "nixpkgs";
++      inputs.scenefx.follows = "scenefx";
+     };
     # rust-overlay = {
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +37,8 @@
     nixpkgs,
     home-manager,
     nix-index-database,
+    swayfx,
+    scenefx,
     ...
   } @ inputs: let
     inherit (self) outputs;
