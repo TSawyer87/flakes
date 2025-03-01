@@ -2,7 +2,7 @@
 
 let mod = "Mod4";
 in {
-  imports = [ ./keybinds.nix ]; # Import keybinds.nix at the top level
+  imports = [ ./keybinds.nix ];
 
   programs.wofi = {
     enable = true;
@@ -15,7 +15,6 @@ in {
   wayland.windowManager.sway = {
     enable = true;
     terminal = "${pkgs.ghostty}/bin/ghostty";
-    startup = [{ command = "firefox"; }];
     extraConfig = ''
       # Explicitly set modifier
       set $mod Mod4
@@ -46,12 +45,11 @@ in {
     '';
     config = {
       modifier = mod;
-      # Keybindings will be merged from keybinds.nix if it defines config.keybindings
-      # Add any additional Sway-specific config here if needed
+      startup = [{ command = "firefox"; }]; # Moved here
+      # Keybindings will be merged from keybinds.nix
     };
   };
 
-  # Top-level Home Manager options (moved out of sway.config)
   services.network-manager-applet.enable = true;
 
   home.sessionVariables = {
