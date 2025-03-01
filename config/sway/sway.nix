@@ -61,6 +61,9 @@ in {
     SDL_VIDEODRIVER = "wayland";
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+    XCURSOR_SIZE = "26";
+    XCURSOR_THEME = "Bibata-Modern-Ice";
   };
 
   services.cliphist.enable = true;
