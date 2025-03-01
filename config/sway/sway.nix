@@ -83,8 +83,7 @@ in {
           "${mod}+f" = "exec firefox";
           "Alt+Return" = "fullscreen toggle";
           "${mod}+g" = "split h";
-          "${mod}+v" =
-            "exec cliphist list | wofi --dmenu | cliphist decode | wl-copy";
+          "${mod}+v" = "exec cliphist list && wofi --dmenu";
           "${mod}+s" = "layout stacking";
           "${mod}+n" = "exec thunar";
           "${mod}+|" = "split v";
