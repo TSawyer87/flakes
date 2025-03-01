@@ -17,6 +17,9 @@ in {
       # ... other sway config
       exec waybar &
       exec nm-applet --indicator
+      exec wpaperd
+      exec wl-paste --type text --watch cliphist store
+      exec wl-paste --type image --watch cliphist store
 
       output DP-1 {
         mode 3840x2160@65Hz
@@ -80,9 +83,11 @@ in {
           "${mod}+f" = "exec firefox";
           "Alt+Return" = "fullscreen toggle";
           "${mod}+g" = "split h";
+          "${mod}+v" =
+            "exec cliphist list | wofi --dmenu | cliphist decode | wl-copy";
           "${mod}+s" = "layout stacking";
           "${mod}+n" = "exec thunar";
-          "${mod}+v" = "split v";
+          "${mod}+|" = "split v";
           "${mod}+w" = "layout tabbed";
           "${mod}+Shift+Return" = "exec pypr toggle term";
 
