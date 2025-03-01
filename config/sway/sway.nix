@@ -31,7 +31,7 @@ in {
       exec wl-paste --type image --watch cliphist store
 
       output DP-1 {
-        bg ~/Pictures/Wallpapers/mountains1.jpg fill
+        # bg /home/jr/Pictures/Wallpapers/mountains1.jpg fill
         mode 3840x2160@65Hz
         scale 1.5
         pos 0 0
@@ -51,19 +51,19 @@ in {
     '';
   };
 
-  # systemd.user.services.wpaperd = {
-  #   Unit = {
-  #     description = "wpaperd wallpaper daemon";
-  #     wantedBy = [ "sway-session.target" ];
-  #     after = [ "sway-session.target" ]; # Use list of strings
-  #   };
-  #   Service = {
-  #     Type = "simple";
-  #     ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
-  #     Restart = "on-failure";
-  #     RestartSec = 5;
-  #   };
-  # };
+  systemd.user.services.wpaperd = {
+    Unit = {
+      description = "wpaperd wallpaper daemon";
+      wantedBy = [ "sway-session.target" ];
+      after = [ "sway-session.target" ]; # Use list of strings
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
 
   services = {
     network-manager-applet.enable = true;
