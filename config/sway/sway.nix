@@ -55,11 +55,13 @@ in {
     Unit = {
       description = "wpaperd wallpaper daemon";
       wantedBy = [ "sway-session.target" ];
-      after = [ "sway-session.target" ]; # Use list of strings
+      after = [ "sway-session.target" ];
     };
     Service = {
       Type = "simple";
       ExecStart = "${pkgs.wpaperd}/bin/wpaperd -d";
+      ExecStartPre =
+        "${pkgs.coreutils}/bin/mkdir -p ~/.cache/fontconfig"; # Ensure cache directory
       Restart = "on-failure";
       RestartSec = 5;
     };
