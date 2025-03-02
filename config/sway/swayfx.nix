@@ -1,31 +1,34 @@
 { ... }: {
   # SceneFX configuration
-  home.file.".config/sway/config.d/swayfx".text = ''
-    ### Appearance
-    # window corner radius in px
-    corner_radius 6
+  wayland.windowManager.sway = {
 
-    # Window background blur
-    blur enable
-    blur_xray off
-    blur_passes 2
-    blur_radius 2
+    extraConfig = ''
+      ### Appearance
+      # window corner radius in px
+      corner_radius 6
 
-    # Shadows
-    shadows enable
-    shadows_on_csd off
-    shadow_blur_radius 8
-    shadow_color #0000007F
+      # Window background blur
+      blur enable
+      blur_xray off
+      blur_passes 2
+      blur_radius 2
 
-    # Waybar blur
-    layer_effects "waybar" blur enable; shadows enable; corner_radius 10
+      # Shadows
+      shadows enable
+      shadows_on_csd off
+      shadow_blur_radius 8
+      shadow_color #0000007F
 
-    # Inactive window dimming
-    default_dim_inactive 0.2
-    dim_inactive_colors.unfocused #000000FF
-    dim_inactive_colors.urgent #900000FF
+      # Waybar blur
+      layer_effects "waybar" blur enable; shadows enable; corner_radius 10
 
-    # Move minimized windows into Scratchpad (enable|disable)
-    # scratchpad_minimize disable
-  '';
+      # Inactive window dimming
+      default_dim_inactive 0.2
+      dim_inactive_colors.unfocused #000000FF
+      dim_inactive_colors.urgent #900000FF
+
+      # Move minimized windows into Scratchpad (enable|disable)
+      # scratchpad_minimize disable
+    '';
+  };
 }
