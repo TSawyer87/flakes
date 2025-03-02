@@ -30,6 +30,7 @@ in {
 
           "${mod}+Ctrl+x" = "exit";
           "${mod}+y" = "exec emopicker9000";
+          "${mod}+s" = "exec screenshootin";
 
           "${mod}+a" = "focus parent";
           "${mod}+d" = "exec rofi -show drun";
@@ -42,7 +43,7 @@ in {
             "exec bash -c 'cliphist list | ${pkgs.wofi}/bin/wofi --dmenu --width 800 --height 500 | cliphist decode | wl-copy'";
           "${mod}+v" = "split v";
           "${mod}+g" = "split h";
-          "${mod}+s" = "layout stacking";
+          "${mod}+q" = "layout stacking";
           "${mod}+Shift+W" = "exec wpaperd &";
           # "${mod}+Shift+Space" = "focus mode_toggle";
           "${mod}+n" = "exec thunar";
