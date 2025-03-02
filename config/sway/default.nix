@@ -5,6 +5,6 @@
     ./wlogout.nix
     ./wpaperd.nix
     ./envVars.nix
-    ./swayfx.nix
+    # ./swayfx.nix
   ];
 }
