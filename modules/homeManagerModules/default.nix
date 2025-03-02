@@ -1,9 +1,4 @@
-
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ ... }: {
   imports = [
     ./programs.nix
     ./packages.nix
@@ -16,5 +11,6 @@
     ./yazi.nix
     ./git.nix
     ./jj.nix
+    ./helix.nix
   ];
 }

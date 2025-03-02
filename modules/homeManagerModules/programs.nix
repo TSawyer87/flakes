@@ -7,38 +7,29 @@ in {
       enableBashIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
-    # jujutsu = {
+    # helix = {
     #   enable = true;
+    #   package = pkgs.evil-helix;
+    #   extraPackages = [ pkgs.marksman ];
+    #   languages = {
+    #     language = [{
+    #       name = "rust";
+    #       auto-format = true;
+    #     }];
+    #   };
     #   settings = {
-    #     user = {
-    #       email = "sawyerjr.25@gmail.com";
-    #       name = "TSawyer87";
+    #     editor = {
+    #       line-number = "relative";
+    #       lsp.display-messages = true;
+    #     };
+    #     keys.normal = {
+    #       space.space = "file_picker";
+    #       space.w = ":w";
+    #       space.q = ":q";
+    #       esc = [ "collapse_selection" "keep_primary_selection" ];
     #     };
     #   };
     # };
-    helix = {
-      enable = true;
-      package = pkgs.evil-helix;
-      extraPackages = [ pkgs.marksman ];
-      languages = {
-        language = [{
-          name = "rust";
-          auto-format = true;
-        }];
-      };
-      settings = {
-        editor = {
-          line-number = "relative";
-          lsp.display-messages = true;
-        };
-        keys.normal = {
-          space.space = "file_picker";
-          space.w = ":w";
-          space.q = ":q";
-          esc = [ "collapse_selection" "keep_primary_selection" ];
-        };
-      };
-    };
     tmux = {
       enable = true;
       keyMode = "vi";
