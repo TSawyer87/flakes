@@ -95,15 +95,15 @@
              eval "$(zoxide init zsh)"
              eval "$(mcfly init zsh)"
              eval "$(direnv hook zsh)"
-             export MANPAGER='helix +Man!'
+             export MANPAGER='nvim +Man!'
              export MCFLY_KEY_SCHEME=vim
              export MCFLY_FUZZY=2
              export MCFLY_RESULTS=50
              export MCFLY_RESULTS_SORT=LAST_RUN
              export MCFLY_INTERFACE_VIEW=BOTTOM
              export TERM=xterm-256color
-             export EDITOR=helix
-             export VISUAL=helix
+             export EDITOR=nvim
+             export VISUAL=nvim
              export PATH=$PATH:$HOME/.cargo/bin
              export ZSH_CUSTOM=/nix/store/0ajaww0dwlfj6sd9drslzjpw2grhv177-oh-my-zsh-2024-10-01/share/oh-my-zsh/plugins
              export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'

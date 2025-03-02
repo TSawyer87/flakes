@@ -1,4 +1,11 @@
-{ pkgs, username, inputs, nix-index-database, ... }: {
+{
+  pkgs,
+  username,
+  inputs,
+  nix-index-database,
+  ...
+}:
+{
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -18,7 +25,7 @@
     # ../../config/neovim.nix
     # ../../config/nvim
     ../../config/zed.nix
-    #../../config/nixVim/nixvim.nix
+    ../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules
   ];
 
