@@ -14,7 +14,7 @@
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
     # lanzaboote = {
-    #     #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md 
+    #     #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
     #     url = "github:nix-community/lanzaboote";
     #     inputs.nixpkgs.follows = "nixpkgs";
     #   };
@@ -43,7 +43,14 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-index-database,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
 
@@ -54,23 +61,15 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-
       host = "magic";
       username = "jr";
-      pkgsForSystem = system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages =
-        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       # Or 'nixpkgs-fmt'
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
@@ -91,11 +90,6 @@
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
-            # ({ pkgs, ... }: {
-            #   nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            #   environment.systemPackages =
-            #     [ pkgs.rust-bin.stable.latest.default ];
-            # })
             {
               # Apply the overlays to the NixOS system
               # nixpkgs.overlays = overlays;
@@ -105,7 +99,7 @@
                 inherit host;
                 inherit systems;
               };
-              # home-manager.useGlobalPkgs = true;
+              home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
