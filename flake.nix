@@ -13,18 +13,21 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
-    scenefx = {
-      url = "github:wlrfx/scenefx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    swayfx = {
-      url = "github:WillPower3309/swayfx";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.scenefx.follows = "scenefx";
-    };
-    # grub2 theme
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
-    grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
+    # scenefx = {
+    #   url = "github:wlrfx/scenefx";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # swayfx = {
+    #   url = "github:WillPower3309/swayfx";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.scenefx.follows = "scenefx";
+    # };
+    # any-nix-shell = {
+    #   url = "github:SomeoneSerge/pkgs";
+    # };
+    # # grub2 theme
+    # grub2-themes.url = "github:vinceliuice/grub2-themes";
+    # grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
     # rust-overlay = {
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -35,8 +38,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, swayfx, scenefx
-    , ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
       inherit (self) outputs;
 

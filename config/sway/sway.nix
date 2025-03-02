@@ -16,7 +16,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    package = inputs.swayfx.packages.${pkgs.system}.default;
+    package = pkgs.swayfx;
     checkConfig = false;
     config = rec {
       modifier = mod;
@@ -26,7 +26,6 @@ in {
       window.border = 0;
     };
     extraConfig = ''
-       # Backend configuration
       seat * xcursor_theme bibata_modern_ice 26
       set $mod Mod4
 
@@ -66,8 +65,8 @@ in {
   };
 
   home.packages = with pkgs; [
-    inputs.swayfx.packages.${system}.default
-    inputs.scenefx.packages.${system}.default
+    swayfx
+    scenefx
     grim
     mako
     wl-clipboard
