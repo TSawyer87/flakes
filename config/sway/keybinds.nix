@@ -29,6 +29,7 @@ in {
           "${mod}+space" = "exec --no-startup-id wofi --show drun,run";
 
           "${mod}+Ctrl+x" = "exit";
+          "${mod}+y" = "exec emopicker9000";
 
           "${mod}+a" = "focus parent";
           "${mod}+d" = "exec rofi -show drun";
