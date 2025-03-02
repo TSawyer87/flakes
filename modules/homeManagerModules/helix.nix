@@ -32,7 +32,7 @@
     ];
 
     settings = {
-      theme = "gruvbox_community";
+      # theme = "gruvbox_community";
 
       editor = {
         color-modes = true;
@@ -175,19 +175,19 @@
       };
     };
 
-    themes = {
-      # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
-      gruvbox_community = {
-        inherits = "gruvbox";
-        "variable" = "blue1";
-        "variable.parameter" = "blue1";
-        "function.macro" = "red1";
-        "operator" = "orange1";
-        "comment" = "gray";
-        "constant.builtin" = "orange1";
-        "ui.background" = { };
-      };
-    };
+    # themes = {
+    #   # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
+    #   gruvbox_community = {
+    #     inherits = "gruvbox";
+    #     "variable" = "blue1";
+    #     "variable.parameter" = "blue1";
+    #     "function.macro" = "red1";
+    #     "operator" = "orange1";
+    #     "comment" = "gray";
+    #     "constant.builtin" = "orange1";
+    #     "ui.background" = { };
+    #   };
+    # };
 
     languages = {
       language-server.biome = {
