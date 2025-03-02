@@ -22,6 +22,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.scenefx.follows = "scenefx";
     };
+    # grub2 theme
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
+    grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
     # rust-overlay = {
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
