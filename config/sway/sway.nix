@@ -62,6 +62,7 @@ in {
 
   home.packages = with pkgs; [
     inputs.swayfx.packages.${system}.default
+    inputs.scenefx.packages.${system}.default
     grim
     mako
     wl-clipboard
