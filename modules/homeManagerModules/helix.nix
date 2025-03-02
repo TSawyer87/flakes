@@ -1,7 +1,13 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   programs.helix = with pkgs; {
     enable = true;
-    defaultEditor = true;
+    #defaultEditor = true;
     extraPackages = [
       bash-language-server
       biome
@@ -21,8 +27,13 @@
       nodePackages.typescript-language-server
       sql-formatter
       ruff
-      (python3.withPackages
-        (p: (with p; [ python-lsp-ruff python-lsp-server ])))
+      (python3.withPackages (
+        p:
+        (with p; [
+          python-lsp-ruff
+          python-lsp-server
+        ])
+      ))
       rust-analyzer
       taplo
       taplo-lsp
@@ -96,10 +107,16 @@
 
       keys = {
         normal = {
-                    H = "extend_char_left";
+          H = "extend_char_left";
           x = "extend_to_line_bounds";
-          J = [ "extend_line_down" "extend_to_line_bounds" ];
-          K = [ "extend_line_up" "extend_to_line_bounds" ];
+          J = [
+            "extend_line_down"
+            "extend_to_line_bounds"
+          ];
+          K = [
+            "extend_line_up"
+            "extend_to_line_bounds"
+          ];
           L = "extend_char_right";
           B = "extend_prev_word_start";
           W = "extend_next_word_start";
@@ -118,7 +135,11 @@
           A-F = "extend_prev_char";
           A-j = "join_selections";
           A-k = "keep_selections";
-          M = [ "select_mode" "match_brackets" "normal_mode" ];
+          M = [
+            "select_mode"
+            "match_brackets"
+            "normal_mode"
+          ];
           "#" = "toggle_comments";
           A-l = "extend_to_line_end";
           A-h = "extend_to_line_start";
@@ -130,8 +151,14 @@
           N = "extend_search_next";
           A-n = "search_prev";
           A-N = "extend_search_prev";
-          C-d = [ "page_cursor_half_down" "align_view_center" ];
-          C-u = [ "page_cursor_half_up" "align_view_center" ];
+          C-d = [
+            "page_cursor_half_down"
+            "align_view_center"
+          ];
+          C-u = [
+            "page_cursor_half_up"
+            "align_view_center"
+          ];
           tab = "move_parent_node_end";
           S-tab = "move_parent_node_start";
 
@@ -157,9 +184,15 @@
         };
 
         insert = {
-          C-u =
-            [ "extend_to_line_bounds" "delete_selection_noyank" "open_above" ];
-          C-w = [ "move_prev_word_start" "delete_selection_noyank" ];
+          C-u = [
+            "extend_to_line_bounds"
+            "delete_selection_noyank"
+            "open_above"
+          ];
+          C-w = [
+            "move_prev_word_start"
+            "delete_selection_noyank"
+          ];
           C-space = "completion";
           S-tab = "move_parent_node_start";
         };
@@ -198,10 +231,15 @@
 
       language-server.gpt = {
         command = "helix-gpt";
-        args = [ "--handler" "copilot" ];
+        args = [
+          "--handler"
+          "copilot"
+        ];
       };
 
-      language-server.rust-analyzer.config.check = { command = "clippy"; };
+      language-server.rust-analyzer.config.check = {
+        command = "clippy";
+      };
 
       language-server.yaml-language-server.config.yaml.schemas = {
         kubernetes = "k8s/*.yaml";
@@ -214,25 +252,43 @@
       language = [
         {
           name = "css";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
+          language-servers = [
+            "vscode-css-language-server"
+            "gpt"
+          ];
           formatter = {
             command = "prettier";
-            args = [ "--stdin-filepath" "file.css" ];
+            args = [
+              "--stdin-filepath"
+              "file.css"
+            ];
           };
           auto-format = true;
         }
         {
           name = "go";
-          language-servers = [ "gopls" "golangci-lint-lsp" "gpt" ];
-          formatter = { command = "goimports"; };
+          language-servers = [
+            "gopls"
+            "golangci-lint-lsp"
+            "gpt"
+          ];
+          formatter = {
+            command = "goimports";
+          };
           auto-format = true;
         }
         {
           name = "html";
-          language-servers = [ "vscode-html-language-server" "gpt" ];
+          language-servers = [
+            "vscode-html-language-server"
+            "gpt"
+          ];
           formatter = {
             command = "prettier";
-            args = [ "--stdin-filepath" "file.html" ];
+            args = [
+              "--stdin-filepath"
+              "file.html"
+            ];
           };
           auto-format = true;
         }
@@ -288,7 +344,10 @@
               "file.jsonc"
             ];
           };
-          file-types = [ "jsonc" "hujson" ];
+          file-types = [
+            "jsonc"
+            "hujson"
+          ];
           auto-format = true;
         }
         {
@@ -322,14 +381,19 @@
         #   };
         #   auto-format = true;
         # }
-         {
-           name = "nix";
-           formatter = { command = "nixfmt"; };
-           auto-format = true;
-         }
+        {
+          name = "nix";
+          formatter = {
+            command = "nixfmt";
+          };
+          auto-format = true;
+        }
         {
           name = "python";
-          language-servers = [ "pylsp" "gpt" ];
+          language-servers = [
+            "pylsp"
+            "gpt"
+          ];
           formatter = {
             command = "sh";
             args = [
@@ -341,15 +405,24 @@
         }
         {
           name = "rust";
-          language-servers = [ "rust-analyzer" "gpt" ];
+          language-servers = [
+            "rust-analyzer"
+            "gpt"
+          ];
           auto-format = true;
         }
         {
           name = "scss";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
+          language-servers = [
+            "vscode-css-language-server"
+            "gpt"
+          ];
           formatter = {
             command = "prettier";
-            args = [ "--stdin-filepath" "file.scss" ];
+            args = [
+              "--stdin-filepath"
+              "file.scss"
+            ];
           };
           auto-format = true;
         }
@@ -362,8 +435,7 @@
               "-l"
               "postgresql"
               "-c"
-              ''
-                {"keywordCase": "lower", "dataTypeCase": "lower", "functionCase": "lower", "expressionWidth": 120, "tabWidth": 4}''
+              ''{"keywordCase": "lower", "dataTypeCase": "lower", "functionCase": "lower", "expressionWidth": 120, "tabWidth": 4}''
             ];
           };
           auto-format = true;
@@ -373,7 +445,12 @@
           language-servers = [ "taplo" ];
           formatter = {
             command = "taplo";
-            args = [ "fmt" "-o" "column_width=120" "-" ];
+            args = [
+              "fmt"
+              "-o"
+              "column_width=120"
+              "-"
+            ];
           };
           auto-format = true;
         }
@@ -426,7 +503,10 @@
           language-servers = [ "yaml-language-server" ];
           formatter = {
             command = "prettier";
-            args = [ "--stdin-filepath" "file.yaml" ];
+            args = [
+              "--stdin-filepath"
+              "file.yaml"
+            ];
           };
           auto-format = true;
         }
