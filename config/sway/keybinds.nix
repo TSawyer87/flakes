@@ -26,7 +26,8 @@ in {
         {
           "${mod}+Return" = "exec --no-startup-id ${pkgs.ghostty}/bin/ghostty";
           "${mod}+t" = "exec --no-startup-id ${pkgs.kitty}/bin/kitty";
-          "${mod}+space" = "exec --no-startup-id wofi --show drun,run";
+          "${mod}+space" =
+            "exec pkill wofi || wofi --normal-window --show drun --allow-images,run";
 
           "${mod}+Ctrl+x" = "exit";
           "${mod}+y" = "exec emopicker9000";
