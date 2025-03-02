@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   programs.helix = with pkgs; {
     enable = true;
     extraPackages = [
@@ -95,6 +95,7 @@
 
       keys = {
         normal = {
+          V = "select_line";
           H = "extend_char_left";
           x = "extend_to_line_bounds";
           J = [ "extend_line_down" "extend_to_line_bounds" ];
@@ -323,7 +324,7 @@
         }
         {
           name = "nix";
-          formatter = { command = "nixpkgs-fmt"; };
+          formatter = lib.getExe pkgs.nixfmt-rfc-style;
           auto-format = true;
         }
         {
