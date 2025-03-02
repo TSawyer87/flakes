@@ -313,20 +313,20 @@
           };
           auto-format = true;
         }
-        {
-          name = "markdown";
-          language-servers = [ "marksman" "gpt" ];
-          formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.md" ];
-          };
-          auto-format = true;
-        }
-        {
-          name = "nix";
-          formatter = lib.getExe pkgs.nixfmt-rfc-style;
-          auto-format = true;
-        }
+        # {
+        #   name = "markdown";
+        #   language-servers = [ "marksman" "gpt" ];
+        #   formatter = {
+        #     command = "prettier";
+        #     args = [ "--stdin-filepath" "file.md" ];
+        #   };
+        #   auto-format = true;
+        # }
+         {
+           name = "nix";
+           formatter = { command = "nixfmt"; };
+           auto-format = true;
+         }
         {
           name = "python";
           language-servers = [ "pylsp" "gpt" ];
