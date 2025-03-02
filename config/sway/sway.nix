@@ -16,7 +16,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    package = inputs.swayfx.packages.${pkgs.system}.default;
+    package = inputs.swayfx.packages.${pkgs.system}.swayfx;
     checkConfig = false;
     config = rec {
       modifier = mod;
