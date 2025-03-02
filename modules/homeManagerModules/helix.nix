@@ -96,8 +96,7 @@
 
       keys = {
         normal = {
-          V = "select_line";
-          H = "extend_char_left";
+                    H = "extend_char_left";
           x = "extend_to_line_bounds";
           J = [ "extend_line_down" "extend_to_line_bounds" ];
           K = [ "extend_line_up" "extend_to_line_bounds" ];
