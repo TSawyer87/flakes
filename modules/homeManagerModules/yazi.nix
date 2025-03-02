@@ -11,7 +11,7 @@
           sort_by = "mtime";
           sort_reverse = true;
           linemode = "size";
-          editor = "helix";
+          editor = "nvim";
         };
       };
     };
