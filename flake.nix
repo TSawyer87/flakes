@@ -13,6 +13,11 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
+    # lanzaboote = {
+    #     #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md 
+    #     url = "github:nix-community/lanzaboote";
+    #     inputs.nixpkgs.follows = "nixpkgs";
+    #   };
     # scenefx = {
     #   url = "github:wlrfx/scenefx";
     #   inputs.nixpkgs.follows = "nixpkgs";
