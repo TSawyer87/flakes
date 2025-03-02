@@ -4,7 +4,7 @@ let
   mod = "Mod4";
   system = "x86_64-linux";
 in {
-  imports = [ ./keybinds.nix ./swayfx.nix ];
+  imports = [ ./keybinds.nix ];
 
   programs.wofi = {
     enable = true;
@@ -27,7 +27,6 @@ in {
     };
     extraConfig = ''
        # Backend configuration
-       include $HOME/.config/sway/config.d/swayfx
       seat * xcursor_theme bibata_modern_ice 26
       set $mod Mod4
 
@@ -53,6 +52,10 @@ in {
         repeat_delay 300
         repeat_rate 50
       }
+      # SwayFx settings
+      shadows enable
+      blur_radius 7
+      blur_passes 4
       exec ${pkgs.wpaperd}/bin/wpaperd -d
     '';
   };
