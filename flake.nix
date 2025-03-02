@@ -43,14 +43,7 @@
     # };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nix-index-database,
-      ...
-    }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -64,12 +57,13 @@
       host = "magic";
       username = "jr";
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    in {
+      packages =
+        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       # Or 'nixpkgs-fmt'
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
@@ -99,7 +93,7 @@
                 inherit host;
                 inherit systems;
               };
-              home-manager.useGlobalPkgs = true;
+              # home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;

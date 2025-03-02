@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   programs = {
     yazi = {
       enable = true;
@@ -11,7 +10,7 @@
           sort_by = "mtime";
           sort_reverse = true;
           linemode = "size";
-          editor = "vk";
+          editor = "nvim";
         };
       };
     };
