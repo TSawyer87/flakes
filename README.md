@@ -149,5 +149,6 @@ For NixLang docs:
 | `Mod+Space`  | Launch wofi drun |
 | `Mod+d`      | Launch rofi      |
 | `Mod+g`      | Split h          |
+| `Mod+v`      | Split v          |
 | `Mod+n`      | Thunar           |
-| `Mod+v`      | cliphist history |
+| `Mod+c`      | cliphist history |
