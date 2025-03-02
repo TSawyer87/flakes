@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
-    defaultEditor = true;
     extraPackages = [
       bash-language-server
       biome
