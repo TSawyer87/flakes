@@ -4,7 +4,7 @@ let
   mod = "Mod4";
   system = "x86_64-linux";
 in {
-  imports = [ ./keybinds.nix ];
+  imports = [ ./keybinds.nix ./swayfx.nix ];
 
   programs.wofi = {
     enable = true;
@@ -27,7 +27,7 @@ in {
     };
     extraConfig = ''
        # Backend configuration
-       # include $HOME/.config/sway/config.d/*
+       include $HOME/.config/sway/config.d/*
       seat * xcursor_theme bibata_modern_ice 26
       set $mod Mod4
 
