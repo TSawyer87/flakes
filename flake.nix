@@ -37,10 +37,10 @@
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nvf = {
+    # url = "github:notashelf/nvf";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
@@ -63,7 +63,8 @@
           config.allowUnfree = true;
         };
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
+    in
+    {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
