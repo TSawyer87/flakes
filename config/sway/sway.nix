@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, swayfx, ... }:
 
 let
   mod = "Mod4";
