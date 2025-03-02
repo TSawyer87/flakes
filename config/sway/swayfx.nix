@@ -1,6 +1,6 @@
 { ... }: {
   # SceneFX configuration
-  home.file.".config/scenefx/config".text = ''
+  home.file.".config/sway/config.d/swayfx".text = ''
     ### Appearance
     # window corner radius in px
     corner_radius 6

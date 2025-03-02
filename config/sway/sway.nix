@@ -16,7 +16,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    package = inputs.swayfx.packages.${pkgs.system}.swayfx;
+    package = inputs.swayfx.packages.${pkgs.system}.default;
     checkConfig = false;
     config = rec {
       modifier = mod;
@@ -27,8 +27,7 @@ in {
     };
     extraConfig = ''
        # Backend configuration
-      backend scenefx
-      scenefx_config /home/jr/.config/scenefx/config
+       include $HOME/.config/sway/config.d/*
       seat * xcursor_theme bibata_modern_ice 26
       set $mod Mod4
 
