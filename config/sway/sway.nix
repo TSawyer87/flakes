@@ -26,6 +26,9 @@ in {
       window.border = 0;
     };
     extraConfig = ''
+       # Backend configuration
+      backend scenefx
+      scenefx_config /home/jr/.config/scenefx/config
       seat * xcursor_theme bibata_modern_ice 26
       set $mod Mod4
 

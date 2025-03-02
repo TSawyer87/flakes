@@ -1,26 +1,31 @@
-{ inputs, pkgs, ... }:
-let system = "x86_64-linux";
-in {
-  home.file.".config/swayfx/config".text = ''
-    backend = "scenefx";
-    scenefx_config = "~/.config/scenefx/config";
-  '';
-
+{ ... }: {
+  # SceneFX configuration
   home.file.".config/scenefx/config".text = ''
-    blur_enable = true;
-    blur_passes = 3;
-    blur_deviation = 5.0;
-    blur_noise = 0.0;
-    blur_noise_scale = 1.0;
-    blur_noise_seed = 0;
-    blur_brightness = 1.0;
-    blur_contrast = 1.0;
-    blur_temperature = 0.0;
-    blur_saturation = 1.0;
-    blur_gamma = 1.0;
-  '';
+    ### Appearance
+    # window corner radius in px
+    corner_radius 6
 
-  wayland.windowManager.sway.config.startup = [{
-    command = "${inputs.swayfx.packages.${pkgs.system}.swayfx}/bin/swayfx";
-  }];
+    # Window background blur
+    blur enable
+    blur_xray off
+    blur_passes 2
+    blur_radius 2
+
+    # Shadows
+    shadows enable
+    shadows_on_csd off
+    shadow_blur_radius 8
+    shadow_color #0000007F
+
+    # Waybar blur
+    layer_effects "waybar" blur enable; shadows enable; corner_radius 10
+
+    # Inactive window dimming
+    default_dim_inactive 0.2
+    dim_inactive_colors.unfocused #000000FF
+    dim_inactive_colors.urgent #900000FF
+
+    # Move minimized windows into Scratchpad (enable|disable)
+    # scratchpad_minimize disable
+  '';
 }
