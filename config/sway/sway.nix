@@ -16,7 +16,6 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.swayfx;
     checkConfig = false;
     config = rec {
       modifier = mod;
@@ -52,9 +51,9 @@ in {
         repeat_rate 50
       }
       # SwayFx settings
-      shadows enable
-      blur_radius 7
-      blur_passes 4
+      # shadows enable
+      # blur_radius 7
+      # blur_passes 4
       exec ${pkgs.wpaperd}/bin/wpaperd -d
     '';
   };
@@ -65,8 +64,6 @@ in {
   };
 
   home.packages = with pkgs; [
-    swayfx
-    scenefx
     grim
     mako
     wl-clipboard
