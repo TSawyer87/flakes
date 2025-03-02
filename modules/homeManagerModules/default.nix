@@ -10,7 +10,9 @@
     ./dconf.nix
     ./yazi.nix
     ./git.nix
+    # ./tmux.nix
     ./jj.nix
+    ./direnv.nix
     ./helix.nix
   ];
 }

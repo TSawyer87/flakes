@@ -2,52 +2,12 @@
 let inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
 in {
   programs = {
-    direnv = {
-      enable = true;
-      enableBashIntegration = true; # see note on other shells below
-      nix-direnv.enable = true;
-    };
-    # helix = {
+    home-manager.enable = true;
+    # direnv = {
     #   enable = true;
-    #   package = pkgs.evil-helix;
-    #   extraPackages = [ pkgs.marksman ];
-    #   languages = {
-    #     language = [{
-    #       name = "rust";
-    #       auto-format = true;
-    #     }];
-    #   };
-    #   settings = {
-    #     editor = {
-    #       line-number = "relative";
-    #       lsp.display-messages = true;
-    #     };
-    #     keys.normal = {
-    #       space.space = "file_picker";
-    #       space.w = ":w";
-    #       space.q = ":q";
-    #       esc = [ "collapse_selection" "keep_primary_selection" ];
-    #     };
-    #   };
+    #   enableBashIntegration = true; # see note on other shells below
+    #   nix-direnv.enable = true;
     # };
-    tmux = {
-      enable = true;
-      keyMode = "vi";
-      disableConfirmationPrompt = true;
-      sensibleOnTop = true;
-      terminal = "screen-256color";
-      # prefix = "`";
-      extraConfig = ''
-        unbind C-b
-        set-option -g prefix `
-        set-option -g mouse on
-        # switch panes using Alt-arrow without prefix
-        bind -n M-Left select-pane -L
-        bind -n M-Right select-pane -R
-        bind -n M-Up select-pane -U
-        bind -n M-Down select-pane -D
-      '';
-    };
     nh = {
       enable = true;
       # clean.enable = true;
@@ -61,7 +21,6 @@ in {
       enable = true;
       settings = { vim_keys = true; };
     };
-    home-manager.enable = true;
     hyprlock = {
       enable = true;
       settings = {
