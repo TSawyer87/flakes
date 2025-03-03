@@ -93,35 +93,35 @@ in
         ${builtins.readFile ./nvim/options.lua}
         ${builtins.readFile ./nvim/keymaps.lua}
         ${builtins.readFile ./nvim/autocmds.lua}
-        ${builtins.readFile ./nvim/plugins/alpha.lua}
-        ${builtins.readFile ./nvim/plugins/autopairs.lua}
-        ${builtins.readFile ./nvim/plugins/auto-session.lua}
-        ${builtins.readFile ./nvim/plugins/comment.lua}
-        ${builtins.readFile ./nvim/plugins/cmp.lua}
-        ${builtins.readFile ./nvim/plugins/lsp.lua}
-        ${builtins.readFile ./nvim/plugins/nvim-tree.lua}
-        ${builtins.readFile ./nvim/plugins/telescope.lua}
-        ${builtins.readFile ./nvim/plugins/todo-comments.lua}
-        ${builtins.readFile ./nvim/plugins/treesitter.lua}
-        ${builtins.readFile ./nvim/plugins/markdown.lua}
-        ${builtins.readFile ./nvim/plugins/hop.lua}
-        ${builtins.readFile ./nvim/plugins/oil.lua}
-        ${builtins.readFile ./nvim/plugins/neoscroll.lua}
-        ${builtins.readFile ./nvim/plugins/twilight.lua}
-        ${builtins.readFile ./nvim/plugins/zen-mode.lua}
-        ${builtins.readFile ./nvim/plugins/obsidian.lua}
-        ${builtins.readFile ./nvim/plugins/conform.lua}
-        ${builtins.readFile ./nvim/plugins/trouble.lua}
-        ${builtins.readFile ./nvim/plugins/ufo.lua}
-        ${builtins.readFile ./nvim/plugins/toggleterm.lua}
-        ${builtins.readFile ./nvim/plugins/lualine.lua}
-        ${builtins.readFile ./nvim/plugins/which-key.lua}
-        ${builtins.readFile ./nvim/plugins/flash.lua}
-        ${builtins.readFile ./nvim/plugins/crates.lua}
-        ${builtins.readFile ./nvim/plugins/hunk.lua}
-        ${builtins.readFile ./nvim/plugins/yazi.lua}
-        ${builtins.readFile ./nvim/plugins/codeium.lua}
-        ${builtins.readFile ./nvim/plugins/rustaceanvim.lua}
+        ${builtins.readFile ./plugins/alpha.lua}
+        ${builtins.readFile ./plugins/autopairs.lua}
+        ${builtins.readFile ./plugins/auto-session.lua}
+        ${builtins.readFile ./plugins/comment.lua}
+        ${builtins.readFile ./plugins/cmp.lua}
+        ${builtins.readFile ./plugins/lsp.lua}
+        ${builtins.readFile ./plugins/nvim-tree.lua}
+        ${builtins.readFile ./plugins/telescope.lua}
+        ${builtins.readFile ./plugins/todo-comments.lua}
+        ${builtins.readFile ./plugins/treesitter.lua}
+        ${builtins.readFile ./plugins/markdown.lua}
+        ${builtins.readFile ./plugins/hop.lua}
+        ${builtins.readFile ./plugins/oil.lua}
+        ${builtins.readFile ./plugins/neoscroll.lua}
+        ${builtins.readFile ./plugins/twilight.lua}
+        ${builtins.readFile ./plugins/zen-mode.lua}
+        ${builtins.readFile ./plugins/obsidian.lua}
+        ${builtins.readFile ./plugins/conform.lua}
+        ${builtins.readFile ./plugins/trouble.lua}
+        ${builtins.readFile ./plugins/ufo.lua}
+        ${builtins.readFile ./plugins/toggleterm.lua}
+        ${builtins.readFile ./plugins/lualine.lua}
+        ${builtins.readFile ./plugins/which-key.lua}
+        ${builtins.readFile ./plugins/flash.lua}
+        ${builtins.readFile ./plugins/crates.lua}
+        ${builtins.readFile ./plugins/hunk.lua}
+        ${builtins.readFile ./plugins/yazi.lua}
+        ${builtins.readFile ./plugins/codeium.lua}
+        ${builtins.readFile ./plugins/rustaceanvim.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()
