@@ -15,10 +15,10 @@
     ../../config/rofi
     ../../config/shells
     ../../config/terms
-    # ../../config/neovim.nix
+    ../../config/neovim.nix
     # ../../config/nvim
     ../../config/zed.nix
-    ../../config/nixVim/nixvim.nix
+    #../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules
   ];
 
