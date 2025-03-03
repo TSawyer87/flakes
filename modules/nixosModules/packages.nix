@@ -6,6 +6,10 @@
     #cargo-watch
     #cargo-spellcheck
     vimiv-qt
+    qalculate-gtk
+    meld
+    just
+    inotify-tools
     swayfx
     scenefx
     wlroots
