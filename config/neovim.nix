@@ -121,6 +121,7 @@ in
         ${builtins.readFile ./nvim/plugins/hunk.lua}
         ${builtins.readFile ./nvim/plugins/yazi.lua}
         ${builtins.readFile ./nvim/plugins/codeium.lua}
+        ${builtins.readFile ./nvim/plugins/rustaceanvim.lua}
         ${builtins.readFile ./.stylua.toml}
         require("render-markdown").setup{}
         require("ibl").setup()
