@@ -1,21 +1,12 @@
-{
-  pkgs,
-  host,
-  options,
-  outputs,
-  lib,
-  ...
-}: let
+{ pkgs, host, options, outputs, lib, ... }:
+let
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
 in {
   imports = [
     ./hardware.nix
     ../../modules/nixosModules
-    ../../modules/amd-drivers.nix
-    # ../../modules/nvidia-drivers.nix
-    # ../../modules/nvidia-prime-drivers.nix
-    # ../../modules/intel-drivers.nix
+    ../../modules/drivers
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
   ];
@@ -60,20 +51,19 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = host;
-  networking.timeServers =
-    options.networking.timeServers.default
-    ++ ["pool.ntp.org"];
+  networking.timeServers = options.networking.timeServers.default
+    ++ [ "pool.ntp.org" ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  nixpkgs.config.permittedInsecurePackages = ["olm-3.2.16"];
+  nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
 
-  users = {mutableUsers = true;};
+  users = { mutableUsers = true; };
 
   # Extra Portal Configuration
   systemd.services.flatpak-repo = {
-    path = [pkgs.flatpak];
+    path = [ pkgs.flatpak ];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
@@ -92,9 +82,7 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "codeium"
-    ];
+    builtins.elem (lib.getName pkg) [ "codeium" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

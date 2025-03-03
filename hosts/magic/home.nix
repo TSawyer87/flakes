@@ -1,11 +1,4 @@
-{
-  pkgs,
-  username,
-  inputs,
-  nix-index-database,
-  ...
-}:
-{
+{ pkgs, username, inputs, nix-index-database, ... }: {
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -17,7 +10,7 @@
   imports = [
     ../../config/emoji.nix
     #../../config/hypr
-    ../../config/sway
+    ../../modules/sway
     #../../config/nvf.nix
     ../../config/rofi
     ../../config/shells
