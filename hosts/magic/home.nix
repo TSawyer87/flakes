@@ -16,7 +16,7 @@
     ../../config/shells
     ../../config/terms
     ../../config/neovim.nix
-    # ../../config/nvim
+    ../../config/nvim
     ../../config/zed.nix
     #../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules
