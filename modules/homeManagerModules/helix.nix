@@ -118,7 +118,7 @@
             "extend_to_line_bounds"
           ];
           "%" = "match_brackets";
-          "0" = "go_to_line_start";
+          "0" = "goto_line_start";
           "$" = "goto_line_end";
           "{" = [
             "extend_to_line_bounds"
