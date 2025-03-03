@@ -8,7 +8,7 @@ with lib; {
       #image = ../../config/wallpapers/Lofi-Cafe1.png;
       # image = ../../config/wallpapers/bookmarks.png;
       # image = ../../config/wallpapers/keinbackup.png;
-      image = ../../config/wallpapers/Under_Starlit_Sky.png;
+      image = ../wallpapers/Under_Starlit_Sky.png;
       base16Scheme = {
         # Ayu Dark
         base00 = "0F1419";
