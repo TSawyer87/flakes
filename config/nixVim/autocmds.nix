@@ -12,13 +12,12 @@
           function(args)
             local client = vim.lsp.get_client_by_id(args.data.client_id)
             if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
-              vim.lsp.inlay_hint.enable(0, client.id) -- Enable inlay hints for the current buffer and client
+              vim.lsp.inlay_hint.enable(0, client.id, true) -- Enable inlay hints for the current buffer and client
             end
             -- Additional LSP configuration can be added here
           end
         '';
-      }
-      # Highlight when yanking (copying) text
+      } # Highlight when yanking (copying) text
       #  Try it with `yap` in normal mode
       {
         event = [ "TextYankPost" ];
