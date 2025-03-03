@@ -108,7 +108,7 @@
       keys = {
         normal = {
           H = "extend_char_left";
-          x = "extend_to_line_bounds";
+          x = "delete_selection";
           J = [
             "extend_line_down"
             "extend_to_line_bounds"
@@ -117,10 +117,25 @@
             "extend_line_up"
             "extend_to_line_bounds"
           ];
+          "%" = "match_brackets";
           L = "extend_char_right";
           B = "extend_prev_word_start";
           W = "extend_next_word_start";
+          V = [
+            "extend_to_line_end"
+            "extend_to_line_bounds"
+          ];
+          p = [
+            "paste_clipboard_after"
+            "collapse_selection"
+          ];
+          P = [
+            "paste_clipboard_before"
+            "collapse_selection"
+          ];
           E = "extend_next_word_end";
+          C-o = ":config-open";
+          C-r = ":config-reload";
           A-b = "move_prev_long_word_start";
           A-B = "extend_prev_long_word_start";
           A-w = "move_next_long_word_start";
@@ -174,13 +189,14 @@
 
           space = {
             c = ":buffer-close";
-            f = ":toggle auto-format";
+            A-f = ":toggle auto-format";
             q = ":write-quit-all";
             Q = ":quit!";
             e = ":config-open";
+            f = ":fmt";
             w = ":write";
             "." = ":toggle file-picker.git-ignore";
-          };
+          } ;
         };
 
         insert = {
