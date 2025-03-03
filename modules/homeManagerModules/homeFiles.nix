@@ -1,15 +1,15 @@
 { username, ... }: {
   # Place Files Inside Home Directory
   home.file."Pictures/Wallpapers" = {
-    source = ../../config/wallpapers;
+    source = ../wallpapers;
     recursive = true;
   };
   home.file.".config/wlogout/icons" = {
-    source = ../../config/wlogout;
+    source = ../wlogout;
     recursive = true;
   };
   home.file.".config/hypr/pyprland.toml" = {
-    source = ../../config/hypr/pyprland.toml;
+    source = ../hypr/pyprland.toml;
     recursive = true;
   };
   home.file.".jj/config.toml".text = ''
