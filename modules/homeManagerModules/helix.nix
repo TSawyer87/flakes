@@ -118,6 +118,17 @@
             "extend_to_line_bounds"
           ];
           "%" = "match_brackets";
+          "0" = "go_to_line_start";
+          "$" = "goto_line_end";
+          "{" = [
+            "extend_to_line_bounds"
+            "goto_prev_paragraph"
+          ];
+          "}" = [
+            "extend_to_line_bounds"
+            "goto_next_paragraph"
+          ];
+          "^" = "goto_first_nonwhitespace";
           L = "extend_char_right";
           B = "extend_prev_word_start";
           W = "extend_next_word_start";
@@ -162,7 +173,17 @@
           right = "goto_next_buffer";
           A-d = "delete_selection";
           c = "change_selection_noyank";
-          d = "delete_selection_noyank";
+          d = [
+            "delete_selection"
+            "extend_to_line_bounds"
+            "yank_main_selection_to_clipboard"
+
+          ];
+          D = [
+            "extend_to_line_end"
+            "yank_main_selection_to_clipboard"
+            "delete_selection"
+          ];
           N = "extend_search_next";
           A-n = "search_prev";
           A-N = "extend_search_prev";
@@ -196,7 +217,7 @@
             f = ":fmt";
             w = ":write";
             "." = ":toggle file-picker.git-ignore";
-          } ;
+          };
         };
 
         insert = {
