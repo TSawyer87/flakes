@@ -23,6 +23,10 @@ in {
       startup = [{ command = "firefox"; }];
       floating.border = 0;
       window.border = 0;
+      gaps = {
+        inner = 5;
+        smartGaps = true;
+      };
     };
     extraConfig = ''
       seat * xcursor_theme bibata_modern_ice 26
