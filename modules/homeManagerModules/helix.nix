@@ -174,7 +174,7 @@
 
           space = {
             c = ":buffer-close";
-            A-f = ":toggle auto-format";
+            f = ":toggle auto-format";
             q = ":write-quit-all";
             Q = ":quit!";
             e = ":config-open";
