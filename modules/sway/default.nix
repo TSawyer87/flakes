@@ -7,6 +7,7 @@
     ./envVars.nix
     ./swayr.nix
     ./swaync.nix
+    ./swayidle.nix
     # ./swayfx.nix
   ];
 }
