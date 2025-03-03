@@ -78,6 +78,7 @@ in {
     grim
     wpaperd
     swaynotificationcenter
+    swayidle
     pavucontrol
     swappy
     networkmanagerapplet
