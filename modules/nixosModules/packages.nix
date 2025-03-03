@@ -5,6 +5,7 @@
     taplo # toml formatter and lsp
     #cargo-watch
     #cargo-spellcheck
+    vimiv-qt
     swayfx
     scenefx
     wlroots

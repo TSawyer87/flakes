@@ -9,7 +9,7 @@
   # Import Program Configurations
   imports = [
     ../../config/emoji.nix
-    #../../config/hypr
+    #../../modules/hypr
     ../../modules/sway
     #../../config/nvf.nix
     ../../config/rofi
@@ -27,7 +27,7 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  # Styling Options
+  # Styling Options ##Disable if you want independent colorscheming for said app##
   stylix.targets.waybar.enable = false;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
