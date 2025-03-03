@@ -90,9 +90,9 @@ in
         #image-nvim
       ];
       extraLuaConfig = ''
-        ${builtins.readFile ./nvim/options.lua}
-        ${builtins.readFile ./nvim/keymaps.lua}
-        ${builtins.readFile ./nvim/autocmds.lua}
+        ${builtins.readFile ./options.lua}
+        ${builtins.readFile ./keymaps.lua}
+        ${builtins.readFile ./autocmds.lua}
         ${builtins.readFile ./plugins/alpha.lua}
         ${builtins.readFile ./plugins/autopairs.lua}
         ${builtins.readFile ./plugins/auto-session.lua}
