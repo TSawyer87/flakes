@@ -11,8 +11,9 @@
         callback.__raw = ''
           function(args)
             local client = vim.lsp.get_client_by_id(args.data.client_id)
-            if client.server_capabilities.inlayHintProvider then
-                vim.lsp.inlay_hint(args.buf, true)  -- Ensure the correct method is called
+            if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
+              local bufnr = vim.api.nvim_get_current_buf() -- Get the current buffer number
+              vim.lsp.inlay_hint(bufnr, true)
             end
             -- Additional LSP configuration can be added here
           end
