@@ -4,10 +4,24 @@
 {
   programs.nixvim = {
     autoCmd = [
+      # Inlay-Hints
+      {
+        event = [ "LspAttach" ];
+        desc = "Configure LSP and enable inlay hints";
+        callback.__raw = ''
+          function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if client.server_capabilities.inlayHintProvider then
+                vim.lsp.inlay_hint.enable(args.buf, true)
+            end
+            -- whatever other LSP config you want
+          end
+        '';
+      }
       # Highlight when yanking (copying) text
       #  Try it with `yap` in normal mode
       {
-        event = ["TextYankPost"];
+        event = [ "TextYankPost" ];
         desc = "Highlight when yanking (copying) text";
         callback.__raw = ''
           function()
@@ -16,50 +30,49 @@
         '';
       }
       {
-        event = ["FileType"];
-        pattern = ["qf" "help" "man" "lspinfo"];
+        event = [ "FileType" ];
+        pattern = [ "qf" "help" "man" "lspinfo" ];
         command = "nnoremap <silent> <buffer> q :close<CR>";
       }
       # Markdown
       {
-        event = ["FileType"];
-        pattern = ["markdown"];
+        event = [ "FileType" ];
+        pattern = [ "markdown" ];
         command = "setlocal wrap";
       }
       {
-        event = ["FileType"];
-        pattern = ["markdown"];
+        event = [ "FileType" ];
+        pattern = [ "markdown" ];
         command = "setlocal spell";
       }
       # Save manual folds automatically
       {
-        event = ["BufWrite"];
-        pattern = ["*"];
+        event = [ "BufWrite" ];
+        pattern = [ "*" ];
         command = "mkview";
       }
       {
-        event = ["BufRead"];
-        pattern = ["*"];
+        event = [ "BufRead" ];
+        pattern = [ "*" ];
         command = "silent! loadview";
       }
 
       # Set indent folds for python
       {
-        event = ["FileType"];
-        pattern = ["python"];
+        event = [ "FileType" ];
+        pattern = [ "python" ];
         command = "set foldmethod=indent";
       }
 
       # Display images for specific file types
       {
-        event = ["BufRead"];
-        pattern = ["*.png" "*.jpg" "*.jpeg"];
+        event = [ "BufRead" ];
+        pattern = [ "*.png" "*.jpg" "*.jpeg" ];
         command = ":call DisplayImage()";
       }
-
       # Restore Cursor Position
       {
-        event = ["BufReadPost"];
+        event = [ "BufReadPost" ];
         pattern = "*";
         callback = {
           __raw = ''
