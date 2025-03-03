@@ -12,8 +12,7 @@
           function(args)
             local client = vim.lsp.get_client_by_id(args.data.client_id)
             if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
-              local bufnr = vim.api.nvim_get_current_buf() -- Get the current buffer number
-              vim.lsp.inlay_hint(bufnr, true)
+              vim.lsp.inlay_hint.enable(0, client.id) -- Enable inlay hints for the current buffer and client
             end
             -- Additional LSP configuration can be added here
           end
