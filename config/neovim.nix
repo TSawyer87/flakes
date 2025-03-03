@@ -126,6 +126,7 @@ in
         require("ibl").setup()
         require("bufferline").setup{}
         require('hunk').setup{}
+        vim.lsp.inlay_hint.enable()
       '';
     };
   };
