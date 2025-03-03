@@ -38,7 +38,7 @@
       cursor-style-blink = false;
 
       unfocused-split-opacity = 0.9;
-      background-opacity = 0.8;
+      background-opacity = 0.6;
       background-blur-radius = 20;
 
       window-theme = "dark";
