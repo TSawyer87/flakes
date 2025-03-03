@@ -12,10 +12,10 @@
     #../../modules/hypr
     ../../modules/sway
     #../../config/nvf.nix
-    ../../config/rofi
-    ../../config/shells
-    ../../config/terms
-    ../../config/nvim
+    ../../modules/rofi
+    ../../modules/shells
+    ../../modules/terms
+    ../../modules/nvim
     ../../config/zed.nix
     #../../config/nixVim/nixvim.nix
     ../../modules/homeManagerModules
