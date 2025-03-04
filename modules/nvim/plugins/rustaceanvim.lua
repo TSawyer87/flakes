@@ -7,16 +7,16 @@ vim.g.rustaceanvim = {
   -- LSP configuration
   server = {
     on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<leader>cR", function()
-        vim.cmd.RustLsp("codeAction")
-      end, { desc = "Code Action", buffer = bufnr })
-      vim.keymap.set("n", "<leader>dr", function()
-        vim.cmd.RustLsp("debuggables")
-      end, { desc = "Rust Debuggables", buffer = bufnr })
+      vim.keymap.set('n', '<leader>cR', function()
+        vim.cmd.RustLsp 'codeAction'
+      end, { desc = 'Code Action', buffer = bufnr })
+      vim.keymap.set('n', '<leader>dr', function()
+        vim.cmd.RustLsp 'debuggables'
+      end, { desc = 'Rust Debuggables', buffer = bufnr })
     end,
     default_settings = {
       -- rust-analyzer language server configuration
-      ["rust-analyzer"] = {
+      ['rust-analyzer'] = {
         cargo = {
           allFeatures = true,
           loadOutDirsFromCheck = true,
@@ -24,31 +24,29 @@ vim.g.rustaceanvim = {
             enable = true,
           },
         },
-        -- Add clippy lints for Rust if using rust-analyzer
-        checkOnSave = diagnostics == "rust-analyzer",
-        -- Enable diagnostics if using rust-analyzer
+        checkOnSave = true, -- Ensure this is set to true for diagnostics on save
         diagnostics = {
-          enable = diagnostics == "rust-analyzer",
+          enable = true, -- Enable diagnostics (linting, errors, etc.)
         },
         procMacro = {
           enable = true,
           ignored = {
-            ["async-trait"] = { "async_trait" },
-            ["napi-derive"] = { "napi" },
-            ["async-recursion"] = { "async_recursion" },
+            ['async-trait'] = { 'async_trait' },
+            ['napi-derive'] = { 'napi' },
+            ['async-recursion'] = { 'async_recursion' },
           },
         },
         files = {
           excludeDirs = {
-            ".direnv",
-            ".git",
-            ".github",
-            ".gitlab",
-            "bin",
-            "node_modules",
-            "target",
-            "venv",
-            ".venv",
+            '.direnv',
+            '.git',
+            '.github',
+            '.gitlab',
+            'bin',
+            'node_modules',
+            'target',
+            'venv',
+            '.venv',
           },
         },
       },
@@ -62,17 +60,17 @@ vim.g.rustaceanvim = {
 
 -- Additional configuration for rustaceanvim
 local opts = vim.g.rustaceanvim or {}
-local uname = io.popen("uname"):read("*l")
-local package_path = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/codelldb"
-local codelldb = package_path .. "/extension/adapter/codelldb"
-local library_path = package_path .. "/extension/lldb/lib/liblldb.dylib"
-if uname == "Linux" then
-  library_path = package_path .. "/extension/lldb/lib/liblldb.so"
+local uname = io.popen('uname'):read '*l'
+local package_path = os.getenv 'HOME' .. '/.local/share/nvim/mason/packages/codelldb'
+local codelldb = package_path .. '/extension/adapter/codelldb'
+local library_path = package_path .. '/extension/lldb/lib/liblldb.dylib'
+if uname == 'Linux' then
+  library_path = package_path .. '/extension/lldb/lib/liblldb.so'
 end
 opts.dap = {
-  adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
+  adapter = require('rustaceanvim.config').get_codelldb_adapter(codelldb, library_path),
 }
-vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
-if vim.fn.executable("rust-analyzer") == 0 then
-  print("**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/")
+vim.g.rustaceanvim = vim.tbl_deep_extend('keep', vim.g.rustaceanvim or {}, opts or {})
+if vim.fn.executable 'rust-analyzer' == 0 then
+  print '**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/'
 end
