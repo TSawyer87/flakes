@@ -88,5 +88,6 @@ in
     yad
     findutils
     wtype
+    kanshi
   ];
 }
