@@ -3,7 +3,8 @@
 let
   mod = "Mod4";
   system = "x86_64-linux";
-in {
+in
+{
   imports = [ ./keybinds.nix ];
 
   programs.wofi = {
@@ -20,7 +21,7 @@ in {
     config = rec {
       modifier = mod;
       terminal = "${pkgs.ghostty}/bin/ghostty";
-      startup = [{ command = "firefox"; }];
+      startup = [ { command = "firefox"; } ];
       floating.border = 0;
       window.border = 0;
       gaps = {
@@ -37,18 +38,18 @@ in {
       exec wl-paste --type text --watch cliphist store
       exec wl-paste --type image --watch cliphist store
 
-      output DP-1 {
-        # bg /home/jr/Pictures/Wallpapers/mountains1.jpg fill
-        mode 3840x2160@65Hz
-        scale 1.5
-        pos 0 0
-      }
-
-      output HDMI-A-1 {
-        mode 1920x1080@100Hz
-        scale 1
-        pos 2560 0  
-      }
+      # output DP-1 {
+      #   # bg /home/jr/Pictures/Wallpapers/mountains1.jpg fill
+      #   mode 3840x2160@65Hz
+      #   scale 1.5
+      #   pos 0 0
+      # }
+      #
+      # output HDMI-A-1 {
+      #   mode 1920x1080@100Hz
+      #   scale 1
+      #   pos 2560 0  
+      # }
 
       input * {
         repeat_delay 300
@@ -62,6 +63,26 @@ in {
     '';
   };
 
+  services.kanshi = {
+    enable = true;
+    # systemdTarget = "sway-session.target";  # Optional, defaults to graphical-session.target
+    settings = [
+      {
+        output."DP-1" = {
+          status = "enable";
+          mode = "3840x2160@65Hz"; # Added "Hz" for clarity
+          scale = 1.5;
+          position = "0,0";
+        };
+        output."HDMI-A-1" = {
+          status = "enable";
+          mode = "1920x1080@100Hz"; # Added "Hz"
+          scale = 1.0; # Explicitly set to match your Sway config
+          position = "2560,0";
+        };
+      }
+    ];
+  };
   services = {
     network-manager-applet.enable = true;
     cliphist.enable = true;
@@ -87,4 +108,3 @@ in {
     wtype
   ];
 }
-
