@@ -5,7 +5,7 @@
     events = [
       {
         event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock -fF";
+        command = "${pkgs.swaylock}/bin/swaylock || swaylock -f -i /home/jr/flakes/modules/wallpapers/space.jpg";
       }
       {
         event = "lock";
@@ -14,7 +14,7 @@
     ];
     timeouts = [
       {
-        timeout = 600;
+        timeout = 300; # 5 min
         command = "${pkgs.swaylock}/bin/swaylock -fF";
       }
       {
