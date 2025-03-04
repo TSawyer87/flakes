@@ -5,15 +5,15 @@ let
   system = "x86_64-linux";
 in
 {
-  imports = [ ./keybinds.nix ./kanshi.nix ];
+  imports = [ ./keybinds.nix ./kanshi.nix ./wofi.nix ];
 
-  programs.wofi = {
-    enable = true;
-    settings = {
-      allow_markup = true;
-      width = 250;
-    };
-  };
+  # programs.wofi = {
+  #   enable = true;
+  #   settings = {
+  #     allow_markup = true;
+  #     width = 250;
+  #   };
+  # };
   jr.opt.services.kanshi.enable = false; # Enables the kanshi service
 
   wayland.windowManager.sway = {
