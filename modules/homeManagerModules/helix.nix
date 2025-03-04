@@ -20,6 +20,7 @@
       marksman
       nil
       nixd
+      nixfmt-rfc-style
       nixpkgs-fmt
       nodePackages.prettier
       nodePackages.typescript-language-server
@@ -419,7 +420,7 @@
         {
           name = "nix";
           formatter = {
-            command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
+            command = ":fmt";
           };
           auto-format = true;
         }
@@ -548,4 +549,4 @@
       ];
     };
   };
-}
+ }
