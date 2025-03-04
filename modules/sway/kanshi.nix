@@ -28,7 +28,7 @@ in
               mode = "3840x2160@65";
               status = "enable";
               position = "0,0";
-              scale = 1.6;
+              scale = 2.0;
             }
             {
               criteria = "HDMI-A-1";
