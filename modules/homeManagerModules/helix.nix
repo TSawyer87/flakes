@@ -276,13 +276,6 @@
         command = "clippy";
       };
 
-      # language-server.rust-analyzer.config = {
-      #   checkOnSave.enable = false;
-      #   diagnostics.enable = false;
-      # };
-      # language-server.bacon-ls = {
-      #   command = "bacon-ls";
-      # };
       language-server.yaml-language-server.config.yaml.schemas = {
         kubernetes = "k8s/*.yaml";
       };
@@ -450,7 +443,6 @@
           language-servers = [
             "rust-analyzer"
             "gpt"
-            # "bacon-ls"
           ];
           auto-format = true;
         }
