@@ -1,4 +1,4 @@
-{ pkgs, inputs, rust-overlay, system, ... }: {
+{ pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
@@ -10,8 +10,8 @@
     meld
     just
     inotify-tools
-    swayfx
-    scenefx
+    # swayfx
+    # scenefx
     wlroots
     wlr-randr
     evcxr # rust repl

@@ -36,10 +36,10 @@ in
             insteadOf = "https://gitlab.dnm.radiofrance.fr/";
           };
         };
-        # Sign all commits using ssh key
+        #Sign all commits using ssh key
         commit.gpgsign = true;
         gpg.format = "ssh";
-        user.signingkey = "~/.ssh/id_default.pub";
+        user.signingkey = "~/.ssh/id_rsa.pub";
         core = {
           editor = "nvim";
           excludesfile = "~/.config/git/ignore";
