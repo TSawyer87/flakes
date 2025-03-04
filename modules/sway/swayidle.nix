@@ -5,11 +5,11 @@
     events = [
       {
         event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock && swaylock -f -i /home/jr/flakes/modules/wallpapers/wallpaper1.png";
+        command = "${pkgs.swaylock}/bin/swaylock -f -i /home/jr/flakes/modules/wallpapers/wallpaper1.png";
       }
       {
         event = "lock";
-        command = "lock";
+        command = "${pkgs.swaylock}/bin/swaylock"; # or "${pkgs.swaylock}/bin/swaylock -f -i /home/jr/flakes/modules/wallpapers/wallpaper1.png"; if you want wallpaper on all locks.
       }
     ];
     timeouts = [
