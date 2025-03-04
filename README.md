@@ -2,9 +2,9 @@
 
 - This flake provides two NixOS configurations:
 
-  - magic: A desktop configuration for AMD hardware. More recent updates.
+    - magic: A desktop configuration for AMD hardware. More recent updates.
 
-  - laptop: A desktop configuration for Intel hardware.
+    - laptop: A desktop configuration for Intel hardware.
 
 **Customizing the Flake**
 
@@ -104,13 +104,13 @@ After your flake is initialized, a few aliases:
 - The main `config.nix` and `home.nix` files are located in the `~/flakes/hosts/${host}/` directory.
 
 - In the `~/flakes/modules/nixosModules/` directory you can add packages, services, programs, and modules. If you add a module just make sure to add the module name to the
-  `default.nix` in the directory. NixOS automatically searches for a `default.nix` in whichever directory you import to your `config.nix` so all we have to import is
+  `default.nix` in the directory. NixOS automatically searches for a `default.nix` in whichever directory you import to your `config.nix` or `home.nix` so all we have to import is
   the `nixosModules` directory and the `default.nix` bundles all of the files making less implicit import statements necessary.
 
 - The same for home-manager, the modules imported into the `home.nix` are located in `~/flakes/modules/homeManagerModules/` you can add home packages, programs, and more there. Same
   applies here with the `default.nix`.
 
-- Most of the actual configuration is done in the `~/flakes/config/` directory, thats where you'll find the neovim configuration as well as hyprland and more.
+- I'm currently refactoring and placing most everything in the `modules` directory, you'll find the Hyprland and Sway configs there as well as text editors etc.
 
 - I set my cursor with stylix so to change cursors the directory is `~/flakes/modules/nixosModules/stylix.nix`
 
@@ -140,15 +140,18 @@ For NixLang docs:
   `~/flakes/modules/nixosModules/default.nix`. Lastly uncomment the `pkgs.xdg-desktop-portal-hyprland`
   in the `~/flakes/modules/nixosModules/xdg.nix` file.
 
-| Keybind      | Description      |
-| ------------ | ---------------- |
-| `Mod+f`      | Launch Firefox   |
-| `Mod+Return` | Launch Ghostty   |
-| `Mod+T`      | Launch Kitty     |
-| `y`          | Yazi             |
-| `Mod+Space`  | Launch wofi drun |
-| `Mod+d`      | Launch rofi      |
-| `Mod+g`      | Split h          |
-| `Mod+v`      | Split v          |
-| `Mod+n`      | Thunar           |
-| `Mod+c`      | cliphist history |
+| Keybind      | Description             |
+| ------------ | ----------------------- |
+| `Mod+f`      | Launch Firefox          |
+| `Mod+Return` | Launch Ghostty          |
+| `Mod+T`      | Launch Kitty            |
+| `y`          | Yazi                    |
+| `Mod+Space`  | Launch wofi drun        |
+| `Mod+d`      | Launch rofi             |
+| `Mod+g`      | Split h                 |
+| `Mod+z`      | Split v                 |
+| `Mod+v`      | Cliphist history        |
+| `Mod+n`      | Thunar                  |
+| `Mod+c`      | cliphist history        |
+| `Mod+s`      | screenshot area         |
+| `Mod+p`      | launch list of commands |
