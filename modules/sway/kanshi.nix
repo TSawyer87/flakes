@@ -24,11 +24,11 @@ in
           profile.name = "home";
           profile.outputs = [
             {
-              criteria = "Sceptre Tech Inc Sceptre Z27 Unknown";
+              criteria = "DP-1";
               mode = "3840x2160@65";
               status = "enable";
               position = "0,0";
-              scale = 2.0;
+              scale = 1.5;
             }
             {
               criteria = "HDMI-A-1";
