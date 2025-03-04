@@ -419,7 +419,7 @@
         {
           name = "nix";
           formatter = {
-            command = "${pkgs.nixfmt}/bin/nixfmt";
+            command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
           };
           auto-format = true;
         }
