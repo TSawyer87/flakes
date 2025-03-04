@@ -43,12 +43,14 @@ in {
           "${mod}+c" =
             "exec bash -c 'cliphist list | ${pkgs.wofi}/bin/wofi --dmenu --width 800 --height 500 | cliphist decode | wl-copy'";
           "${mod}+v" = "split v";
-          "${mod}+g" = "split h";
+          "${mod}+Shift+V" = "split h";
           "${mod}+z" = "layout stacking";
           "${mod}+Shift+W" = "exec wpaperd &";
           # "${mod}+Shift+Space" = "focus mode_toggle";
           "${mod}+n" = "exec thunar";
           "${mod}+w" = "layout tabbed";
+          "${mod}+Tab" = "exec swayr switch-window";
+          "${mod}+Shift+Tab" = "exec swayr switch-workspace-or-window";
 
           "${mod}+Shift+r" = "exec swaymsg reload";
           "--release Print" =

@@ -34,6 +34,9 @@ in
       seat * xcursor_theme bibata_modern_ice 26
       set $mod Mod4
 
+      bindsym ${mod}+Shift+minus move scratchpad
+      bindsym ${mod}+minus scratchpad show
+
       exec waybar &
       exec nm-applet --indicator
       exec wl-paste --type text --watch cliphist store
