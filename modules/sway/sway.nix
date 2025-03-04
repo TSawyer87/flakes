@@ -14,7 +14,7 @@ in
       width = 250;
     };
   };
-  jr.opt.services.kanshi.enable = true; # Enables the kanshi service
+  jr.opt.services.kanshi.enable = false; # Enables the kanshi service
 
   wayland.windowManager.sway = {
     enable = true;
@@ -39,18 +39,18 @@ in
       exec wl-paste --type text --watch cliphist store
       exec wl-paste --type image --watch cliphist store
 
-      # output DP-1 {
-      #   # bg /home/jr/Pictures/Wallpapers/mountains1.jpg fill
-      #   mode 3840x2160@65Hz
-      #   scale 1.5
-      #   pos 0 0
-      # }
-      #
-      # output HDMI-A-1 {
-      #   mode 1920x1080@100Hz
-      #   scale 1
-      #   pos 2560 0  
-      # }
+      output DP-1 {
+        # bg /home/jr/Pictures/Wallpapers/mountains1.jpg fill
+        mode 3840x2160@65Hz
+        scale 1.5
+        pos 0 0
+      }
+
+      output HDMI-A-1 {
+        mode 1920x1080@100Hz
+        scale 1
+        pos 2560 0  
+      }
 
       input * {
         repeat_delay 300
