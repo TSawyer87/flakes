@@ -1,0 +1,44 @@
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+let
+  inherit (lib) mkIf mkEnableOption;
+
+  cfg = config.jr.opt.services.kanshi;
+in
+{
+  options.jr.opt.services.kanshi.enable = mkEnableOption "kanshi";
+
+  config = mkIf cfg.enable {
+    home = {
+      packages = with pkgs; [ kanshi ];
+    };
+    services.kanshi = {
+      enable = true;
+      systemdTarget = "hyprland-session.target";
+      settings = [
+        {
+          profile.name = "home";
+          profile.outputs = [
+            {
+              criteria = "Sceptre Tech Inc Sceptre Z27 Unknown";
+              mode = "3840x2160@65";
+              status = "enable";
+              position = "0,0";
+              scale = 1.5;
+            }
+            {
+              criteria = "HDMI-A-1";
+              mode = "3840x2160@120";
+              position = "2560,0";
+              scale = 1;
+            }
+          ];
+        }
+      ];
+    };
+  };
+}

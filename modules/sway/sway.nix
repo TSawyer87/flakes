@@ -5,7 +5,7 @@ let
   system = "x86_64-linux";
 in
 {
-  imports = [ ./keybinds.nix ];
+  imports = [ ./keybinds.nix ./kanshi.nix ];
 
   programs.wofi = {
     enable = true;
@@ -14,6 +14,7 @@ in
       width = 250;
     };
   };
+  jr.opt.services.kanshi.enable = true; # Enables the kanshi service
 
   wayland.windowManager.sway = {
     enable = true;
@@ -63,26 +64,7 @@ in
     '';
   };
 
-  services.kanshi = {
-    enable = true;
-    # systemdTarget = "sway-session.target";  # Optional, defaults to graphical-session.target
-    settings = [
-      {
-        output."DP-1" = {
-          status = "enable";
-          mode = "3840x2160@65Hz"; # Added "Hz" for clarity
-          scale = 1.5;
-          position = "0,0";
-        };
-        output."HDMI-A-1" = {
-          status = "enable";
-          mode = "1920x1080@100Hz"; # Added "Hz"
-          scale = 1.0; # Explicitly set to match your Sway config
-          position = "2560,0";
-        };
-      }
-    ];
-  };
+
   services = {
     network-manager-applet.enable = true;
     cliphist.enable = true;
