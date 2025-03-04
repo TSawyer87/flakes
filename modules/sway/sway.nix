@@ -5,7 +5,7 @@ let
   system = "x86_64-linux";
 in
 {
-  imports = [ ./keybinds.nix ./kanshi.nix ./wofi.nix ];
+  imports = [ ./keybinds.nix ./kanshi.nix ./wofi.nix ./fuzzel.nix ];
 
   # programs.wofi = {
   #   enable = true;
