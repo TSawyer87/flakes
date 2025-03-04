@@ -5,7 +5,7 @@ let
   system = "x86_64-linux";
 in
 {
-  imports = [ ./keybinds.nix ./kanshi.nix ./wofi.nix ./fuzzel.nix ];
+  imports = [ ./keybinds.nix ./kanshi.nix ./fuzzel.nix ];
 
   # programs.wofi = {
   #   enable = true;
@@ -34,8 +34,8 @@ in
       seat * xcursor_theme bibata_modern_ice 26
       set $mod Mod4
 
-      bindsym ${mod}+Shift+minus move scratchpad
-      bindsym ${mod}+minus scratchpad show
+      # bindsym ${mod}+Shift+minus move scratchpad
+      # bindsym ${mod}+minus scratchpad show
 
       exec waybar &
       exec nm-applet --indicator
@@ -78,6 +78,7 @@ in
     mako
     wl-clipboard
     cliphist
+    fuzzel
     wlogout
     rofi-wayland
     slurp
@@ -87,7 +88,7 @@ in
     pavucontrol
     swappy
     networkmanagerapplet
-    wofi
+    # wofi
     yad
     findutils
     wtype
