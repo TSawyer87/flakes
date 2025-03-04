@@ -69,8 +69,8 @@ with lib; {
           name = "Montserrat";
         };
         sizes = {
-          applications = 12;
-          terminal = 15;
+          applications = lib.mkDefault 12;
+          terminal = lib.mkDefault 12;
           desktop = 11;
           popups = 12;
         };
