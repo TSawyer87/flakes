@@ -28,11 +28,11 @@ in
               mode = "3840x2160@65";
               status = "enable";
               position = "0,0";
-              scale = 1.5;
+              scale = 1.6;
             }
             {
               criteria = "HDMI-A-1";
-              mode = "3840x2160@120";
+              mode = "1920x1080@100";
               position = "2560,0";
               scale = 1.0;
             }
