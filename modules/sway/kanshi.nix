@@ -29,7 +29,7 @@ in
               mode = "2560x1440@65";
               status = "enable";
               position = "0,0";
-              scale = 1.5;
+              scale = 1.0;
             }
             {
               criteria = "ViewSonic Corporation VA2447 100Hz WE3234703733 (HDMI-A-1)";
