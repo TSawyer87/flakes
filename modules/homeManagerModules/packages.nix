@@ -13,6 +13,7 @@
     pkgs.iotop # io monitoring
     pkgs.iftop # network monitoring
     pkgs.usbutils # lsusb
+    pkgs.diff-so-fancy
     (import ../../scripts/emopicker9000.nix {inherit pkgs;})
     (import ../../scripts/task-waybar.nix {inherit pkgs;})
     (import ../../scripts/squirtle.nix {inherit pkgs;})
