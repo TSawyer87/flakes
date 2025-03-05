@@ -217,6 +217,41 @@
     # };
 
     languages = {
+      {
+        name = "rust";
+        debugger = {
+          command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+          name = "codelldb";
+          port-arg = "--port {}";
+          transport = "tcp";
+          templates = [
+            {
+              name = "binary";
+              request = "launch";
+              completion = [
+                {
+                  completion = "filename";
+                  name = "binary";
+                }
+              ];
+              args = [
+                {
+                  program = "{0}";
+                  runInTerminal = true;
+                }
+              ];
+            }
+          ];
+        };
+        language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+      }
+      {
+        name = "toml";
+        language-server = {
+          command = "${pkgs.taplo}/bin/taplo";
+          args = ["lsp" "stdio"];
+        };
+      }
       language-server.biome = {
         command = "biome";
         args = [ "lsp-proxy" ];
@@ -365,36 +400,36 @@
           };
           auto-format = true;
         }
-        {
-          name = "rust";
-          debugger = {
-            command =
-              "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-            name = "codelldb";
-            port-arg = "--port {}";
-            transport = "tcp";
-            templates = [{
-              name = "binary";
-              request = "launch";
-              completion = [{
-                completion = "filename";
-                name = "binary";
-              }];
-              args = [{
-                program = "{0}";
-                runInTerminal = true;
-              }];
-            }];
-          };
-          language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-        }
-        {
-          name = "toml";
-          language-server = {
-            command = "${pkgs.taplo}/bin/taplo";
-            args = [ "lsp" "stdio" ];
-          };
-        }
+        # {
+        #   name = "rust";
+        #   debugger = {
+        #     command =
+        #       "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+        #     name = "codelldb";
+        #     port-arg = "--port {}";
+        #     transport = "tcp";
+        #     templates = [{
+        #       name = "binary";
+        #       request = "launch";
+        #       completion = [{
+        #         completion = "filename";
+        #         name = "binary";
+        #       }];
+        #       args = [{
+        #         program = "{0}";
+        #         runInTerminal = true;
+        #       }];
+        #     }];
+        #   };
+        #   language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        # }
+        # {
+        #   name = "toml";
+        #   language-server = {
+        #     command = "${pkgs.taplo}/bin/taplo";
+        #     args = [ "lsp" "stdio" ];
+        #   };
+        # }
         {
           name = "scss";
           language-servers = [ "vscode-css-language-server" "gpt" ];
