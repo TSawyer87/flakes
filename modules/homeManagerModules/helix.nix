@@ -378,7 +378,9 @@
                 completion = "filename";
                 name = "binary";
               }];
-              args = [ "--stdin-filepath" "fmt" ];
+              args = [ "--log-level=debug" ]; # Arguments to codelldb
+              program = "{0}"; # Arguments to the debugged binary
+              runInTerminal = true;
             }];
           };
           language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
