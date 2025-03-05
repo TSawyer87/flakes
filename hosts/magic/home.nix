@@ -21,17 +21,7 @@
     ../../modules/homeManagerModules
   ];
 
-  home.packages = with pkgs; [
-    lldb
-    (pkgs.writeShellApplication {
-      name = "lldb-dap";
-      runtimeInputs = [ lldb ];
-      text = ''
-        lldb-server --stdio
-      '';
-    })
-
-  ];
+  home.packages = with pkgs; [ lldb ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
