@@ -16,7 +16,14 @@
     wlr-randr
     evcxr # rust repl
     rustup
-    vscode-extensions.vadimcn.vscode-lldb
+    lldb
+    (pkgs.writeShellApplication {
+      name = "lldb-dap";
+      runtimeInputs = [ lldb ];
+      text = ''
+        lldb-server --stdio
+      '';
+    })
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools

@@ -366,6 +366,7 @@
           name = "rust";
           language-servers = [ "rust-analyzer" "gpt" ];
           auto-format = true;
+          debug = { adapter = "lldb-dap"; };
         }
         {
           name = "scss";
