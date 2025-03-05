@@ -215,6 +215,7 @@ in {
     # The line beneath this is called `modeline`. See `:help modeline`
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapost
     extraConfigLuaPost = ''
+      vim.lsp.inlay_hint.enable(vim.lsp.inlay_hint.is_enabled())
       -- vim: ts=2 sts=2 sw=2 et
     '';
   };
