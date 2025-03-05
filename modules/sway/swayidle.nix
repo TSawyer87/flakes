@@ -4,8 +4,7 @@
     events = [
       {
         event = "before-sleep";
-        command =
-          "${pkgs.swaylock}/bin/swaylock -f -i /home/jr/Pictures/Wallpapers/wallpaper1.png";
+        command = "${pkgs.swaylock}/bin/swaylock";
       }
       {
         event = "lock";
