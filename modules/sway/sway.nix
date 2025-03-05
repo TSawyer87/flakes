@@ -77,10 +77,8 @@ in
     slurp
     grim
     wpaperd
-    swaynotificationcenter
     pavucontrol
     swappy
-    swaylock
     swaylock-effects
     networkmanagerapplet
     # wofi
