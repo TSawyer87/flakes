@@ -372,20 +372,20 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
         'williamboman/mason.nvim',
         -- NOTE: nixCats: use lazyAdd to only enable mason if nix wasnt involved.
         -- because we will be using nix to download things instead.
-        enabled = require('nixCatsUtils').lazyAdd(false, true),
+        enabled = require('nixCatsUtils').lazyAdd(true, false),
         config = true,
       }, -- NOTE: Must be loaded before dependants
       {
         'williamboman/mason-lspconfig.nvim',
         -- NOTE: nixCats: use lazyAdd to only enable mason if nix wasnt involved.
         -- because we will be using nix to download things instead.
-        enabled = require('nixCatsUtils').lazyAdd(false, true),
+        enabled = require('nixCatsUtils').lazyAdd(true, false),
       },
       {
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         -- NOTE: nixCats: use lazyAdd to only enable mason if nix wasnt involved.
         -- because we will be using nix to download things instead.
-        enabled = require('nixCatsUtils').lazyAdd(false, true),
+        enabled = require('nixCatsUtils').lazyAdd(true, false),
       },
 
       -- Useful status updates for LSP.
