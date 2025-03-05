@@ -221,11 +221,10 @@ in {
           end,
         })
 
-              vim.diagnostic.config({
-          virtual_text = false,
-          underline = true,
-          update_in_insert = false,
-      })
+      highlight! link LspDiagnosticsError Red;
+      highlight! link LspDiagnosticsWarning Yellow;
+      highlight! link LspDiagnosticsInformation Cyan;
+      highlight! link LspDiagnosticsHint Green;
               -- vim: ts=2 sts=2 sw=2 et
     '';
   };
