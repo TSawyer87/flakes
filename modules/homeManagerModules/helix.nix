@@ -378,10 +378,10 @@
                 completion = "filename";
                 name = "binary";
               }];
-              args = [{
+              args = { # Changed from [{ ... }] to { ... }
                 program = "{0}";
                 runInTerminal = true;
-              }];
+              };
             }];
           };
           language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
