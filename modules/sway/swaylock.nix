@@ -43,6 +43,6 @@
     };
   };
 
-  catppuccin.swaylock.enable = false;
+  # catppuccin.swaylock.enable = false;
 }
 
