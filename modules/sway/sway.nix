@@ -3,8 +3,7 @@
 let
   mod = "Mod4";
   system = "x86_64-linux";
-in
-{
+in {
   imports = [ ./keybinds.nix ./kanshi.nix ./fuzzel.nix ];
 
   jr.opt.services.kanshi.enable = false; # Enables the kanshi service
@@ -15,7 +14,7 @@ in
     config = rec {
       modifier = mod;
       terminal = "${pkgs.ghostty}/bin/ghostty";
-      startup = [ { command = "firefox"; } ];
+      startup = [{ command = "firefox"; }];
       floating.border = 0;
       window.border = 0;
       gaps = {
@@ -60,7 +59,6 @@ in
     '';
   };
 
-
   services = {
     network-manager-applet.enable = true;
     cliphist.enable = true;
@@ -70,8 +68,6 @@ in
     grim
     mako
     wl-clipboard
-    cliphist
-    fuzzel
     rofi-wayland
     slurp
     grim
@@ -79,11 +75,8 @@ in
     pavucontrol
     swappy
     swaylock-effects
-    networkmanagerapplet
-    # wofi
     yad
     findutils
     wtype
-    kanshi
   ];
 }
