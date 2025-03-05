@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   programs.helix = with pkgs; {
-    package = pkgs.evil-helix;
     enable = true;
     #defaultEditor = true;
     extraPackages = [
@@ -17,7 +16,6 @@
       marksman
       nil
       nixd
-      nixfmt-rfc-style
       nixpkgs-fmt
       nodePackages.prettier
       nodePackages.typescript-language-server
@@ -32,8 +30,6 @@
       typescript
       vscode-langservers-extracted
       yaml-language-server
-      evil-helix
-      vscode-extensions.vadimcn.vscode-lldb
     ];
 
     settings = {
@@ -216,32 +212,27 @@
     #   };
     # };
 
-    languages = {
+    languages = [
       {
         name = "rust";
         debugger = {
-          command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+          command =
+            "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
           name = "codelldb";
           port-arg = "--port {}";
           transport = "tcp";
-          templates = [
-            {
+          templates = [{
+            name = "binary";
+            request = "launch";
+            completion = [{
+              completion = "filename";
               name = "binary";
-              request = "launch";
-              completion = [
-                {
-                  completion = "filename";
-                  name = "binary";
-                }
-              ];
-              args = [
-                {
-                  program = "{0}";
-                  runInTerminal = true;
-                }
-              ];
-            }
-          ];
+            }];
+            args = [{
+              program = "{0}";
+              runInTerminal = true;
+            }];
+          }];
         };
         language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
       }
@@ -249,274 +240,346 @@
         name = "toml";
         language-server = {
           command = "${pkgs.taplo}/bin/taplo";
-          args = ["lsp" "stdio"];
+          args = [ "lsp" "stdio" ];
         };
       }
-      language-server.biome = {
-        command = "biome";
-        args = [ "lsp-proxy" ];
-      };
-
-      language-server.gpt = {
-        command = "helix-gpt";
-        args = [ "--handler" "copilot" ];
-      };
-
-      # language-server.rust-analyzer.config.check = { command = "clippy"; };
-
-      language-server.yaml-language-server.config.yaml.schemas = {
-        kubernetes = "k8s/*.yaml";
-      };
-
-      language-server.typescript-language-server.config.tsserver = {
-        path = "${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js";
-      };
-
-      language = [
-        {
-          name = "css";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
-          formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.css" ];
-          };
-          auto-format = true;
-        }
-        {
-          name = "go";
-          language-servers = [ "gopls" "golangci-lint-lsp" "gpt" ];
-          formatter = { command = "goimports"; };
-          auto-format = true;
-        }
-        {
-          name = "html";
-          language-servers = [ "vscode-html-language-server" "gpt" ];
-          formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.html" ];
-          };
-          auto-format = true;
-        }
-        {
-          name = "javascript";
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-            "gpt"
+      {
+        name = "elixir";
+        language-server.command = "${pkgs.elixir_ls}/bin/elixir-ls";
+      }
+      {
+        name = "json";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.vscode-json-languageserver}/bin/vscode-json-languageserver";
+          args = [ "--stdin" ];
+        };
+      }
+      {
+        name = "c";
+        language-server.command =
+          "${pkgs.llvmPackages_latest.clang-unwrapped}/bin/clangd";
+      }
+      {
+        name = "cpp";
+        language-server.command =
+          "${pkgs.llvmPackages_latest.clang-unwrapped}/bin/clangd";
+      }
+      {
+        name = "javascript";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server";
+          args = [ "--stdio" ];
+          language-id = "javascript";
+        };
+      }
+      {
+        name = "jsx";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server";
+          args = [ "--stdio" ];
+          language-id = "javascriptreact";
+        };
+      }
+      {
+        name = "typescript";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server";
+          args = [ "--stdio" ];
+          language-id = "typescript";
+        };
+      }
+      {
+        name = "typescriptreact";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server";
+          args = [ "--stdio" ];
+          language-id = "typescriptreact";
+        };
+      }
+      {
+        name = "css";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver";
+          args = [ "--stdio" ];
+        };
+      }
+      {
+        name = "scss";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver";
+          args = [ "--stdio" ];
+        };
+      }
+      {
+        name = "html";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver";
+          args = [ "--stdio" ];
+        };
+      }
+      {
+        name = "python";
+        language-server.command =
+          "${pkgs.python3Packages.python-lsp-server}/bin/pylsp";
+      }
+      {
+        name = "nix";
+        language-server.command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
+      }
+      {
+        name = "bash";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
+          args = [ "start" ];
+        };
+      }
+      {
+        name = "latex";
+        language-server.command = "${pkgs.texlab}/bin/texlab";
+      }
+      {
+        name = "java";
+        language-server.command =
+          "${pkgs.jdt-language-server}/bin/jdt-language-server";
+      }
+      {
+        name = "vue";
+        language-server.command = "${pkgs.nodePackages.vls}/bin/vls";
+      }
+      {
+        name = "yaml";
+        language-server = {
+          command =
+            "${pkgs.nodePackages.yaml-language-server}/bin/yaml-language-server";
+          args = [ "--stdin" ];
+        };
+      }
+    ];
+    language = [
+      {
+        name = "css";
+        language-servers = [ "vscode-css-language-server" "gpt" ];
+        formatter = {
+          command = "prettier";
+          args = [ "--stdin-filepath" "file.css" ];
+        };
+        auto-format = true;
+      }
+      {
+        name = "go";
+        language-servers = [ "gopls" "golangci-lint-lsp" "gpt" ];
+        formatter = { command = "goimports"; };
+        auto-format = true;
+      }
+      {
+        name = "html";
+        language-servers = [ "vscode-html-language-server" "gpt" ];
+        formatter = {
+          command = "prettier";
+          args = [ "--stdin-filepath" "file.html" ];
+        };
+        auto-format = true;
+      }
+      {
+        name = "javascript";
+        language-servers = [
+          {
+            name = "typescript-language-server";
+            except-features = [ "format" ];
+          }
+          "biome"
+          "gpt"
+        ];
+        auto-format = true;
+      }
+      {
+        name = "json";
+        language-servers = [
+          {
+            name = "vscode-json-language-server";
+            except-features = [ "format" ];
+          }
+          "biome"
+        ];
+        formatter = {
+          command = "biome";
+          args = [
+            "format"
+            "--indent-style"
+            "space"
+            "--stdin-file-path"
+            "file.json"
           ];
-          auto-format = true;
-        }
-        {
-          name = "json";
-          language-servers = [
-            {
-              name = "vscode-json-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
+        };
+        auto-format = true;
+      }
+      {
+        name = "jsonc";
+        language-servers = [
+          {
+            name = "vscode-json-language-server";
+            except-features = [ "format" ];
+          }
+          "biome"
+        ];
+        formatter = {
+          command = "biome";
+          args = [
+            "format"
+            "--indent-style"
+            "space"
+            "--stdin-file-path"
+            "file.jsonc"
           ];
-          formatter = {
-            command = "biome";
-            args = [
-              "format"
-              "--indent-style"
-              "space"
-              "--stdin-file-path"
-              "file.json"
-            ];
-          };
-          auto-format = true;
-        }
-        {
-          name = "jsonc";
-          language-servers = [
-            {
-              name = "vscode-json-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
+        };
+        file-types = [ "jsonc" "hujson" ];
+        auto-format = true;
+      }
+      {
+        name = "jsx";
+        language-servers = [
+          {
+            name = "typescript-language-server";
+            except-features = [ "format" ];
+          }
+          "biome"
+          "gpt"
+        ];
+        formatter = {
+          command = "biome";
+          args = [
+            "format"
+            "--indent-style"
+            "space"
+            "--stdin-file-path"
+            "file.jsx"
           ];
-          formatter = {
-            command = "biome";
-            args = [
-              "format"
-              "--indent-style"
-              "space"
-              "--stdin-file-path"
-              "file.jsonc"
-            ];
-          };
-          file-types = [ "jsonc" "hujson" ];
-          auto-format = true;
-        }
-        {
-          name = "jsx";
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-            "gpt"
+        };
+        auto-format = true;
+      }
+      # {
+      #   name = "markdown";
+      #   language-servers = [ "marksman" "gpt" ];
+      #   formatter = {
+      #     command = "prettier";
+      #     args = [ "--stdin-filepath" "file.md" ];
+      #   };
+      #   auto-format = true;
+      # }
+      {
+        name = "nix";
+        formatter = {
+          command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
+        };
+        auto-format = true;
+      }
+      {
+        name = "python";
+        language-servers = [ "pylsp" "gpt" ];
+        formatter = {
+          command = "sh";
+          args = [
+            "-c"
+            "ruff check --select I --fix - | ruff format --line-length 88 -"
           ];
-          formatter = {
-            command = "biome";
-            args = [
-              "format"
-              "--indent-style"
-              "space"
-              "--stdin-file-path"
-              "file.jsx"
-            ];
-          };
-          auto-format = true;
-        }
-        # {
-        #   name = "markdown";
-        #   language-servers = [ "marksman" "gpt" ];
-        #   formatter = {
-        #     command = "prettier";
-        #     args = [ "--stdin-filepath" "file.md" ];
-        #   };
-        #   auto-format = true;
-        # }
-        {
-          name = "nix";
-          formatter = { command = "${pkgs.nixfmt}/bin/nixfmt"; };
-          auto-format = true;
-        }
-        {
-          name = "python";
-          language-servers = [ "pylsp" "gpt" ];
-          formatter = {
-            command = "sh";
-            args = [
-              "-c"
-              "ruff check --select I --fix - | ruff format --line-length 88 -"
-            ];
-          };
-          auto-format = true;
-        }
-        # {
-        #   name = "rust";
-        #   debugger = {
-        #     command =
-        #       "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-        #     name = "codelldb";
-        #     port-arg = "--port {}";
-        #     transport = "tcp";
-        #     templates = [{
-        #       name = "binary";
-        #       request = "launch";
-        #       completion = [{
-        #         completion = "filename";
-        #         name = "binary";
-        #       }];
-        #       args = [{
-        #         program = "{0}";
-        #         runInTerminal = true;
-        #       }];
-        #     }];
-        #   };
-        #   language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-        # }
-        # {
-        #   name = "toml";
-        #   language-server = {
-        #     command = "${pkgs.taplo}/bin/taplo";
-        #     args = [ "lsp" "stdio" ];
-        #   };
-        # }
-        {
-          name = "scss";
-          language-servers = [ "vscode-css-language-server" "gpt" ];
-          formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.scss" ];
-          };
-          auto-format = true;
-        }
-        {
-          name = "sql";
-          language-servers = [ "gpt" ];
-          formatter = {
-            command = "sql-formatter";
-            args = [
-              "-l"
-              "postgresql"
-              "-c"
-              ''
-                {"keywordCase": "lower", "dataTypeCase": "lower", "functionCase": "lower", "expressionWidth": 120, "tabWidth": 4}''
-            ];
-          };
-          auto-format = true;
-        }
-        # {
-        #   name = "toml";
-        #   language-servers = [ "taplo" ];
-        #   formatter = {
-        #     command = "taplo";
-        #     args = [ "fmt" "-o" "column_width=120" "-" ];
-        #   };
-        #   auto-format = true;
-        # }
-        {
-          name = "tsx";
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-            "gpt"
+        };
+        auto-format = true;
+      }
+      # {
+      #   name = "rust";
+      #   language-servers = [ "rust-analyzer" "gpt" ];
+      #   auto-format = true;
+      # }
+      {
+        name = "scss";
+        language-servers = [ "vscode-css-language-server" "gpt" ];
+        formatter = {
+          command = "prettier";
+          args = [ "--stdin-filepath" "file.scss" ];
+        };
+        auto-format = true;
+      }
+      {
+        name = "sql";
+        language-servers = [ "gpt" ];
+        formatter = {
+          command = "sql-formatter";
+          args = [
+            "-l"
+            "postgresql"
+            "-c"
+            ''
+              {"keywordCase": "lower", "dataTypeCase": "lower", "functionCase": "lower", "expressionWidth": 120, "tabWidth": 4}''
           ];
-          formatter = {
-            command = "biome";
-            args = [
-              "format"
-              "--indent-style"
-              "space"
-              "--stdin-file-path"
-              "file.tsx"
-            ];
-          };
-          auto-format = true;
-        }
-        {
-          name = "typescript";
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-            "gpt"
+        };
+        auto-format = true;
+      }
+      # {
+      #   name = "toml";
+      #   language-servers = [ "taplo" ];
+      #   formatter = {
+      #     command = "taplo";
+      #     args = [ "fmt" "-o" "column_width=120" "-" ];
+      #   };
+      #   auto-format = true;
+      # }
+      {
+        name = "tsx";
+        language-servers = [
+          {
+            name = "typescript-language-server";
+            except-features = [ "format" ];
+          }
+          "biome"
+          "gpt"
+        ];
+        formatter = {
+          command = "biome";
+          args = [
+            "format"
+            "--indent-style"
+            "space"
+            "--stdin-file-path"
+            "file.tsx"
           ];
-          formatter = {
-            command = "biome";
-            args = [
-              "format"
-              "--indent-style"
-              "space"
-              "--stdin-file-path"
-              "file.ts"
-            ];
-          };
-          auto-format = true;
-        }
-        {
-          name = "yaml";
-          language-servers = [ "yaml-language-server" ];
-          formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.yaml" ];
-          };
-          auto-format = true;
-        }
-      ];
-    };
+        };
+        auto-format = true;
+      }
+      {
+        name = "typescript";
+        language-servers = [
+          {
+            name = "typescript-language-server";
+            except-features = [ "format" ];
+          }
+          "biome"
+          "gpt"
+        ];
+        formatter = {
+          command = "biome";
+          args =
+            [ "format" "--indent-style" "space" "--stdin-file-path" "file.ts" ];
+        };
+        auto-format = true;
+      }
+      {
+        name = "yaml";
+        language-servers = [ "yaml-language-server" ];
+        formatter = {
+          command = "prettier";
+          args = [ "--stdin-filepath" "file.yaml" ];
+        };
+        auto-format = true;
+      }
+    ];
   };
 }
