@@ -215,17 +215,13 @@ in {
     # The line beneath this is called `modeline`. See `:help modeline`
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapost
     extraConfigLuaPost = ''
-              vim.api.nvim_create_autocmd("LspAttach", {
-          callback = function(args)
-            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-          end,
-        })
+            vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+        end,
+      })
 
-      highlight! link LspDiagnosticsError Red;
-      highlight! link LspDiagnosticsWarning Yellow;
-      highlight! link LspDiagnosticsInformation Cyan;
-      highlight! link LspDiagnosticsHint Green;
-              -- vim: ts=2 sts=2 sw=2 et
+            -- vim: ts=2 sts=2 sw=2 et
     '';
   };
 }

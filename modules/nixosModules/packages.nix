@@ -16,6 +16,7 @@
     wlr-randr
     evcxr # rust repl
     rustup
+    vscode-extensions.vadimcn.vscode-lldb
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
