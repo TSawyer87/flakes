@@ -33,6 +33,7 @@
       vscode-langservers-extracted
       yaml-language-server
       evil-helix
+      vscode-extensions.vadimcn.vscode-lldb
     ];
 
     settings = {
