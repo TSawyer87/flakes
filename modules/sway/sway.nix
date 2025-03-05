@@ -7,13 +7,6 @@ in
 {
   imports = [ ./keybinds.nix ./kanshi.nix ./fuzzel.nix ];
 
-  # programs.wofi = {
-  #   enable = true;
-  #   settings = {
-  #     allow_markup = true;
-  #     width = 250;
-  #   };
-  # };
   jr.opt.services.kanshi.enable = false; # Enables the kanshi service
 
   wayland.windowManager.sway = {
@@ -87,6 +80,8 @@ in
     swaynotificationcenter
     pavucontrol
     swappy
+    swaylock
+    swaylock-effects
     networkmanagerapplet
     # wofi
     yad

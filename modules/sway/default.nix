@@ -8,6 +8,7 @@
     ./swayr.nix
     ./swaync.nix
     ./swayidle.nix
+    ./swaylock.nix
     # ./swayfx.nix
   ];
 }
