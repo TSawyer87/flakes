@@ -227,7 +227,7 @@
         args = [ "--handler" "copilot" ];
       };
 
-      language-server.rust-analyzer.config.check = { command = "clippy"; };
+      # language-server.rust-analyzer.config.check = { command = "clippy"; };
 
       language-server.yaml-language-server.config.yaml.schemas = {
         kubernetes = "k8s/*.yaml";
