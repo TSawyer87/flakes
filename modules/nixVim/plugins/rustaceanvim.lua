@@ -1,19 +1,21 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
+  # Needed for RustPlay
+  extraPlugins = with pkgs.vimPlugins; [ webapi-vim ];
+
   programs.nixvim = {
-    plugins = {
-      rustaceanvim = {
-        enable = true;
-        settings = {
-          dap = {
-            autoloadConfigurations = true;
-          };
+  plugins = {
+    rustaceanvim = {
+      enable = true;
+      settings = {
 
-          server = {
-            # default_settings is usually for settings that apply to ALL servers
-            # You don't need it if you're configuring a specific server like rust-analyzer
-            # default_settings = { ... };  <- Remove this
+        dap = {
+          autoloadConfigurations = true;
+        };
 
-            rust-analyzer = {  # <- Settings for rust-analyzer go directly here
+        server = {
+          default_settings = {
+            rust-analyzer = {
               cargo = {
                 buildScripts.enable = true;
                 features = "all";
@@ -56,10 +58,11 @@
               };
 
               rustc.source = "discover";
-            }; # <- End of rust-analyzer settings
-          }; # <- End of server settings
-        }; # <- End of settings
-      }; # <- End of rustaceanvim plugin
-    }; # <- End of plugins
-  }; # <- End of programs.nixvim
+            };
+          };
+        };
+      };
+    };
+  };
+};
 }

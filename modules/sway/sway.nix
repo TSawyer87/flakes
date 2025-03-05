@@ -72,7 +72,6 @@ in
     wl-clipboard
     cliphist
     fuzzel
-    wlogout
     rofi-wayland
     slurp
     grim
