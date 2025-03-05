@@ -1,7 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   programs.helix = with pkgs; {
     enable = true;
-    #defaultEditor = true;
+    # defaultEditor = true;
     extraPackages = [
       bash-language-server
       biome
@@ -30,48 +32,39 @@
       typescript
       vscode-langservers-extracted
       yaml-language-server
+      vscode-extensions.vadimcn.vscode-lldb # Added for codelldb
     ];
 
     settings = {
-      # theme = "gruvbox_community";
-
       editor = {
         color-modes = true;
         cursorline = true;
         bufferline = "multiple";
-
         soft-wrap.enable = true;
-
         auto-save = {
           focus-lost = true;
           after-delay.enable = true;
         };
-
         cursor-shape = {
           insert = "bar";
           normal = "block";
           select = "underline";
         };
-
         file-picker = {
           hidden = false;
           ignore = false;
         };
-
         indent-guides = {
           character = "┊";
           render = true;
           skip-levels = 1;
         };
-
         end-of-line-diagnostics = "hint";
         inline-diagnostics.cursor-line = "warning";
-
         lsp = {
           display-inlay-hints = true;
           display-messages = true;
         };
-
         statusline = {
           left = [
             "mode"
@@ -141,7 +134,6 @@
             "delete_selection"
             "extend_to_line_bounds"
             "yank_main_selection_to_clipboard"
-
           ];
           D = [
             "extend_to_line_end"
@@ -155,17 +147,14 @@
           C-u = [ "page_cursor_half_up" "align_view_center" ];
           tab = "move_parent_node_end";
           S-tab = "move_parent_node_start";
-
           G = {
             j = "@vgj<esc>";
             k = "@vgk<esc>";
           };
-
           g = {
             j = "goto_last_line";
             k = "goto_file_start";
           };
-
           space = {
             c = ":buffer-close";
             A-f = ":toggle auto-format";
@@ -177,7 +166,6 @@
             "." = ":toggle file-picker.git-ignore";
           };
         };
-
         insert = {
           C-u =
             [ "extend_to_line_bounds" "delete_selection_noyank" "open_above" ];
@@ -185,11 +173,9 @@
           C-space = "completion";
           S-tab = "move_parent_node_start";
         };
-
         select = {
           tab = "extend_parent_node_end";
           S-tab = "extend_parent_node_start";
-
           g = {
             j = "goto_last_line";
             k = "goto_file_start";
@@ -198,39 +184,30 @@
       };
     };
 
-    # themes = {
-    #   # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
-    #   gruvbox_community = {
-    #     inherits = "gruvbox";
-    #     "variable" = "blue1";
-    #     "variable.parameter" = "blue1";
-    #     "function.macro" = "red1";
-    #     "operator" = "orange1";
-    #     "comment" = "gray";
-    #     "constant.builtin" = "orange1";
-    #     "ui.background" = { };
-    #   };
-    # };
-
     languages = {
-      language-server.biome = {
-        command = "biome";
-        args = [ "lsp-proxy" ];
-      };
-
-      language-server.gpt = {
-        command = "helix-gpt";
-        args = [ "--handler" "copilot" ];
-      };
-
-      language-server.rust-analyzer.config.check = { command = "clippy"; };
-
-      language-server.yaml-language-server.config.yaml.schemas = {
-        kubernetes = "k8s/*.yaml";
-      };
-
-      language-server.typescript-language-server.config.tsserver = {
-        path = "${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js";
+      language-server = {
+        biome = {
+          command = "biome";
+          args = [ "lsp-proxy" ];
+        };
+        gpt = {
+          command = "helix-gpt";
+          args = [ "--handler" "copilot" ];
+        };
+        rust-analyzer = {
+          command = "${rust-analyzer}/bin/rust-analyzer";
+          config.check = { command = "clippy"; };
+        };
+        yaml-language-server = {
+          command = "yaml-language-server";
+          config.yaml.schemas = { kubernetes = "k8s/*.yaml"; };
+        };
+        typescript-language-server = {
+          command = "typescript-language-server";
+          args = [ "--stdio" ];
+          config.tsserver.path =
+            "${typescript}/lib/node_modules/typescript/lib/tsserver.js";
+        };
       };
 
       language = [
@@ -335,20 +312,9 @@
           };
           auto-format = true;
         }
-        # {
-        #   name = "markdown";
-        #   language-servers = [ "marksman" "gpt" ];
-        #   formatter = {
-        #     command = "prettier";
-        #     args = [ "--stdin-filepath" "file.md" ];
-        #   };
-        #   auto-format = true;
-        # }
         {
           name = "nix";
-          formatter = {
-            command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
-          };
+          formatter = { command = "${nixfmt-rfc-style}/bin/nixfmt-rfc-style"; };
           auto-format = true;
         }
         {
@@ -365,31 +331,25 @@
         }
         {
           name = "rust";
-          # Language Server (rust-analyzer)
-          language-servers =
-            [ "rust-analyzer" ]; # Reference the server defined below
-          # Debugger (codelldb)
+          language-servers = [ "rust-analyzer" ];
           debugger = {
             name = "codelldb";
             transport = "tcp";
             command =
-              "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-            portArg = "--port {}"; # Corrected from port-arg
+              "${vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+            portArg = "--port {}";
             templates = [{
               name = "binary";
               request = "launch";
               runInTerminal = true;
-              args = [
-                "--log-level=debug" # codelldb argument
-                "--" # Separator for binary args
-                "{0}" # Placeholder for the binary path from completion
-              ];
+              args = [ "--log-level=debug" "--" "{0}" ];
               completion = [{
                 name = "binary";
                 completion = "filename";
               }];
             }];
           };
+          auto-format = true; # Optional, if you want rust-analyzer formatting
         }
         {
           name = "scss";
