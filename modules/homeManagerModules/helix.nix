@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   programs.helix = with pkgs; {
+    package = pkgs.evil-helix;
     enable = true;
     #defaultEditor = true;
     extraPackages = [
@@ -31,6 +32,7 @@
       typescript
       vscode-langservers-extracted
       yaml-language-server
+      evil-helix
     ];
 
     settings = {
