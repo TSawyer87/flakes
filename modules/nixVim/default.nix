@@ -3,10 +3,10 @@
 {
   imports = [ inputs.nixvim.homeManagerModules.nixvim ];
 
-  settings.editor = {
-    bin = "nvim";
-    terminal = true;
-  };
+  # settings.editor = {
+  #   bin = "nvim";
+  #   terminal = true;
+  # };
 
   home.sessionVariables = {
     EDITOR = "nvim";
