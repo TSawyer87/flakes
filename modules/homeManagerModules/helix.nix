@@ -367,9 +367,33 @@
         }
         {
           name = "rust";
-          language-servers = [ "rust-analyzer" "gpt" ];
-          auto-format = true;
-          # debug = { adapter = { command = "lldb-dap"; }; };
+          debugger = {
+            command =
+              "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+            name = "codelldb";
+            port-arg = "--port {}";
+            transport = "tcp";
+            templates = [{
+              name = "binary";
+              request = "launch";
+              completion = [{
+                completion = "filename";
+                name = "binary";
+              }];
+              args = [{
+                program = "{0}";
+                runInTerminal = true;
+              }];
+            }];
+          };
+          language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        }
+        {
+          name = "toml";
+          language-server = {
+            command = "${pkgs.taplo}/bin/taplo";
+            args = [ "lsp" "stdio" ];
+          };
         }
         {
           name = "scss";
@@ -395,15 +419,15 @@
           };
           auto-format = true;
         }
-        {
-          name = "toml";
-          language-servers = [ "taplo" ];
-          formatter = {
-            command = "taplo";
-            args = [ "fmt" "-o" "column_width=120" "-" ];
-          };
-          auto-format = true;
-        }
+        # {
+        #   name = "toml";
+        #   language-servers = [ "taplo" ];
+        #   formatter = {
+        #     command = "taplo";
+        #     args = [ "fmt" "-o" "column_width=120" "-" ];
+        #   };
+        #   auto-format = true;
+        # }
         {
           name = "tsx";
           language-servers = [
