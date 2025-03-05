@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
+    package = pkgs.evil-helix;
     #defaultEditor = true;
     extraPackages = [
       bash-language-server
@@ -97,12 +98,12 @@
       keys = {
         normal = {
           H = "extend_char_left";
-          x = "delete_selection";
+          # x = "delete_selection";
           J = [ "extend_line_down" "extend_to_line_bounds" ];
           K = [ "extend_line_up" "extend_to_line_bounds" ];
           "%" = "match_brackets";
-          "0" = "goto_line_start";
-          "$" = "goto_line_end";
+          # "0" = "goto_line_start";
+          # "$" = "goto_line_end";
           "{" = [ "extend_to_line_bounds" "goto_prev_paragraph" ];
           "}" = [ "extend_to_line_bounds" "goto_next_paragraph" ];
           "^" = "goto_first_nonwhitespace";
@@ -143,11 +144,11 @@
             "yank_main_selection_to_clipboard"
 
           ];
-          D = [
-            "extend_to_line_end"
-            "yank_main_selection_to_clipboard"
-            "delete_selection"
-          ];
+          # D = [
+          #   "extend_to_line_end"
+          #   "yank_main_selection_to_clipboard"
+          #   "delete_selection"
+          # ];
           N = "extend_search_next";
           A-n = "search_prev";
           A-N = "extend_search_prev";
