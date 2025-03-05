@@ -1,5 +1,6 @@
 {
   pkgs,
+lib,
   ...
 }: {
   programs.swaylock = {
@@ -7,7 +8,7 @@
     package = pkgs.swaylock-effects;
 
     settings = {
-      image = "/home/jr/flakes/modules/wallpapers/wallpaper1.png";
+      image = lib.mkDefault "/home/jr/flakes/modules/wallpapers/wallpaper1.png";
 
       clock = true;
       timestr = "%T";
