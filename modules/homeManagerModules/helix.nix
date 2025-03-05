@@ -378,12 +378,7 @@
                 completion = "filename";
                 name = "binary";
               }];
-              # args = [
-              #   {
-              #     program = "{0}";
-              #     runInTerminal = true;
-              #   }
-              # ];
+              args = [ "--stdin-filepath" "fmt" ];
             }];
           };
           language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
