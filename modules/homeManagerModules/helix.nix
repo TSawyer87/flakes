@@ -365,25 +365,31 @@
         }
         {
           name = "rust";
+          # Language Server (rust-analyzer)
+          language-servers =
+            [ "rust-analyzer" ]; # Reference the server defined below
+          # Debugger (codelldb)
           debugger = {
+            name = "codelldb";
+            transport = "tcp";
             command =
               "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-            name = "codelldb";
-            port-arg = "--port {}";
-            transport = "tcp";
+            portArg = "--port {}"; # Corrected from port-arg
             templates = [{
               name = "binary";
               request = "launch";
-              completion = [{
-                completion = "filename";
-                name = "binary";
-              }];
-              args = [ "--log-level=debug" ]; # Arguments to codelldb
-              program = "{0}"; # Arguments to the debugged binary
               runInTerminal = true;
+              args = [
+                "--log-level=debug" # codelldb argument
+                "--" # Separator for binary args
+                "{0}" # Placeholder for the binary path from completion
+              ];
+              completion = [{
+                name = "binary";
+                completion = "filename";
+              }];
             }];
           };
-          language-server.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         }
         {
           name = "scss";
