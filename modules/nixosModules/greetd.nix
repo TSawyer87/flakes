@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       default_session.command = ''
-        ${pkgs.greetd.tuigreet}/bin/tuigreet \
+        ${pkgs.greetd.gtkgreet}/bin/gtkgreet \
           --time \
           --asterisks \
           --user-menu \
