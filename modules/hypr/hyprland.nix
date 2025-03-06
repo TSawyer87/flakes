@@ -11,9 +11,9 @@
   ];
   systemd.user.targets.hyprland-session.Unit.Wants =
     [ "xdg-desktop-autostart.target" ];
-  programs.hyprland.withUWSM = true;
   wayland.windowManager.hyprland = {
     enable = true;
+    withUWSM = true;
     xwayland = {
       enable = true;
       # hidpi = true;
