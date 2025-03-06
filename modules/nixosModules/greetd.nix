@@ -5,9 +5,6 @@
     settings = {
       default_session.command = ''
         ${pkgs.greetd.regreet}/bin/regreet \
-          --time \
-          --asterisks \
-          --user-menu \
           --cmd ${pkgs.hyprland}/bin/Hyprland
           # --cmd ${pkgs.sway}/bin/sway
       '';
