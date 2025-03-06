@@ -9,7 +9,7 @@
           --user-menu \
           # --cmd ${pkgs.sway}/bin/sway
           --cmd ${pkgs.hyprland}/bin/Hyprland
-          # --cmd Hyprland
+           --cmd uwsm start hyprland.desktop
       '';
     };
   };
