@@ -1,11 +1,10 @@
-{
-  ...
-}:
-{
+{ ... }: {
   imports = [
+    ./config.nix
+    ./hypridle.nix
     ./hyprland.nix
-    ./swaync.nix
-    ./waybar.nix
-    ./wlogout.nix
+    ./hyprlock.nix
+    ./pyprland.nix
   ];
 }
+
