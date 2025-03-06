@@ -2,9 +2,9 @@
 
 - This flake provides two NixOS configurations:
 
-    - magic: A desktop configuration for AMD hardware. More recent updates.
+  - magic: A desktop configuration for AMD hardware. More recent updates.
 
-    - laptop: A desktop configuration for Intel hardware.
+  - laptop: A desktop configuration for Intel hardware.
 
 **Customizing the Flake**
 

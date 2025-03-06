@@ -9,8 +9,8 @@
   # Import Program Configurations
   imports = [
     ../../config/emoji.nix
-    #../../modules/hypr
-    ../../modules/sway
+    ../../modules/hypr
+    # ../../modules/sway
     #../../config/nvf.nix
     ../../modules/rofi
     ../../modules/shells

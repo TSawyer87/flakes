@@ -7,7 +7,8 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd ${pkgs.sway}/bin/sway
+          # --cmd ${pkgs.sway}/bin/sway
+          --cmd Hyprland
       '';
     };
   };
