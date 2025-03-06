@@ -7,6 +7,7 @@
     ./pyprland.nix
     ./waybar.nix
     ./wlogout.nix
+    ./keybinds.nix
   ];
 }
 
