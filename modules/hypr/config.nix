@@ -22,6 +22,7 @@ in {
         kb_layout = "${keyboardLayout}";
         kb_options = [ "grp:alt_caps_toggle" "caps:super" ];
         numlock_by_default = true;
+        repeat_rate = 50;
         repeat_delay = 300;
         follow_mouse = 1;
         sensitivity = 0;
@@ -99,6 +100,7 @@ in {
         "$modifier ALT,W,exec,wallsetter"
         "$modifier SHIFT,N,exec,swaync-client -rs"
         "$modifier,W,exec,${browser}"
+        "$modifier,F,exec,firefox"
         "$modifier,E,exec,emopicker9000"
         "$modifier,S,exec,screenshootin"
         "$modifier,D,exec,discord"
@@ -112,7 +114,7 @@ in {
         "$modifier,P,exec,pypr toggle volume"
         "$modifier SHIFT,P,pseudo,"
         "$modifier SHIFT,I,togglesplit,"
-        "$modifier,F,fullscreen,"
+        "ALT,Return,fullscreen,"
         "$modifier SHIFT,F,togglefloating,"
         "$modifier SHIFT,C,exit,"
         "$modifier SHIFT,left,movewindow,l"

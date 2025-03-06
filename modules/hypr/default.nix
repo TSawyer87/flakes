@@ -5,6 +5,8 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./pyprland.nix
+    ./waybar.nix
+    ./wlogout.nix
   ];
 }
 
