@@ -11,7 +11,7 @@ _: {
       };
 
       logo = {
-        source = ./pngegg.png;
+        source = ./jason.png;
         type = "kitty";
         height = 18;
         width = 30;
