@@ -1,4 +1,4 @@
-{ pkgs, hyprland, ... }: {
+{ pkgs, ... }: {
   services.greetd = {
     enable = true;
     settings = {
@@ -10,9 +10,7 @@
           # --cmd ${pkgs.sway}/bin/sway
           --cmd ${pkgs.hyprland}/bin/Hyprland
            # --cmd uwsm start hyprland.desktop
-           -- cmd ${
-             hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
-           }/bin/Hyprland
+           # -- cmd {inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/Hyprland
       '';
     };
   };
