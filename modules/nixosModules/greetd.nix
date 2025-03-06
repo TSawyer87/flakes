@@ -8,7 +8,7 @@
           --asterisks \
           --user-menu \
           # --cmd ${pkgs.sway}/bin/sway
-          --cmd Hyprland
+          --cmd ${pkgs.hyprland}/bin/hyprland
       '';
     };
   };
