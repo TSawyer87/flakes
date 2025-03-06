@@ -22,6 +22,7 @@ in {
         "$modifier,G,exec,gimp"
         "$modifier SHIFT,Return, exec,pypr toggle term"
         "$modifier SHIFT,T,exec,pypr toggle thunar"
+        "CONTROL ALT, Delete, exec, wlogout"
         "$modifier,M,exec,pavucontrol"
         "$modifier,Q,killactive,"
         "$modifier,P,exec,pypr toggle volume"
