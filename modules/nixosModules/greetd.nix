@@ -1,8 +1,9 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, inputs, lib, ... }:
 let
-  hypr = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland ''
-    exec "${config.programs.regreet.package}/bin/regreet; ${config.programs.hyprland.package}/bin/Hyprland exit"
-  '';
+  hypr = lib.getExe
+    inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland ''
+      exec "${config.programs.regreet.package}/bin/regreet; ${config.programs.hyprland.package}/bin/Hyprland exit"
+    '';
 in {
 
   programs.regreet.enable = true;
