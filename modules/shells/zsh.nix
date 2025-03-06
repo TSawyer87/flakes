@@ -10,9 +10,9 @@
       plugins = [ "git" "sudo" "rust" "fzf" ];
     };
     profileExtra = ''
-      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-       exec Hyprland
-      fi
+      # if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+      #  exec Hyprland
+      # fi
       autoload -U compinit
       compinit
       setopt correct                                                  # Auto correct mistakes
