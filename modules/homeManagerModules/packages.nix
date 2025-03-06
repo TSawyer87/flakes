@@ -10,7 +10,6 @@
     pkgs.usbutils # lsusb
     pkgs.diff-so-fancy
     pkgs.pistol
-    pkgs.wl-copy
     (import ../../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../../scripts/task-waybar.nix { inherit pkgs; })
     (import ../../scripts/squirtle.nix { inherit pkgs; })
