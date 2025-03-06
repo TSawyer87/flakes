@@ -3,8 +3,8 @@
     enable = true;
     settings = {
       default_session = {
-        command =
-          "${pkgs.regreet}/bin/regreet --command ${config.programs.hyprland.package}/bin/Hyprland";
+        command = "Hyprland --config /home/jr/flakes/modules/hypr/config.nix";
+        user = "greeter";
       };
     };
   };
