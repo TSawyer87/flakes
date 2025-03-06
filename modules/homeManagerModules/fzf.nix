@@ -1,6 +1,9 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   # https://manpages.debian.org/unstable/fzf/fzf.1.en.html
+  wl-copy = pkgs.wl-copy;
+  pistol = pkgs.pistol;
+  fzf = pkgs.fzf;
   common = [
     "--reverse"
     "--preview 'echo {}'"
