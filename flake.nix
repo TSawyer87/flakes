@@ -14,6 +14,7 @@
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
     helix.url = "github:helix-editor/helix";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # lanzaboote = {
     #     #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
@@ -45,8 +46,8 @@
     # };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nix-index-database, helix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, helix, hyprland
+    , ... }@inputs:
     let
       inherit (self) outputs;
 
