@@ -1,4 +1,4 @@
-{ username, ... }: {
+{ username, lib, ... }: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -9,7 +9,8 @@
         no_fade_in = false;
       };
       background = [{
-        path = "/home/${username}/Pictures/Wallpapers/wallpaper1.png";
+        path =
+          lib.mkDefault "/home/${username}/Pictures/Wallpapers/wallpaper1.png";
         blur_passes = 3;
         blur_size = 8;
       }];
