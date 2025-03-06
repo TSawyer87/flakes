@@ -9,7 +9,6 @@
     wpaperd
     # hyprland-uwsm
   ];
-  exec-once = regreet; hyprctl dispatch exit
   systemd.user.targets.hyprland-session.Unit.Wants =
     [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
