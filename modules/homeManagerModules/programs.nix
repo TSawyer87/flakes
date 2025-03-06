@@ -22,7 +22,7 @@ in {
       settings = { vim_keys = true; };
     };
     hyprlock = {
-      enable = true;
+      enable = false;
       settings = {
         general = {
           disable_loading_bar = true;
