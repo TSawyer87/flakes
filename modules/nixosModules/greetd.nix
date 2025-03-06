@@ -7,7 +7,7 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd ${pkgs.sway}/bin/sway
+          # --cmd ${pkgs.sway}/bin/sway
           --cmd ${pkgs.hyprland}/bin/Hyprland
            # --cmd uwsm start hyprland.desktop
       '';
