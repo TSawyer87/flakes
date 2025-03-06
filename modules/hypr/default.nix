@@ -4,7 +4,7 @@
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
-    # ./pyprland.nix
+    ./pyprland.nix
   ];
 }
 
