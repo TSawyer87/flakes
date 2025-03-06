@@ -10,7 +10,7 @@
   imports = [
     ../../config/emoji.nix
     ../../modules/hypr
-    # ../../modules/sway
+    ../../modules/sway
     #../../config/nvf.nix
     ../../modules/rofi
     ../../modules/shells
