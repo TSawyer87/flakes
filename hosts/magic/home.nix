@@ -1,4 +1,4 @@
-{ pkgs, username, inputs, nix-index-database, ... }: {
+{ pkgs, username, inputs, ... }: {
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -21,12 +21,10 @@
     ../../modules/homeManagerModules
   ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    systemd.enable = true;
-  };
-
-  home.packages = with pkgs; [ lldb ];
+  home.packages = with pkgs; [
+    lldb
+    inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
+  ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
