@@ -21,17 +21,17 @@ in {
       enable = true;
       settings = { vim_keys = true; };
     };
-    hyprlock = {
-      enable = false;
-      settings = {
-        general = {
-          disable_loading_bar = true;
-          grace = 10;
-          hide_cursor = true;
-          no_fade_in = false;
-        };
-      };
-    };
+    # hyprlock = {
+    #   enable = false;
+    #   settings = {
+    #     general = {
+    #       disable_loading_bar = true;
+    #       grace = 10;
+    #       hide_cursor = true;
+    #       no_fade_in = false;
+    #     };
+    #   };
+    # };
     # foot = {
     #   enable = true;
     #   server.enable = true;
