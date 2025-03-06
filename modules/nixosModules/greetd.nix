@@ -1,6 +1,6 @@
 { pkgs, config, inputs, ... }:
 let
-  hypr = inputs.hyland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland ''
+  hypr = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland ''
     exec "${config.programs.regreet.package}/bin/regreet; ${config.programs.hyprland.package}/bin/Hyprland exit"
   '';
 in {
