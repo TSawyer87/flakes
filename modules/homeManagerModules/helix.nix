@@ -364,9 +364,17 @@
           };
           auto-format = true;
         }
+        # {
+        #   name = "rust";
+        #   language-servers = [ "rust-analyzer" "gpt" ];
+        #   auto-format = true;
+        # }
         {
           name = "rust";
-          language-servers = [ "rust-analyzer" "gpt" ];
+          formatter = {
+            command = "rustfmt";
+            args = [ "--edition=2024" ];
+          };
           auto-format = true;
         }
         {
