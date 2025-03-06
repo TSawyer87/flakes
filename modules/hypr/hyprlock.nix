@@ -10,7 +10,7 @@
       };
       background = [{
         path =
-          lib.mkDefault "/home/${username}/Pictures/Wallpapers/wallpaper1.png";
+          lib.mkForce "/home/${username}/Pictures/Wallpapers/wallpaper1.png";
         blur_passes = 3;
         blur_size = 8;
       }];
