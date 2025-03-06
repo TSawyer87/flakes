@@ -1,6 +1,5 @@
 { lib, config, ... }:
 let
-  inherit (config.commands) pistol fzf wl-copy;
   # https://manpages.debian.org/unstable/fzf/fzf.1.en.html
   common = [
     "--reverse"
