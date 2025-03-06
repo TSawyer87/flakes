@@ -14,7 +14,7 @@
     ./jj.nix
     ./direnv.nix
     ./helix.nix
-    ./fzf.nix
+    # ./fzf.nix
     ./nushell.nix
   ];
 }
