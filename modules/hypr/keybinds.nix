@@ -8,7 +8,7 @@ in {
 
       bind = [
         "$modifier,Return,exec,${terminal}"
-        "$modifier SHIFT,Return,exec,rofi-launcher"
+        "CONTROL,Return,exec,rofi-launcher"
         "$modifier SHIFT,W,exec,web-search"
         "$modifier ALT,W,exec,wpaperd&"
         "$modifier SHIFT,N,exec,swaync-client -rs"
@@ -20,7 +20,7 @@ in {
         "$modifier,O,exec,obs"
         "$modifier,C,exec,hyprpicker -a"
         "$modifier,G,exec,gimp"
-        "$modifier,T,exec,pypr toggle term"
+        "$modifier SHIFT,Return, exec,pypr toggle term"
         "$modifier SHIFT,T,exec,pypr toggle thunar"
         "$modifier,M,exec,pavucontrol"
         "$modifier,Q,killactive,"
