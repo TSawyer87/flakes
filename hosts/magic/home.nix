@@ -10,7 +10,7 @@
   imports = [
     ../../config/emoji.nix
     ../../modules/hypr
-    ../../modules/sway
+    # ../../modules/sway
     #../../config/nvf.nix
     ../../modules/rofi
     ../../modules/shells
@@ -20,6 +20,11 @@
     ../../modules/nixVim
     ../../modules/homeManagerModules
   ];
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    systemd.enable = true;
+  };
 
   home.packages = with pkgs; [ lldb ];
 

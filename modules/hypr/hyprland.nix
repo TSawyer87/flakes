@@ -7,19 +7,18 @@
     swappy
     ydotool
     wpaperd
-    hyprland-uwsm
+    # hyprland-uwsm
   ];
   systemd.user.targets.hyprland-session.Unit.Wants =
     [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
-    withUWSM = true;
     xwayland = {
       enable = true;
       # hidpi = true;
     };
     # enableNvidiaPatches = false;
-    systemd.enable = false;
+    systemd.enable = true;
   };
   # Place Files Inside Home Directory
   home.file = {
