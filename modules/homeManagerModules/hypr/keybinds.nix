@@ -16,6 +16,7 @@ in {
         "$modifier SHIFT,N,exec,swaync-client -rs"
         "$modifier,W,exec,${browser}"
         "$modifier,F,exec,firefox"
+        "$modifier,V,exec,cliphist list | wofi --dmenu | cliphist decode | wl-copy"
         "$modifier,E,exec,emopicker9000"
         "$modifier,S,exec,screenshootin"
         "$modifier,D,exec,discord"
