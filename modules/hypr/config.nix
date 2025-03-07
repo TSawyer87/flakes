@@ -128,6 +128,7 @@ in {
         "idleinhibit fullscreen, title:^(*)$"
         "idleinhibit fullscreen, fullscreen:1"
         "float, tag:settings*"
+        "float,class:^(org.pwmt.zathura)$"
         "float, class:^([Ff]erdium)$"
         "float, title:^(Picture-in-Picture)$"
         "float, class:^(mpv|com.github.rafostar.Clapper)$"
