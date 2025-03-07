@@ -1,4 +1,4 @@
-{ pkgs, username, inputs, hypr-binds-flake, ... }: {
+{ pkgs, username, inputs, ... }: {
   home.packages = with pkgs; [
     swww
     grim
@@ -7,7 +7,7 @@
     swappy
     ydotool
     wpaperd
-    hypr-binds-flake.homeManagerModules.${system}.default
+    inputs.hypr-binds-flake.homeManagerModules.${system}.default
     wofi
   ];
   systemd.user.targets.hyprland-session.Unit.Wants =
