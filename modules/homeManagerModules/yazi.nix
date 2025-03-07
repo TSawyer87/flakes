@@ -32,7 +32,7 @@ in {
         starship = pkgs.fetchFromGitHub {
           owner = "Rolv-Apneseth";
           repo = "starship.yazi";
-          rev = "...";
+          rev = "6c639b4";
           sha256 = "sha256-...";
         };
       };
