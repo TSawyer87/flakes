@@ -76,7 +76,7 @@ in {
         ",XF86AudioPrev, exec, playerctl previous"
         ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
-        "$modifier,R,submap,resize"
+        # "$modifier,R,submap,resize"
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
@@ -97,7 +97,7 @@ in {
                 "$modifier, code:1${toString i}, workspace, ${toString ws}"
               ]) 9));
       binde = [
-        "submap=resize"
+        # "submap=resize"
         ",right,resizeactive,50 0"
         ",L,resizeactive,50 0"
         ",left,resizeactive,-50 0"
