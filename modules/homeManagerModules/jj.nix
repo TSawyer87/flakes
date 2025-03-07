@@ -1,6 +1,10 @@
 { ... }:
 let inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
 in {
+  home.file.".jj/config.toml".text = ''
+    [ui]
+    diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+  '';
   programs = {
     jujutsu = {
       enable = true;

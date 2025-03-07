@@ -2,8 +2,6 @@
   imports = [
     ./programs.nix
     ./packages.nix
-    ./services.nix
-    ./homeFiles.nix
     ./gtk.nix
     ./qt.nix
     ./xdg.nix

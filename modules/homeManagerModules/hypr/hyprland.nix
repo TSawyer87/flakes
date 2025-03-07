@@ -25,6 +25,7 @@
     systemd.enable = true;
   };
   programs.wofi.enable = true;
+  services.mako.enable = true;
   # Place Files Inside Home Directory
   home.file = {
     "Pictures/Wallpapers" = {
@@ -50,6 +51,24 @@
       path = "/home/jr/Pictures/Wallpapers/"
       duration = "30m"
       transition-time = 600
+    '';
+    ".config/mako/.config".text = ''
+            anchor=bottom-right
+      font=monospace 10
+      background-color=#000000
+      text-color=#ff0000
+      width=350
+      margin=0,20,20
+      padding=10
+      border-size=1
+      border-color=#ff0000
+      border-radius=5
+      default-timeout=10000
+      group-by=summary
+      icons=1
+
+      [grouped]
+      format=<b>%s</b>\n%b
     '';
     #   ".config/amfora/config.toml".text = ''
     #     [a-general]

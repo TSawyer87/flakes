@@ -16,6 +16,7 @@ in {
         "pypr &"
         # "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/"
         "wpaperd &"
+        "mako"
       ];
 
       input = {
