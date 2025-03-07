@@ -67,15 +67,15 @@ in {
         "$modifier,0,workspace,10"
         "$modifier SHIFT,SPACE,movetoworkspace,special"
         "$modifier,SPACE,togglespecialworkspace"
-        "$modifier SHIFT,1,movetoworkspace,1"
-        "$modifier SHIFT,2,movetoworkspace,2"
-        "$modifier SHIFT,3,movetoworkspace,3"
-        "$modifier SHIFT,4,movetoworkspace,4"
-        "$modifier SHIFT,5,movetoworkspace,5"
-        "$modifier SHIFT,6,movetoworkspace,6"
-        "$modifier SHIFT,7,movetoworkspace,7"
-        "$modifier SHIFT,8,movetoworkspace,8"
-        "$modifier SHIFT,9,movetoworkspace,9"
+        # "$modifier SHIFT,1,movetoworkspace,1"
+        # "$modifier SHIFT,2,movetoworkspace,2"
+        # "$modifier SHIFT,3,movetoworkspace,3"
+        # "$modifier SHIFT,4,movetoworkspace,4"
+        # "$modifier SHIFT,5,movetoworkspace,5"
+        # "$modifier SHIFT,6,movetoworkspace,6"
+        # "$modifier SHIFT,7,movetoworkspace,7"
+        # "$modifier SHIFT,8,movetoworkspace,8"
+        # "$modifier SHIFT,9,movetoworkspace,9"
         "$modifier SHIFT,0,movetoworkspace,10"
         "$modifier CONTROL,right,workspace,e+1"
         "$modifier CONTROL,left,workspace,e-1"
@@ -93,6 +93,18 @@ in {
         ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
       ];
+      ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (builtins.genList (i:
+            let ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          )
+          9)
+      );
 
       bindm = [
         "$modifier, mouse:272, movewindow"
