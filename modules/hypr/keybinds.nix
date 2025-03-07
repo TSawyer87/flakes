@@ -96,18 +96,18 @@ in {
                 "$modifier, code:1${toString i}, workspace, ${toString ws}"
                 "$modifier, code:1${toString i}, workspace, ${toString ws}"
               ]) 9));
-      binde = [
-        # "submap=resize"
-        ",right,resizeactive,50 0"
-        ",L,resizeactive,50 0"
-        ",left,resizeactive,-50 0"
-        ",H,resizeactive,-50 0"
-        ",up,resizeactive,0 -50"
-        ",K,resizeactive,0 -50"
-        ",down,resizeactive,0 50"
-        ",J,resizeactive,0 50"
-        "submap=reset"
-      ];
+      # binde = [
+      #   # "submap=resize"
+      #   ",right,resizeactive,50 0"
+      #   ",L,resizeactive,50 0"
+      #   ",left,resizeactive,-50 0"
+      #   ",H,resizeactive,-50 0"
+      #   ",up,resizeactive,0 -50"
+      #   ",K,resizeactive,0 -50"
+      #   ",down,resizeactive,0 50"
+      #   ",J,resizeactive,0 50"
+      #   "submap=reset"
+      # ];
 
       bindm = [
         "$modifier, mouse:272, movewindow"
