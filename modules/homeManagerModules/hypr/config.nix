@@ -96,6 +96,10 @@ in {
         ];
         blurls = [ "wofi" "thunar" "gtk-layer-shell" ];
       };
+      windowrule = [
+        "opacity 0.85 override 0.85 override,^(thunar)$"
+        "stayfocused, ^(wofi)$"
+      ];
 
       windowrulev2 = [
         "tag +file-manager, class:^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$"
