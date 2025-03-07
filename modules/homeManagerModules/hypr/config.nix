@@ -94,6 +94,7 @@ in {
           "fade, 1, 10, default"
           "workspaces, 1, 5, wind"
         ];
+        blurls = [ "wofi" "thunar" "gtk-layer-shell" ];
       };
 
       windowrulev2 = [
@@ -160,6 +161,7 @@ in {
         "keepaspectratio, title:^(Picture-in-Picture)$"
         "noblur, tag:games*"
         "fullscreen, tag:games*"
+        "stayfocused, ^(wofi)$"
       ];
 
       env = [
