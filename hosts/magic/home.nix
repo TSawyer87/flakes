@@ -33,5 +33,6 @@
   # stylix.targets.wofi.enable = false;
   stylix.targets.rofi.enable = false;
   stylix.targets.hyprland.enable = false;
+  stylix.targets.hyprlock.enable = false;
   stylix.targets.zed.enable = true;
 }
