@@ -18,25 +18,11 @@
     stylix.url = "github:danth/stylix";
     helix.url = "github:helix-editor/helix";
     hyprland.url = "github:hyprwm/Hyprland";
-    hypr-binds-flake = {
-      url = "github:gvolpe/hypr-binds";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # lanzaboote = {
     #     #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
     #     url = "github:nix-community/lanzaboote";
     #     inputs.nixpkgs.follows = "nixpkgs";
     #   };
-    # scenefx = {
-    #   url = "github:wlrfx/scenefx";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # swayfx = {
-    #   url = "github:WillPower3309/swayfx";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.scenefx.follows = "scenefx";
-    # };
     # any-nix-shell = {
     #   url = "github:SomeoneSerge/pkgs";
     # };
@@ -53,8 +39,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, helix, hyprland
-    , hypr-binds-flake, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
       inherit (self) outputs;
 
