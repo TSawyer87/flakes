@@ -26,19 +26,19 @@
     systemd.enable = true;
   };
   programs.wofi.enable = true;
-  programs.hypr-binds = {
-    enable = true;
-    settings = {
-      launcher = {
-        app = "wofi"; # or rofi
-        # style = {
-        #   modkey = "<b>$MOD$KEY</b> <i>$DESCRIPTION</i>";
-        #   command = "cyan";
-        # };
-      };
-      dispatch = true;
-    };
-  };
+  # programs.hypr-binds = {
+  #   enable = true;
+  #   settings = {
+  #     launcher = {
+  #       app = "wofi"; # or rofi
+  #       # style = {
+  #       #   modkey = "<b>$MOD$KEY</b> <i>$DESCRIPTION</i>";
+  #       #   command = "cyan";
+  #       # };
+  #     };
+  #     dispatch = true;
+  #   };
+  # };
   # Place Files Inside Home Directory
   home.file = {
     "Pictures/Wallpapers" = {
