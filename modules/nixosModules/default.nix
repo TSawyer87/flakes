@@ -17,6 +17,7 @@
     ./cachix.nix
     ./xdg.nix
     ./greetd.nix
+    ./thunar.nix
     # ./greetdHypr.nix
   ];
 }
