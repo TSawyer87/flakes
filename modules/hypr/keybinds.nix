@@ -2,12 +2,14 @@
 let
   inherit (import ../../hosts/${host}/variables.nix)
     browser terminal extraMonitorSettings keyboardLayout;
+  # submap = resize;
 in {
   wayland.windowManager.hyprland = {
     settings = {
 
       bind = [
         "$modifier,Return,exec,${terminal}"
+        "$modifier,T,exec,kitty"
         "CONTROL,SPACE,exec,rofi-launcher"
         "$modifier SHIFT,W,exec,web-search"
         "$modifier ALT,W,exec,wpaperd&"
@@ -56,6 +58,8 @@ in {
         "$modifier,k,movefocus,u"
         "$modifier,j,movefocus,d"
         "$modifier,0,workspace,10"
+        "$modifier,R,submap,resize"
+        "submap=resize"
         "$modifier SHIFT,SPACE,movetoworkspace,special"
         "$modifier,SPACE,togglespecialworkspace"
         "$modifier SHIFT,0,movetoworkspace,10"
@@ -93,6 +97,16 @@ in {
                 "$modifier, code:1${toString i}, workspace, ${toString ws}"
                 "$modifier, code:1${toString i}, workspace, ${toString ws}"
               ]) 9));
+      binde = [
+        ",right,resizeactive,50 0"
+        ",L,resizeactive,50 0"
+        ",left,resizeactive,-50 0"
+        ",H,resizeactive,-50 0"
+        ",up,resizeactive,0 -50"
+        ",K,resizeactive,0 -50"
+        ",down,resizeactive,0 50"
+        ",J,resizeactive,0 50"
+      ];
 
       bindm = [
         "$modifier, mouse:272, movewindow"
