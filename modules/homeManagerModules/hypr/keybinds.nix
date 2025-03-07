@@ -1,6 +1,6 @@
 { host, username, config, ... }:
 let
-  inherit (import ../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/variables.nix)
     browser terminal extraMonitorSettings keyboardLayout;
   # submap = resize;
 in {

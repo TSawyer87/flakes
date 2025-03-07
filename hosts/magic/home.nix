@@ -9,15 +9,15 @@
   # Import Program Configurations
   imports = [
     ../../config/emoji.nix
-    ../../modules/hypr
+    ../../modules/homeManagerModules/hypr
     # ../../modules/sway
     #../../config/nvf.nix
-    ../../modules/rofi
+    ../../modules/homeManagerModules/rofi
     ../../modules/shells
     ../../modules/terms
     #../../modules/nvim
-    ../../config/zed.nix
-    ../../modules/nixVim
+    ../../modules/homeManagerModules/zed.nix
+    ../../modules/homeManagerModules/nixVim
     ../../modules/homeManagerModules
   ];
 
