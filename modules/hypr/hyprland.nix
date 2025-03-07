@@ -1,4 +1,4 @@
-{ pkgs, username, inputs, ... }: {
+{ pkgs, username, inputs, hypr-binds-flake, ... }: {
   home.packages = with pkgs; [
     swww
     grim
