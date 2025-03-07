@@ -106,6 +106,7 @@ in {
         ",K,resizeactive,0 -50"
         ",down,resizeactive,0 50"
         ",J,resizeactive,0 50"
+        "submap=reset"
       ];
 
       bindm = [
