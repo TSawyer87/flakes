@@ -4,10 +4,10 @@
   #   source = ../wallpapers;
   #   recursive = true;
   # };
-  home.file.".config/wlogout/icons" = {
-    source = ../wlogout;
-    recursive = true;
-  };
+  # home.file.".config/wlogout/icons" = {
+  #   source = ../wlogout;
+  #   recursive = true;
+  # };
   # home.file.".config/hypr/pyprland.toml" = {
   #   source = ../hypr/pyprland.toml;
   #   recursive = true;
