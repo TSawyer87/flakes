@@ -44,9 +44,5 @@
       remotePlay.openFirewall = false;
       dedicatedServer.openFirewall = false;
     };
-    # thunar = {
-    #   enable = true;
-    #   plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
-    # };
   };
 }

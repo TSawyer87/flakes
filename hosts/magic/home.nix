@@ -8,7 +8,6 @@
 
   # Import Program Configurations
   imports = [
-    ../../config/emoji.nix
     ../../modules/homeManagerModules/hypr
     # ../../modules/sway
     #../../config/nvf.nix

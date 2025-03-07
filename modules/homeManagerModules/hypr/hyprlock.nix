@@ -1,6 +1,6 @@
 { username, lib, ... }: {
   programs.hyprlock = {
-    enable = false;
+    enable = true;
     settings = {
       general = {
         disable_loading_bar = true;
@@ -9,8 +9,8 @@
         no_fade_in = false;
       };
       background = [{
-        path =
-          lib.mkForce "/home/${username}/Pictures/Wallpapers/wallpaper1.png";
+        path = lib.mkForce
+          "/home/${username}/Pictures/Wallpapers/Under_Starlit_Sky.png";
         blur_passes = 3;
         blur_size = 8;
       }];
