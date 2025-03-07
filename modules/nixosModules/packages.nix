@@ -61,6 +61,9 @@
     inxi
     nh
     nixfmt-rfc-style
+    nix-prefetch-git
+    nix-prefetch-github
+    chafa
     stdenv
     file-roller
     imv
