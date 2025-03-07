@@ -4,7 +4,7 @@ let
     owner = "yazi-rs";
     repo = "plugins";
     rev = "ceb053f";
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    hash = "sha256-yBcbvzWU2FI7vkeqL7+ZIoQboybaPIiH4fV9yMqdHlM=";
   };
 in {
   programs = {
