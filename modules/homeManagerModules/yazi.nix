@@ -3,8 +3,8 @@ let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "...";
-    hash = "sha256-...";
+    rev = "";
+    hash = "";
   };
 in {
   programs = {
