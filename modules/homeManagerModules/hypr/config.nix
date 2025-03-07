@@ -161,7 +161,6 @@ in {
         "keepaspectratio, title:^(Picture-in-Picture)$"
         "noblur, tag:games*"
         "fullscreen, tag:games*"
-        "stayfocused, ^(wofi)$"
       ];
 
       env = [
