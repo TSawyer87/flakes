@@ -21,8 +21,8 @@ in {
           editor = "nvim";
         };
         preview = {
-          max_width = 1000;
-          max_height = 1000;
+          max_width = 1920;
+          max_height = 1080;
         };
       };
       plugins = {
