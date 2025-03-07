@@ -8,22 +8,22 @@
         hide_cursor = true;
         no_fade_in = false;
       };
-      background = [{
-        path = lib.mkForce
-          "/home/${username}/Pictures/Wallpapers/Under_Starlit_Sky.png";
-        blur_passes = 3;
-        blur_size = 8;
-      }];
-      image = [{
-        path = "/home/${username}/.config/face.jpeg";
-        size = 150;
-        border_size = 4;
-        border_color = "rgb(0C96F9)";
-        rounding = -1; # Negative means circle
-        position = "0, 200";
-        halign = "center";
-        valign = "center";
-      }];
+      # background = [{
+      #   path = lib.mkForce
+      #     "/home/${username}/Pictures/Wallpapers/Under_Starlit_Sky.png";
+      #   blur_passes = 3;
+      #   blur_size = 8;
+      # }];
+      # image = [{
+      #   path = "/home/${username}/.config/face.jpeg";
+      #   size = 150;
+      #   border_size = 4;
+      #   border_color = "rgb(0C96F9)";
+      #   rounding = -1; # Negative means circle
+      #   position = "0, 200";
+      #   halign = "center";
+      #   valign = "center";
+      # }];
       input-field = [{
         size = "200, 50";
         position = "0, -80";
