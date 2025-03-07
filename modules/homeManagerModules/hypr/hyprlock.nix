@@ -15,7 +15,7 @@
         blur_size = 8;
       }];
       image = [{
-        path = "/home/${username}/.config/face.jpeg";
+        path = "/home/${username}/.config/face.png";
         size = 150;
         border_size = 4;
         border_color = "rgb(0C96F9)";
