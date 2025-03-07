@@ -18,6 +18,7 @@
     stylix.url = "github:danth/stylix";
     helix.url = "github:helix-editor/helix";
     hyprland.url = "github:hyprwm/Hyprland";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # lanzaboote = {
     #     #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
     #     url = "github:nix-community/lanzaboote";
@@ -39,7 +40,8 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser, ...
+    }@inputs:
     let
       inherit (self) outputs;
 
