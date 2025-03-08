@@ -1,4 +1,6 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, lib, inputs, ... }: let
+system = "x86_64-linux";
+in {
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = lib.mkDefault true;
