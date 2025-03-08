@@ -18,9 +18,9 @@
     helix-nightly = prev.helix.overrideAttrs (oldAttrs: {
       src = inputs.helix-nightly;
       version = "nightly-${inputs.helix-nightly.rev}";
-      cargoDeps = prev.rustPlatform.importCargoLock {
-        lockFile = "${inputs.helix-nightly}/Cargo.lock";
-      };
+      # cargoDeps = prev.rustPlatform.importCargoLock {
+        # lockFile = "${inputs.helix-nightly}/Cargo.lock";
+      # };
     });
   };
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
