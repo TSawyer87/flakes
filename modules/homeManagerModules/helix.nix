@@ -1,8 +1,8 @@
-{ pkgs, lib, helix-nightly, ... }: {
+{ pkgs, lib, inputs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = lib.mkDefault true;
-    package = helix-nightly; # Use the overlaid package directly
+    package = inputs.helix-nightly."${pkgs.system}".default; # Use the overlaid package directly
     extraPackages = [
       bash-language-server
       biome
