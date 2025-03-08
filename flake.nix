@@ -38,10 +38,8 @@
     in {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-
       formatter =
         forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
       overlays = import ./overlays { inherit inputs; };
 
       nixosConfigurations = {
@@ -59,12 +57,17 @@
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
             {
+              nixpkgs.overlays = with outputs.overlays; [
+                additions
+                modifications
+                helix-nightly # Add the helix-nightly overlay here
+                stable-packages
+              ];
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
                 inherit host;
                 inherit systems;
-                inherit helix-nightly; # Added helix-nightly here
               };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";

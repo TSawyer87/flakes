@@ -1,9 +1,8 @@
-{ config, pkgs, inputs, username, host, helix-nightly, ... }: {
+{ config, pkgs, inputs, username, host, ... }: {
   programs.helix = with pkgs; {
     enable = true;
-    package = pkgs.callPackage (helix-nightly + "/utils/nix") { };
+    package = helix-nightly; # Use the overlaid package directly
     extraPackages = [
-      (pkgs.callPackage (helix-nightly + "/utils/nix") { })
       bash-language-server
       biome
       clang-tools
@@ -32,7 +31,6 @@
       vscode-langservers-extracted
       yaml-language-server
     ];
-
     settings = {
       # theme = "gruvbox_community";
 

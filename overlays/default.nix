@@ -13,18 +13,9 @@
       # });
     };
 
-  rust-overlay = final: prev: {
-    # Import the rust-overlay
-    rustc = inputs.rust-overlay.packages.${prev.system}.default;
-    cargo = inputs.rust-overlay.packages.${prev.system}.default;
-    rustfmt = inputs.rust-overlay.packages.${prev.system}.default;
-    clippy = inputs.rust-overlay.packages.${prev.system}.default;
-
-    # If you want to use nightly specifically:
-    rust-nightly = inputs.rust-overlay.packages.${prev.system}.rustChannelOf {
-      # date = "2023-10-01"; # Example date, change or remove for latest nightly
-      channel = "nightly";
-    };
+  # Helix nightly overlay
+  helix-nightly = final: prev: {
+    helix-nightly = final.callPackage "${inputs.helix-nightly}/utils/nix" { };
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
