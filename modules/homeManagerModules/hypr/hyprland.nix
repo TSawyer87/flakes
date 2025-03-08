@@ -30,14 +30,14 @@
   programs.wofi = {
     enable = true;
     settings = {
-      location = middle;
-      show = drun;
+      location = "middle";
+      show = "drun";
       width = 650;
       height = 550;
       always_parse_args = true;
       show_all = true;
       print_command = true;
-      layer = overlay;
+      layer = "overlay";
       insensitive = true;
     };
     style = ''
