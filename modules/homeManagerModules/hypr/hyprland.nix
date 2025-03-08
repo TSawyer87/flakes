@@ -27,104 +27,17 @@
     # enableNvidiaPatches = false;
     systemd.enable = true;
   };
-  # programs.wofi = {
-  #   enable = true;
-  #   settings = {
-  #     location = "middle";
-  #     show = "drun";
-  #     width = 650;
-  #     height = 550;
-  #     always_parse_args = true;
-  #     show_all = true;
-  #     print_command = true;
-  #     layer = "overlay";
-  #     insensitive = true;
-  #   };
-  #   style = ''
-  #           @define-color base10 #2E3440;
-  #     @define-color base00 #3B4252;
-  #     @define-color base02 #434C5E;
-  #     @define-color base03 #4C566A;
-  #     @define-color base04 #D8DEE9;
-  #     @define-color base05 #E5E9F0;
-  #     @define-color base06 #ECEFF4;
-  #     @define-color base07 #8FBCBB;
-  #     @define-color base08 #88C0D0;
-  #     @define-color base09 #81A1C1;
-  #     @define-color base0A #5E81AC;
-  #     @define-color base0B #BF616A;
-  #     @define-color base0C #D08770;
-  #     @define-color base0D #EBCB8B;
-  #     @define-color base0E #A3BE8C;
-  #     @define-color base0F #B48EAD;
-  #
-  #
-  #           #entry {
-  #           border-radius: 5px;
-  #           padding: 5px 2px 5px 2px;
-  #           margin: 0px 4px 0px 4px;
-  #           }
-  #
-  #           @keyframes fadeIn {
-  #             from {opacity: 0;}
-  #             to {opacity: 1;}
-  #           }
-  #
-  #           #entry:selected {
-  #           color: @base0D;
-  #           background-color: rgba (255,0,0,0.3);
-  #           padding: 7px;
-  #           }
-  #
-  #           #text:selected {
-  #           color: @base04;
-  #           }
-  #
-  #           #window {
-  #           animation-name: fadeIn;
-  #           animation-duration: 0.6s;
-  #           background-color: transparent;
-  #           font-family: Ubuntu Mono;
-  #           /* font-size:14; */
-  #           }
-  #
-  #           #input {
-  #           border: none;
-  #           background-color: rgba (0,0,0,0.75);
-  #           border-radius: 5px;
-  #           margin: 4px 4px 8px 4px;
-  #           padding: 8px;
-  #           }
-  #
-  #           #inner-box {
-  #           color: rgba (255,0,0,0.65);
-  #           border-radius: 5px;
-  #           /* margin-right: 180px; */
-  #           }
-  #
-  #           #outer-box {
-  #           background-color: rgba (0,0,0,0.65);
-  #           border-radius: 5px;
-  #           border: 1px solid #474747;
-  #           padding: 10px;
-  #           box-shadow: 0px 0px 3px 1px  #0F0F0F;
-  #           margin: 0px;
-  #           }
-  #
-  #           #scroll {
-  #           }
-  #
-  #           #text {
-  #           color: @base04;
-  #           background-color: transparent;
-  #           }
-  #
-  #           #img {
-  #             background-color: transparent;
-  #           }
-  #   '';
-  # };
-  services.mako.enable = true;
+  services.mako = {
+  enable = true;
+  backgroundColor = "#22348e";
+  borderColor = "#72B2FE";
+  borderRadius = "5";
+  borderSize = "1";
+  groupBy = "summary";
+  icons = true;
+  margin = "0,20,,20";
+  defaultTimeout = 10000;
+  };
   # Place Files Inside Home Directory
   home.file = {
     "Pictures/Wallpapers" = {
@@ -146,29 +59,31 @@
       fill_shape=false
     '';
     ".config/wpaperd/config.toml".text = ''
-      [default]
+     [default]
       path = "/home/jr/Pictures/Wallpapers/"
       duration = "30m"
       transition-time = 600
     '';
-    ".config/mako/.config".text = ''
-            anchor=bottom-right
-      font=monospace 10
-      background-color=#000000
-      text-color=#ff0000
-      width=350
-      margin=0,20,20
-      padding=10
-      border-size=1
-      border-color=#ff0000
-      border-radius=5
-      default-timeout=10000
-      group-by=summary
-      icons=1
+    # ".config/mako/.config".text = ''
+    #         anchor=bottom-right
+    #   font=monospace 10
+    #   # background-color=#000000
+    #   background-color=#22348e
+    #   text-color=#ff0000
+    #   width=350
+    #   margin=0,20,20
+    #   padding=10
+    #   border-size=1
+    #   # border-color=#ff0000
+    #   border-color=#72B2FE
+    #   border-radius=5
+    #   default-timeout=10000
+    #   group-by=summary
+    #   icons=1
 
-      [grouped]
-      format=<b>%s</b>\n%b
-    '';
+    #   [grouped]
+    #   format=<b>%s</b>\n%b
+    # '';
     #   ".config/amfora/config.toml".text = ''
     #     [a-general]
     #     home = "gemini://gem.zaney.org"
