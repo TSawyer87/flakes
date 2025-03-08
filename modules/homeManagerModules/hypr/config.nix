@@ -15,8 +15,8 @@ in {
         "lxqt-policykit-agent"
         "pypr &"
         # "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/"
-        "wpaperd &"
-        "mako"
+        "wpaperd"
+        "killall -q mako;sleep .5 && mako"
         "wl-paste --type text --watch cliphist store" # Stores only text data
         "wl-paste --type image --watch cliphist store" # Stores only image data
       ];
