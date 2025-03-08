@@ -8,6 +8,7 @@
     ./waybar.nix
     ./wlogout.nix
     ./keybinds.nix
+    ./wofi.nix
   ];
 }
 
