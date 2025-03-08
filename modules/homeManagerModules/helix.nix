@@ -39,6 +39,8 @@
         color-modes = true;
         cursorline = true;
         bufferline = "multiple";
+        line-number = "relative";
+        true-color = true;
 
         soft-wrap.enable = true;
 
