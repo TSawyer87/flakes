@@ -18,7 +18,7 @@ in {
           sort_by = "mtime";
           sort_reverse = true;
           linemode = "size";
-          editor = "nvim";
+          editor = "hx";
         };
         preview = {
           max_width = 1920;
