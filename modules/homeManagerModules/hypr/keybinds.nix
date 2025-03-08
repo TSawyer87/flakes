@@ -10,7 +10,7 @@ in {
       bind = [
         "$modifier,Return,exec,${terminal}"
         "$modifier,T,exec,kitty"
-        "CONTROL,SPACE,exec,rofi-launcher"
+        # "CONTROL,SPACE,exec,rofi-launcher"
         "$modifier SHIFT,W,exec,web-search"
         "$modifier ALT,W,exec,killall -9 wpaperd && wpaperd"
         "$modifier SHIFT,N,exec,swaync-client -rs"
