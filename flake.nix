@@ -35,12 +35,15 @@
       host = "magic";
       username = "jr";
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      # Import overlays explicitly
+      overlays = import ./overlays { inherit inputs; };
     in {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter =
         forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-      overlays = import ./overlays { inherit inputs; };
+      overlays = overlays; # Export the overlays attribute set
 
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -57,17 +60,12 @@
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
             {
-              nixpkgs.overlays = with outputs.overlays; [
-                additions
-                modifications
-                helix-nightly # Add the helix-nightly overlay here
-                stable-packages
-              ];
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
                 inherit host;
                 inherit systems;
+                inherit outputs; # Ensure outputs is passed for overlays
               };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
