@@ -27,7 +27,85 @@
     # enableNvidiaPatches = false;
     systemd.enable = true;
   };
-  programs.wofi.enable = true;
+  programs.wofi = {
+    enable = true;
+    settings = {
+      location = middle;
+      show = drun;
+      width = 650;
+      height = 550;
+      always_parse_args = true;
+      show_all = true;
+      print_command = true;
+      layer = overlay;
+      insensitive = true;
+    };
+    style = ''
+      #entry {
+      border-radius: 5px;
+      padding: 5px 2px 5px 2px;
+      margin: 0px 4px 0px 4px;
+      }
+
+      @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+      #entry:selected {
+      color: @base0D;
+      background-color: rgba (255,0,0,0.3);
+      padding: 7px;
+      }
+
+      #text:selected {
+      color: @base04;
+      }
+
+      #window {
+      animation-name: fadeIn;
+      animation-duration: 0.6s;
+      background-color: transparent;
+      font-family: Ubuntu Mono;
+      /* font-size:14; */
+      }
+
+      #input {
+      border: none;
+      background-color: rgba (0,0,0,0.75);
+      border-radius: 5px;
+      margin: 4px 4px 8px 4px;
+      padding: 8px;
+      }
+
+      #inner-box {
+      color: rgba (255,0,0,0.65);
+      border-radius: 5px;
+      /* margin-right: 180px; */
+      }
+
+      #outer-box {
+      background-color: rgba (0,0,0,0.65);
+      border-radius: 5px;
+      border: 1px solid #474747;
+      padding: 10px;
+      box-shadow: 0px 0px 3px 1px  #0F0F0F;
+      margin: 0px;
+      }
+
+      #scroll {
+      }
+
+      #text {
+      color: @base04;
+      background-color: transparent;
+      }
+
+      #img {
+        background-color: transparent;
+      }
+    '';
+  };
   services.mako.enable = true;
   # Place Files Inside Home Directory
   home.file = {
