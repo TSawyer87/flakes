@@ -10,8 +10,8 @@
   clock24h = false;
 
   # Program Options
-  browser =
-    "zen"; # Set Default Browser (google-chrome-stable for google-chrome)
+  browser = "zen"; # Or Firefox
   terminal = "ghostty"; # Set Default System Terminal
   keyboardLayout = "us";
+  editor = "hx";
 }

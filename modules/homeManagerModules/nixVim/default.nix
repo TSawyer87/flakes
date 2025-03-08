@@ -45,7 +45,7 @@ in {
   ];
   programs.nixvim = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     viAlias = true;
 
