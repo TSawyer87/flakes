@@ -1,7 +1,7 @@
 { config, pkgs, inputs, username, host, ... }: {
   programs.helix = with pkgs; {
     enable = true;
-    package = helix-nightly; # Use the overlaid package directly
+    # package = helix-nightly; # Use the overlaid package directly
     extraPackages = [
       bash-language-server
       biome

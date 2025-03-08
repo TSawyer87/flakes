@@ -14,15 +14,15 @@
     };
 
   # Helix nightly overlay
-  helix-nightly = final: prev: {
-    helix-nightly = prev.helix.overrideAttrs (oldAttrs: {
-      src = inputs.helix-nightly;
-      version = "nightly-${inputs.helix-nightly.rev}";
-      cargoDeps = prev.rustPlatform.importCargoLock {
-        lockFile = "${inputs.helix-nightly}/Cargo.lock";
-      };
-    });
-  };
+  # helix-nightly = final: prev: {
+  #   helix-nightly = prev.helix.overrideAttrs (oldAttrs: {
+  #     src = inputs.helix-nightly;
+  #     version = "nightly-${inputs.helix-nightly.rev}";
+  #     cargoDeps = prev.rustPlatform.importCargoLock {
+  #       lockFile = "${inputs.helix-nightly}/Cargo.lock";
+  #     };
+  #   });
+  # };
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
   stable-packages = final: _prev: {
