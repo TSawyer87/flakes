@@ -18,7 +18,7 @@
     helix-nightly = prev.helix.overrideAttrs (oldAttrs: {
       src = inputs.helix-nightly;
       version = "nightly-${inputs.helix-nightly.rev}";
-      cargoHash = "sha256-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX=";
+      cargoHash = "";
       # cargoDeps = prev.rustPlatform.importCargoLock {
         # lockFile = "${inputs.helix-nightly}/Cargo.lock";
       # };
