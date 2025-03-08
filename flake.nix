@@ -16,11 +16,11 @@
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    helix-nightly.url = "github:helix-editor/helix/master";
-    helix-nightly.flake = false;
+    # helix-nightly.url = "github:helix-editor/helix/master";
+    # helix-nightly.flake = false;
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, helix-nightly,  ...
+  outputs = { self, nixpkgs, home-manager, nix-index-database,  ...
     }@inputs:
     let
       inherit (self) outputs;

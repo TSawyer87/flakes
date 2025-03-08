@@ -1,8 +1,8 @@
-    { pkgs, lib, inputs, ... }: {
+    { pkgs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
-    defaultEditor = lib.mkDefault true;
-    package = helix-nightly; 
+    defaultEditor = true;
+    package = helix; 
     extraPackages = [
       bash-language-server
       biome
