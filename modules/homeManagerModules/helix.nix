@@ -1,9 +1,11 @@
 { pkgs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
+    package = pkgs.callPackage (helix-nightly + "/utils/nix") { };
     # package = pkgs.evil-helix;
     #defaultEditor = true;
     extraPackages = [
+      (pkgs.callPackage (helix-nightly + "/utils/nix") { })
       bash-language-server
       biome
       clang-tools

@@ -16,7 +16,8 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
-    helix.url = "github:helix-editor/helix";
+    helix-nightly.url = "github:helix-editor/helix/master";
+    helix-nightly.flake = false;
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     #nvf = {
@@ -25,7 +26,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser, ...
+  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser, helix-nightly, ...
     }@inputs:
     let
       inherit (self) outputs;
