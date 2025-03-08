@@ -18,8 +18,8 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
-    , helix-nightly, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser, ...
+    }@inputs:
     let
       inherit (self) outputs;
 

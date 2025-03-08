@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, username, host, ... }: {
+{ pkgs, inputs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
     # package = helix-nightly; # Use the overlaid package directly
