@@ -2,8 +2,6 @@
   description = "MyFlake";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nix doesn't need the full history, this should be the default ¯\_(ツ)_/¯
     nixpkgs.url =
       "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
@@ -20,14 +18,10 @@
     helix-nightly.flake = false;
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    #nvf = {
-    # url = "github:notashelf/nvf";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser, helix-nightly, ...
-    }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, zen-browser
+    , helix-nightly, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -45,15 +39,11 @@
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-      # Or 'nixpkgs-fmt'
       formatter =
         forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-      # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#hostname'
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -69,15 +59,13 @@
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
             {
-              # Apply the overlays to the NixOS system
-              # nixpkgs.overlays = overlays;
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit inputs;
                 inherit host;
                 inherit systems;
+                inherit helix-nightly; # Added helix-nightly here
               };
-              # home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
