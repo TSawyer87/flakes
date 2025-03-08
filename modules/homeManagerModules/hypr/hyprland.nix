@@ -29,7 +29,7 @@
   };
   services.mako = {
   enable = true;
-  backgroundColor = "#22348e";
+  backgroundColor = "#0f1419FF";
   borderColor = "#72B2FE";
   borderRadius = "5";
   borderSize = "1";
