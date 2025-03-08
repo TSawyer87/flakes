@@ -31,8 +31,8 @@
   enable = true;
   backgroundColor = "#0f1419FF";
   borderColor = "#72B2FE";
-  borderRadius = "5";
-  borderSize = "1";
+  borderRadius = 5;
+  borderSize = 1;
   groupBy = "summary";
   icons = true;
   margin = "0,20,,20";
