@@ -337,15 +337,15 @@
           };
           auto-format = true;
         }
-        # {
-        #   name = "markdown";
-        #   language-servers = [ "marksman" "gpt" ];
-        #   formatter = {
-        #     command = "prettier";
-        #     args = [ "--stdin-filepath" "file.md" ];
-        #   };
-        #   auto-format = true;
-        # }
+        {
+          name = "markdown";
+          language-servers = [ "marksman" "gpt" ];
+          formatter = {
+            command = "prettier";
+            args = [ "--stdin-filepath" "file.md" ];
+          };
+          auto-format = true;
+        }
         {
           name = "nix";
           formatter = {
