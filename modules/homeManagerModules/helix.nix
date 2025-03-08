@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, helix-nightly, ... }: {
   programs.helix = with pkgs; {
     enable = true;
     package = pkgs.callPackage (helix-nightly + "/utils/nix") { };
