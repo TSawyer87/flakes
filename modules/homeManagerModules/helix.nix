@@ -31,8 +31,7 @@
       typescript
       vscode-langservers-extracted
       yaml-language-server
-      wl-copy
-      wl-paste
+      wl-clipboard-rs
     ];
     settings = {
       # theme = "gruvbox_community";
