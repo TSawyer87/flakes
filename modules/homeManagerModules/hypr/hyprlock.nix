@@ -10,7 +10,7 @@
       };
       background = [{
         path = lib.mkForce
-          "/home/${username}/Pictures/Wallpapers/Under_Starlit_Sky.png";
+          "/home/${username}/Pictures/Wallpapers/wallpaper1.png";
         blur_passes = 3;
         blur_size = 8;
       }];
