@@ -7,28 +7,16 @@
       bash-language-server
       biome
       clang-tools
-      # docker-compose-language-service
-      # dockerfile-language-server-nodejs
-      # golangci-lint
-      # golangci-lint-langserver
-      # gopls
-      # gotools
       helix-gpt
       marksman
       nil
       nixd
       nixpkgs-fmt
       nodePackages.prettier
-      # nodePackages.typescript-language-server
-      sql-formatter
-      # ruff
-      # (python3.withPackages
-      #   (p: (with p; [ python-lsp-ruff python-lsp-server ])))
+      # sql-formatter
       rust-analyzer
       taplo
       taplo-lsp
-      # terraform-ls
-      # typescript
       vscode-langservers-extracted
       yaml-language-server
       wl-clipboard-rs
@@ -97,108 +85,6 @@
         };
       };
 
-      # keys = {
-      #   normal = {
-      #     H = "extend_char_left";
-      #     # x = "delete_selection";
-      #     J = [ "extend_line_down" "extend_to_line_bounds" ];
-      #     K = [ "extend_line_up" "extend_to_line_bounds" ];
-      #     "%" = "match_brackets";
-      #     # "0" = "goto_line_start";
-      #     # "$" = "goto_line_end";
-      #     "{" = [ "extend_to_line_bounds" "goto_prev_paragraph" ];
-      #     "}" = [ "extend_to_line_bounds" "goto_next_paragraph" ];
-      #     "^" = "goto_first_nonwhitespace";
-      #     L = "extend_char_right";
-      #     B = "extend_prev_word_start";
-      #     W = "extend_next_word_start";
-      #     V = [ "extend_to_line_end" "extend_to_line_bounds" ];
-      #     p = [ "paste_clipboard_after" "collapse_selection" ];
-      #     P = [ "paste_clipboard_before" "collapse_selection" ];
-      #     E = "extend_next_word_end";
-      #     C-o = ":config-open";
-      #     C-r = ":config-reload";
-      #     A-b = "move_prev_long_word_start";
-      #     A-B = "extend_prev_long_word_start";
-      #     A-w = "move_next_long_word_start";
-      #     A-W = "extend_next_long_word_start";
-      #     A-e = "move_next_long_word_end";
-      #     A-E = "extend_next_long_word_end";
-      #     T = "extend_till_char";
-      #     F = "extend_next_char";
-      #     A-t = "till_prev_char";
-      #     A-f = "find_prev_char";
-      #     A-T = "extend_till_prev_char";
-      #     A-F = "extend_prev_char";
-      #     A-j = "join_selections";
-      #     A-k = "keep_selections";
-      #     M = [ "select_mode" "match_brackets" "normal_mode" ];
-      #     "#" = "toggle_comments";
-      #     A-l = "extend_to_line_end";
-      #     A-h = "extend_to_line_start";
-      #     left = "goto_previous_buffer";
-      #     right = "goto_next_buffer";
-      #     A-d = "delete_selection";
-      #     c = "change_selection_noyank";
-      #     d = [
-      #       "delete_selection"
-      #       "extend_to_line_bounds"
-      #       "yank_main_selection_to_clipboard"
-      #
-      #     ];
-      #     # D = [
-      #     #   "extend_to_line_end"
-      #     #   "yank_main_selection_to_clipboard"
-      #     #   "delete_selection"
-      #     # ];
-      #     N = "extend_search_next";
-      #     A-n = "search_prev";
-      #     A-N = "extend_search_prev";
-      #     C-d = [ "page_cursor_half_down" "align_view_center" ];
-      #     C-u = [ "page_cursor_half_up" "align_view_center" ];
-      #     tab = "move_parent_node_end";
-      #     S-tab = "move_parent_node_start";
-      #
-      #     G = {
-      #       j = "@vgj<esc>";
-      #       k = "@vgk<esc>";
-      #     };
-      #
-      #     g = {
-      #       j = "goto_last_line";
-      #       k = "goto_file_start";
-      #     };
-      #
-      #     space = {
-      #       c = ":buffer-close";
-      #       A-f = ":toggle auto-format";
-      #       q = ":write-quit-all";
-      #       Q = ":quit!";
-      #       e = ":config-open";
-      #       f = ":fmt";
-      #       w = ":write";
-      #       "." = ":toggle file-picker.git-ignore";
-      #     };
-      #   };
-      #
-      #   insert = {
-      #     C-u =
-      #       [ "extend_to_line_bounds" "delete_selection_noyank" "open_above" ];
-      #     C-w = [ "move_prev_word_start" "delete_selection_noyank" ];
-      #     C-space = "completion";
-      #     S-tab = "move_parent_node_start";
-      #   };
-      #
-      #   select = {
-      #     tab = "extend_parent_node_end";
-      #     S-tab = "extend_parent_node_start";
-      #
-      #     g = {
-      #       j = "goto_last_line";
-      #       k = "goto_file_start";
-      #     };
-      #   };
-      # };
     };
 
     # themes = {
@@ -232,10 +118,6 @@
         kubernetes = "k8s/*.yaml";
       };
 
-      # language-server.typescript-language-server.config.tsserver = {
-      #   path = "${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js";
-      # };
-
       language = [
         {
           name = "css";
@@ -261,18 +143,6 @@
           };
           auto-format = true;
         }
-        # {
-        #   name = "javascript";
-        #   language-servers = [
-        #     {
-        #       name = "typescript-language-server";
-        #       except-features = [ "format" ];
-        #     }
-        #     "biome"
-        #     "gpt"
-        #   ];
-        #   auto-format = true;
-        # }
         {
           name = "json";
           language-servers = [
@@ -316,28 +186,6 @@
           file-types = [ "jsonc" "hujson" ];
           auto-format = true;
         }
-        # {
-        #   name = "jsx";
-        #   language-servers = [
-        #     {
-        #       name = "typescript-language-server";
-        #       except-features = [ "format" ];
-        #     }
-        #     "biome"
-        #     "gpt"
-        #   ];
-        #   formatter = {
-        #     command = "biome";
-        #     args = [
-        #       "format"
-        #       "--indent-style"
-        #       "space"
-        #       "--stdin-file-path"
-        #       "file.jsx"
-        #     ];
-        #   };
-        #   auto-format = true;
-        # }
         {
           name = "markdown";
           language-servers = [ "marksman" "gpt" ];
@@ -363,18 +211,6 @@
           };
         }
         # {
-        #   name = "python";
-        #   language-servers = [ "pylsp" "gpt" ];
-        #   formatter = {
-        #     command = "sh";
-        #     args = [
-        #       "-c"
-        #       "ruff check --select I --fix - | ruff format --line-length 88 -"
-        #     ];
-        #   };
-        #   auto-format = true;
-        # }
-        # {
         #   name = "rust";
         #   language-servers = [ "rust-analyzer" "gpt" ];
         #   auto-format = true;
@@ -396,21 +232,6 @@
           };
           auto-format = true;
         }
-        # {
-        #   name = "sql";
-        #   language-servers = [ "gpt" ];
-        #   formatter = {
-        #     command = "sql-formatter";
-        #     args = [
-        #       "-l"
-        #       "postgresql"
-        #       "-c"
-        #       ''
-        #         {"keywordCase": "lower", "dataTypeCase": "lower", "functionCase": "lower", "expressionWidth": 120, "tabWidth": 4}''
-        #     ];
-        #   };
-        #   auto-format = true;
-        # }
         {
           name = "toml";
           language-servers = [ "taplo" ];
@@ -420,50 +241,6 @@
           };
           auto-format = true;
         }
-        # {
-        #   name = "tsx";
-        #   language-servers = [
-        #     {
-        #       name = "typescript-language-server";
-        #       except-features = [ "format" ];
-        #     }
-        #     "biome"
-        #     "gpt"
-        #   ];
-        #   formatter = {
-        #     command = "biome";
-        #     args = [
-        #       "format"
-        #       "--indent-style"
-        #       "space"
-        #       "--stdin-file-path"
-        #       "file.tsx"
-        #     ];
-        #   };
-        #   auto-format = true;
-        # }
-        # {
-        #   name = "typescript";
-        #   language-servers = [
-        #     {
-        #       name = "typescript-language-server";
-        #       except-features = [ "format" ];
-        #     }
-        #     "biome"
-        #     "gpt"
-        #   ];
-        #   formatter = {
-        #     command = "biome";
-        #     args = [
-        #       "format"
-        #       "--indent-style"
-        #       "space"
-        #       "--stdin-file-path"
-        #       "file.ts"
-        #     ];
-        #   };
-        #   auto-format = true;
-        # }
         {
           name = "yaml";
           language-servers = [ "yaml-language-server" ];
