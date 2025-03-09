@@ -45,7 +45,7 @@
       recursive = true;
     };
     ".face.icon".source = ./face.png;
-    ".config/face.jpg".source = ./face.png;
+    ".config/face.png".source = ./face.png;
     ".config/swappy/config".text = ''
       [Default]
       save_dir=/home/${username}/Pictures/Screenshots
