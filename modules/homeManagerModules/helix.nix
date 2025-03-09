@@ -1,8 +1,8 @@
-    { pkgs, ... }: {
+{ pkgs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = true;
-    package = helix; 
+    package = helix;
     extraPackages = [
       bash-language-server
       biome
@@ -31,6 +31,8 @@
       typescript
       vscode-langservers-extracted
       yaml-language-server
+      wl-copy
+      wl-paste
     ];
     settings = {
       # theme = "gruvbox_community";
@@ -349,18 +351,18 @@
         # {
         #   name = "nix";
         #   formatter = {
-        #     command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
+        #     command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
         #   };
         #   auto-format = true ;
         # }
         {
-      name = "nix";
-      auto-format = true;
-      language-servers = [ "nil" "typos" ];
-      formatter = {
-        command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-      };
-    }
+          name = "nix";
+          auto-format = true;
+          language-servers = [ "nil" "typos" ];
+          formatter = {
+            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+          };
+        }
         {
           name = "python";
           language-servers = [ "pylsp" "gpt" ];

@@ -20,7 +20,12 @@
     # helix-nightly.flake = false;
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database,  ...
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , nix-index-database
+    , ...
     }@inputs:
     let
       inherit (self) outputs;
@@ -38,7 +43,8 @@
 
       # Import overlays explicitly
       overlays = import ./overlays { inherit inputs; };
-    in {
+    in
+    {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter =
