@@ -217,6 +217,7 @@
         # }
         {
           name = "rust";
+          language-servers = [ "rust-analyzer" "gpt" ];
           formatter = {
             command = "rustfmt";
             args = [ "--edition=2024" ];
