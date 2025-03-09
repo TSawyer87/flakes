@@ -28,15 +28,15 @@
     systemd.enable = true;
   };
   services.mako = {
-  enable = true;
-  backgroundColor = "#0f1419FF";
-  borderColor = "#72B2FE";
-  borderRadius = 5;
-  borderSize = 1;
-  groupBy = "summary";
-  icons = true;
-  margin = "0,20,,20";
-  defaultTimeout = 10000;
+    enable = true;
+    backgroundColor = "#0f1419FF";
+    borderColor = "#72B2FE";
+    borderRadius = 5;
+    borderSize = 1;
+    groupBy = "summary";
+    icons = true;
+    margin = "0,20,,20";
+    defaultTimeout = 10000;
   };
   # Place Files Inside Home Directory
   home.file = {
@@ -59,10 +59,10 @@
       fill_shape=false
     '';
     ".config/wpaperd/config.toml".text = ''
-     [default]
-      path = "/home/jr/Pictures/Wallpapers/"
-      duration = "30m"
-      transition-time = 600
+      [default]
+       path = "/home/jr/Pictures/Wallpapers/"
+       duration = "30m"
+       transition-time = 600
     '';
     # ".config/mako/.config".text = ''
     #         anchor=bottom-right
