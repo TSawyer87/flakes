@@ -34,7 +34,7 @@
       wl-clipboard-rs
     ];
     settings = {
-      # theme = "gruvbox_community";
+      theme = "dracula";
 
       editor = {
         color-modes = true;
