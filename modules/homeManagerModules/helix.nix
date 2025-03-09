@@ -90,11 +90,13 @@
           normal = {
             H = ":buffer-previous";
             L = ":buffer-next";
-            "." = ":fmt";
           };
           select = {
             tab = "extend_parent_node_end";
             S-tab = "extend_parent_node_start";
+          };
+          space = {
+            "." = ":fmt";
           };
         };
     };
