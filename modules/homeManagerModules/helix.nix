@@ -85,15 +85,15 @@
         };
       };
 
+      keys =
+        {
+          normal = {
+            H = ":buffer-previous";
+            L = ":buffer-next";
+          };
+        };
     };
 
-    keys =
-      {
-        normal = {
-          H = ":buffer-previous";
-          L = ":buffer-next";
-        };
-      };
 
     # themes = {
     #   # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
