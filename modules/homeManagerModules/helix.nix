@@ -346,13 +346,21 @@
           };
           auto-format = true;
         }
+        # {
+        #   name = "nix";
+        #   formatter = {
+        #     command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
+        #   };
+        #   auto-format = true ;
+        # }
         {
-          name = "nix";
-          formatter = {
-            command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
-          };
-          auto-format = true;
-        }
+      name = "nix";
+      auto-format = true;
+      language-servers = [ "nil" "typos" ];
+      formatter = {
+        command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+      };
+    }
         {
           name = "python";
           language-servers = [ "pylsp" "gpt" ];
