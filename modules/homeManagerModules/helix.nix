@@ -1,10 +1,20 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  helix-nightly = pkgs.buildInputs.callPackage
+    (
+      import
+        (builtins.fetchTarball {
+          url = "https://github.com/helix-editor/helix/archive/refs/heads/nightly.tar.gz";
+        })
+        { }
+    )
+    { };
+in
+{
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = true;
-    package = inputs.helix-nightly.packages."${pkgs.system}".default;
     extraPackages = [
-      inputs.helix-nightly.packages."${pkgs.system}".default
       bash-language-server
       biome
       clang-tools
