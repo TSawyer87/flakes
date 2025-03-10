@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = true;
-    package = helix;
+    package = inputs.helix-nightly.packages.${pkgs.system}.helix;
     extraPackages = [
       bash-language-server
       biome
