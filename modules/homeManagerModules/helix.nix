@@ -1,8 +1,12 @@
-{ pkgs, helix-nightly, ... }: {
+{ pkgs, ... }: {
+  home.sessionVariables = {
+    HELIX_RUNTIME = "~/src/helix/runtime";
+  };
+  home.sessionPath = [ "$HOME/.cargo/bin" ];
+
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = true;
-    package = helix-nightly.defaultPackage.${pkgs.system};
     extraPackages = [
       bash-language-server
       biome
