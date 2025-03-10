@@ -83,6 +83,15 @@
           mode.select = "S";
         };
       };
+      keys = {
+        normal = {
+          H = ":buffer-previous";
+          L = ":buffer-next";
+        };
+        space = {
+          "." = ":fmt";
+        };
+      };
 
     };
 
