@@ -92,7 +92,7 @@
              export TERM=xterm-256color
              export EDITOR=hx
              export VISUAL=hx
-             export PATH=$PATH:$HOME/.cargo/bin
+             export PATH=$HOME/.cargo/bin:$PATH
              export ZSH_CUSTOM=/nix/store/0ajaww0dwlfj6sd9drslzjpw2grhv177-oh-my-zsh-2024-10-01/share/oh-my-zsh/plugins
              export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
              export FZF_DEFAULT_OPTS='-i --height=50%'
