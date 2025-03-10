@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   programs.helix = with pkgs; {
-    enable = false;
+    enable = true;
     defaultEditor = true;
     extraPackages = [
       bash-language-server
@@ -87,9 +87,7 @@
         normal = {
           H = ":buffer-previous";
           L = ":buffer-next";
-          space = {
-            "." = ":fmt";
-          };
+          space = { "." = ":fmt"; };
         };
       };
 
