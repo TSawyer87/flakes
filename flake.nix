@@ -16,15 +16,10 @@
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    helix.url = "github:helix-editor/helix";
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , nix-index-database
-    , ...
-    }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -41,8 +36,7 @@
 
       # Import overlays explicitly
       overlays = import ./overlays { inherit inputs; };
-    in
-    {
+    in {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter =
