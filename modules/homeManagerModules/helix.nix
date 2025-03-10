@@ -12,9 +12,11 @@ let
 in
 {
   programs.helix = with pkgs; {
+    package = helix-nightly;
     enable = true;
     defaultEditor = true;
     extraPackages = [
+      helix-nightly
       bash-language-server
       biome
       clang-tools
