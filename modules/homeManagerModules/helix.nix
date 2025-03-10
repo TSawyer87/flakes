@@ -1,35 +1,9 @@
-{ config, pkgs, ... }:
-
-let
-  helix-nightly = pkgs.stdenv.mkDerivation rec {
-    pname = "helix";
-    version = "nightly"; # Or use a timestamp or dynamic version
-    src = builtins.fetchTarball {
-      url = "https://github.com/helix-editor/helix/archive/refs/heads/nightly.tar.gz";
-      sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
-    };
-
-    nativeBuildInputs = [ pkgs.cargo pkgs.pkg-config pkgs.rustc ];
-
-    # Depending on what dependencies Helix needs, you can add more inputs
-    buildInputs = [ pkgs.glibc pkgs.libgit2 pkgs.zlib pkgs.openssl ];
-
-    meta = with pkgs.lib; {
-      description = "Helix text editor (nightly version)";
-      license = licenses.mit;
-      platforms = platforms.all;
-    };
-  };
-
-in
-
-{
+{ pkgs, helix-nightly, ... }: {
   programs.helix = with pkgs; {
-    package = helix-nightly;
     enable = true;
     defaultEditor = true;
+    package = helix-nightly.defaultPackage.${pkgs.system};
     extraPackages = [
-      helix-nightly
       bash-language-server
       biome
       clang-tools
@@ -39,6 +13,7 @@ in
       nixd
       nixpkgs-fmt
       nodePackages.prettier
+      # sql-formatter
       rust-analyzer
       taplo
       taplo-lsp
@@ -110,29 +85,22 @@ in
         };
       };
 
-      keys =
-        {
-          normal = {
-            H = ":buffer-previous";
-            L = ":buffer-next";
-            C-y = [
-              ":sh rm -f /tmp/unique-file"
-              ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
-              ":insert-output echo '\x1b[?1049h' > /dev/tty"
-              ":open %sh{cat /tmp/unique-file}"
-              ":redraw"
-            ];
-
-            space = {
-              "." = ":fmt";
-            };
-          };
-          select = {
-            tab = "extend_parent_node_end";
-            S-tab = "extend_parent_node_start";
-          };
-        };
     };
+
+    # themes = {
+    #   # https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
+    #   gruvbox_community = {
+    #     inherits = "gruvbox";
+    #     "variable" = "blue1";
+    #     "variable.parameter" = "blue1";
+    #     "function.macro" = "red1";
+    #     "operator" = "orange1";
+    #     "comment" = "gray";
+    #     "constant.builtin" = "orange1";
+    #     "ui.background" = { };
+    #   };
+    # };
+
     languages = {
       language-server.biome = {
         command = "biome";
@@ -160,7 +128,129 @@ in
           };
           auto-format = true;
         }
-        # Other language configurations...
+        # {
+        #   name = "go";
+        #   language-servers = [ "gopls" "golangci-lint-lsp" "gpt" ];
+        #   formatter = { command = "goimports"; };
+        #   auto-format = true;
+        # }
+        {
+          name = "html";
+          language-servers = [ "vscode-html-language-server" "gpt" ];
+          formatter = {
+            command = "prettier";
+            args = [ "--stdin-filepath" "file.html" ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "json";
+          language-servers = [
+            {
+              name = "vscode-json-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+          ];
+          formatter = {
+            command = "biome";
+            args = [
+              "format"
+              "--indent-style"
+              "space"
+              "--stdin-file-path"
+              "file.json"
+            ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "jsonc";
+          language-servers = [
+            {
+              name = "vscode-json-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+          ];
+          formatter = {
+            command = "biome";
+            args = [
+              "format"
+              "--indent-style"
+              "space"
+              "--stdin-file-path"
+              "file.jsonc"
+            ];
+          };
+          file-types = [ "jsonc" "hujson" ];
+          auto-format = true;
+        }
+        {
+          name = "markdown";
+          language-servers = [ "marksman" "gpt" ];
+          formatter = {
+            command = "prettier";
+            args = [ "--stdin-filepath" "file.md" ];
+          };
+          auto-format = true;
+        }
+        # {
+        #   name = "nix";
+        #   formatter = {
+        #     command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+        #   };
+        #   auto-format = true ;
+        # }
+        {
+          name = "nix";
+          auto-format = true;
+          language-servers = [ "nil" "typos" ];
+          formatter = {
+            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+          };
+        }
+        # {
+        #   name = "rust";
+        #   language-servers = [ "rust-analyzer" "gpt" ];
+        #   auto-format = true;
+        # }
+        {
+          name = "rust";
+          language-servers = [ "rust-analyzer" "gpt" ];
+          formatter = {
+            command = "rustfmt";
+            args = [ "--edition=2024" ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "scss";
+          language-servers = [ "vscode-css-language-server" "gpt" ];
+          formatter = {
+            command = "prettier";
+            args = [ "--stdin-filepath" "file.scss" ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "toml";
+          language-servers = [ "taplo" ];
+          formatter = {
+            command = "taplo";
+            args = [ "fmt" "-o" "column_width=120" "-" ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "yaml";
+          language-servers = [ "yaml-language-server" ];
+          formatter = {
+            command = "prettier";
+            args = [ "--stdin-filepath" "file.yaml" ];
+          };
+          auto-format = true;
+        }
       ];
     };
   };
