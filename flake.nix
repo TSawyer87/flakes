@@ -16,9 +16,6 @@
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    # helix-nightly.url = "github:cachix/helix"; # Use Cachix Helix flake
-    helix-nightly.url = "github:helix-editor/helix/master";
-    helix-nightly.flake = false;
   };
 
   outputs =
@@ -26,7 +23,6 @@
     , nixpkgs
     , home-manager
     , nix-index-database
-    , helix-nightly
     , ...
     }@inputs:
     let
