@@ -2,7 +2,7 @@
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = true;
-    package = inputs.helix-nightly.packages.${pkgs.system}.helix;
+    package = helix-nightly;
     extraPackages = [
       bash-language-server
       biome
