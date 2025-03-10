@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  home.sessionVariables = {
   programs.helix = with pkgs; {
     enable = true;
     defaultEditor = true;
@@ -206,9 +205,7 @@
           name = "nix";
           auto-format = true;
           language-servers = [ "nil" "typos" ];
-          formatter = {
-            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-          };
+          formatter = { command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"; };
         }
         # {
         #   name = "rust";
