@@ -6,6 +6,7 @@ let
     version = "nightly"; # Or use a timestamp or dynamic version
     src = builtins.fetchTarball {
       url = "https://github.com/helix-editor/helix/archive/refs/heads/nightly.tar.gz";
+      sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
     };
 
     nativeBuildInputs = [ pkgs.cargo pkgs.pkg-config pkgs.rustc ];
