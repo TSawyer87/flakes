@@ -1,6 +1,8 @@
 { pkgs, host, username, inputs, ... }: {
   home.packages = [
     inputs.zen-browser.packages."${pkgs.system}".default
+    inputs.helix-nightly.packages."${pkgs.system}".default
+
     # inputs.hyprland-qtutils.packages."${pkgs.system}".default
     pkgs.oh-my-zsh
     pkgs.fzf

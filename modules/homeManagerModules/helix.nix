@@ -4,6 +4,7 @@
     defaultEditor = true;
     package = inputs.helix-nightly.packages."${pkgs.system}".default;
     extraPackages = [
+      inputs.helix-nightly.packages."${pkgs.system}".default
       bash-language-server
       biome
       clang-tools
