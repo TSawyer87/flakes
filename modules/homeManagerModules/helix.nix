@@ -5,7 +5,7 @@
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
   programs.helix = with pkgs; {
-    enable = true;
+    enable = false;
     defaultEditor = true;
     extraPackages = [
       bash-language-server
