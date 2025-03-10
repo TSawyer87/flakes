@@ -87,9 +87,9 @@
         normal = {
           H = ":buffer-previous";
           L = ":buffer-next";
-        };
-        space = {
-          "." = ":fmt";
+          space = {
+            "." = ":fmt";
+          };
         };
       };
 
