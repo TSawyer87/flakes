@@ -19,11 +19,6 @@
     ../../modules/homeManagerModules/nixVim
     ../../modules/homeManagerModules
   ];
-    home.sessionVariables = {
-    HELIX_RUNTIME = "~/src/helix/runtime";
-  };
-  home.sessionPath = [ "$HOME/.cargo/bin" ];
-
 
   nixpkgs = {
     # You can add overlays here

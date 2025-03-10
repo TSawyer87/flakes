@@ -1,11 +1,7 @@
 { pkgs, ... }: {
   home.sessionVariables = {
-    HELIX_RUNTIME = "~/src/helix/runtime";
-  };
-  home.sessionPath = [ "$HOME/.cargo/bin" ];
-
   programs.helix = with pkgs; {
-    enable = false;
+    enable = true;
     defaultEditor = true;
     extraPackages = [
       bash-language-server
