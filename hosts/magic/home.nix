@@ -14,9 +14,9 @@
     ../../modules/homeManagerModules/rofi
     ../../modules/shells
     ../../modules/terms
-    ../../modules/homeManagerModules/nvim
+    # ../../modules/homeManagerModules/nvim
     ../../modules/homeManagerModules/zed.nix
-    # ../../modules/homeManagerModules/nixVim
+    ../../modules/homeManagerModules/nixVim
     ../../modules/homeManagerModules
   ];
 

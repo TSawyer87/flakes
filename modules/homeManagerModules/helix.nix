@@ -21,7 +21,7 @@
       wl-clipboard-rs
     ];
     settings = {
-      theme = "dracula";
+      theme = "kanagawa";
 
       editor = {
         color-modes = true;
