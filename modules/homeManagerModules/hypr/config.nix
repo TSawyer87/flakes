@@ -2,7 +2,8 @@
 let
   inherit (import ../../../hosts/${host}/variables.nix)
     browser terminal extraMonitorSettings keyboardLayout;
-in {
+in
+{
   wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
@@ -97,8 +98,8 @@ in {
         blurls = [ "wofi" "thunar" "gtk-layer-shell" ];
       };
       windowrule = [
-        "opacity 0.85 override 0.85 override,^(thunar)$"
-        "stayfocused, ^(wofi)$"
+        # "opacity 0.85 override 0.85 override,^(thunar)$"
+        # "stayfocused, ^(wofi)$"
       ];
 
       windowrulev2 = [
