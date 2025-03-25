@@ -13,6 +13,7 @@
     # swayfx
     # scenefx
     wlroots
+    os-prober
     wlr-randr
     evcxr # rust repl
     rustup
