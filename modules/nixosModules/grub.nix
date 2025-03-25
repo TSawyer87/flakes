@@ -20,7 +20,4 @@
       efi.efiSysMountPoint = "/boot";
     };
   };
-  environment-systemPackages = [
-    pkgs.os-prober
-  ];
 }
