@@ -12,6 +12,14 @@
         devices = [ "nodev" ];
         efiSupport = true;
         useOSProber = true;
+        extraEntries = ''
+          menuentry "Arch Linux" --class arch --class gnu-linux --class os {
+            search --set=drive1 --fs-uuid D5C9-10EA
+            linux ($drive1)/boot/vmlinuz-linux root=/dev/nvme0n1p2 rw
+            initrd ($drive1)/boot/initramfs-linux.img
+          }
+        '';
+        boot.loader.grub.extraEntriesBeforeNixOS = true;
       };
     };
     # Appimage Support
