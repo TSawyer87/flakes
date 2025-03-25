@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }: {
   programs = {
     nushell = {
-      enable = true;
+      enable = false;
       package = inputs.nushell-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
       # environmentVariables = {
