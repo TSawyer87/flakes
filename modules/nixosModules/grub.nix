@@ -13,7 +13,7 @@
         enable = true;
         useOSProber = true;
         efiSupport = true;
-        device = "nodev";
+        device = "/dev/nvme0n1";
       };
       #systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
