@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: {
   imports = [
-    ./boot.nix
+    # ./boot.nix
     ./stylix.nix
     ./packages.nix
     ./programs.nix
@@ -18,6 +18,7 @@
     ./xdg.nix
     ./greetd.nix
     ./thunar.nix
+    ./grub.nix
     # ./greetdHypr.nix
   ];
 }
