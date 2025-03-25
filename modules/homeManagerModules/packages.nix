@@ -1,6 +1,6 @@
 { pkgs, host, username, inputs, ... }: {
   home.packages = [
-    inputs.zen-browser.packages."${pkgs.system}".default
+    # inputs.zen-browser.packages."${pkgs.system}".default
     pkgs.oh-my-zsh
     pkgs.fzf
     pkgs.glow # markdown previewer in terminal
