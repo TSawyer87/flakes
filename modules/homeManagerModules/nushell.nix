@@ -66,7 +66,6 @@
     };
     shellAliases = {
       docker-compose = "podman-compose";
-      ls = "eza --grid --icons --group-directories-first --all";
       jq = "jaq";
       vi = "nvim";
       vk = "NVIM_APPNAME='kick' nvim";
