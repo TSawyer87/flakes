@@ -1,22 +1,28 @@
-{ ...
-}: {
+{ pkgs, config, ... }: {
   boot = {
-    kernel.sysctl."net.isoc" = true;
+    kernelPackages = pkgs.linuxPackages_zen;
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    kernel.sysctl = { "vm.max_map_count" = 2147483642; };
     loader = {
-      # grub2-theme = {
-      #   enable = true;
-      #   theme = "vimix";
-      #   footer = true;
-      # };
-      grub = {
-        enable = true;
-        useOSProber = true;
-        efiSupport = true;
-        device = "nodev";
-      };
-      #systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+      };
     };
+    # Appimage Support
+    binfmt.registrations.appimage = {
+      wrapInterpreterInShell = false;
+      interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+      recognitionType = "magic";
+      offset = 0;
+      mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
+      magicOrExtension = "\\x7fELF....AI\\x02";
+    };
+    plymouth.enable = true;
   };
 }
