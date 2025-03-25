@@ -1,4 +1,5 @@
 
+$env.default-config-dir = "~/flakes/modules/homeManagerModules/nushell"
 # External completers
 let carapace_completer = {|spans|
   carapace $spans.0 nushell ...$spans | from json
@@ -28,8 +29,8 @@ let multiple_completer = {|spans|
   } | do $in $spans
 }
 
-$env.config.buffer_editor = "nvim"
-$env.config.edit_mode = 'emacs'
+$env.config.buffer_editor = "hx"
+$env.config.edit_mode = 'vim'
 $env.config.bracketed_paste = true
 $env.config.completions.algorithm = "prefix"
 $env.config.completions.quick = true
@@ -95,14 +96,6 @@ $env.config.keybindings = [
 ]
 
 # completion sources
-source $"($nu.default-config-dir)/completions/curl.nu"
-source $"($nu.default-config-dir)/completions/docker.nu"
-source $"($nu.default-config-dir)/completions/git.nu"
-source $"($nu.default-config-dir)/completions/github.nu"
-source $"($nu.default-config-dir)/completions/npm.nu"
-source $"($nu.default-config-dir)/completions/less.nu"
-source $"($nu.default-config-dir)/completions/poetry.nu"
-source $"($nu.default-config-dir)/completions/rg.nu"
 source $"($nu.default-config-dir)/completions/tar.nu"
 
 source $"($nu.default-config-dir)/alias.nu"
