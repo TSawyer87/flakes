@@ -1,4 +1,5 @@
-{ ...
+{ pkgs
+, ...
 }: {
   boot = {
     kernel.sysctl."net.isoc" = true;
@@ -19,4 +20,7 @@
       efi.efiSysMountPoint = "/boot";
     };
   };
+  environment-systemPackages = [
+    pkgs.os-prober
+  ];
 }
