@@ -19,6 +19,7 @@ in {
         "https://neovim-nightly.cachix.org"
         "https://yazi.cachix.org"
         "https://helix.cachix.org"
+        "https://nushell-nightly.cachix.org"
       ];
       trusted-public-keys = [
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
@@ -28,6 +29,7 @@ in {
         "neovim-nightly.cachix.org-1:feIoInHRevVEplgdZvQDjhp11kYASYCE2NGY9hNrwxY="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+        "nushell-nightly.cachix.org-1:nLwXJzwwVmQ+fLKD6aH6rWDoTC73ry1ahMX9lU87nrc="
       ];
     };
   };
