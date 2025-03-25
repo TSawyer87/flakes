@@ -19,7 +19,7 @@
             initrd ($drive1)/boot/initramfs-linux.img
           }
         '';
-        boot.loader.grub.extraEntriesBeforeNixOS = true;
+        extraEntriesBeforeNixOS = true;
       };
     };
     # Appimage Support
