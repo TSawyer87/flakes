@@ -1,5 +1,4 @@
-{ pkgs
-, ...
+{ ...
 }: {
   boot = {
     kernel.sysctl."net.isoc" = true;
@@ -13,7 +12,7 @@
         enable = true;
         useOSProber = true;
         efiSupport = true;
-        device = "/dev/nvme0n1";
+        device = "nodev";
       };
       #systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
