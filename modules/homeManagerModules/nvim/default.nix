@@ -1,18 +1,20 @@
 { pkgs, inputs, ... }:
 let
-  pinnedPkgs = import (pkgs.fetchFromGithub {
-    owner = "NixOS";
-    repo = "nixpkgs";
-    rev = "fa35a3c8e17a3de613240fea68f876e5b4896aec";
-    sha256 = "sha256-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="; # Compute this
-  }) { config.allowUnfree = true; };
+  pinnedPkgs = import
+    (pkgs.fetchFromGithub {
+      owner = "NixOS";
+      repo = "nixpkgs";
+      rev = "fa35a3c8e17a3de613240fea68f876e5b4896aec";
+      sha256 = "sha256-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="; # Compute this
+    })
+    { config.allowUnfree = true; };
 in
 {
   programs = {
     neovim = {
       enable = true;
       package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-      defaultEditor = true;
+      # defaultEditor = true;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
