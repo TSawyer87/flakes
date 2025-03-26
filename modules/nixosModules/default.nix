@@ -1,6 +1,7 @@
 { pkgs, lib, ... }: {
   imports = [
     ./boot.nix
+    ./keyd.nix
     ./stylix.nix
     ./packages.nix
     ./programs.nix
