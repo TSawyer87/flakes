@@ -59,10 +59,11 @@
           };
 
         environmentVariables = {
-          PROMPT_INDICATOR_VI_INSERT = ''"  "'';
-          PROMPT_INDICATOR_VI_NORMAL = ''"∙ "'';
-          PROMPT_COMMAND = ''""'';
-          PROMPT_COMMAND_RIGHT = ''""'';
+          STARSHIP_SHELL = "nu";
+          PROMPT_INDICATOR = "";
+          PROMPT_INDICATOR_VI_INSERT = ": ";
+          PROMPT_INDICATOR_VI_NORMAL = "> ";
+          PROMPT_MULTILINE_INDICATOR = "::: ";
           DIRENV_LOG_FORMAT = ''""''; # make direnv quiet
           SHELL = ''"${pkgs.nushell}/bin/nu"'';
           EDITOR = ''"hx"'';
