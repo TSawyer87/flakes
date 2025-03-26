@@ -9,7 +9,7 @@
     programs = {
       direnv = {
         enable = true;
-        enableNushellIntegration = true;
+        # enableNushellIntegration = true;
         nix-direnv.enable = true;
       };
 
@@ -74,7 +74,7 @@
             conf = builtins.toJSON {
               show_banner = false;
               edit_mode = "vi";
-              shell_integration = true;
+              # shell_integration = true;
 
               ls.clickable_links = true;
               rm.always_trash = true;
