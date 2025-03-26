@@ -44,10 +44,10 @@
             ll = "ls -l";
             n = "${pkgs.nitch}/bin/nitch";
             vi = "nvim";
-            zd = "zed"
+            zd = "zed";
 
-              # Nix
-              ns = "sudo sh -c 'nixos-rebuild switch --flake $HOME/nixos-config/.#work |& ${pkgs.nix-output-monitor}/bin/nom'";
+            # Nix
+            ns = "sudo sh -c 'nixos-rebuild switch --flake $HOME/nixos-config/.#work |& ${pkgs.nix-output-monitor}/bin/nom'";
             nlu = "nix flake lock --update-input";
 
             # Modern yuunix, uwu <3
