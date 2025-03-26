@@ -5,6 +5,7 @@
     taplo # toml formatter and lsp
     #cargo-watch
     #cargo-spellcheck
+    keyd
     vimiv-qt
     qalculate-gtk
     meld
