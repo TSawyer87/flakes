@@ -2,7 +2,8 @@
 let
   # Import and inherit values from another Nix file
   inherit (import ./variables.nix) keyboardLayout;
-in {
+in
+{
   imports = [
     ./hardware.nix
     ../../modules/nixosModules
@@ -45,6 +46,18 @@ in {
 
   # Extra Module Options
   # drivers.amdgpu.enable = true;
+  services.keyd = {
+    enable = true;
+  };
+  # Optional, but makes sure that when you type the make palm rejection work with keyd
+  # https://github.com/rvaiya/keyd/issues/723
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Serial Keyboards]
+    MatchUdevType=keyboard
+    MatchName=keyd virtual keyboard
+    AttrKeyboardIntegration=internal
+  '';
+
   vm.guest-services.enable = true;
   local.hardware-clock.enable = false;
 
