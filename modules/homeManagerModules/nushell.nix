@@ -1,8 +1,8 @@
 { pkgs, inputs, ... }: {
   programs = {
     nushell = {
-      enable = false;
-      package = inputs.nushell-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      enable = true;
+      # package = inputs.nushell-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
       # environmentVariables = {
       #   PAGER = "bat";
@@ -10,8 +10,14 @@
       #   VISUAL = "hx";
       # };
 
-      configFile.source = ./nushell/config.nu;
-      envFile.source = ./nushell/env.nu;
+      # configFile.source = ./nushell/config.nu;
+      # envFile.source = ./nushell/env.nu;
+      settings = {
+        history = {
+          format = "sqlite";
+        };
+        show_banner = false;
+      };
     };
     # Completions
     carapace.enable = true;
