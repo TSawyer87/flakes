@@ -1,74 +1,138 @@
-{ config, lib, pkgs, ... }: {
-  home.packages = with pkgs; [
-    zoxide
-  ];
+#
+# NuShell - a better alternative to zsh/bash with a lot of whistles
+#
+{ pkgs
+, lib
+, ...
+}: {
+  config = {
+    programs = {
+      direnv = {
+        enable = true;
+        enableNushellIntegration = true;
+        nix-direnv.enable = true;
+      };
 
-  programs.nushell = {
-    enable = true;
-    environmentVariables = config.home.sessionVariables;
-    extraConfig = ''
-      $env.config.show_banner = false
-      $env.config.buffer_editor = "hx"
-      $env.config.edit_mode = "vi"
+      nushell = {
+        enable = true;
+        shellAliases =
+          let
+            g = lib.getExe pkgs.git;
+            c = "cargo";
+          in
+          {
+            # Cargo
+            cb = "${c} build";
+            cc = "${c} check";
+            cn = "${c} new";
+            cr = "${c} run";
+            cs = "${c} search";
+            ct = "${c} test";
 
-      let carapace_completer = {|spans: list<string>|
-          carapace $spans.0 nushell ...$spans
-          | from json
-          | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
-      }
+            # Git
+            ga = "${g} add";
+            gc = "${g} commit";
+            gd = "${g} diff";
+            gl = "${g} log";
+            gs = "${g} status";
+            gp = "${g} push origin main";
 
-      $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+            # ETC.
+            c = "clear";
+            f = "${pkgs.yazi}/bin/yazi";
+            la = "ls -la";
+            ll = "ls -l";
+            n = "${pkgs.nitch}/bin/nitch";
+            vi = "nvim";
+            zd = "zed"
 
-      let fish_completer = {|spans|
-          ${lib.getExe pkgs.fish} --command $'complete "--do-complete=($spans | str join " ")"'
-          | $"value(char tab)description(char newline)" + $in
-          | from tsv --flexible --no-infer
-      }
+              # Nix
+              ns = "sudo sh -c 'nixos-rebuild switch --flake $HOME/nixos-config/.#work |& ${pkgs.nix-output-monitor}/bin/nom'";
+            nlu = "nix flake lock --update-input";
 
-      let zoxide_completer = {|spans|
-          $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
-      }
+            # Modern yuunix, uwu <3
+            cat = "${pkgs.bat}/bin/bat";
+            df = "${pkgs.duf}/bin/duf";
+            find = "${pkgs.fd}/bin/fd";
+            grep = "${pkgs.ripgrep}/bin/rg";
+            tree = "${pkgs.eza}/bin/eza --git --icons --tree";
+          };
 
-      let multiple_completers = {|spans|
-          let expanded_alias = scope aliases
-          | where name == $spans.0
-          | get -i 0.expansion
+        environmentVariables = {
+          PROMPT_INDICATOR_VI_INSERT = ''"  "'';
+          PROMPT_INDICATOR_VI_NORMAL = ''"∙ "'';
+          PROMPT_COMMAND = ''""'';
+          PROMPT_COMMAND_RIGHT = ''""'';
+          DIRENV_LOG_FORMAT = ''""''; # make direnv quiet
+          SHELL = ''"${pkgs.nushell}/bin/nu"'';
+          EDITOR = ''"nvim"'';
+        };
 
-          let spans = if $expanded_alias != null {
-              $spans
-              | skip 1
-              | prepend ($expanded_alias | split row ' ' | take 1)
-          } else {
-              $spans
-          }
+        # See the Nushell docs for more options.
+        extraConfig =
+          let
+            conf = builtins.toJSON {
+              show_banner = false;
+              edit_mode = "vi";
+              shell_integration = true;
 
-          match $spans.0 {
-              z | zi => $zoxide_completer
-              _ => $carapace_completer
-          } | do $in $spans
-      }
+              ls.clickable_links = true;
+              rm.always_trash = true;
 
-      $env.config.completions = {
-          case_sensitive: false
-          quick: true
-          partial: true
-          algorithm: "fuzzy"
-          external: {
-              enable: true
-              max_results: 100
-              completer: $multiple_completers
-          }
-      }
-    '';
-    plugins = lib.attrValues {
-      inherit (pkgs.nushellPlugins)
-        formats gstat polars query;
-    };
-    shellAliases = {
-      docker-compose = "podman-compose";
-      jq = "jaq";
-      vi = "nvim";
-      vk = "NVIM_APPNAME='kick' nvim";
+              table = {
+                mode = "rounded";
+                index_mode = "always";
+                header_on_separator = false;
+              };
+
+              cursor_shape = {
+                vi_insert = "line";
+                vi_normal = "block";
+              };
+
+              menus = [
+                {
+                  name = "completion_menu";
+                  only_buffer_difference = false;
+                  marker = "? ";
+                  type = {
+                    layout = "columnar"; # list, description
+                    columns = 4;
+                    col_padding = 2;
+                  };
+                  style = {
+                    text = "magenta";
+                    selected_text = "blue_reverse";
+                    description_text = "yellow";
+                  };
+                }
+              ];
+            };
+            completion = name: ''
+              source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
+            '';
+            completions = names:
+              builtins.foldl'
+                (prev: str: ''
+                  ${prev}
+                  ${str}'') ""
+                (map completion names);
+          in
+          ''
+            $env.config = ${conf};
+            ${completions ["git" "nix" "man" "cargo"]}
+
+            def --env ff [...args] {
+            	let tmp = (mktemp -t "yazi-cwd.XXXXX")
+            	yazi ...$args --cwd-file $tmp
+            	let cwd = (open $tmp)
+            	if $cwd != "" and $cwd != $env.PWD {
+            		cd $cwd
+            	}
+            	rm -fp $tmp
+            }
+          '';
+      };
     };
   };
 }
