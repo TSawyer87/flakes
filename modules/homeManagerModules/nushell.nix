@@ -65,7 +65,7 @@
           PROMPT_COMMAND_RIGHT = ''""'';
           DIRENV_LOG_FORMAT = ''""''; # make direnv quiet
           SHELL = ''"${pkgs.nushell}/bin/nu"'';
-          EDITOR = ''"nvim"'';
+          EDITOR = ''"hx"'';
         };
 
         # See the Nushell docs for more options.
