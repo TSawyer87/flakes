@@ -6,7 +6,8 @@ let
     rev = "ceb053f";
     hash = "sha256-yBcbvzWU2FI7vkeqL7+ZIoQboybaPIiH4fV9yMqdHlM=";
   };
-in {
+in
+{
   programs = {
     yazi = {
       enable = true;
