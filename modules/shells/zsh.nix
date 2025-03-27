@@ -139,7 +139,7 @@
       # Get the error messages from journalctl
       jctl = "journalctl -p 3 -xb";
       mkdir = "mkdir -p";
-      yz = "yazi";
+      y = "yazi";
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";
