@@ -11,9 +11,10 @@
     # ./tmux.nix
     # ./jj.nix
     ./direnv.nix
-    ./helix.nix
+    # ./helix.nix
     # ./fzf.nix
     ./nushell.nix
     ./emoji.nix
+    ./helix
   ];
 }
