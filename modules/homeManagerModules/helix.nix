@@ -1,34 +1,44 @@
 { pkgs, ... }: {
   programs.helix = with pkgs; {
     enable = true;
-    defaultEditor = true;
+    #defaultEditor = true;
     extraPackages = [
       bash-language-server
       biome
       clang-tools
+      docker-compose-language-service
+      dockerfile-language-server-nodejs
+      # golangci-lint
+      # golangci-lint-langserver
+      # gopls
+      # gotools
       helix-gpt
-      marksman
-      nil
-      nixd
+      # marksman
+      # nil
+      # nixd
       nixpkgs-fmt
-      nodePackages.prettier
-      # sql-formatter
-      rust-analyzer
-      taplo
+      # nodePackages.prettier
+      nodePackages.typescript-language-server
+      sql-formatter
+      # ruff
+      # (python3.withPackages
+      #   (p: (with p; [ python-lsp-ruff python-lsp-server ])))
+      # rust-analyzer
+      # taplo
       taplo-lsp
+      terraform-ls
+      typescript
       vscode-langservers-extracted
       yaml-language-server
-      wl-clipboard-rs
     ];
+
     settings = {
-      theme = "kanagawa";
+      # theme = "gruvbox_community";
 
       editor = {
         color-modes = true;
         cursorline = true;
         bufferline = "multiple";
-        line-number = "relative";
-        true-color = true;
 
         soft-wrap.enable = true;
 
@@ -83,11 +93,31 @@
           mode.select = "S";
         };
       };
+
       keys = {
         normal = {
-          H = ":buffer-previous";
-          L = ":buffer-next";
-          space = { "." = ":fmt"; };
+          x = "extend_line";
+          C-g = [ # LazyGit
+            ":write-all"
+            ":new"
+            ":insert-output lazygit"
+            ":buffer-close!"
+            ":redraw"
+            ":reload-all"
+          ];
+        };
+
+        insert = {
+          C-u =
+            [ "extend_to_line_bounds" "delete_selection_noyank" "open_above" ];
+          C-w = [ "move_prev_word_start" "delete_selection_noyank" ];
+          S-tab = "move_parent_node_start";
+        };
+
+        select = {
+          tab = "extend_parent_node_end";
+          S-tab = "extend_parent_node_start";
+
         };
       };
     };
@@ -123,6 +153,10 @@
         kubernetes = "k8s/*.yaml";
       };
 
+      language-server.typescript-language-server.config.tsserver = {
+        path = "${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js";
+      };
+
       language = [
         {
           name = "css";
@@ -133,12 +167,12 @@
           };
           auto-format = true;
         }
-        # {
-        #   name = "go";
-        #   language-servers = [ "gopls" "golangci-lint-lsp" "gpt" ];
-        #   formatter = { command = "goimports"; };
-        #   auto-format = true;
-        # }
+        {
+          name = "go";
+          language-servers = [ "gopls" "golangci-lint-lsp" "gpt" ];
+          formatter = { command = "goimports"; };
+          auto-format = true;
+        }
         {
           name = "html";
           language-servers = [ "vscode-html-language-server" "gpt" ];
@@ -146,6 +180,18 @@
             command = "prettier";
             args = [ "--stdin-filepath" "file.html" ];
           };
+          auto-format = true;
+        }
+        {
+          name = "javascript";
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+            "gpt"
+          ];
           auto-format = true;
         }
         {
@@ -192,39 +238,58 @@
           auto-format = true;
         }
         {
-          name = "markdown";
-          language-servers = [ "marksman" "gpt" ];
+          name = "jsx";
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+            "gpt"
+          ];
           formatter = {
-            command = "prettier";
-            args = [ "--stdin-filepath" "file.md" ];
+            command = "biome";
+            args = [
+              "format"
+              "--indent-style"
+              "space"
+              "--stdin-file-path"
+              "file.jsx"
+            ];
           };
           auto-format = true;
         }
         # {
-        #   name = "nix";
+        #   name = "markdown";
+        #   language-servers = [ "marksman" "gpt" ];
         #   formatter = {
-        #     command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+        #     command = "prettier";
+        #     args = [ "--stdin-filepath" "file.md" ];
         #   };
-        #   auto-format = true ;
-        # }
-        {
-          name = "nix";
-          auto-format = true;
-          language-servers = [ "nil" "typos" ];
-          formatter = { command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"; };
-        }
-        # {
-        #   name = "rust";
-        #   language-servers = [ "rust-analyzer" "gpt" ];
         #   auto-format = true;
         # }
         {
+          name = "nix";
+          formatter = {
+            command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt-rfc-style";
+          };
+          auto-format = true;
+        }
+        {
+          name = "python";
+          language-servers = [ "pylsp" "gpt" ];
+          formatter = {
+            command = "sh";
+            args = [
+              "-c"
+              "ruff check --select I --fix - | ruff format --line-length 88 -"
+            ];
+          };
+          auto-format = true;
+        }
+        {
           name = "rust";
           language-servers = [ "rust-analyzer" "gpt" ];
-          formatter = {
-            command = "rustfmt";
-            args = [ "--edition=2024" ];
-          };
           auto-format = true;
         }
         {
@@ -237,11 +302,70 @@
           auto-format = true;
         }
         {
+          name = "sql";
+          language-servers = [ "gpt" ];
+          formatter = {
+            command = "sql-formatter";
+            args = [
+              "-l"
+              "postgresql"
+              "-c"
+              ''
+                {"keywordCase": "lower", "dataTypeCase": "lower", "functionCase": "lower", "expressionWidth": 120, "tabWidth": 4}''
+            ];
+          };
+          auto-format = true;
+        }
+        {
           name = "toml";
           language-servers = [ "taplo" ];
           formatter = {
             command = "taplo";
             args = [ "fmt" "-o" "column_width=120" "-" ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "tsx";
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+            "gpt"
+          ];
+          formatter = {
+            command = "biome";
+            args = [
+              "format"
+              "--indent-style"
+              "space"
+              "--stdin-file-path"
+              "file.tsx"
+            ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "typescript";
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+            "gpt"
+          ];
+          formatter = {
+            command = "biome";
+            args = [
+              "format"
+              "--indent-style"
+              "space"
+              "--stdin-file-path"
+              "file.ts"
+            ];
           };
           auto-format = true;
         }
