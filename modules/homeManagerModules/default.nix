@@ -6,7 +6,7 @@
     ./qt.nix
     ./xdg.nix
     ./dconf.nix
-    ./yazi.nix
+    # ./yazi.nix
     ./git.nix
     # ./tmux.nix
     ./jj.nix
