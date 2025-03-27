@@ -2,7 +2,6 @@
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
     # vim
-    taplo # toml formatter and lsp
     #cargo-watch
     #cargo-spellcheck
     keyd
@@ -11,10 +10,7 @@
     meld
     just
     inotify-tools
-    # swayfx
-    # scenefx
     wlroots
-    os-prober
     wlr-randr
     evcxr # rust repl
     rustup
@@ -49,47 +45,25 @@
     cowsay
     ripgrep
     lshw
-    bat
     pkg-config
     nwg-look
     meson
     ninja
     virt-viewer # graphical consol client for qemu
     appimage-run
-    markdownlint-cli
-    markdownlint-cli2
-    marksman
-    markdown-oxide
     inxi
-    nh
-    nixfmt-rfc-style
     nix-prefetch-git
     nix-prefetch-github
     chafa
-    stdenv
     file-roller
     imv
     mpv
     gimp
     tree
     cachix
-    #spotify
-    #neovide
     dconf2nix
     greetd.tuigreet
-    jq
-    nodePackages.prettier
-    prettierd
-    ruff
     lazygit
-    shfmt
-    shellcheck
-    nixd
-    nodejs_22
-    nil
-    lua-language-server
-    bash-language-server
-    stylua
     zig_0_12
     unipicker
     nvtopPackages.amd
@@ -98,7 +72,6 @@
     p7zip
     alsa-utils
     nix-diff
-    manix
     linuxKernel.packages.linux_zen.cpupower
     tradingview
     dconf-editor
@@ -107,10 +80,7 @@
     fwupd
     openssl
     pkg-config
-    gccgo14
     go
-    gomuks
-    olm
     transmission_4-gtk
   ];
 }

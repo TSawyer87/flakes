@@ -19,6 +19,7 @@
     ./xdg.nix
     ./greetd.nix
     ./thunar.nix
+    ./lsp.nix
     # ./grub.nix
     # ./greetdHypr.nix
   ];

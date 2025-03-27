@@ -9,7 +9,7 @@
     # ./yazi.nix
     ./git.nix
     # ./tmux.nix
-    ./jj.nix
+    # ./jj.nix
     ./direnv.nix
     ./helix.nix
     # ./fzf.nix
