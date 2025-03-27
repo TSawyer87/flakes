@@ -21,9 +21,10 @@
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    yazi.url = "github:sxyazi/yazi";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -40,7 +41,8 @@
 
       # Import overlays explicitly
       overlays = import ./overlays { inherit inputs; };
-    in {
+    in
+    {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter =
@@ -61,6 +63,9 @@
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ yazi.overlays.default ];
+            })
             {
               home-manager.extraSpecialArgs = {
                 inherit username;
