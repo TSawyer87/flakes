@@ -10,7 +10,7 @@ in
 {
   programs = {
     yazi = {
-      package = inputs.yazi.packages.${pkgs.system}.yazi;
+      package = inputs.yazi.packages.${pkgs.system}.default;
       enable = true;
       shellWrapperName = "y";
       settings = {
