@@ -1,33 +1,20 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
+  home.packages = with pkgs; [ alejandra nil ];
+
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${pkgs.system}.helix;
     defaultEditor = true;
-    settings = {
-      theme = "kanagawa";
-    };
+    settings = { theme = "kanagawa"; };
+    themes = { };
     languages = {
-      language = [
-      {
-        name = "rust";
-        auto-format = true;
-      }
-      {
-        name = "markdown";
-        language-servers = [ "marksman" ];
-        formatter = {
-          command = "prettier";
-          args = [ "--stdin-filepath" "file.md" ];
-        };
-        auto-format = true;
-      }
-      {
+      language = [{
         name = "nix";
         auto-format = true;
-        language-servers = [ "nil" ];
-        formatter = { command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"; };
-      }
-      
-      ];
+        formatter = { command = "${pkgs.alejandra}/bin/alejandra"; };
+      }];
     };
   };
+
+  home.sessionVariables = { VISUAL = "hx"; };
 }

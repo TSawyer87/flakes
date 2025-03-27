@@ -17,6 +17,10 @@
     hyprland.url = "github:hyprwm/Hyprland";
     # zen-browser.url = "github:0xc000022070/zen-browser-flake";
     flake-utils.url = "github:numtide/flake-utils";
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
@@ -36,8 +40,7 @@
 
       # Import overlays explicitly
       overlays = import ./overlays { inherit inputs; };
-    in
-    {
+    in {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       formatter =
