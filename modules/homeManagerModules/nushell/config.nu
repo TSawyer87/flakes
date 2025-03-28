@@ -6,4 +6,4 @@ use ~/flakes/modules/homeManagerModules/nushell/init.nu *
 
 alias gd = git diff
 
-source ~/.local/share/.zoxide.nu
+source ~/.zoxide.nu

@@ -54,3 +54,4 @@ export-env {
 # }
 
 # zoxide init nushell | save -f ~/.local/share/.zoxide.nu
+zoxide init nushell | save -f ~/.zoxide.nu
