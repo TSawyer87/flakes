@@ -64,7 +64,8 @@
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
             ({ pkgs, ... }: {
-              nixpkgs.overlays = [ yazi.overlays.default ];
+              # nixpkgs.overlays = [ yazi.overlays.default ];
+              environment.systemPackages = [ yazi.packages.${pkgs.system}.default ];
             })
             {
               home-manager.extraSpecialArgs = {
