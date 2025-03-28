@@ -8,6 +8,7 @@ let
   };
 in
 {
+  home.packages = [ pkgs.yazi ];
   programs = {
     yazi = {
       enable = true;
