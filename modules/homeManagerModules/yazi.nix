@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, yazi, ... }:
 let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
@@ -8,9 +8,11 @@ let
   };
 in
 {
+  nixpkgs.overlays = [ yazi.overlays.default ];
   home.packages = [ pkgs.yazi ];
   programs = {
     yazi = {
+      package = pkgs.yazi;
       enable = true;
       shellWrapperName = "y";
       settings = {
