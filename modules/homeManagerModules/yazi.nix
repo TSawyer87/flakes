@@ -1,4 +1,4 @@
-{ pkgs, yazi, ... }:
+{ pkgs, inputs, ... }:
 let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
@@ -12,7 +12,7 @@ in
   # home.packages = [ pkgs.yazi ];
   programs = {
     yazi = {
-      package = yazi.packages.${pkgs.system}.default;
+      package = inputs.yazi.packages.${pkgs.system}.default;
       enable = true;
       shellWrapperName = "y";
       settings = {
