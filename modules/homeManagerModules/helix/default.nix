@@ -105,6 +105,13 @@
               ":open %sh{cat /tmp/unique-file-h21a434}"
               ":redraw"
             ];
+            E = [
+              ":sh rm -f /tmp/unique-file-u41ae14"
+              ":insert-output yazi '%{workspace_directory}' --chooser-file=/tmp/unique-file-u41ae14"
+              ":insert-output echo \"x1b[?1049h\" > /dev/tty"
+              ":open %sh{cat /tmp/unique-file-u41ae14}"
+              ":redraw"
+            ];
           };
         };
       };
