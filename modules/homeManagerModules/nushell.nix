@@ -10,6 +10,8 @@
       # for editing directly to config.nu 
       extraConfig = ''
         zoxide init nushell | save -f ~/.zoxide.nu
+        mkdir ~/.local/share/atuin/
+        atuin init nu | save ~/.local/share/atuin/init.nu
         mkdir ~/.cache/carapace
         carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
