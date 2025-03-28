@@ -8,11 +8,11 @@ let
   };
 in
 {
-  nixpkgs.overlays = [ yazi.overlays.default ];
-  home.packages = [ pkgs.yazi ];
+  # nixpkgs.overlays = [ yazi.overlays.default ];
+  # home.packages = [ pkgs.yazi ];
   programs = {
     yazi = {
-      package = pkgs.yazi;
+      package = yazi.packages.${pkgs.system}.default;
       enable = true;
       shellWrapperName = "y";
       settings = {
