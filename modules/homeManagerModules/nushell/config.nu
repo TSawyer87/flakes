@@ -1,4 +1,4 @@
-def build-config [] { { footer_mode: "50" } }
+# def build-config [] { { footer_mode: "50" } }
 
 let config = build-config
 
