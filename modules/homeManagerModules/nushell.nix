@@ -21,8 +21,6 @@
         }
         $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
         $env.config = {
-         buffer_editor = "hx",
-         edit_mode = "vi",
          show_banner: false,
          completions: {
          case_sensitive: false # case-sensitive completions
