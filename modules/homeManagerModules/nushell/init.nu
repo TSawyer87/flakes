@@ -53,4 +53,4 @@ export-env {
 #     [ $usr_str $pwd_str ' ' ] | str join
 # }
 
-zoxide init nushell | save -f ~/.local/share/.zoxide.nu
+# zoxide init nushell | save -f ~/.local/share/.zoxide.nu
