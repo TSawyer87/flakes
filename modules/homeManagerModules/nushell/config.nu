@@ -3,7 +3,7 @@ def build-config [] { { footer_mode: "50" } }
 let config = build-config
 
 use ~/flakes/modules/homeManagerModules/nushell/init.nu *
-use ~/flakes/modules/homeManagerModules/nushell/env.nu *
+# use ~/flakes/modules/homeManagerModules/nushell/env.nu *
 
 alias gd = git diff
 
