@@ -4,6 +4,10 @@
 
 use ~/flakes/modules/homeManagerModules/nushell/init.nu *
 # use ~/flakes/modules/homeManagerModules/nushell/env.nu *
+$env.config.buffer_editor = "hx"
+
+$env.MANPAGER = "nvim +Man!"
+$env.config.edit_mode = "vi"
 
 alias gd = git diff
 
