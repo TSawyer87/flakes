@@ -20,7 +20,7 @@
     ./greetd.nix
     ./thunar.nix
     ./lsp.nix
-    ./yazi.nix
+    # ./yazi.nix
     # ./grub.nix
     # ./greetdHypr.nix
   ];
