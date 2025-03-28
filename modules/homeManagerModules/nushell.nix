@@ -21,6 +21,8 @@
         }
         $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
         $env.config = {
+         buffer_editor = "hx",
+         edit_mode = "vi",
          show_banner: false,
          completions: {
          case_sensitive: false # case-sensitive completions
@@ -44,11 +46,29 @@
       '';
       shellAliases = {
         h = "hx";
+        c = "clear";
         fr = "nh os switch --hostname magic /home/jr/flakes";
         ft = "nh os test --hostname magic /home/jr/flakes";
+        fu = "nh os switch --hostname magic --update /home/jr/flakes";
         zd = "zeditor";
+        lg = "lazygit";
+        tarnow = "tar -acf";
+        untar = "tar -zxvf";
+        opts = "man home-configuration.nix";
         # ncg =
         #   "nix-collect-garbage --delete-old ; sudo nix-collect-garbage -d ; sudo /run/current-system/bin/switch-to-configuration boot";
+        y = "yazi";
+        repl = "evcxr";
+        cr = "cargo run";
+        cb = "cargo build";
+        ct = "cargo test";
+        cc = "cargo check";
+        rr = "rustc";
+        rc = "rustc --explain";
+        cn = "cargo new";
+        cC = "cargo clippy";
+        cP = "cargo clippy -- -W clippy::all -W clippy::pedantic";
+        cf = "cargo rustfmt";
 
       };
     };
