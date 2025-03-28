@@ -32,6 +32,9 @@ export-env {
 # prompt
 # PROMPT_COMMAND: { build-prompt }
 
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+mkdir ~/.cache/carapace
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 # export def build-prompt [] {
 #     let usr_str = (if $env.SHOW_USER {
 #         [
