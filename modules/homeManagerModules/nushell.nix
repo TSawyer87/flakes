@@ -41,6 +41,9 @@
         # prepend /home/myuser/.apps |
         append /usr/bin/env
         )
+        fz [] {
+          hx (fzf)
+        }
       '';
       shellAliases = {
         h = "hx";
