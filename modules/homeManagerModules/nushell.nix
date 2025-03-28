@@ -1,6 +1,3 @@
-#
-# NuShell - a better alternative to zsh/bash with a lot of whistles
-#
 { pkgs
 , lib
 , ...
@@ -67,6 +64,7 @@
         cC = "cargo clippy";
         cP = "cargo clippy -- -W clippy::all -W clippy::pedantic";
         cf = "cargo rustfmt";
+        fz = "fzf --bind 'enter:become(hx {})'";
 
       };
     };
