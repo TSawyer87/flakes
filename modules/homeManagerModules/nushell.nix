@@ -72,6 +72,8 @@
     };
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
+    atuin.enable = true;
+    atuin.enableNushellIntegration = true;
 
     starship = {
       enable = true;
