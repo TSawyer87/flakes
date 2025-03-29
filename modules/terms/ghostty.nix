@@ -1,9 +1,8 @@
-{ lib, ...}: {
+{ lib, ... }: {
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    enableNushellIntegration = true;
     installVimSyntax = true;
     settings = {
       keybind = [
@@ -45,7 +44,7 @@
       window-theme = "dark";
 
       # Disables ligatures
-      font-feature = ["-liga" "-dlig" "-calt"];
+      font-feature = [ "-liga" "-dlig" "-calt" ];
     };
   };
 }
