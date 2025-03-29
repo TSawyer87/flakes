@@ -127,7 +127,7 @@
             $env.config = ${conf};
             ${completions ["git" "nix" "man" "cargo"]}
 
-            def --env y [...args] {
+            def --env yy [...args] {
             	let tmp = (mktemp -t "yazi-cwd.XXXXX")
             	yazi ...$args --cwd-file $tmp
             	let cwd = (open $tmp)
