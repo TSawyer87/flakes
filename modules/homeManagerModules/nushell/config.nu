@@ -35,6 +35,7 @@ use ~/flakes/modules/homeManagerModules/nushell/matchit.nu *
 set matchit_keybinding
 # $env.MANPAGER = "nvim +Man!"
 # $env.config.edit_mode = "vi"
+use ~/flakes/modules/homeManagerModules/nushell/lsp.nu *
 
 # alias gd = git diff
 pfetch
