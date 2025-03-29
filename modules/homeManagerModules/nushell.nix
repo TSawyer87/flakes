@@ -73,7 +73,7 @@
           PROMPT_INDICATOR_VI_NORMAL = "> ";
           PROMPT_MULTILINE_INDICATOR = "::: ";
           DIRENV_LOG_FORMAT = ''""''; # make direnv quiet
-          SHELL = ''"${pkgs.nushell}/bin/nu"'';
+          # SHELL = ''"${pkgs.nushell}/bin/nu"'';
           # EDITOR = ''"hx"'';
           EDITOR = "hx";
           VISUAL = "hx";
