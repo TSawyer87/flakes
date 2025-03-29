@@ -75,6 +75,8 @@
           DIRENV_LOG_FORMAT = ''""''; # make direnv quiet
           SHELL = ''"${pkgs.nushell}/bin/nu"'';
           # EDITOR = ''"hx"'';
+          EDITOR = "hx";
+          VISUAL = "hx";
           MANPAGER = "nvim +Man!";
         };
 
