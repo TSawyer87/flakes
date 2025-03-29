@@ -18,6 +18,7 @@ $env.CARAPACE_BRIDGES = 'zsh'
 $env.MANPAGER = "col -bx | bat -l man -p"
 $env.MANPAGECACHE = ($nu.default-config-dir | path join 'mancache.txt')
 $env.RUST_BACKTRACE = 1
+$env.XDG_CONFIG_HOME = "/home/jr/.config"
 $env.TOPIARY_CONFIG_FILE = ($env.XDG_CONFIG_HOME | path join topiary languages.ncl)
 $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
 
