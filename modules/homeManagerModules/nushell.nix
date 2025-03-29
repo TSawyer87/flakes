@@ -86,6 +86,7 @@
             conf = builtins.toJSON {
               show_banner = false;
               edit_mode = "vi";
+              # completions.external.completer = {|span| carapace_by_fzf $span };
               # shell_integration = true;
 
               ls.clickable_links = true;
