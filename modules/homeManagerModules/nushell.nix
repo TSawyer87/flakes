@@ -30,6 +30,8 @@
             cr = "${c} run";
             cs = "${c} search";
             ct = "${c} test";
+            repl = "evcxr";
+
 
             # Git
             ga = "${g} add";
@@ -47,11 +49,13 @@
             n = "${pkgs.nitch}/bin/nitch";
             vi = "nvim";
             zd = "zed";
+            fz = "fzf --bind 'enter:become(hx {})'";
 
             # Nix
             fr = "nh os switch --hostname magic /home/jr/flakes";
             ft = "nh os test --hostname magic /home/jr/flakes";
             fu = "nh os switch --hostname magic --update /home/jr/flakes";
+            opts = "man home-configuration.nix";
 
 
             # Modern yuunix, uwu <3
@@ -71,6 +75,7 @@
           DIRENV_LOG_FORMAT = ''""''; # make direnv quiet
           SHELL = ''"${pkgs.nushell}/bin/nu"'';
           EDITOR = ''"hx"'';
+          MANPAGER = "nvim +Man!";
         };
 
         # See the Nushell docs for more options.
@@ -135,6 +140,10 @@
             		cd $cwd
             	}
             	rm -fp $tmp
+            }
+
+            def --env nix-find [] {
+              nix-locate -w "bin/*$1*" | fzf
             }
           '';
       };
