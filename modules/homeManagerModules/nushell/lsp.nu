@@ -1,10 +1,15 @@
 # Minimal config file for LSP
-$env.PATH = $env.PATH
-| split row (char esep)
-| append '/usr/local/bin'
-| append ($env.HOME | path join ".cargo" "bin")
-| uniq
+# $env.PATH = $env.PATH
+# | split row (char esep)
+# | append '/usr/local/bin'
+# | append ($env.HOME | path join ".cargo" "bin")
+# | uniq
+use std/util "path add"
+path add "~/.local/bin"
+path add "/usr/local/bin"
+path add ($env.CARGO_HOME | path join "bin")
 
+$env.CARGO_HOME = "~/.cargo"
 $env.CARAPACE_LENIENT = 1
 $env.CARAPACE_BRIDGES = 'zsh'
 $env.config.completions.external.completer = {|spans: list<string>|
