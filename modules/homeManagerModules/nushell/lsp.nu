@@ -8,10 +8,11 @@ export-env {
     load-env {
         BROWSER: "firefox"
         CARGO_TARGET_DIR: "~/.cargo/target"
+        # CARGO_HOME : "~/.cargo"
         # EDITOR: "nvim"
         # VISUAL: "nvim"
         PAGER: "less"
-        SHELL: "~/.cargo/bin/nu"
+        # SHELL: "~/.cargo/bin/nu"
         HOSTNAME:  (hostname | split row '.' | first | str trim)
         SHOW_USER: true
         LS_COLORS: ([
@@ -24,7 +25,6 @@ export-env {
     }
 }
 
-$env.CARGO_HOME = "~/.cargo"
 $env.CARAPACE_LENIENT = 1
 $env.CARAPACE_BRIDGES = 'zsh'
 $env.config.completions.external.completer = {|spans: list<string>|
@@ -32,4 +32,4 @@ $env.config.completions.external.completer = {|spans: list<string>|
   | from json
   | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
 }
-const NU_LIB_DIRS = ["${pkgs.nu_scripts}/share/nu_scripts/"]
+const NU_LIB_DIRS = ["/home/jr/flakes/modules/homeManagerModules/nushell/nu_scripts/"]
