@@ -36,7 +36,7 @@
              fi
              source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
              source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
-             source <(jj util completion zsh)
+             # source <(jj util completion zsh)
              #pokemon-colorscripts -r
 
              nix-files() {
