@@ -2,85 +2,141 @@
 , lib
 , ...
 }: {
-  programs = {
-    nushell = {
-      enable = true;
-      # The config.nu can be anywhere you want if you like to edit your Nushell with Nu
-      configFile.source = ./nushell/config.nu;
-      # for editing directly to config.nu 
-      extraConfig = ''
-        zoxide init nushell | save -f ~/.zoxide.nu
-        mkdir ~/.cache/carapace
-        carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+  config = {
+    programs = {
+      carapace.enable = true;
+      carapace.enableNushellIntegration = true;
+      atuin.enable = true;
+      atuin.enableNushellIntegration = true;
+      # direnv = {
+      #   enable = true;
+      #   # enableNushellIntegration = true;
+      #   nix-direnv.enable = true;
+      # };
 
-        let carapace_completer = {|spans|
-        carapace $spans.0 nushell ...$spans | from json
-        }
-        $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-        $env.config = {
-         show_banner: false,
-         completions: {
-         case_sensitive: false # case-sensitive completions
-         quick: true    # set to false to prevent auto-selecting completions
-         partial: true    # set to false to prevent partial filling of the prompt
-         algorithm: "fuzzy"    # prefix or fuzzy
-         external: {
-         # set to false to prevent nushell looking into $env.PATH to find more suggestions
-             enable: true 
-         # set to lower can improve completion performance at the cost of omitting some options
-             max_results: 100 
-             completer: $carapace_completer # check 'carapace_completer' 
-           }
-         }
-        } 
-        $env.PATH = ($env.PATH | 
-        split row (char esep) |
-        # prepend /home/myuser/.apps |
-        append /usr/bin/env
-        )
-      '';
-      shellAliases = {
-        h = "hx";
-        c = "clear";
-        fr = "nh os switch --hostname magic /home/jr/flakes";
-        ft = "nh os test --hostname magic /home/jr/flakes";
-        fu = "nh os switch --hostname magic --update /home/jr/flakes";
-        zd = "zeditor";
-        lg = "lazygit";
-        tarnow = "tar -acf";
-        untar = "tar -zxvf";
-        opts = "man home-configuration.nix";
-        # ncg =
-        #   "nix-collect-garbage --delete-old ; sudo nix-collect-garbage -d ; sudo /run/current-system/bin/switch-to-configuration boot";
-        y = "yazi";
-        repl = "evcxr";
-        cr = "cargo run";
-        cb = "cargo build";
-        ct = "cargo test";
-        cc = "cargo check";
-        rr = "rustc";
-        rc = "rustc --explain";
-        cn = "cargo new";
-        cC = "cargo clippy";
-        cP = "cargo clippy -- -W clippy::all -W clippy::pedantic";
-        cf = "cargo rustfmt";
-        fz = "fzf --bind 'enter:become(hx {})'";
+      nushell = {
+        enable = true;
+        configFile.source = ./nushell/config.nu;
+        shellAliases =
+          let
+            g = lib.getExe pkgs.git;
+            c = "cargo";
+          in
+          {
+            # Cargo
+            cb = "${c} build";
+            cc = "${c} check";
+            cn = "${c} new";
+            cr = "${c} run";
+            cs = "${c} search";
+            ct = "${c} test";
 
-      };
-    };
-    carapace.enable = true;
-    carapace.enableNushellIntegration = true;
-    atuin.enable = true;
-    atuin.enableNushellIntegration = true;
+            # Git
+            ga = "${g} add";
+            gc = "${g} commit";
+            gd = "${g} diff";
+            gl = "${g} log";
+            gs = "${g} status";
+            gp = "${g} push origin main";
 
-    starship = {
-      enable = true;
-      settings = {
-        add_newline = true;
-        character = {
-          success_symbol = "[➜](bold green)";
-          error_symbol = "[➜](bold red)";
+            # ETC.
+            c = "clear";
+            yz = "${pkgs.yazi}/bin/yazi";
+            la = "ls -la";
+            ll = "ls -l";
+            n = "${pkgs.nitch}/bin/nitch";
+            vi = "nvim";
+            zd = "zed";
+
+            # Nix
+            fr = "nh os switch --hostname magic /home/jr/flakes";
+            ft = "nh os test --hostname magic /home/jr/flakes";
+            fu = "nh os switch --hostname magic --update /home/jr/flakes";
+
+
+            # Modern yuunix, uwu <3
+            cat = "${pkgs.bat}/bin/bat";
+            df = "${pkgs.duf}/bin/duf";
+            find = "${pkgs.fd}/bin/fd";
+            grep = "${pkgs.ripgrep}/bin/rg";
+            tree = "${pkgs.eza}/bin/eza --git --icons --tree";
+          };
+
+        environmentVariables = {
+          STARSHIP_SHELL = "nu";
+          PROMPT_INDICATOR = "";
+          PROMPT_INDICATOR_VI_INSERT = ": ";
+          PROMPT_INDICATOR_VI_NORMAL = "> ";
+          PROMPT_MULTILINE_INDICATOR = "::: ";
+          DIRENV_LOG_FORMAT = ''""''; # make direnv quiet
+          SHELL = ''"${pkgs.nushell}/bin/nu"'';
+          EDITOR = ''"hx"'';
         };
+
+        # See the Nushell docs for more options.
+        extraConfig =
+          let
+            conf = builtins.toJSON {
+              show_banner = false;
+              edit_mode = "vi";
+              # shell_integration = true;
+
+              ls.clickable_links = true;
+              rm.always_trash = true;
+
+              table = {
+                mode = "rounded";
+                index_mode = "always";
+                header_on_separator = false;
+              };
+
+              cursor_shape = {
+                vi_insert = "line";
+                vi_normal = "block";
+              };
+
+              menus = [
+                {
+                  name = "completion_menu";
+                  only_buffer_difference = false;
+                  marker = "? ";
+                  type = {
+                    layout = "columnar"; # list, description
+                    columns = 4;
+                    col_padding = 2;
+                  };
+                  style = {
+                    text = "magenta";
+                    selected_text = "blue_reverse";
+                    description_text = "yellow";
+                  };
+                }
+              ];
+            };
+            completion = name: ''
+              source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
+            '';
+            completions = names:
+              builtins.foldl'
+                (prev: str: ''
+                  ${prev}
+                  ${str}'') ""
+                (map completion names);
+          in
+          ''
+            $env.config = ${conf};
+            ${completions ["git" "nix" "man" "cargo"]}
+
+            def --env y [...args] {
+            	let tmp = (mktemp -t "yazi-cwd.XXXXX")
+            	yazi ...$args --cwd-file $tmp
+            	let cwd = (open $tmp)
+            	if $cwd != "" and $cwd != $env.PWD {
+            		cd $cwd
+            	}
+            	rm -fp $tmp
+            }
+          '';
       };
     };
   };
