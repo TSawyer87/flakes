@@ -4,10 +4,25 @@
 # | append '/usr/local/bin'
 # | append ($env.HOME | path join ".cargo" "bin")
 # | uniq
-use std/util "path add"
-path add "~/.local/bin"
-path add "/usr/local/bin"
-path add ($env.CARGO_HOME | path join "bin")
+export-env {
+    load-env {
+        BROWSER: "firefox"
+        CARGO_TARGET_DIR: "~/.cargo/target"
+        # EDITOR: "nvim"
+        # VISUAL: "nvim"
+        PAGER: "less"
+        SHELL: "~/.cargo/bin/nu"
+        HOSTNAME:  (hostname | split row '.' | first | str trim)
+        SHOW_USER: true
+        LS_COLORS: ([
+             "di=01;34;2;102;217;239"
+             "or=00;40;31"
+             "mi=00;40;31"
+             "ln=00;36"
+             "ex=00;32"
+        ] | str join (char env_sep))
+    }
+}
 
 $env.CARGO_HOME = "~/.cargo"
 $env.CARAPACE_LENIENT = 1
