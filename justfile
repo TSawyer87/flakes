@@ -25,3 +25,19 @@ repl:
     nix repl -f flake:nixpkgs
 
 
+system-info:
+    @echo "This is an {{arch()}} machine".
+
+# Sort-Reverse nushell
+sort:
+    ls | sort-by size | reverse
+
+# Find > 5kb files
+five:
+    ls | where size > 5kb
+
+running:
+    ps | where status == Running
+
+help:
+    help commands | explore
