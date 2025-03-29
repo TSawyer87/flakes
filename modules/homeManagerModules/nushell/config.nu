@@ -10,6 +10,7 @@
 # $env.config.edit_mode = "vi"
 
 # alias gd = git diff
+pfetch
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
