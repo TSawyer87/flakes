@@ -3,6 +3,7 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+    enableNushellIntegration = true;
     installVimSyntax = true;
     settings = {
       keybind = [
