@@ -8,7 +8,7 @@
     ./dconf.nix
     ./yazi.nix
     ./git.nix
-    # ./tmux.nix
+    ./tmux.nix
     # ./jj.nix
     ./direnv.nix
     # ./fzf.nix

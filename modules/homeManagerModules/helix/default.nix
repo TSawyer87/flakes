@@ -244,6 +244,15 @@
         #   auto-format = true;
         # }
         {
+          name = "nu";
+          auto-format = true;
+          formatter = {
+            command = "topiary";
+          };
+          args = [ "format" "--language" "nu" ];
+
+        }
+        {
           name = "rust";
           language-servers = [ "rust-analyzer" "gpt" ];
           formatter = {
