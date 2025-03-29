@@ -46,3 +46,4 @@ source ~/flakes/modules/homeManagerModules/nushell/zoxide.nu
 source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu
 source ~/flakes/modules/homeManagerModules/nushell/atuin.nu
+source ~/flakes/modules/homeManagerModules/nushell/nu_scripts/themes/nu-themes/tokyo-moon.nu
