@@ -13,8 +13,8 @@ $env.PATH = $env.PATH
 | prepend ($env.HOME | path join ".local" "bin")
 | uniq
 $env.FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git --exclude .cache --max-depth 9"
-$env.CARAPACE_LENIENT = 1
-$env.CARAPACE_BRIDGES = 'zsh'
+# $env.CARAPACE_LENIENT = 1
+# $env.CARAPACE_BRIDGES = 'zsh'
 $env.MANPAGER = "col -bx | bat -l man -p"
 $env.MANPAGECACHE = ($nu.default-config-dir | path join 'mancache.txt')
 $env.RUST_BACKTRACE = 1
