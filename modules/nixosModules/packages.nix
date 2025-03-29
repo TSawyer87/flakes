@@ -54,6 +54,8 @@
     inxi
     nix-prefetch-git
     nix-prefetch-github
+    libgcc
+    gnumake
     chafa
     file-roller
     imv
