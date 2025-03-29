@@ -40,6 +40,7 @@
       unfocused-split-opacity = 0.9;
       background-opacity = 0.6;
       background-blur-radius = 20;
+      command = "/etc/profiles/per-user/bin/nu";
 
       window-theme = "dark";
 
