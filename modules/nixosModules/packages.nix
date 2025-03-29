@@ -55,6 +55,7 @@
     nix-prefetch-git
     nix-prefetch-github
     libgcc
+    gcc
     gnumake
     chafa
     file-roller
