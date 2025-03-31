@@ -74,7 +74,7 @@ $env.config.menus ++= [
         $extra_colors.prompt_symbol_color
         'light_blue'
         '▓▒░ Ctrl-d to del '
-        false
+        "false"
       )
     )
   }
