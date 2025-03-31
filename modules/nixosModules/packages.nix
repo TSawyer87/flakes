@@ -5,6 +5,7 @@
     #cargo-watch
     #cargo-spellcheck
     keyd
+    cheat
     nitch
     vimiv-qt
     qalculate-gtk
