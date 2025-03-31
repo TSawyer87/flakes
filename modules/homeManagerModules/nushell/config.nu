@@ -2,6 +2,12 @@
 
 # let config = build-config
 
+const extra_colors = {
+  menu_text_color: "#aaeaea"
+  prompt_symbol_color: "#111726"
+  explore_bg: "#1D1F21"
+  explore_fg: "#C4C9C6"
+}
 # use ~/flakes/modules/homeManagerModules/nushell/init.nu *
 # use ~/flakes/modules/homeManagerModules/nushell/env.nu *
 # $env.config.buffer_editor = "hx"
@@ -27,6 +33,124 @@ use ~/flakes/modules/homeManagerModules/nushell/fzf.nu [
   complete_line_by_fzf
   update_manpage_cache
   atuin_menus_func
+]
+
+$env.config.explore = {
+  status_bar_background: {bg: $extra_colors.explore_bg fg: $extra_colors.explore_fg}
+  command_bar_text: {fg: $extra_colors.explore_fg}
+  highlight: {fg: "black" bg: "yellow"}
+  status: {
+    error: {fg: "white" bg: "red"}
+    warn: {}
+    info: {}
+  }
+  selected_cell: {bg: light_blue fg: "black"}
+}
+
+$env.config.menus ++= [
+  # Configuration for default nushell menus
+  # Note the lack of source parameter
+  {
+    name: my_history_menu
+    only_buffer_difference: false
+    marker: ''
+    type: {layout: ide}
+    style: {}
+    source: (
+      atuin_menus_func
+      (
+        prompt_decorator
+        $extra_colors.prompt_symbol_color
+        'light_blue'
+        '▓▒░ Ctrl-d to del '
+        false
+      )
+    )
+  }
+  {
+    name: completion_menu
+    only_buffer_difference: false
+    marker: (prompt_decorator $extra_colors.prompt_symbol_color "yellow" "")
+    type: {
+      layout: columnar
+      columns: 4
+      col_width: 20 # Optional value. If missing all the screen width is used to calculate column width
+      col_padding: 2
+    }
+    style: {
+      text: $extra_colors.menu_text_color
+      selected_text: {attr: r}
+      description_text: yellow
+      match_text: {attr: u}
+      selected_match_text: {attr: ur}
+    }
+  }
+  {
+    name: history_menu
+    only_buffer_difference: false
+    marker: (prompt_decorator $extra_colors.prompt_symbol_color "light_blue" "")
+    type: {
+      layout: list
+      page_size: 30
+    }
+    style: {
+      text: $extra_colors.menu_text_color
+      selected_text: light_blue_reverse
+      description_text: yellow
+    }
+  }
+]
+
+$env.config.keybindings ++= [
+  {
+    name: history_menu
+    modifier: control
+    keycode: char_h
+    mode: [emacs vi_insert vi_normal]
+    event: {send: menu name: my_history_menu}
+    # event: {send: menu name: ide_completion_menu}
+  }
+  {
+    name: sesh
+    modifier: control
+    keycode: char_s
+    mode: [emacs vi_insert vi_normal]
+    event: {
+      send: executehostcommand
+      cmd: sesh_connect
+    }
+  }
+  {
+    name: vicmd_history_menu
+    modifier: shift
+    keycode: char_k
+    mode: vi_normal
+    event: {send: menu name: my_history_menu}
+  }
+  {
+    name: cut_line_to_end
+    modifier: control
+    keycode: char_k
+    mode: [emacs vi_insert]
+    event: {edit: cuttoend}
+  }
+  {
+    name: cut_line_from_start
+    modifier: control
+    keycode: char_u
+    mode: [emacs vi_insert]
+    event: {edit: cutfromstart}
+  }
+  {
+    name: fuzzy_complete
+    modifier: control
+    keycode: char_t
+    mode: [emacs vi_normal vi_insert]
+    event: {
+      send: executehostcommand
+      cmd: complete_line_by_fzf
+    }
+  }
 ]
 # use ~/flakes/modules/homeManagerModules/nushell/sesh.nu sesh_connect
 use ~/flakes/modules/homeManagerModules/nushell/auto-pair.nu *
