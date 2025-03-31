@@ -20,6 +20,7 @@
     ./greetd.nix
     ./thunar.nix
     ./lsp.nix
+    ./printer.nix
     # ./grub.nix
     # ./greetdHypr.nix
   ];

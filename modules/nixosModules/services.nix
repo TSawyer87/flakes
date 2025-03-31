@@ -18,16 +18,16 @@ in {
     gvfs.enable = true;
     openssh.enable = true;
     flatpak.enable = false;
-    printing = {
-      enable = true;
-      # drivers = [pkgs.hplipWithPlugin];
-    };
+    # printing = {
+    #   enable = true;
+    #   # drivers = [pkgs.hplipWithPlugin];
+    # };
     gnome.gnome-keyring.enable = true;
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
+    # avahi = {
+    #   enable = true;
+    #   nssmdns4 = true;
+    #   openFirewall = true;
+    # };
     ipp-usb.enable = true;
     syncthing = {
       enable = false;
