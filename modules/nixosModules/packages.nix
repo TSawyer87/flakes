@@ -5,6 +5,7 @@
     #cargo-watch
     #cargo-spellcheck
     keyd
+    nitch
     vimiv-qt
     qalculate-gtk
     meld
@@ -79,7 +80,6 @@
     tradingview
     dconf-editor
     rose-pine-cursor
-    pfetch-rs
     fwupd
     openssl
     pkg-config
