@@ -9,24 +9,43 @@ with lib; {
       # image = ../../config/wallpapers/bookmarks.png;
       # image = ../../config/wallpapers/keinbackup.png;
       image = ../wallpapers/Under_Starlit_Sky.png;
+      # base16Scheme = {
+      #   # Ayu Dark
+      #   base00 = "0F1419";
+      #   base01 = "131721";
+      #   base02 = "272D38";
+      #   base03 = "3E4B59";
+      #   base04 = "BFBDB6";
+      #   base05 = "E6E1CF";
+      #   base06 = "E6E1CF";
+      #   base07 = "F3F4F5";
+      #   base08 = "F07178";
+      #   base09 = "FF8F40";
+      #   base0A = "FFB454";
+      #   base0B = "B8CC52";
+      #   base0C = "95E6CB";
+      #   base0D = "59C2FF";
+      #   base0E = "D2A6FF";
+      #   base0F = "E6B673";
+      # };
       base16Scheme = {
-        # Ayu Dark
-        base00 = "0F1419";
-        base01 = "131721";
-        base02 = "272D38";
-        base03 = "3E4B59";
-        base04 = "BFBDB6";
-        base05 = "E6E1CF";
-        base06 = "E6E1CF";
-        base07 = "F3F4F5";
-        base08 = "F07178";
-        base09 = "FF8F40";
-        base0A = "FFB454";
-        base0B = "B8CC52";
-        base0C = "95E6CB";
-        base0D = "59C2FF";
-        base0E = "D2A6FF";
-        base0F = "E6B673";
+        # Kanagawa
+        base00 = "1F1F28";
+        base01 = "16161D";
+        base02 = "223249";
+        base03 = "54546D";
+        base04 = "727169";
+        base05 = "DCD7BA";
+        base06 = "C8C093";
+        base07 = "717C7C";
+        base08 = "C34043";
+        base09 = "FFA066";
+        base0A = "C0A36E";
+        base0B = "76946A";
+        base0C = "6A9589";
+        base0D = "7E9CD8";
+        base0E = "957FB8";
+        base0F = "D27E99";
       };
 
       # base16Scheme = {
