@@ -24,13 +24,14 @@
       enable = true;
       # hidpi = true;
     };
-    # enableNvidiaPatches = false;
     systemd.enable = true;
   };
+
   services.mako = {
     enable = true;
-    backgroundColor = "#0f1419FF";
-    borderColor = "#72B2FE";
+    backgroundColor = "#000000";
+    textColor = "#ff0000";
+    borderColor = "#ff0000";
     borderRadius = 5;
     borderSize = 1;
     groupBy = "summary";
@@ -64,26 +65,6 @@
        duration = "30m"
        transition-time = 600
     '';
-    # ".config/mako/.config".text = ''
-    #         anchor=bottom-right
-    #   font=monospace 10
-    #   # background-color=#000000
-    #   background-color=#22348e
-    #   text-color=#ff0000
-    #   width=350
-    #   margin=0,20,20
-    #   padding=10
-    #   border-size=1
-    #   # border-color=#ff0000
-    #   border-color=#72B2FE
-    #   border-radius=5
-    #   default-timeout=10000
-    #   group-by=summary
-    #   icons=1
-
-    #   [grouped]
-    #   format=<b>%s</b>\n%b
-    # '';
     #   ".config/amfora/config.toml".text = ''
     #     [a-general]
     #     home = "gemini://gem.zaney.org"

@@ -22,7 +22,7 @@ in
         "$modifier,E,exec,emopicker9000"
         "$modifier,S,exec,screenshootin"
         "$modifier,D,exec,pkill wofi || wofi --normal-window --show drun --allow-images"
-        "$modifier,O,exec,obs"
+        # "$modifier,O,exec,obs"
         "$modifier,C,exec,hyprpicker -a"
         "$modifier,G,exec,gimp"
         "$modifier SHIFT,Return, exec,pypr toggle term"
