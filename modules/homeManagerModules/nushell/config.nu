@@ -173,7 +173,7 @@ set matchit_keybinding
 # use ~/flakes/modules/homeManagerModules/nushell/lsp.nu *
 
 # alias gd = git diff
-pfetch
+nitch
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")

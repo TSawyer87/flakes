@@ -3,7 +3,8 @@ let
   inherit (import ../../../hosts/${host}/variables.nix)
     browser terminal extraMonitorSettings keyboardLayout;
   # submap = resize;
-in {
+in
+{
   wayland.windowManager.hyprland = {
     settings = {
 
@@ -82,22 +83,24 @@ in {
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (builtins.genList (i:
-          let ws = i + 1;
-          in [
-            "$modifier, code:1${toString i}, workspace, ${toString ws}"
-            "$modifier SHIFT, code:1${toString i}, movetoworkspace, ${
+        builtins.concatLists (builtins.genList
+          (i:
+            let ws = i + 1;
+            in [
+              "$modifier, code:1${toString i}, workspace, ${toString ws}"
+              "$modifier SHIFT, code:1${toString i}, movetoworkspace, ${
               toString ws
             }"
-          ]) 9)) ++ (
-            # workspaces
-            # binds $mod + {1..9} to [to] workspace {1..9}
-            builtins.concatLists (builtins.genList (i:
-              let ws = i + 1;
-              in [
-                "$modifier, code:1${toString i}, workspace, ${toString ws}"
-                "$modifier, code:1${toString i}, workspace, ${toString ws}"
-              ]) 9));
+            ]) 9)) ++ (
+        # workspaces
+        # binds $mod + {1..9} to [to] workspace {1..9}
+        builtins.concatLists (builtins.genList
+          (i:
+            let ws = i + 1;
+            in [
+              "$modifier, code:1${toString i}, workspace, ${toString ws}"
+              "$modifier, code:1${toString i}, workspace, ${toString ws}"
+            ]) 9));
       # binde = [
       #   # "submap=resize"
       #   ",right,resizeactive,50 0"
