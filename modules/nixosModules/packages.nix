@@ -5,7 +5,6 @@
     #cargo-watch
     #cargo-spellcheck
     lazyjj
-    fd
     keyd
     cheat
     nitch

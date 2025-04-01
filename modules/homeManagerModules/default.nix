@@ -15,5 +15,6 @@
     ./nushell.nix
     ./emoji.nix
     ./helix
+    ./fd.nix
   ];
 }
