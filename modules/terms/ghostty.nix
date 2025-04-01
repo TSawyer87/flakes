@@ -5,7 +5,7 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     settings = {
-      theme = "dracula";
+      theme = "Dracula";
       keybind = [
         # "alt+n=new_window"
         # "alt+t=new_tab"
