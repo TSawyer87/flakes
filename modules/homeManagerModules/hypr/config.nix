@@ -17,6 +17,7 @@ in
         "pypr &"
         # "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/"
         "wpaperd"
+        "thunar --daemon"
         "killall -q mako;sleep .5 && mako"
         "wl-paste --type text --watch cliphist store" # Stores only text data
         "wl-paste --type image --watch cliphist store" # Stores only image data
@@ -40,10 +41,13 @@ in
       general = {
         "$modifier" = "SUPER";
         layout = "dwindle";
-        gaps_in = 6;
-        gaps_out = 8;
-        border_size = 2;
+        gaps_in = 4;
+        gaps_out = 5;
+        border_size = 1;
         resize_on_border = true;
+        allow_tearing = true; # allows immediate window rule to work
+        # "col.active_border" = rgba(0DB7D4FF);
+        # "col.inactive_border" = rgba(31313600)
         "col.active_border" =
           "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
         "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
@@ -54,6 +58,8 @@ in
         initial_workspace_tracking = 0;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = false;
+        vfr = 1;
+        vrr = 1;
       };
 
       dwindle = {
@@ -62,17 +68,22 @@ in
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 20;
         blur = {
           enabled = true;
-          size = 5;
-          passes = 3;
+          size = 14;
+          passes = 4;
+          brightness = 1;
+          contrast = 1;
+          popups = true;
+          popups_ignorealpha = 0.6;
           ignore_opacity = false;
           new_optimizations = true;
         };
         shadow = {
           enabled = true;
-          range = 4;
+          ignore_window = true;
+          range = 20;
           render_power = 3;
           color = "rgba(1a1a1aee)";
         };
