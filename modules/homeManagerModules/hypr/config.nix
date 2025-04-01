@@ -58,8 +58,8 @@ in
         initial_workspace_tracking = 0;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = false;
-        vfr = 1;
-        vrr = 1;
+        # vfr = 1;
+        # vrr = 1;
       };
 
       dwindle = {
