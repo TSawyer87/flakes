@@ -32,14 +32,31 @@ with lib; {
 
       "hyprland/workspaces" = {
         format = "{name}";
+        on-click = "activate";
+        all-outputs = true;
+        sort-by-number = true;
         format-icons = {
-          default = " ";
-          active = " ";
-          urgent = " ";
+          urgent = "";
+          active = "";
+          default = "";
         };
         on-scroll-up = "hyprctl dispatch workspace e+1";
         on-scroll-down = "hyprctl dispatch workspace e-1";
       };
+      "custom/separator" = {
+        format = "|";
+        interval = "once";
+        tooltip = false;
+      };
+      "idle_inhibitor" = {
+        format = "{icon}";
+        format-icons = {
+          activated = "";
+          deactivated = "";
+        };
+        tooltip = "true";
+      };
+      "tray" = { spacing = 6; icon-size = 20; };
       "clock" = {
         format = if clock24h then " {:L%H:%M}" else " {:L%I:%M %p}";
         tooltip = true;
@@ -47,20 +64,24 @@ with lib; {
           <big>{:%A, %d.%B %Y }</big>
           <tt><small>{calendar}</small></tt>'';
       };
-      "hyprland/window" = {
-        max-length = 22;
-        separate-outputs = false;
-        rewrite = { "" = " 🙈 No Windows? "; };
-      };
-      "memory" = {
-        interval = 5;
-        format = " {}%";
-        tooltip = true;
-      };
       "cpu" = {
         interval = 5;
         format = " {usage:2}%";
         tooltip = true;
+        on-click = "ghostty -e 'btop'";
+      };
+      "memory" = {
+        interval = 30;
+        format = " {used:0.2f}GB";
+        tooltip = true;
+        on-click = "ghostty -e 'btop'";
+        max-length = 10;
+        critical = 80;
+      };
+      "hyprland/window" = {
+        max-length = 22;
+        separate-outputs = false;
+        rewrite = { "" = " 🙈 No Windows? "; };
       };
       "disk" = {
         format = " {free}";
@@ -73,7 +94,6 @@ with lib; {
         format-disconnected = "󰤮";
         tooltip = false;
       };
-      "tray" = { spacing = 12; };
       "pulseaudio" = {
         format = "{icon} {volume}% {format_source}";
         format-bluetooth = "{volume}% {icon} {format_source}";
@@ -108,19 +128,11 @@ with lib; {
         format = "󱕴";
         on-click = "sleep 0.1 && list-hypr-bindings";
       };
-      "idle_inhibitor" = {
-        format = "{icon}";
-        format-icons = {
-          activated = "";
-          deactivated = "";
-        };
-        tooltip = "true";
-      };
       "custom/notification" = {
         tooltip = false;
         format = "{icon} {}";
         format-icons = {
-          notification = "<span foreground='red'><sup></sup></span>";
+          notification = "<span foreground = 'red' > <sup></sup> </span> ";
           none = "";
           dnd-notification = "<span foreground='red'><sup></sup></span>";
           dnd-none = "";
@@ -152,96 +164,198 @@ with lib; {
     }];
     style = concatStrings [
       ''
-        * {
-          font-family: Fira-Mono Nerd Font;
-          font-size: 16px;
-          border-radius: 0px;
-          border: none;
-          min-height: 0px;
+                * {
+            border: none;
+            font-family: "JetBrainsMono";
+            font-size: 14px;
         }
+
         window#waybar {
-          background: rgba(0,0,0,0);
+            background-color: rgba(16, 18, 36, 0.8); /* Dark background (Kanagawa base) */
+            color: #e1e1e1; /* Light gray text */
+            transition-property: background-color;
+            transition-duration: .5s;
+            border-radius: 10px;
         }
-        #workspaces {
-          color: #${config.stylix.base16Scheme.base00};
-          background: #${config.stylix.base16Scheme.base01};
-          margin: 4px 4px;
-          padding: 5px 5px;
-          border-radius: 16px;
+
+        window#waybar.hidden {
+            opacity: 0.2;
         }
+
         #workspaces button {
-          font-weight: bold;
-          padding: 0px 5px;
-          margin: 0px 3px;
-          border-radius: 16px;
-          color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
-          opacity: 0.5;
-          transition: ${betterTransition};
+            padding: 0px;
+            margin: 4px 0 6px 0;
+            background-color: transparent;
+            color: #c8c0c0; /* Light gray */
+            min-width: 36px;
         }
+
         #workspaces button.active {
-          font-weight: bold;
-          padding: 0px 5px;
-          margin: 0px 3px;
-          border-radius: 16px;
-          color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
-          transition: ${betterTransition};
-          opacity: 1.0;
-          min-width: 40px;
+            padding: 0 0 0 0;
+            margin: 4px 0 6px 0;
+            min-width: 36px;
         }
+
         #workspaces button:hover {
-          font-weight: bold;
-          border-radius: 16px;
-          color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
-          opacity: 0.8;
-          transition: ${betterTransition};
+            background: rgba(30, 34, 50, 0.5); /* Slightly lighter background */
+            border-radius: 15px;
         }
-        tooltip {
-          background: #${config.stylix.base16Scheme.base00};
-          border: 1px solid #${config.stylix.base16Scheme.base08};
-          border-radius: 12px;
+
+        #workspaces button.focused {
+            background-color: #928374; /* Tan/brown focus */
+            color: #161824; /* Dark text */
         }
-        tooltip label {
-          color: #${config.stylix.base16Scheme.base08};
+
+        #workspaces button.urgent {
+            color: #e82424; /* Red urgent */
         }
-        #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
-          font-weight: bold;
-          margin: 8px 0px;
-          margin-left: 7px;
-          padding: 4px 18px;
-          background: #${config.stylix.base16Scheme.base04};
-          color: #${config.stylix.base16Scheme.base00};
-          border-radius: 0px;
+
+        #clock,
+        #battery,
+        #cpu,
+        #memory,
+        #temperature,
+        #backlight,
+        #network,
+        #pulseaudio,
+        #custom-keyboard-layout,
+        #custom-network_traffic,
+        #custom-media,
+        #tray,
+        #idle_inhibitor,
+        #custom-power,
+        #custom-updates,
+        #language {
+            padding: 0px 3px;
+            margin: 4px 3px 5px 3px;
+            color: #c8c0c0; /* Light gray */
+            background-color: transparent;
         }
-        #custom-startmenu {
-          color: #${config.stylix.base16Scheme.base0B};
-          background: #${config.stylix.base16Scheme.base02};
-          font-size: 28px;
-          margin: 0px;
-          padding: 0px 30px 0px 15px;
-          border-radius: 0px;
+
+        #window,
+        #workspaces {
+            border: solid 1px #5c5c5c; /* Darker border */
+            border-radius: 100px;
         }
-        #custom-hyprbindings, #network, #battery,
-        #custom-notification, #tray, #custom-exit {
-          font-weight: bold;
-          background: #${config.stylix.base16Scheme.base0F};
-          color: #${config.stylix.base16Scheme.base00};
-          margin: 4px 0px;
-          margin-right: 7px;
-          border-radius: 0px;
-          padding: 0px 18px;
+
+        /* If workspaces is the leftmost module, omit left margin */
+        .modules-left > widget:first-child > #workspaces {
+            margin-left: 0;
         }
+
+        /* If workspaces is the rightmost module, omit right margin */
+        .modules-right > widget:last-child > #workspaces {
+            margin-right: 0;
+        }
+
         #clock {
-          font-weight: bold;
-          color: #0D0E15;
-          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
-          margin: 0px;
-          padding: 0px 15px 0px 30px;
-          border-radius: 0px;
+            color: #ff9e64; /* Orange clock */
+        }
+
+        #battery {
+            color: #e82424; /* Red battery */
+        }
+
+        @keyframes blink {
+            to {
+                background-color: #e1e1e1; /* Light gray blink */
+                color: #161824; /* Dark text blink */
+            }
+        }
+
+        #battery.critical:not(.charging) {
+            background-color: #e82424; /* Red critical battery */
+            color: #161824;
+        }
+
+        label:focus {
+            background-color: #161824; /* Dark focus */
+        }
+
+        #cpu {
+            /* color: #2e3257;  Blue cpu */ 
+            color: #007291;
+        }
+
+        #memory {
+            color: #9ece6a; /* Green memory */
+        }
+
+        #backlight {
+            color: #7aa2f7; /* Light blue backlight */
+        }
+
+        #network {
+            color: #627d9a; /* Light Blue network */
+        }
+
+        #network.disconnected {
+            color: #e82424; /* Red disconnected network */
+        }
+
+        #pulseaudio {
+            color: #ff9e64; /* Orange pulseaudio */
+        }
+
+        #pulseaudio.muted {
+            color: #5c5c5c; /* Darker gray muted */
+        }
+
+        #custom-power {
+            color: #7aa2f7; /* Light blue power */
+        }
+
+        #custom-updates {
+            color: #9ece6a; /* Green updates */
+        }
+
+        #custom-media {
+            background-color: #9ece6a; /* Green media */
+            color: #161824; /* Dark text media */
+            min-width: 100px;
+        }
+
+        #custom-media.custom-spotify {
+            background-color: #9ece6a; /* Green spotify */
+        }
+
+        #custom-media.custom-vlc {
+            background-color: #ff9e64; /* Orange vlc */
+        }
+
+        #temperature {
+            color: #7aa2f7; /* Light blue temperature */
+        }
+
+        #temperature.critical {
+            background-color: #e82424; /* Red critical temp */
+        }
+
+        #tray {
+            border: solid 1px #89b4fa; /* Light blue tray border */
+            border-radius: 30px;
+        }
+
+        #idle_inhibitor {
+            background-color: #303446; /* Darker idle inhibitor */
+            border-radius: 15px;
+        }
+
+        #custom-keyboard-layout {
+            color: #dfc5a4; /* Red keyboard layout */
+        }
+
+        #custom-separator {
+            color: #5c5c5c; /* Darker separator */
+            margin: 0 1px;
+            padding-bottom: 5px;
+        }
+
+        #custom-network_traffic {
+            color: #ff9e64; /* Orange network traffic */
         }
       ''
     ];
   };
 }
+
