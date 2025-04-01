@@ -91,6 +91,12 @@
             ":redraw"
             ":reload-all"
           ];
+          C-r = [
+            ":write-all"
+            ":insert-output scooter >/dev/tty"
+            ":redraw"
+            ":reload-all"
+          ];
           C-y = [
             ":sh rm -f /tmp/unique-file"
             ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"

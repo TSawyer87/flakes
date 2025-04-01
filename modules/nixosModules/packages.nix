@@ -5,6 +5,7 @@
     #cargo-watch
     #cargo-spellcheck
     lazyjj
+    scooter
     keyd
     cheat
     nitch
