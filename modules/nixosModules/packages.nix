@@ -4,6 +4,7 @@
     # vim
     #cargo-watch
     #cargo-spellcheck
+    lazyjj
     keyd
     cheat
     nitch
