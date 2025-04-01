@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./settings.nix
+    ./execs.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
