@@ -181,4 +181,4 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu
 source ~/flakes/modules/homeManagerModules/nushell/atuin.nu
-source ~/flakes/modules/homeManagerModules/nushell/nu_scripts/themes/nu-themes/tokyo-moon.nu
+source ~/flakes/modules/homeManagerModules/nushell/nu_scripts/themes/nu-themes/monokai.nu
