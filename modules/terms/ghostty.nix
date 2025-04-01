@@ -5,6 +5,7 @@
     enableZshIntegration = true;
     installVimSyntax = true;
     settings = {
+      theme = "kanagawa_wave";
       keybind = [
         # "alt+n=new_window"
         # "alt+t=new_tab"
