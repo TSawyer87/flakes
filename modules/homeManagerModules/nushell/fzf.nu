@@ -65,7 +65,7 @@ def _quote_if_not_empty [] {
   if ($in | str trim | is-empty) { '' } else { $"`($in)`" }
 }
 
-def _prompt_decorator [
+export def prompt_decorator [
   fg_color: string
   bg_color: string
   symbol: string
@@ -86,7 +86,7 @@ def _build_fzf_prompt [
   | default $fzf_prompt_default_setting.bg bg
   | default $fzf_prompt_default_setting.symbol symbol
   (
-    _prompt_decorator
+    prompt_decorator
     $prompt_config.fg
     $prompt_config.bg
     $prompt_config.symbol

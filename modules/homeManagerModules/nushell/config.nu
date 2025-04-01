@@ -9,16 +9,16 @@ const extra_colors = {
   explore_fg: "#C4C9C6"
 }
 
-def prompt_decorator [
-  fg_color: string
-  bg_color: string
-  symbol: string
-  type: string
-] {
-  let fg = {fg: $bg_color}
-  let bg = {fg: $fg_color bg: $bg_color}
-  $"(ansi --escape $bg)▓▒░ ($type) ($symbol)(ansi reset)(ansi --escape $fg)(ansi reset) "
-}
+# def prompt_decorator [
+#   fg_color: string
+#   bg_color: string
+#   symbol: string
+#   type: string
+# ] {
+#   let fg = {fg: $bg_color}
+#   let bg = {fg: $fg_color bg: $bg_color}
+#   $"(ansi --escape $bg)▓▒░ ($type) ($symbol)(ansi reset)(ansi --escape $fg)(ansi reset) "
+# }
 # use ~/flakes/modules/homeManagerModules/nushell/init.nu *
 # use ~/flakes/modules/homeManagerModules/nushell/env.nu *
 # $env.config.buffer_editor = "hx"
@@ -44,6 +44,7 @@ use ~/flakes/modules/homeManagerModules/nushell/fzf.nu [
   complete_line_by_fzf
   update_manpage_cache
   atuin_menus_func
+  prompt_decorator
 ]
 
 $env.config.explore = {
