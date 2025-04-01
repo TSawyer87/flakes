@@ -18,7 +18,7 @@
       };
 
       general = {
-        # "$modifier" = "SUPER";
+        "$mod" = "SUPER";
         layout = "dwindle";
         gaps_in = 4;
         gaps_out = 5;
