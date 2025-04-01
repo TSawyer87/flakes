@@ -197,8 +197,8 @@
 
     extraConfig = ''
       monitor=DP-1, 3840x2160, 0x0, 1.5
-    ''
-      # "\n      monitor=,preferred,auto,auto\n      monitor=DP-1, 3840x2160, 0x0, 1.5\n      ${extraMonitorSettings}\n    ";
-      };
-  }
+    '';
+    # "\n      monitor=,preferred,auto,auto\n      monitor=DP-1, 3840x2160, 0x0, 1.5\n      ${extraMonitorSettings}\n    ";
+  };
+}
 
