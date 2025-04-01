@@ -23,6 +23,7 @@
         bufferline = "multiple";
         line-number = "relative";
         true-color = true;
+        default-yank-register = "+";
 
         soft-wrap.enable = true;
 
