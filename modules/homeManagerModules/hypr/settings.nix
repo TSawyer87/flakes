@@ -1,8 +1,8 @@
-{ host, username, config, ... }:
-let
-  inherit (import ../../../hosts/${host}/variables.nix)
-    browser terminal extraMonitorSettings keyboardLayout;
-in
+{ config, ... }:
+# let
+#   inherit (import ../../../hosts/${host}/variables.nix)
+#     browser terminal extraMonitorSettings keyboardLayout;
+# in
 {
   wayland.windowManager.hyprland = {
     settings = {
@@ -17,14 +17,14 @@ in
         "pypr &"
         # "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/"
         "wpaperd"
-        "thunar --daemon"
         "killall -q mako;sleep .5 && mako"
         "wl-paste --type text --watch cliphist store" # Stores only text data
         "wl-paste --type image --watch cliphist store" # Stores only image data
       ];
 
       input = {
-        kb_layout = "${keyboardLayout}";
+        # kb_layout = "${keyboardLayout}";
+        kb_layout = "us";
         kb_options = [ "grp:alt_caps_toggle" "caps:super" ];
         numlock_by_default = true;
         repeat_rate = 50;
@@ -68,7 +68,7 @@ in
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 20;
         blur = {
           enabled = true;
           size = 14;
@@ -195,8 +195,10 @@ in
       ];
     };
 
-    extraConfig =
-      "\n      monitor=,preferred,auto,auto\n      monitor=DP-1, 3840x2160, 0x0, 1.5\n      ${extraMonitorSettings}\n    ";
-  };
-}
+    extraConfig = ''
+      monitor=DP-1, 3840x2160, 0x0, 1.5
+    ''
+      # "\n      monitor=,preferred,auto,auto\n      monitor=DP-1, 3840x2160, 0x0, 1.5\n      ${extraMonitorSettings}\n    ";
+      };
+  }
 
