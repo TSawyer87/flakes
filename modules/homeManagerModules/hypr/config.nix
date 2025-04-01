@@ -58,8 +58,8 @@ in
         initial_workspace_tracking = 0;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = false;
-        # vfr = 1;
-        # vrr = 1;
+        vfr = true;
+        vrr = 2;
       };
 
       dwindle = {
@@ -68,22 +68,22 @@ in
       };
 
       decoration = {
-        rounding = 20;
+        rounding = 10;
         blur = {
           enabled = true;
           size = 14;
           passes = 4;
           brightness = 1;
           contrast = 1;
-          popups = true;
-          popups_ignorealpha = 0.6;
+          # popups = true;
+          # popups_ignorealpha = 0.6;
           ignore_opacity = false;
           new_optimizations = true;
         };
         shadow = {
           enabled = true;
           ignore_window = true;
-          range = 20;
+          range = 6;
           render_power = 3;
           color = "rgba(1a1a1aee)";
         };
