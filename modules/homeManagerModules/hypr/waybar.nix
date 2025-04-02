@@ -11,7 +11,7 @@ with lib; {
       layer = "top";
       position = "top";
       height = 33;
-      margin = "10, 15, 0, 15";
+      margin = "10, 5, 0, 5";
       modules-center = [ "hyprland/workspaces" "clock" ];
       modules-left = [
         "custom/startmenu"
@@ -55,7 +55,7 @@ with lib; {
         };
         tooltip = "true";
       };
-      "tray" = { spacing = 6; icon-size = 20; };
+      "tray" = { spacing = 10; icon-size = 25; };
       "clock" = {
         format = " {:L%I:%M %p}";
         tooltip = true;
