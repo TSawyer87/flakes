@@ -35,10 +35,23 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-      host = "magic";
-      username = "jr";
-      gitUsername = "TSawyer87";
-      gitEmail = "sawyerjr.25@gmail.com";
+      systemSettings = {
+        system = "x86_64-linux";
+        host = "magic";
+        timezone = "America/New_York";
+        locale = "en_US.UTF-8";
+      };
+      userSettings = {
+        # add = rec { if components rely on other components
+        username = "jr";
+        gitUsername = "TSawyer87";
+        gitEmail = "sawyerjr.25@gmail.com";
+        dotfilesDir = "~/.dotfiles";
+        wm = "hyprland";
+        browser = "firefox";
+        term = "ghostty";
+        editor = "hx";
+      };
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # Import overlays explicitly
@@ -52,32 +65,30 @@
       overlays = overlays; # Export the overlays attribute set
 
       nixosConfigurations = {
-        "${host}" = nixpkgs.lib.nixosSystem {
+        magic = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit systems;
             inherit inputs;
-            inherit username;
-            inherit host;
+            inherit userSettings;
+            inherit systemSettings;
             inherit outputs;
           };
           modules = [
-            ./hosts/${host}/config.nix
+            ./hosts/magic/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
             {
               home-manager.extraSpecialArgs = {
-                inherit username;
                 inherit inputs;
-                inherit host;
                 inherit systems;
                 inherit outputs; # Ensure outputs is passed for overlays
-                inherit gitEmail;
-                inherit gitUsername;
+                inherit userSettings;
+                inherit systemSettings;
               };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} = import ./hosts/${host}/home.nix;
+              home-manager.users.jr = import ./hosts/magic/home.nix;
               nixpkgs.config.allowUnfree = true;
             }
           ];
