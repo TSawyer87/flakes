@@ -28,7 +28,7 @@
     yazi.url = "github:sxyazi/yazi";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, nvf, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, nvf, rose-pine-hyprcursor, ... }@inputs:
     let
       inherit (self) outputs;
 
