@@ -182,7 +182,7 @@ with lib; {
         }
 
         #workspaces button {
-            margin: 4px 0 6px 0;
+            margin: 4px 0 6px 5px;
             padding: 5px;
             background-color: transparent;
             color: #c8c0c0; /* Light gray */
