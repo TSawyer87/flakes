@@ -28,12 +28,12 @@
     #   openFirewall = true;
     # };
     ipp-usb.enable = true;
-    syncthing = {
-      enable = false;
-      user = systemSettings.username;
-      dataDir = "/home/" + "${username}";
-      configDir = "/home/" + "${username}" + "/.config/syncthing ";
-    };
+    # syncthing = {
+    #   enable = false;
+    #   user = systemSettings.username;
+    #   dataDir = "/home/" + "${username}";
+    #   configDir = "/home/" + "${username}" + "/.config/syncthing ";
+    # };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -44,8 +44,7 @@
     pulseaudio.enable = false;
     psd = {
       enable = true;
-      resyncTimer = " 1
-        h ";
+      resyncTimer = "1h";
     };
     ollama = {
       enable = false;
