@@ -52,7 +52,8 @@
             fz = "fzf --bind 'enter:become(hx {})'";
 
             # Nix
-            fr = "nh os switch --hostname magic /home/jr/flakes";
+            # fr = "nh os switch --hostname magic /home/jr/flakes";
+            fr = "nh os switch /home/jr/flakes";
             ft = "nh os test --hostname magic /home/jr/flakes";
             fu = "nh os switch --hostname magic --update /home/jr/flakes";
             opts = "man home-configuration.nix";
