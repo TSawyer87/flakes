@@ -1,8 +1,8 @@
-{ pkgs, systemSettings, inputs, outputs, ... }: {
+{ pkgs, username, inputs, outputs, ... }: {
   # Home Manager Settings
   home = {
-    username = systemSettings.username;
-    homeDirectory = "/home/" + systemSettings.username;
+    username = "${username}";
+    homeDirectory = "/home/" + "${username}";
     stateVersion = "23.11";
   };
 

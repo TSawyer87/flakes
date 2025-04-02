@@ -1,4 +1,4 @@
-{ username, lib, ... }: {
+{ lib, ... }: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -10,12 +10,12 @@
       };
       background = [{
         path = lib.mkForce
-          "/home/${username}/Pictures/Wallpapers/wallpaper1.png";
+          "/home/jr/Pictures/Wallpapers/wallpaper1.png";
         blur_passes = 3;
         blur_size = 8;
       }];
       image = [{
-        path = "/home/${username}/.config/face.png";
+        path = "/home/jr/.config/face.png";
         size = 150;
         border_size = 4;
         border_color = "rgb(0C96F9)";

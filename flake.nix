@@ -35,12 +35,12 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+      username = "jr";
+      host = "magic";
       systemSettings = {
         system = "x86_64-linux";
-        host = "magic";
         timezone = "America/New_York";
         locale = "en_US.UTF-8";
-        username = "jr";
         gitUsername = "TSawyer87";
         gitEmail = "sawyerjr.25@gmail.com";
         dotfilesDir = "~/.dotfiles";
@@ -69,6 +69,8 @@
             inherit inputs;
             inherit systemSettings;
             inherit outputs;
+            inherit username;
+            inherit host;
           };
           modules = [
             ./hosts/magic/config.nix
@@ -81,6 +83,8 @@
                 inherit systems;
                 inherit outputs; # Ensure outputs is passed for overlays
                 inherit systemSettings;
+                inherit username;
+                inherit host;
               };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";

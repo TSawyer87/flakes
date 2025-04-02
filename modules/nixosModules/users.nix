@@ -3,6 +3,7 @@
 , config
 , inputs
 , systemSettings
+, username
 , ...
 }:
 {
@@ -10,7 +11,7 @@
 
   config = lib.mkIf config.users.enable {
     users.users = {
-      jr = {
+      ${username} = {
         homeMode = "755";
         isNormalUser = true;
         description = systemSettings.gitUsername;

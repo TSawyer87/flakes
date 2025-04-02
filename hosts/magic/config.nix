@@ -1,4 +1,4 @@
-{ pkgs, systemSettings, options, outputs, lib, ... }:
+{ pkgs, host, systemSettings, options, outputs, lib, ... }:
 {
   imports = [
     ./hardware.nix
@@ -59,7 +59,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = systemSettings.host;
+  networking.hostName = "${host}";
   networking.timeServers = options.networking.timeServers.default
     ++ [ "pool.ntp.org" ];
 
