@@ -1,8 +1,8 @@
 { pkgs, username, inputs, outputs, ... }: {
   # Home Manager Settings
   home = {
-    username = username;
-    homeDirectory = "/home/" + username;
+    username = "${username}";
+    homeDirectory = "/home/" + "${username}";
     stateVersion = "23.11";
   };
 
