@@ -11,7 +11,7 @@ with lib; {
       layer = "top";
       position = "top";
       height = 33;
-      margin = "15, 5, 0, 10";
+      margin = "10, 15, 0, 15";
       modules-center = [ "hyprland/workspaces" "clock" ];
       modules-left = [
         "custom/startmenu"
