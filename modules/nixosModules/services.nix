@@ -1,4 +1,4 @@
-{ pkgs, systemSettings, ... }:
+{ pkgs, config, systemSettings, username, ... }:
 {
   services = {
     xserver = {
@@ -31,8 +31,9 @@
     syncthing = {
       enable = false;
       user = systemSettings.username;
-      dataDir = "/home/" + systemSettings.username;
-      configDir = "/home/jr/.config/syncthing";
+      # dataDir = "/home/" + systemSettings.username;
+      dataDir = "${config.home.homeDirectory}" + "${username}";
+      configDir = "/home/" + "${username}" + "/.config/syncthing ";
     };
     pipewire = {
       enable = true;
@@ -44,16 +45,19 @@
     pulseaudio.enable = false;
     psd = {
       enable = true;
-      resyncTimer = "1h";
+      resyncTimer = " 1
+        h ";
     };
     ollama = {
       enable = false;
-      acceleration = "rocm";
+      acceleration = "
+        rocm ";
       environmentVariables = {
         HCC_AMDGPU_TARGET =
-          "gfx1031"; # used to be necessary, but doesn't seem to anymore
+          "
+        gfx1031 "; # used to be necessary, but doesn't seem to anymore
       };
-      rocmOverrideGfx = "10.3.1";
+      rocmOverrideGfx = " 10.3 .1 ";
     };
 
     fwupd.enable = true;
@@ -63,3 +67,4 @@
     blueman.enable = true;
   };
 }
+
