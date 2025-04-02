@@ -44,7 +44,6 @@
     ncdu
     pciutils
     ffmpeg
-    comma
     socat
     cowsay
     ripgrep
