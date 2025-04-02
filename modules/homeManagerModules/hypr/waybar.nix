@@ -57,7 +57,7 @@ with lib; {
       };
       "tray" = { spacing = 6; icon-size = 20; };
       "clock" = {
-        format = if clock24h then " {:L%H:%M}" else " {:L%I:%M %p}";
+        format = " {:L%I:%M %p}";
         tooltip = true;
         tooltip-format = ''
           <big>{:%A, %d.%B %Y }</big>
