@@ -10,7 +10,7 @@
 
   config = lib.mkIf config.users.enable {
     users.users = {
-      systemSettings.username = {
+      jr = {
         homeMode = "755";
         isNormalUser = true;
         description = systemSettings.gitUsername;
