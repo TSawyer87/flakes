@@ -55,7 +55,7 @@ with lib; {
         };
         tooltip = "true";
       };
-      "tray" = { spacing = 10; icon-size = 25; };
+      "tray" = { spacing = 6; icon-size = 20; };
       "clock" = {
         format = " {:L%I:%M %p}";
         tooltip = true;
