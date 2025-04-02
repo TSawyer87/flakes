@@ -15,6 +15,10 @@
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # zen-browser.url = "github:0xc000022070/zen-browser-flake";
     flake-utils.url = "github:numtide/flake-utils";
     helix = {
@@ -24,7 +28,7 @@
     yazi.url = "github:sxyazi/yazi";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, nvf, ... }@inputs:
     let
       inherit (self) outputs;
 
