@@ -11,6 +11,10 @@
     wofi
     hyprpicker
     pavucontrol
+    blueman
+    # polkit_gnome
+    wlr-randr
+    wtype
   ];
   systemd.user.targets.hyprland-session.Unit.Wants =
     [ "xdg-desktop-autostart.target" ];
