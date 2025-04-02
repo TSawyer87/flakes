@@ -1,4 +1,4 @@
-{ pkgs, config, systemSettings, username, ... }:
+{ pkgs, systemSettings, username, ... }:
 {
   services = {
     xserver = {
@@ -31,8 +31,7 @@
     syncthing = {
       enable = false;
       user = systemSettings.username;
-      # dataDir = "/home/" + systemSettings.username;
-      dataDir = "${config.home.homeDirectory}" + "${username}";
+      dataDir = "/home/" + "${username}";
       configDir = "/home/" + "${username}" + "/.config/syncthing ";
     };
     pipewire = {
