@@ -10,9 +10,9 @@ with lib; {
     settings = [{
       layer = "top";
       position = "top";
-      # height = 33;
-      height = 46;
-      margin = "10, 5, 0, 5";
+      height = 36;
+      # height = 46;
+      margin = "10, 5, 5, 5";
       modules-center = [ "hyprland/workspaces" "clock" ];
       modules-left = [
         "custom/startmenu"
