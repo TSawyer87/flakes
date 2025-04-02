@@ -16,5 +16,6 @@
     ./emoji.nix
     ./helix
     ./fd.nix
+    ./zed.nix
   ];
 }

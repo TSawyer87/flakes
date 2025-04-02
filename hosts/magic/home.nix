@@ -1,8 +1,8 @@
 { pkgs, username, inputs, outputs, ... }: {
   # Home Manager Settings
   home = {
-    username = "${username}";
-    homeDirectory = "/home/" + "${username}";
+    username = username;
+    homeDirectory = "/home/" + username;
     stateVersion = "23.11";
   };
 
@@ -10,13 +10,13 @@
   imports = [
     ../../modules/homeManagerModules/hypr
     # ../../modules/sway
-    #../../config/nvf.nix
+    ../../config/nvf.nix
     ../../modules/homeManagerModules/rofi
     ../../modules/shells
     ../../modules/terms
     # ../../modules/homeManagerModules/nvim
-    ../../modules/homeManagerModules/zed.nix
-    ../../modules/homeManagerModules/nixVim
+    # ../../modules/homeManagerModules/zed.nix
+    # ../../modules/homeManagerModules/nixVim
     ../../modules/homeManagerModules
   ];
 

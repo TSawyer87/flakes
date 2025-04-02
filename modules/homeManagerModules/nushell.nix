@@ -150,8 +150,12 @@
             	rm -fp $tmp
             }
 
-            def --env nix-find [] {
+            def --env nix-find [...args] {
               nix-locate -w "bin/*$1*" | fzf
+            }
+
+            def --env nix-files [...args] {
+               nix-locate -w "$1" | fzf --preview="bat --color=always --style=numbers --line-range=:100 {1}"| awk '{print $1}'| xargz nvim
             }
           '';
       };
