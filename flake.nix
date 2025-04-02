@@ -77,6 +77,7 @@
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             {
               home-manager.extraSpecialArgs = {
                 inherit inputs;
