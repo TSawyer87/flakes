@@ -17,5 +17,6 @@
     ./helix
     ./fd.nix
     ./zed.nix
+    ./nh.nix
   ];
 }
