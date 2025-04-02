@@ -137,26 +137,45 @@
                 (map completion names);
           in
           ''
-            $env.config = ${conf};
-            ${completions ["git" "nix" "man" "cargo"]}
+                        $env.config = ${conf};
+                        ${completions ["git" "nix" "man" "cargo"]}
 
-            def --env yy [...args] {
-            	let tmp = (mktemp -t "yazi-cwd.XXXXX")
-            	yazi ...$args --cwd-file $tmp
-            	let cwd = (open $tmp)
-            	if $cwd != "" and $cwd != $env.PWD {
-            		cd $cwd
-            	}
-            	rm -fp $tmp
+                        def --env yy [...args] {
+                        	let tmp = (mktemp -t "yazi-cwd.XXXXX")
+                        	yazi ...$args --cwd-file $tmp
+                        	let cwd = (open $tmp)
+                        	if $cwd != "" and $cwd != $env.PWD {
+                        		cd $cwd
+                        	}
+                        	rm -fp $tmp
+                        }
+
+                        def to-group-name [] {
+              str replace -ra "[()'\":,;|]" "" |
+              str replace -ra '[\.\-\s]' "_"
             }
 
-            def --env nix-find [...args] {
-              nix-locate -w "bin/*$1*" | fzf
+            export def jj-nu-log [
+              --revset (-r): string
+              ...columns: string
+            ] {
+              let columns = $columns | each {
+                match $in {
+                  "description" => "description.lines().join(',')"
+                  _ => $in
+                }
+              }
+              let parser = $columns | each { $"{($in | to-group-name)}" } | str join (char rs)
+
+              ( jj log ...(if $revset != null {[-r $revset]} else {[]})
+                   --no-graph
+                   -T $"($columns | str join $"++'(char rs)'++") ++ '\n'"
+              ) |
+              parse $parser
             }
 
-            def --env nix-files [...args] {
-               nix-locate -w "$1" | fzf --preview="bat --color=always --style=numbers --line-range=:100 {1}"| awk '{print $1}'| xargz nvim
-            }
+            
+
           '';
       };
     };
