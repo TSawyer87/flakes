@@ -89,7 +89,7 @@
               };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users.jr = import ./host/magic/home.nix;
+              home-manager.users.jr = import ./hosts/magic/home.nix;
               nixpkgs.config.allowUnfree = true;
             }
           ];
