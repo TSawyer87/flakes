@@ -37,6 +37,8 @@
       ];
       host = "magic";
       username = "jr";
+      gitUsername = "TSawyer87";
+      gitEmail = "sawyerjr.25@gmail.com";
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # Import overlays explicitly
@@ -70,6 +72,8 @@
                 inherit host;
                 inherit systems;
                 inherit outputs; # Ensure outputs is passed for overlays
+                inherit gitEmail;
+                inherit gitUsername;
               };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";

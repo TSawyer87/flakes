@@ -1,7 +1,4 @@
-{ pkgs, lib, ... }:
-let
-  inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
-in
+{ pkgs, lib, gitEmail, gitUsername, ... }:
 {
   programs = {
     git = {
