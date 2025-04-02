@@ -10,7 +10,8 @@ with lib; {
     settings = [{
       layer = "top";
       position = "top";
-      height = 33;
+      # height = 33;
+      height = 46;
       margin = "10, 5, 0, 5";
       modules-center = [ "hyprland/workspaces" "clock" ];
       modules-left = [
