@@ -1,11 +1,10 @@
-{ pkgs, username, ... }:
-let inherit (import ../../hosts/magic/variables.nix) keyboardLayout;
-in {
+{ pkgs, systemSettings, ... }:
+{
   services = {
     xserver = {
       enable = false;
       xkb = {
-        layout = "${keyboardLayout}";
+        layout = systemSettings.keyboardLayout;
         variant = "us";
       };
     };
@@ -31,9 +30,9 @@ in {
     ipp-usb.enable = true;
     syncthing = {
       enable = false;
-      user = "${username}";
-      dataDir = "/home/${username}";
-      configDir = "/home/${username}/.config/syncthing";
+      user = systemSettings.username;
+      dataDir = "/home/" + systemSettings.username;
+      configDir = "/home/jr/.config/syncthing";
     };
     pipewire = {
       enable = true;

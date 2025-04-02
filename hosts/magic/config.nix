@@ -1,8 +1,4 @@
-{ pkgs, host, options, outputs, lib, ... }:
-let
-  # Import and inherit values from another Nix file
-  inherit (import ./variables.nix) keyboardLayout;
-in
+{ pkgs, systemSettings, options, outputs, lib, ... }:
 {
   imports = [
     ./hardware.nix
@@ -63,7 +59,7 @@ in
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = host;
+  networking.hostName = systemSettings.host;
   networking.timeServers = options.networking.timeServers.default
     ++ [ "pool.ntp.org" ];
 
@@ -90,7 +86,7 @@ in
     defaultNetwork.settings.dns_enabled = true;
   };
 
-  console.keyMap = "${keyboardLayout}";
+  console.keyMap = systemSettings.keyboardLayout;
 
   nixpkgs.config.allowUnfree = true;
 

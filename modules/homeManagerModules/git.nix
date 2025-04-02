@@ -1,10 +1,10 @@
-{ pkgs, lib, gitEmail, gitUsername, ... }:
+{ pkgs, lib, config, systemSettings, ... }:
 {
   programs = {
     git = {
       enable = true;
-      userName = "${gitUsername}";
-      userEmail = "${gitEmail}";
+      userName = systemSettings.gitUsername;
+      userEmail = systemSettings.gitEmail;
       aliases = {
         ci = "commit";
         co = "checkout";

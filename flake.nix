@@ -40,9 +40,6 @@
         host = "magic";
         timezone = "America/New_York";
         locale = "en_US.UTF-8";
-      };
-      userSettings = {
-        # add = rec { if components rely on other components
         username = "jr";
         gitUsername = "TSawyer87";
         gitEmail = "sawyerjr.25@gmail.com";
@@ -51,6 +48,7 @@
         browser = "firefox";
         term = "ghostty";
         editor = "hx";
+        keyboardLayout = "us";
       };
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
@@ -69,7 +67,6 @@
           specialArgs = {
             inherit systems;
             inherit inputs;
-            inherit userSettings;
             inherit systemSettings;
             inherit outputs;
           };
@@ -83,7 +80,6 @@
                 inherit inputs;
                 inherit systems;
                 inherit outputs; # Ensure outputs is passed for overlays
-                inherit userSettings;
                 inherit systemSettings;
               };
               home-manager.useUserPackages = true;

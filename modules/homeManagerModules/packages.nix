@@ -1,4 +1,4 @@
-{ pkgs, host, username, inputs, ... }: {
+{ pkgs, host, systemSettings, inputs, ... }: {
   home.packages = [
     # inputs.zen-browser.packages."${pkgs.system}".default
     pkgs.oh-my-zsh
@@ -15,7 +15,7 @@
     (import ../../scripts/nvidia-offload.nix { inherit pkgs; })
     (import ../../scripts/wallsetter.nix {
       inherit pkgs;
-      inherit username;
+      inherit systemSettings;
     })
     (import ../../scripts/web-search.nix { inherit pkgs; })
     (import ../../scripts/rofi-launcher.nix { inherit pkgs; })
