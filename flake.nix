@@ -89,7 +89,7 @@
               };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users."${username}" = import ./hosts "${host}" /home.nix;
+              home-manager.users.jr = import ./hosts "${host}" /home.nix;
               nixpkgs.config.allowUnfree = true;
             }
           ];
