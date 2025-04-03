@@ -158,7 +158,6 @@ use ~/flakes/modules/homeManagerModules/nushell/matchit.nu *
 set matchit_keybinding
 # $env.MANPAGER = "nvim +Man!"
 # $env.config.edit_mode = "vi"
-# use ~/flakes/modules/homeManagerModules/nushell/lsp.nu *
 
 # alias gd = git diff
 nitch
@@ -169,5 +168,5 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu
 source ~/flakes/modules/homeManagerModules/nushell/atuin.nu
-source ~/flakes/modules/homeManagerModules/nushell/nu_scripts/themes/nu-themes/monokai.nu
+source ~/flakes/modules/homeManagerModules/nushell/nu_scripts/themes/nu-themes/ayu.nu
 source ~/flakes/modules/homeManagerModules/nushell/completions-jj.nu
