@@ -45,7 +45,6 @@
     pciutils
     ffmpeg
     socat
-    cowsay
     ripgrep
     lshw
     pkg-config
