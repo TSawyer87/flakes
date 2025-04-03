@@ -9,19 +9,6 @@ const extra_colors = {
   explore_fg: "#C4C9C6"
 }
 
-# def prompt_decorator [
-#   fg_color: string
-#   bg_color: string
-#   symbol: string
-#   type: string
-# ] {
-#   let fg = {fg: $bg_color}
-#   let bg = {fg: $fg_color bg: $bg_color}
-#   $"(ansi --escape $bg)▓▒░ ($type) ($symbol)(ansi reset)(ansi --escape $fg)(ansi reset) "
-# }
-# use ~/flakes/modules/homeManagerModules/nushell/init.nu *
-# use ~/flakes/modules/homeManagerModules/nushell/env.nu *
-# $env.config.buffer_editor = "hx"
 $env.PATH = $env.PATH
 | split row (char esep)
 | append '/usr/local/bin'
@@ -33,7 +20,6 @@ $env.FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git --excl
 # $env.CARAPACE_LENIENT = 1
 $env.CARAPACE_BRIDGES = 'zsh'
 # $env.MANPAGER = "col -bx | bat -l man -p"
-# $env.MANPAGER = "hx +Man!"
 $env.MANPAGECACHE = ($nu.default-config-dir | path join 'mancache.txt')
 $env.RUST_BACKTRACE = 1
 $env.XDG_CONFIG_HOME = $env.HOME + "/.config"
@@ -165,7 +151,7 @@ $env.config.keybindings ++= [
     }
   }
 ]
-# use ~/flakes/modules/homeManagerModules/nushell/sesh.nu sesh_connect
+use ~/flakes/modules/homeManagerModules/nushell/sesh.nu sesh_connect
 use ~/flakes/modules/homeManagerModules/nushell/auto-pair.nu *
 set auto_pair_keybindings
 use ~/flakes/modules/homeManagerModules/nushell/matchit.nu *
