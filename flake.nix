@@ -58,6 +58,7 @@
 
       # Import overlays explicitly
       overlays = import ./overlays { inherit inputs; };
+
     in
     {
       packages =
@@ -100,4 +101,8 @@
         };
       };
     };
+  wallpapers = {
+    url = "github:TSawyer87/wallpapers";
+    flake = false;
+  };
 }
