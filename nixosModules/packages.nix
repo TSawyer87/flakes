@@ -4,6 +4,7 @@
     # vim
     #cargo-watch
     #cargo-spellcheck
+    alejandra
     lazyjj # jj tui
     scooter
     keyd
