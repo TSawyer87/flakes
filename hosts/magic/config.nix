@@ -1,4 +1,4 @@
-{ pkgs, host, systemSettings, options, outputs, lib, ... }:
+{ pkgs, host, systemSettings, options, lib, ... }:
 {
   imports = [
     ./hardware.nix
@@ -8,29 +8,6 @@
     ../../modules/local-hardware-clock.nix
   ];
 
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.stable-packages
-      # outputs.overlays.rust-overlay
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # config = {
-    #         allowUnfree = true;
-    # };
-  };
   # Enable or Disable Stylix
   stylixModule.enable = true;
 
@@ -39,20 +16,6 @@
 
   # Custom Cachix enable
   gytix.cachix.enable = true;
-
-  # Extra Module Options
-  # drivers.amdgpu.enable = true;
-  # services.keyd = {
-  #   enable = true;
-  # };
-  # # Optional, but makes sure that when you type the make palm rejection work with keyd
-  # # https://github.com/rvaiya/keyd/issues/723
-  # environment.etc."libinput/local-overrides.quirks".text = ''
-  #   [Serial Keyboards]
-  #   MatchUdevType=keyboard
-  #   MatchName=keyd virtual keyboard
-  #   AttrKeyboardIntegration=internal
-  # '';
 
   vm.guest-services.enable = true;
   local.hardware-clock.enable = false;
@@ -79,19 +42,16 @@
   };
 
   # Virtualization / Containers
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = false;
   virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
+    enable = false;
+    dockerCompat = false;
+    defaultNetwork.settings.dns_enabled = false;
   };
 
   console.keyMap = systemSettings.keyboardLayout;
 
   nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "codeium" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
