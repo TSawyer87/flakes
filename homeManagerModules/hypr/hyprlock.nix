@@ -12,7 +12,7 @@
         {
           path =
             lib.mkForce
-            "/home/jr/Pictures/Wallpapers/wallpaper1.png";
+            "./nixos.png";
           blur_passes = 3;
           blur_size = 8;
         }
