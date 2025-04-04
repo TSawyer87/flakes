@@ -14,6 +14,7 @@
     # ./fzf.nix
     ./nushell.nix
     ./emoji.nix
+    ./nvf.nix
     ./helix
     ./fd.nix
     ./zed.nix
@@ -22,5 +23,6 @@
     ./hypr
     ./shells
     ./terms
+    ./rofi
   ];
 }

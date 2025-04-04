@@ -11,7 +11,6 @@
     ../../homeManagerModules
     # ../../modules/sway
     ../../config/nvf.nix
-    ../../modules/homeManagerModules/rofi
   ];
 
   nixpkgs = {
