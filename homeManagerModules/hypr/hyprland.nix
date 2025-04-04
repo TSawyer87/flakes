@@ -49,7 +49,7 @@
   # Place Files Inside Home Directory
   home.file = {
     "Pictures/Wallpapers" = {
-      source = ../../modules/wallpapers;
+      source = inputs.wallpapers;
       recursive = true;
     };
     ".face.icon".source = ./face.png;
