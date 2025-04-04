@@ -64,14 +64,10 @@
 
     in
     {
-      packages = forAllSystems (system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        import ./pkgs pkgs wallpapers
-      );
-
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      packages =
+        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
       overlays = overlays; # Export the overlays attribute set
 
       nixosConfigurations = {
@@ -94,7 +90,7 @@
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit systems;
-                inherit outputs;
+                inherit outputs; # Ensure outputs is passed for overlays
                 inherit systemSettings;
                 inherit username;
                 inherit host;
