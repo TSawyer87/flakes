@@ -17,7 +17,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
     helix = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +36,7 @@
     yazi,
     nvf,
     rose-pine-hyprcursor,
+    wallpapers,
     ...
   } @ inputs: let
     system = "x86_64-linux";
