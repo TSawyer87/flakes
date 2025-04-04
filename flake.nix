@@ -50,8 +50,11 @@
         editor = "hx";
         keyboardLayout = "us";
       };
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+      formatter.${system} = pkgs.alejandra;
+
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
