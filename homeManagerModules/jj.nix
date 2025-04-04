@@ -1,6 +1,5 @@
-{ ... }:
-let inherit (import ../../hosts/magic/variables.nix) gitUsername gitEmail;
-in {
+{ systemSettings, ... }:
+{
   home.file.".jj/config.toml".text = ''
     [ui]
     diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
@@ -10,8 +9,8 @@ in {
       enable = true;
       settings = {
         user = {
-          email = "${gitUsername}";
-          name = "${gitEmail}";
+          email = systemSettings.gitEmail;
+          name = systemSettings.gitUsername;
         };
         ui = {
           default-command = [ "status" "--no-pager" ];
