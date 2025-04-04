@@ -27,7 +27,7 @@
     };
     yazi.url = "github:sxyazi/yazi";
     wallpapers = {
-      url = "github.com:TSawyer87/wallpapers";
+      url = "github:TSawyer87/wallpapers";
       flake = false;
     };
   };
