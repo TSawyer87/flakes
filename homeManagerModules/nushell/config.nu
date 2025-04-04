@@ -26,7 +26,7 @@ $env.XDG_CONFIG_HOME = $env.HOME + "/.config"
 $env.TOPIARY_CONFIG_FILE = ($env.XDG_CONFIG_HOME | path join topiary languages.ncl)
 $env.TOPIARY_LANGUAGE_DIR = ($env.XDG_CONFIG_HOME | path join topiary languages)
 
-use ~/flakes/modules/homeManagerModules/nushell/fzf.nu [
+use ~/flakes/homeManagerModules/nushell/fzf.nu [
   carapace_by_fzf
   complete_line_by_fzf
   update_manpage_cache
@@ -151,10 +151,10 @@ $env.config.keybindings ++= [
     }
   }
 ]
-use ~/flakes/modules/homeManagerModules/nushell/sesh.nu sesh_connect
-use ~/flakes/modules/homeManagerModules/nushell/auto-pair.nu *
+use ~/flakes/homeManagerModules/nushell/sesh.nu sesh_connect
+use ~/flakes/homeManagerModules/nushell/auto-pair.nu *
 set auto_pair_keybindings
-use ~/flakes/modules/homeManagerModules/nushell/matchit.nu *
+use ~/flakes/homeManagerModules/nushell/matchit.nu *
 set matchit_keybinding
 # $env.MANPAGER = "nvim +Man!"
 # $env.config.edit_mode = "vi"
@@ -167,6 +167,6 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 # source ~/flakes/modules/homeManagerModules/nushell/zoxide.nu
 source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu
-source ~/flakes/modules/homeManagerModules/nushell/atuin.nu
-source ~/flakes/modules/homeManagerModules/nushell/nu_scripts/themes/nu-themes/ayu.nu
-source ~/flakes/modules/homeManagerModules/nushell/completions-jj.nu
+source ~/flakes/homeManagerModules/nushell/atuin.nu
+source ~/flakes/homeManagerModules/nushell/nu_scripts/themes/nu-themes/ayu.nu
+source ~/flakes/homeManagerModules/nushell/completions-jj.nu

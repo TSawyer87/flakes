@@ -35,7 +35,12 @@ pkgs.mkShell {
     nix flake check
     if [ $? -ne 0 ]; then
       echo "Error: template flake check failed"
-      git checkout flake.nix
+ls
+| sort-by size
+| reverse
+| first
+| get name
+| cp $in ~      git checkout flake.nix
       rm -f flake.lock
       exit 1
     fi
