@@ -4,12 +4,13 @@
   inputs = {
     nixpkgs.url =
       "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    # nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim";
     nix-inspect.url = "github:bluskript/nix-inspect";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
@@ -30,13 +31,19 @@
     };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nix-index-database, yazi, nvf, rose-pine-hyprcursor, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, wallpapers, nvf, rose-pine-hyprcursor, ... }@inputs:
     let
-      system = "x86_64-linux";
-      host = "magic";
+      inherit (self) outputs;
+
+      systems = [
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
       username = "jr";
-      email = "sawyerjr.25@gmail.com";
+      host = "magic";
       systemSettings = {
         system = "x86_64-linux";
         timezone = "America/New_York";
@@ -50,35 +57,47 @@
         editor = "hx";
         keyboardLayout = "us";
       };
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      # Import overlays explicitly
+      overlays = import ./overlays { inherit inputs; };
+
     in
     {
+      packages =
+        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      overlays = overlays; # Export the overlays attribute set
+
       nixosConfigurations = {
-        "${host}" = nixpkgs.lib.nixosSystem {
+        magic = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
+            inherit systems;
             inherit inputs;
+            inherit systemSettings;
+            inherit outputs;
             inherit username;
             inherit host;
-            inherit email;
-            inherit systemSettings;
           };
           modules = [
-            ./hosts/${host}/config.nix
+            ./hosts/magic/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
+            nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             {
               home-manager.extraSpecialArgs = {
-                inherit username;
                 inherit inputs;
-                inherit host;
-                inherit system;
+                inherit systems;
+                inherit outputs; # Ensure outputs is passed for overlays
                 inherit systemSettings;
-                inherit email;
+                inherit username;
+                inherit host;
               };
-              home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} = import ./hosts/${host}/home.nix;
+              home-manager.users.jr = import ./hosts/magic/home.nix;
               nixpkgs.config.allowUnfree = true;
             }
           ];
