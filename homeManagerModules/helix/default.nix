@@ -242,23 +242,23 @@
         {
           name = "nix";
           auto-format = true;
-          language-servers = [ "nil" "typos" ];
-          formatter = { command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"; };
+          language-servers = [ "nil" "typos" "nixd" ];
+          formatter = { command = "${pkgs.alejandra}/bin/alejandra"; };
         }
         # {
         #   name = "rust";
         #   language-servers = [ "rust-analyzer" "gpt" ];
         #   auto-format = true;
         # }
-        # {
-        #   name = "nu";
-        #   auto-format = true;
-        #   formatter = {
-        #     command = "topiary";
-        #   };
-        #   args = [ "format" "--language" "nu" ];
+        {
+          name = "nu";
+          auto-format = true;
+          formatter = {
+            command = "topiary";
+          };
+          args = [ "format" "--language" "nu" ];
 
-        # }
+        }
         {
           name = "rust";
           language-servers = [ "rust-analyzer" "gpt" ];
