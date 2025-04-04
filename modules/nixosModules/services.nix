@@ -15,7 +15,7 @@
     libinput.enable = true;
     fstrim.enable = true;
     gvfs.enable = true;
-    openssh.enable = true;
+    # openssh.enable = true;
     flatpak.enable = false;
     gnome.gnome-keyring.enable = true;
     ipp-usb.enable = true;
@@ -25,14 +25,15 @@
     #   dataDir = "/home/" + "${username}";
     #   configDir = "/home/" + "${username}" + "/.config/syncthing ";
     # };
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-    # use pipewire
-    pulseaudio.enable = false;
+    # pipewire = {
+    #   enable = true;
+    #   alsa.enable = true;
+    #   alsa.support32Bit = true;
+    #   pulse.enable = true;
+    # };
+    # # use pipewire
+    # pulseaudio.enable = false;
+    # profile-sync-daemon
     psd = {
       enable = true;
       resyncTimer = "1h";

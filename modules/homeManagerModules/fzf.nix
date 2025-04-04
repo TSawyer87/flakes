@@ -23,7 +23,6 @@ in {
     enable = true;
     # https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
     enableZshIntegration = true;
-    # enableNushellIntegration = true;
     # colors = {
     #   bg = "#000000";
     #   "bg+" = "#FF00FF";

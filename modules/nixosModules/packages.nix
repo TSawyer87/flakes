@@ -4,7 +4,7 @@
     # vim
     #cargo-watch
     #cargo-spellcheck
-    lazyjj
+    lazyjj # jj tui
     scooter
     keyd
     cheat
@@ -15,14 +15,12 @@
     just
     inotify-tools
     wlroots
-    wlr-randr
     evcxr # rust repl
     rustup
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
     amdvlk
-    profile-sync-daemon
     wget
     killall
     eza
@@ -81,7 +79,6 @@
     tradingview
     dconf-editor
     rose-pine-cursor
-    fwupd
     openssl
     pkg-config
     go

@@ -18,5 +18,6 @@
     ./fd.nix
     ./zed.nix
     ./nh.nix
+    ./ssh.nix
   ];
 }
