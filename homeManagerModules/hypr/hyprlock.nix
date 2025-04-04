@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  inputs,
+  ...
+}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -12,7 +16,7 @@
         {
           path =
             lib.mkForce
-            "./nixos.png";
+            "${inputs.wallpapers}/Aesthetic Scenery.jpg";
           blur_passes = 3;
           blur_size = 8;
         }
