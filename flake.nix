@@ -26,13 +26,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yazi.url = "github:sxyazi/yazi";
-    # wallpapers = {
-    #   url = "github:TSawyer87/wallpapers";
-    #   flake = false;
-    # };
+    wallpapers = {
+      url = "github:TSawyer87/wallpapers";
+      type = "git";
+      # flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, nvf, rose-pine-hyprcursor, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, yazi, wallpapers, nvf, rose-pine-hyprcursor, ... }@inputs:
     let
       inherit (self) outputs;
 
