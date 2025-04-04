@@ -11,7 +11,8 @@ with lib; {
   config = mkIf config.stylixModule.enable {
     stylix = {
       enable = true;
-      image = ../modules/wallpapers/Lofi-Cafe1.png;
+      # image = ../modules/wallpapers/Lofi-Cafe1.png;
+      image = home/jr/Pictures/Wallpapers/Lofi-Cafe1.png;
       # base16Scheme = {
       #   # Ayu Dark
       #   base00 = "0F1419";
