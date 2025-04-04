@@ -1531,6 +1531,7 @@
         "nvf": "nvf",
         "rose-pine-hyprcursor": "rose-pine-hyprcursor",
         "stylix": "stylix",
+        "wallpapers": "wallpapers",
         "yazi": "yazi"
       }
     },
@@ -2012,6 +2013,22 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1741792523,
+        "narHash": "sha256-AKSxLyIpnLiI3v5LaYox7wEszKOeIPaO3xlk7b7D+ic=",
+        "ref": "refs/heads/main",
+        "rev": "aa0de9d8a81a9f19fce9f089b9589add4d637e99",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/TSawyer87/wallpapers.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/TSawyer87/wallpapers.git"
       }
     },
     "xdph": {

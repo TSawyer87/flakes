@@ -19,7 +19,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # zen-browser.url = "github:0xc000022070/zen-browser-flake";
     flake-utils.url = "github:numtide/flake-utils";
     helix = {
       url = "github:helix-editor/helix";
@@ -65,10 +64,14 @@
 
     in
     {
-      packages =
-        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      packages = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./pkgs pkgs wallpapers
+      );
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
       overlays = overlays; # Export the overlays attribute set
 
       nixosConfigurations = {
@@ -91,7 +94,7 @@
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit systems;
-                inherit outputs; # Ensure outputs is passed for overlays
+                inherit outputs;
                 inherit systemSettings;
                 inherit username;
                 inherit host;
