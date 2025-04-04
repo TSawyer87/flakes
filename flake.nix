@@ -28,7 +28,7 @@
     yazi.url = "github:sxyazi/yazi";
     wallpapers = {
       url = "git+https://github.com/TSawyer87/wallpapers";
-      type = "git";
+      type = "github";
       flake = false;
       ref = "main";
     };
