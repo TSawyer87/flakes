@@ -10,7 +10,6 @@
   imports = [
     ../../homeManagerModules
     # ../../modules/sway
-    ../../config/nvf.nix
   ];
 
   nixpkgs = {
