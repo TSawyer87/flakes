@@ -30,6 +30,7 @@
       url = "git+https://github.com/TSawyer87/wallpapers";
       type = "git";
       flake = false;
+      ref = "main";
     };
   };
 
