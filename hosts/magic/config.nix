@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware.nix
-    ../../modules/nixosModules
+    ../../nixosModules
     ../../modules/drivers
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix

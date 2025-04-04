@@ -8,16 +8,10 @@
 
   # Import Program Configurations
   imports = [
-    ../../modules/homeManagerModules/hypr
+    ../../homeManagerModules
     # ../../modules/sway
     ../../config/nvf.nix
     ../../modules/homeManagerModules/rofi
-    ../../modules/shells
-    ../../modules/terms
-    # ../../modules/homeManagerModules/nvim
-    # ../../modules/homeManagerModules/zed.nix
-    # ../../modules/homeManagerModules/nixVim
-    ../../modules/homeManagerModules
   ];
 
   nixpkgs = {
