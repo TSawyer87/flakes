@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
     # Dependencies
     # { 'Bilal2453/luvit-meta', lazy = true },
@@ -6,17 +6,17 @@
     #
     # Allows extra capabilities providied by nvim-cmp
     # https://nix-community.github.io/nixvim/plugins/cmp-nvim-lsp.html
-    plugins.cmp-nvim-lsp = { enable = true; };
+    plugins.cmp-nvim-lsp = {enable = true;};
 
     # Useful status updates for LSP.
     # https://nix-community.github.io/nixvim/plugins/fidget/index.html
-    plugins.fidget = { enable = true; };
+    plugins.fidget = {enable = true;};
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugi#extraplugins
-    extraPlugins = with pkgs.vimPlugins; [ luvit-meta ];
+    extraPlugins = with pkgs.vimPlugins; [luvit-meta];
 
     # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
-    autoGroups = { "kickstart-lsp-attach" = { clear = true; }; };
+    autoGroups = {"kickstart-lsp-attach" = {clear = true;};};
 
     # https://nix-community.github.io/nixvim/plugins/lsp/index.html
     plugins.lsp = {
@@ -46,13 +46,13 @@
         #   autostart = true;
         # };
 
-        bashls = { enable = true; };
+        bashls = {enable = true;};
 
-        nixd = { enable = true; };
+        nixd = {enable = true;};
 
-        marksman = { enable = true; };
+        marksman = {enable = true;};
 
-        hyprls = { enable = true; };
+        hyprls = {enable = true;};
 
         lua_ls = {
           enable = true;
@@ -62,7 +62,7 @@
           # filetypes = {
           #};
           settings = {
-            completion = { callSnippet = "Replace"; };
+            completion = {callSnippet = "Replace";};
             #diagnostics = {
             #  disable = [
             #    "missing-fields"
@@ -90,39 +90,38 @@
             mode = "n";
             key = "gd";
             action.__raw = "require('telescope.builtin').lsp_definitions";
-            options = { desc = "LSP: [G]oto [D]efinition"; };
+            options = {desc = "LSP: [G]oto [D]efinition";};
           }
           # Find references for the word under your cursor.
           {
             mode = "n";
             key = "gr";
             action.__raw = "require('telescope.builtin').lsp_references";
-            options = { desc = "LSP: [G]oto [R]eferences"; };
+            options = {desc = "LSP: [G]oto [R]eferences";};
           }
           {
             mode = "n";
             key = "gI";
             action.__raw = "require('telescope.builtin').lsp_implementations";
-            options = { desc = "LSP: [G]oto [I]mplementation"; };
+            options = {desc = "LSP: [G]oto [I]mplementation";};
           }
           {
             mode = "n";
             key = "<leader>D";
             action.__raw = "require('telescope.builtin').lsp_type_definitions";
-            options = { desc = "LSP: Type [D]efinition"; };
+            options = {desc = "LSP: Type [D]efinition";};
           }
           {
             mode = "n";
             key = "<leader>ds";
             action.__raw = "require('telescope.builtin').lsp_document_symbols";
-            options = { desc = "LSP: [D]ocument [S]ymbols"; };
+            options = {desc = "LSP: [D]ocument [S]ymbols";};
           }
           {
             mode = "n";
             key = "<leader>ws";
-            action.__raw =
-              "require('telescope.builtin').lsp_dynamic_workspace_symbols";
-            options = { desc = "LSP: [W]orkspace [S]ymbols"; };
+            action.__raw = "require('telescope.builtin').lsp_dynamic_workspace_symbols";
+            options = {desc = "LSP: [W]orkspace [S]ymbols";};
           }
         ];
 

@@ -7,12 +7,12 @@
 
       # NOTE: Enabling these will cause errors unless these tools are installed
       lintersByFt = {
-        nix = [ "nix" ];
+        nix = ["nix"];
         markdown = [
           "markdownlint"
           #vale
         ];
-        rust = [ "clippy" ];
+        rust = ["clippy"];
         #clojure = ["clj-kondo"];
         #dockerfile = ["hadolint"];
         #inko = ["inko"];
@@ -33,11 +33,11 @@
           end
         '';
         group = "lint";
-        event = [ "BufEnter" "BufWritePost" "InsertLeave" ];
+        event = ["BufEnter" "BufWritePost" "InsertLeave"];
       };
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
-    autoGroups = { lint = { clear = true; }; };
+    autoGroups = {lint = {clear = true;};};
   };
 }

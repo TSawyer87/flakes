@@ -1,4 +1,8 @@
-{ pkgs, username, ... }: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   services.greetd = {
     enable = true;
     vt = 3;
@@ -10,10 +14,8 @@
         # with such a vendor-no-locking script, we can switch to another wayland compositor without modifying greetd's config here.
         #command =
         #  "$HOME/.wayland-session"; # start a wayland session directly without a login manager
-        command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
       };
     };
   };
-
 }

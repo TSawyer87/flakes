@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs = {
     thunderbird.enable = true;
     firefox.enable = true;

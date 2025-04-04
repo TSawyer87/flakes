@@ -1,6 +1,10 @@
-{ config, lib, inputs, pkgs, ... }:
-
 {
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: {
   nixpkgs.config = {
     programs.npm.npmrc = ''
       prefix = ''${HOME}/.npm-global
@@ -12,9 +16,9 @@
       viAlias = true;
       withPython3 = true;
       withNodeJs = true;
-      extraPackages = [ ];
+      extraPackages = [];
       #-- Plugins --#
-      plugins = with pkgs.vimPlugins; [ ];
+      plugins = with pkgs.vimPlugins; [];
       #-- --#
     };
   };

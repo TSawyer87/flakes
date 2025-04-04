@@ -1,10 +1,9 @@
-{ config, ... }:
-{
+{config, ...}: {
   wayland.windowManager.hyprland = {
     settings = {
       input = {
         kb_layout = "us";
-        kb_options = [ "grp:alt_caps_toggle" "caps:super" ];
+        kb_options = ["grp:alt_caps_toggle" "caps:super"];
         numlock_by_default = true;
         repeat_rate = 50;
         repeat_delay = 300;
@@ -27,8 +26,7 @@
         allow_tearing = true; # allows immediate window rule to work
         # "col.active_border" = rgba(0DB7D4FF);
         # "col.inactive_border" = rgba(31313600)
-        "col.active_border" =
-          "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
+        "col.active_border" = "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
         "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
       };
 
@@ -85,7 +83,7 @@
           "fade, 1, 10, default"
           "workspaces, 1, 5, wind"
         ];
-        blurls = [ "wofi" "thunar" "gtk-layer-shell" ];
+        blurls = ["wofi" "thunar" "gtk-layer-shell"];
       };
       windowrule = [
         # "opacity 0.85 override 0.85 override,^(thunar)$"
@@ -179,4 +177,3 @@
     '';
   };
 }
-

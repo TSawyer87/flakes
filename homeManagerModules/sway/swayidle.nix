@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.swayidle = {
     enable = true;
     events = [
@@ -8,8 +8,7 @@
       }
       {
         event = "lock";
-        command =
-          "${pkgs.swaylock}/bin/swaylock"; # or "${pkgs.swaylock}/bin/swaylock -f -i /home/jr/flakes/modules/wallpapers/wallpaper1.png"; if you want wallpaper on all locks.
+        command = "${pkgs.swaylock}/bin/swaylock"; # or "${pkgs.swaylock}/bin/swaylock -f -i /home/jr/flakes/modules/wallpapers/wallpaper1.png"; if you want wallpaper on all locks.
       }
     ];
     timeouts = [

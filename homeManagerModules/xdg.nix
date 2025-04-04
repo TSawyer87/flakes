@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   xdg = {
     # configFile."mimeapps.list".text = ''
     # [Default Applications]

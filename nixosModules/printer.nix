@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services = {
     printing = {
       enable = true;
-      drivers = [ pkgs.hplipWithPlugin ];
+      drivers = [pkgs.hplipWithPlugin];
     };
     avahi = {
       # enables auto-discovery

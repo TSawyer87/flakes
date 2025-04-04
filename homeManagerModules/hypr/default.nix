@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./settings.nix
     ./execs.nix
@@ -12,4 +12,3 @@
     ./wofi.nix
   ];
 }
-

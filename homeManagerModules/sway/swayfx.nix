@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   # SceneFX configuration
 
   home.file.".config/sway/config.d/swayfx".text = ''

@@ -1,8 +1,8 @@
-{ pkgs
-, lib
-, ...
-}:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -12,7 +12,7 @@
       "basher"
       "dracula"
     ];
-    extraPackages = [ pkgs.nixd ];
+    extraPackages = [pkgs.nixd];
 
     userSettings = {
       vim_mode = true;
@@ -139,7 +139,6 @@
             path_lookup = true;
           };
         };
-
 
         "rust-analyzer" = {
           # Quote the LSP name

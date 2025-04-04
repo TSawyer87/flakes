@@ -1,5 +1,4 @@
-{ systemSettings, ... }:
-{
+{systemSettings, ...}: {
   home.file.".jj/config.toml".text = ''
     [ui]
     diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
@@ -13,7 +12,7 @@
           name = systemSettings.gitUsername;
         };
         ui = {
-          default-command = [ "status" "--no-pager" ];
+          default-command = ["status" "--no-pager"];
           diff-editor = ":builtin";
           merge-editor = ":builtin";
         };

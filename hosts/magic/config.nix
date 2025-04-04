@@ -1,5 +1,11 @@
-{ pkgs, host, systemSettings, options, lib, ... }:
 {
+  pkgs,
+  host,
+  systemSettings,
+  options,
+  lib,
+  ...
+}: {
   imports = [
     ./hardware.nix
     ../../nixosModules
@@ -17,25 +23,26 @@
   # Custom Cachix enable
   gytix.cachix.enable = true;
 
-  vm.guest-services.enable = true;
-  local.hardware-clock.enable = false;
+  vm.guest-services.enable = false;
+  local.hardware-clock.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "${host}";
-  networking.timeServers = options.networking.timeServers.default
-    ++ [ "pool.ntp.org" ];
+  networking.timeServers =
+    options.networking.timeServers.default
+    ++ ["pool.ntp.org"];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
+  nixpkgs.config.permittedInsecurePackages = ["olm-3.2.16"];
 
-  users = { mutableUsers = true; };
+  users = {mutableUsers = true;};
 
   # Extra Portal Configuration
   systemd.services.flatpak-repo = {
-    path = [ pkgs.flatpak ];
+    path = [pkgs.flatpak];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';

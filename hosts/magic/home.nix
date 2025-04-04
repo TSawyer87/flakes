@@ -1,4 +1,9 @@
-{ pkgs, username, inputs, ... }: {
+{
+  pkgs,
+  username,
+  inputs,
+  ...
+}: {
   # Home Manager Settings
   home = {
     username = "${username}";

@@ -2,8 +2,7 @@
   description = "MyFlake";
 
   inputs = {
-    nixpkgs.url =
-      "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -30,61 +29,67 @@
     };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nix-index-database, yazi, nvf, rose-pine-hyprcursor, ... }@inputs:
-    let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nix-index-database,
+    yazi,
+    nvf,
+    rose-pine-hyprcursor,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    host = "magic";
+    username = "jr";
+    email = "sawyerjr.25@gmail.com";
+    systemSettings = {
       system = "x86_64-linux";
-      host = "magic";
-      username = "jr";
-      email = "sawyerjr.25@gmail.com";
-      systemSettings = {
-        system = "x86_64-linux";
-        timezone = "America/New_York";
-        locale = "en_US.UTF-8";
-        gitUsername = "TSawyer87";
-        gitEmail = "sawyerjr.25@gmail.com";
-        dotfilesDir = "~/.dotfiles";
-        wm = "hyprland";
-        browser = "firefox";
-        term = "ghostty";
-        editor = "hx";
-        keyboardLayout = "us";
-      };
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      formatter.${system} = pkgs.alejandra;
+      timezone = "America/New_York";
+      locale = "en_US.UTF-8";
+      gitUsername = "TSawyer87";
+      gitEmail = "sawyerjr.25@gmail.com";
+      dotfilesDir = "~/.dotfiles";
+      wm = "hyprland";
+      browser = "firefox";
+      term = "ghostty";
+      editor = "hx";
+      keyboardLayout = "us";
+    };
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    formatter.${system} = pkgs.alejandra;
 
-      nixosConfigurations = {
-        "${host}" = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit system;
-            inherit inputs;
-            inherit username;
-            inherit host;
-            inherit email;
-            inherit systemSettings;
-          };
-          modules = [
-            ./hosts/${host}/config.nix
-            inputs.stylix.nixosModules.stylix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = {
-                inherit username;
-                inherit inputs;
-                inherit host;
-                inherit system;
-                inherit systemSettings;
-                inherit email;
-              };
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.users.${username} = import ./hosts/${host}/home.nix;
-            }
-          ];
+    nixosConfigurations = {
+      "${host}" = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit system;
+          inherit inputs;
+          inherit username;
+          inherit host;
+          inherit email;
+          inherit systemSettings;
         };
+        modules = [
+          ./hosts/${host}/config.nix
+          inputs.stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit username;
+              inherit inputs;
+              inherit host;
+              inherit system;
+              inherit systemSettings;
+              inherit email;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.${username} = import ./hosts/${host}/home.nix;
+          }
+        ];
       };
     };
+  };
 }

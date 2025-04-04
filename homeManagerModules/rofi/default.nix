@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./rofi.nix
     ./config-emoji.nix

@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{...}: {
   imports = [
     ./zsh.nix
     ./bash.nix
@@ -9,4 +6,3 @@
     ./fastfetch
   ];
 }
-

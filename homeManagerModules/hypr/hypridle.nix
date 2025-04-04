@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   services = {
     hypridle = {
       enable = true;
@@ -25,4 +23,3 @@
     };
   };
 }
-

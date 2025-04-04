@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
@@ -47,7 +51,7 @@
       window-theme = "dark";
 
       # Disables ligatures
-      font-feature = [ "-liga" "-dlig" "-calt" ];
+      font-feature = ["-liga" "-dlig" "-calt"];
     };
   };
 }

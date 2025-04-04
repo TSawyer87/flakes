@@ -1,5 +1,10 @@
-{ pkgs, lib, config, systemSettings, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  systemSettings,
+  ...
+}: {
   programs = {
     git = {
       enable = true;
@@ -75,7 +80,6 @@
             nobranch = "white";
           };
         };
-
       };
     };
   };

@@ -1,9 +1,15 @@
-{ config, pkgs, inputs, lib, ... }:
-let helpers = config.lib.nixvim;
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: let
+  helpers = config.lib.nixvim;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    (import ./plugins/ufo.nix { inherit helpers; })
+    (import ./plugins/ufo.nix {inherit helpers;})
     ./plugins/gitsigns.nix
     ./plugins/which-key.nix
     ./plugins/telescope.nix
@@ -75,7 +81,7 @@ in {
     plugins = {
       # Adds icons for plugins to utilize in ui
       web-devicons.enable = true;
-      rainbow-delimiters = { enable = true; };
+      rainbow-delimiters = {enable = true;};
 
       direnv.enable = true;
       nix.enable = true;
@@ -83,13 +89,13 @@ in {
 
       # Detect tabstop and shiftwidth automatically
       # https://nix-community.github.io/nixvim/plugins/sleuth/index.html
-      sleuth = { enable = true; };
+      sleuth = {enable = true;};
 
-      lz-n = { enable = true; }; # lazy loading
+      lz-n = {enable = true;}; # lazy loading
 
-      diffview = { enable = true; };
+      diffview = {enable = true;};
 
-      persistence = { enable = true; };
+      persistence = {enable = true;};
       # Highlight todo, notes, etc in comments
       # https://nix-community.github.io/nixvim/plugins/todo-comments/index.html
       todo-comments = {
@@ -98,14 +104,14 @@ in {
           signs = true;
         };
       };
-      lazygit = { enable = true; };
-      treesj = { enable = true; };
-      nvim-bqf = { enable = true; };
+      lazygit = {enable = true;};
+      treesj = {enable = true;};
+      nvim-bqf = {enable = true;};
       grug-far = {
         enable = true;
-        lazyLoad = { settings = { cmd = "GrugFar"; }; };
+        lazyLoad = {settings = {cmd = "GrugFar";};};
       };
-      marks = { enable = true; };
+      marks = {enable = true;};
       glow = {
         enable = true;
         lazyLoad.settings.ft = "markdown";
@@ -114,7 +120,7 @@ in {
         enable = true;
         lazyLoad.settings.ft = "markdown";
       };
-      crates = { enable = true; };
+      crates = {enable = true;};
 
       obsidian = {
         enable = true;
@@ -140,11 +146,10 @@ in {
       rustaceanvim = {
         enable = true;
         settings = {
-
-          dap = { autoloadConfigurations = true; };
+          dap = {autoloadConfigurations = true;};
 
           server = {
-            cmd = [ (lib.getExe pkgs.rust-analyzer) ];
+            cmd = [(lib.getExe pkgs.rust-analyzer)];
             default_settings = {
               rust-analyzer = {
                 cargo = {
@@ -172,8 +177,7 @@ in {
                 };
 
                 files = {
-                  excludeDirs =
-                    [ ".cargo" ".direnv" ".git" "node_modules" "target" ];
+                  excludeDirs = [".cargo" ".direnv" ".git" "node_modules" "target"];
                 };
 
                 inlayHints = {
@@ -187,7 +191,7 @@ in {
                   rangeExclusiveHints.enable = true;
                 };
 
-                procMacro = { enable = true; };
+                procMacro = {enable = true;};
 
                 rustc.source = "discover";
               };
@@ -198,11 +202,10 @@ in {
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
-    extraPlugins = with pkgs.vimPlugins;
-      [
-        # Useful for getting pretty icons, but requires a Nerd Font.
-        nvim-web-devicons # TODO: Figure out how to configure using this with telescope
-      ];
+    extraPlugins = with pkgs.vimPlugins; [
+      # Useful for getting pretty icons, but requires a Nerd Font.
+      nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+    ];
 
     # TODO: Figure out where to move this
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapre

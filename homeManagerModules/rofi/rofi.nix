@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs = {
     rofi = {
       enable = true;
@@ -14,7 +18,8 @@
         display-run = " Run";
         display-filebrowser = " File";
       };
-      theme = let inherit (config.lib.formats.rasi) mkLiteral;
+      theme = let
+        inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {
           bg = mkLiteral "#${config.stylix.base16Scheme.base00}";
@@ -42,7 +47,7 @@
           padding = mkLiteral "15px";
           enabled = true;
           orientation = mkLiteral "vertical";
-          children = map mkLiteral [ "inputbar" "listbox" ];
+          children = map mkLiteral ["inputbar" "listbox"];
           background-color = mkLiteral "transparent";
         };
         "inputbar" = {
@@ -52,7 +57,7 @@
           background-color = mkLiteral "transparent";
           border-radius = "25px";
           orientation = mkLiteral "horizontal";
-          children = map mkLiteral [ "entry" "dummy" "mode-switcher" ];
+          children = map mkLiteral ["entry" "dummy" "mode-switcher"];
           background-image =
             mkLiteral ''url("~/Pictures/Wallpapers/Lofi-Cafe1.png", width)'';
         };
@@ -73,7 +78,7 @@
           padding = mkLiteral "10px";
           background-color = mkLiteral "transparent";
           orientation = mkLiteral "vertical";
-          children = map mkLiteral [ "message" "listview" ];
+          children = map mkLiteral ["message" "listview"];
         };
         "listview" = {
           enabled = true;

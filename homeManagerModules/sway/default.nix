@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./sway.nix
     ./waybar.nix
@@ -18,3 +18,4 @@
 #     (map (module: ./. + "/" + module)
 #       (builtins.attrNames (builtins.readDir (toString ./.))));
 # }
+

@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   mod = "Mod4";
   system = "x86_64-linux";
 in {
-  imports = [ ./keybinds.nix ./kanshi.nix ./fuzzel.nix ];
+  imports = [./keybinds.nix ./kanshi.nix ./fuzzel.nix];
 
   jr.opt.services.kanshi.enable = false; # Enables the kanshi service
 
@@ -14,7 +12,7 @@ in {
     config = rec {
       modifier = mod;
       terminal = "${pkgs.ghostty}/bin/ghostty";
-      startup = [{ command = "firefox"; }];
+      startup = [{command = "firefox";}];
       floating.border = 0;
       window.border = 0;
       gaps = {
@@ -44,7 +42,7 @@ in {
       output HDMI-A-1 {
         mode 1920x1080@100Hz
         scale 1
-        pos 2560 0  
+        pos 2560 0
       }
 
       input * {
