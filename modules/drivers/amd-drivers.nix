@@ -38,6 +38,7 @@ in {
         extraPackages = pkgs.lib.flatten (with pkgs; [
           (lib.optional hasAmdGpu amdvlk)
           (lib.optional needsMesa mesa)
+          rocmPackages.clr.icd
         ]);
         extraPackages32 = pkgs.lib.flatten (with pkgs; [
           (lib.optional hasAmdGpu amdvlk)

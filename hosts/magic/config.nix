@@ -19,6 +19,7 @@
 
   # Enable User module
   users.enable = true;
+  users = {mutableUsers = true;};
 
   # Custom Cachix enable
   gytix.cachix.enable = true;
@@ -36,9 +37,10 @@
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  nixpkgs.config.permittedInsecurePackages = ["olm-3.2.16"];
+  # nixpkgs.config.permittedInsecurePackages = ["olm-3.2.16"];
 
-  users = {mutableUsers = true;};
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = false;
 
   # Extra Portal Configuration
   systemd.services.flatpak-repo = {

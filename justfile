@@ -64,6 +64,7 @@ repair-store *paths:
     nix store repair {{paths}}
 
 # Usage: `./result/bin/run-*-vm`
+# may need to set initialHashedPassword first
 [group('nix')]
 vm:
     sudo nixos-rebuild build-vm
