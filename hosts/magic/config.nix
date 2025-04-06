@@ -9,9 +9,9 @@
   imports = [
     ./hardware.nix
     ../../nixosModules
-    ../../modules/drivers
-    ../../modules/vm-guest-services.nix
-    ../../modules/local-hardware-clock.nix
+    # ../../modules/drivers
+    # ../../modules/vm-guest-services.nix
+    # ../../modules/local-hardware-clock.nix
   ];
 
   # Enable or Disable Stylix

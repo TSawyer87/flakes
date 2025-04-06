@@ -25,6 +25,9 @@
     ./thunar.nix
     ./lsp.nix
     ./printer.nix
+    ./vm-guest-services.nix
+    ./local-hardware-clock.nix
+    ./drivers
     # ./grub.nix
     # ./greetdHypr.nix
   ];
