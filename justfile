@@ -36,7 +36,7 @@ clean:
 # Upgrade
 [group('nix')]
 upd:
-    sudo nixos-rebuild switch --upgrade
+    sudo nixos-rebuild switch --upgrade --flake /home/jr/flakes
 
 # Nix Repl flake:nixpkgs
 [group('nix')]
@@ -62,6 +62,11 @@ verify-store:
 [group('nix')]
 repair-store *paths:
     nix store repair {{paths}}
+
+# Usage: `./result/bin/run-*-vm`
+[group('nix')]
+vm:
+    sudo nixos-rebuild build-vm
 
 system-info:
     @echo "This is an {{arch()}} machine".
