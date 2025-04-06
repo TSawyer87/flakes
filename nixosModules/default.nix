@@ -14,7 +14,6 @@
     ./environmentVariables.nix
     ./nix.nix
     ./hardware.nix
-    ./users.nix
     ./zram.nix
     ./i18n.nix
     ./fonts.nix
