@@ -100,12 +100,12 @@
             };
 
             menus = [
-              # {
-              #   name = "my_history_menu";
-              #   only_buffer_difference = false;
-              #   marker = "";
-              #   # type = {layout = ide};
-              # }
+              {
+                name = "my_history_menu";
+                only_buffer_difference = false;
+                marker = "";
+                # type = {layout = ide};
+              }
               {
                 name = "completion_menu";
                 only_buffer_difference = false;
