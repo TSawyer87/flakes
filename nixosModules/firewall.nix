@@ -1,8 +1,7 @@
 {...}: {
   # Open ports in the firewall.
   networking.firewall.enable = true;
-  # networking.firewall.allowedTCPPorts = [ 3000 ];
-  # networking.firewall.allowedUDPPorts = [ 3000 ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # networking.firewall.allowedTCPPorts = [ 80 443 25 ];
+  # networking.firewall.allowedUDPPorts = [ 53 22 ];
+  networking.enableIPv6 = true;
 }
