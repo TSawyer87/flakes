@@ -17,9 +17,10 @@
       vscode-langservers-extracted
       yaml-language-server
       wl-clipboard-rs
+      lldb
     ];
     settings = {
-      theme = "kanagawa";
+      # theme = "kanagawa";
 
       editor = {
         color-modes = true;

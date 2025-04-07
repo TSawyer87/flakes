@@ -18,12 +18,11 @@
   ];
 
   home.packages = with pkgs; [
-    lldb
-    inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
     libnotify
     ventoy
   ];
 
+  # Enable auto-mount
   services.udiskie.enable = true;
 
   # Nicely reload system units when changing configs
@@ -37,7 +36,7 @@
   stylix.targets.hyprland.enable = false;
   stylix.targets.hyprlock.enable = false;
   stylix.targets.zed.enable = true;
-  stylix.targets.helix.enable = false;
-  stylix.targets.ghostty.enable = false;
-  stylix.targets.nvf.enable = false;
+  # stylix.targets.helix.enble = false;
+  # stylix.targets.ghostty.enable = false;
+  # stylix.targets.nvf.enable = false;
 }

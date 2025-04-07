@@ -51,12 +51,12 @@
       }
     ];
 
-    theme = {
-      enable = true;
-      name = "dracula";
-      style = "dark";
-      transparent = true;
-    };
+    # theme = {
+    #   enable = true;
+    #   name = "dracula";
+    #   style = "dark";
+    #   transparent = true;
+    # };
 
     telescope.enable = true;
 

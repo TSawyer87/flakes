@@ -10,7 +10,7 @@
     installVimSyntax = true;
     settings = {
       # theme = "Dracula";
-      theme = "catppuccin-mocha";
+      # theme = "catppuccin-mocha";
       keybind = [
         # "alt+n=new_window"
         # "alt+t=new_tab"
