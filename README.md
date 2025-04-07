@@ -37,6 +37,9 @@ host = "your-hostname";
 sudo nixos-rebuild switch --flake /home/<username>/flakes#<hostname>
 ```
 
+- I am trying out mapping the ESC key to the CAPS key, if you don't like this remove the
+  setting in `keyd.nix`. (makes it easier for modal editors)
+
 ## Keybinds
 
 After your flake is initialized, a few aliases:

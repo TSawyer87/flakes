@@ -5,15 +5,15 @@
 }: {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelPatches = [
-      {
-        name = "Rust Support";
-        patch = null;
-        features = {
-          rust = true;
-        };
-      }
-    ];
+    # kernelPatches = [
+    #   {
+    #     name = "Rust Support";
+    #     patch = null;
+    #     features = {
+    #       rust = true;
+    #     };
+    #   }
+    # ];
     kernelModules = ["v4l2loopback"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernel.sysctl = {"vm.max_map_count" = 2147483642;};
