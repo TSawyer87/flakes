@@ -13,6 +13,12 @@
           file = "Dracula.tmTheme";
         };
       };
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        prettybat
+        batgrep
+      ];
     };
   };
 }
