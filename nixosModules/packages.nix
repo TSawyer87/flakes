@@ -5,7 +5,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     inputs.nix-inspect.packages.${pkgs.system}.default
-    # vim
     #cargo-watch
     #cargo-spellcheck
     alejandra
@@ -26,19 +25,13 @@
     wget
     killall
     eza
-    cmatrix
-    lolcat
     efibootmgr
-    htop
-    pokemon-colorscripts-mac
     libvirt
-    lxqt.lxqt-policykit
     lm_sensors
     unzip
     unrar
     libnotify
     v4l-utils
-    ydotool
     duf
     ncdu
     pciutils
@@ -67,7 +60,6 @@
     cachix
     dconf2nix
     greetd.tuigreet
-    lazygit
     zig_0_12
     unipicker
     nvtopPackages.amd
