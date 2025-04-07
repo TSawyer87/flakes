@@ -14,6 +14,7 @@
     # ./fzf.nix
     ./nushell.nix
     ./emoji.nix
+    ./bat.nix
     ./nvf.nix
     ./helix
     ./fd.nix

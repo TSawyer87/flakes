@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs = {
     home-manager.enable = true;
-    bat.enable = true;
+    # bat.enable = true;
     gh.enable = true;
     btop = {
       enable = true;
