@@ -9,14 +9,11 @@
     #cargo-watch
     #cargo-spellcheck
     alejandra
-    lazyjj # jj tui
-    scooter
     keyd
     cheat
     nitch
     vimiv-qt
     qalculate-gtk
-    meld
     just
     inotify-tools
     wlroots
@@ -29,7 +26,6 @@
     wget
     killall
     eza
-    git
     cmatrix
     lolcat
     efibootmgr

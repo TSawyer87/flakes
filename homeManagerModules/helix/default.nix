@@ -19,6 +19,7 @@
       yaml-language-server
       wl-clipboard-rs
       lldb
+      scooter
     ];
     settings = {
       # theme = "kanagawa";
