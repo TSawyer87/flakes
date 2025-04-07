@@ -20,7 +20,11 @@
   home.packages = with pkgs; [
     lldb
     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
+    libnotify
+    ventoy
   ];
+
+  services.udiskie.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

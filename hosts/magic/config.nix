@@ -8,8 +8,8 @@
 }: {
   imports = [
     ./hardware.nix
-    ../../nixosModules
     ./users.nix
+    ../../nixosModules
   ];
 
   # Enable or Disable Stylix
