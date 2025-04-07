@@ -18,6 +18,7 @@
       yaml-language-server
       wl-clipboard-rs
       lldb
+      nu-lsp
     ];
     settings = {
       # theme = "kanagawa";
@@ -267,10 +268,12 @@
         {
           name = "rust";
           language-servers = ["rust-analyzer" "gpt"];
+          scope = "source.rust";
           formatter = {
             command = "rustfmt";
             args = ["--edition=2024"];
           };
+          comment-tokens = ["//" "///" "//!"];
           auto-format = true;
         }
         {
