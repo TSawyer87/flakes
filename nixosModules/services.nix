@@ -29,14 +29,6 @@
     #   dataDir = "/home/" + "${username}";
     #   configDir = "/home/" + "${username}" + "/.config/syncthing ";
     # };
-    # pipewire = {
-    #   enable = true;
-    #   alsa.enable = true;
-    #   alsa.support32Bit = true;
-    #   pulse.enable = true;
-    # };
-    # # use pipewire
-    # pulseaudio.enable = false;
     # profile-sync-daemon
     psd = {
       enable = true;
@@ -50,7 +42,7 @@
         HCC_AMDGPU_TARGET = "
         gfx1031 "; # used to be necessary, but doesn't seem to anymore
       };
-      rocmOverrideGfx = " 10.3 .1 ";
+      rocmOverrideGfx = " 10.3.1 ";
     };
 
     fwupd.enable = true;
