@@ -10,8 +10,6 @@
     hash = "sha256-yBcbvzWU2FI7vkeqL7+ZIoQboybaPIiH4fV9yMqdHlM=";
   };
 in {
-  # nixpkgs.overlays = [ yazi.overlays.default ];
-  # home.packages = [ pkgs.yazi ];
   programs = {
     yazi = {
       package = inputs.yazi.packages.${pkgs.system}.default;
