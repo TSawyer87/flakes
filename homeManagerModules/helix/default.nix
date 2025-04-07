@@ -18,7 +18,6 @@
       yaml-language-server
       wl-clipboard-rs
       lldb
-      nu-lsp
     ];
     settings = {
       # theme = "kanagawa";
