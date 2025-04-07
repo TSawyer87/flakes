@@ -15,6 +15,7 @@
       nodePackages.prettier
       taplo-lsp
       vscode-langservers-extracted
+      vscode-extensions.vadimcn.vscode-lldb
       yaml-language-server
       wl-clipboard-rs
       lldb
