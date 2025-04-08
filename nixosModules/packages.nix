@@ -40,7 +40,6 @@
     ripgrep
     lshw
     pkg-config
-    nwg-look
     meson
     ninja
     virt-viewer # graphical consol client for qemu
@@ -71,7 +70,6 @@
     linuxKernel.packages.linux_zen.cpupower
     tradingview
     dconf-editor
-    rose-pine-cursor
     openssl
     pkg-config
     go
