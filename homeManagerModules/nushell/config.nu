@@ -69,7 +69,7 @@ $env.config.menus ++= [
   {
     name: completion_menu
     only_buffer_difference: false
-    marker: (prompt_decorator $extra_colors.prompt_symbol_color "yellow" "" "" )
+    marker: (prompt_decorator $extra_colors.prompt_symbol_color "yellow" "" "")
     type: {
       layout: columnar
       columns: 4
@@ -163,8 +163,8 @@ set matchit_keybinding
 # alias gd = git diff
 nitch
 
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+# mkdir ($nu.data-dir | path join "vendor/autoload")
+# starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 # source ~/flakes/modules/homeManagerModules/nushell/zoxide.nu
 source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu

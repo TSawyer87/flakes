@@ -5,9 +5,9 @@
 }: {
   config = {
     programs = {
-      carapace.enable = false;
+      carapace.enable = true;
       carapace.enableNushellIntegration = true;
-      atuin.enable = false;
+      atuin.enable = true;
       atuin.enableNushellIntegration = true;
       # direnv = {
       #   enable = true;
