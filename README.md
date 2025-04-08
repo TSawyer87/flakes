@@ -68,6 +68,8 @@ After your flake is initialized, a few aliases:
 
 - Click the top right keys for a cheatsheet that might be out of date
 
+- I've been using helix as my default editor, if you prefer Nvim, there
+  are configs for that as well.
 - `v`, `vi` = Neovim, I'm pretty happy with the config so far.
 
 | Nvim Keybind         | Description                                         |
