@@ -165,7 +165,7 @@ nitch
 
 # mkdir ($nu.data-dir | path join "vendor/autoload")
 # starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-source ~/flakes/modules/homeManagerModules/nushell/zoxide.nu
+source ~/flakes/homeManagerModules/nushell/zoxide.nu
 # source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu
 source ~/flakes/homeManagerModules/nushell/atuin.nu
