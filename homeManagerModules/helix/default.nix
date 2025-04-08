@@ -171,6 +171,10 @@
         cargo.allFeatures = true;
       };
 
+      language-server.scls = {
+        command = "simple-completion-language-server";
+      };
+
       language-server.scls.config = {
         max_completion_items = 100;
         feature_words = true;
