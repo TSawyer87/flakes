@@ -20,7 +20,7 @@
       yaml-language-server
       wl-clipboard-rs
       scooter
-      simple-simple-completion-language-server
+      simple-completion-language-server
     ];
     settings = {
       # theme = "kanagawa";
