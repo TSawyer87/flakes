@@ -16,8 +16,8 @@
     hyprpicker
     pavucontrol
     blueman
-    # lxqt.lxqt-policykit
-    polkit_gnome
+    lxqt.lxqt-policykit
+    # polkit_gnome
     wlr-randr
     wtype
     rose-pine-cursor
