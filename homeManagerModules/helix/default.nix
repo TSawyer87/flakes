@@ -182,6 +182,11 @@
         feature_citations = false;
       };
 
+      language-server.scls.environment = {
+        RUST_LOG = "info,simple-completion-language-server=info";
+        LOG_FILE = "/tmp/completion.log";
+      };
+
       language-server.yaml-language-server.config.yaml.schemas = {
         kubernetes = "k8s/*.yaml";
       };
@@ -330,10 +335,6 @@
             args = ["--stdin-filepath" "file.yaml"];
           };
           auto-format = true;
-        }
-        {
-          name = "simple-completion-language-server";
-          command = "simple-completion-language-server";
         }
       ];
     };
