@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     libnotify
     ventoy
+    gdb
   ];
 
   # Enable auto-mount
