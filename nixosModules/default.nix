@@ -25,6 +25,7 @@
     ./lsp.nix
     ./printer.nix
     ./vm-guest-services.nix
+    ./virtualization.nix
     ./local-hardware-clock.nix
     ./drivers
     # ./grub.nix

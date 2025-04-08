@@ -48,13 +48,13 @@
     '';
   };
 
-  # Virtualization / Containers
-  virtualisation.libvirtd.enable = false;
-  virtualisation.podman = {
-    enable = false;
-    dockerCompat = false;
-    defaultNetwork.settings.dns_enabled = false;
-  };
+  # # Virtualization / Containers
+  # virtualisation.libvirtd.enable = false;
+  # virtualisation.podman = {
+  #   enable = false;
+  #   dockerCompat = false;
+  #   defaultNetwork.settings.dns_enabled = false;
+  # };
 
   console.keyMap = systemSettings.keyboardLayout;
 
