@@ -7,6 +7,7 @@
 }: {
   home.packages = with pkgs; [
     lazygit
+    delta
   ];
   programs = {
     git = {
