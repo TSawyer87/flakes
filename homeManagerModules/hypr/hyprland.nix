@@ -21,9 +21,9 @@
     wlr-randr
     wtype
     rose-pine-cursor
-    nwg-look
-    yad
-    gtk-engine-murrine
+    # nwg-look
+    # yad
+    # gtk-engine-murrine
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
   wayland.windowManager.hyprland = {
