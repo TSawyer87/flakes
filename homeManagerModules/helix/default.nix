@@ -290,7 +290,6 @@
             args = ["--edition=2024"];
           };
           comment-tokens = ["//" "///" "//!"];
-          indent.tab-width = 4;
           auto-format = true;
         }
         {
