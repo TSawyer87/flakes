@@ -17,7 +17,7 @@
 
       nushell = {
         enable = true;
-        configFile.source = ./nushell/config.nu;
+        configFile.source = ./config.nu;
         shellAliases = let
           g = lib.getExe pkgs.git;
           c = "cargo";
@@ -169,9 +169,6 @@
             ) |
             parse $parser
           }
-
-
-
         '';
       };
     };
