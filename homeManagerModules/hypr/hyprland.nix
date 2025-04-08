@@ -4,10 +4,10 @@
   ...
 }: {
   home.packages = with pkgs; [
-    swww
+    # swww
     grim
     slurp
-    wl-clipboard
+    wl-clipboard-rs
     cliphist
     swappy
     ydotool
@@ -16,8 +16,9 @@
     hyprpicker
     pavucontrol
     blueman
-    lxqt.lxqt-policykit
-    # polkit_gnome
+    # lxqt.lxqt-policykit
+    brightnessctl
+    polkit_gnome
     wlr-randr
     wtype
     rose-pine-cursor
