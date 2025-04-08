@@ -1,9 +1,4 @@
-{
-  pkgs,
-  systemSettings,
-  username,
-  ...
-}: {
+{systemSettings, ...}: {
   services = {
     xserver = {
       enable = false;
