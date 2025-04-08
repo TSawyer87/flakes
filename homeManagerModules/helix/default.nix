@@ -156,7 +156,19 @@
         args = ["--handler" "copilot"];
       };
 
-      language-server.rust-analyzer.config.check = {command = "clippy";};
+      language-server.rust-analyzer.config = {
+        check = {command = "clippy";};
+        check.features = "all";
+        check.always = true;
+        cargo.toolchain = "nightly";
+        cargo.buildScripts.rebuildOnSave = true;
+        cargo.buildScripts.enable = true;
+        cargo.autoreload = true;
+        cargo.procMacro.enable = true;
+        cargo.procMacro.ignored.leptos_macro = ["server" "component"];
+        cargo.diagnostics.disables = ["unresolved-proc-macro"];
+        cargo.allFeatures = true;
+      };
 
       language-server.yaml-language-server.config.yaml.schemas = {
         kubernetes = "k8s/*.yaml";

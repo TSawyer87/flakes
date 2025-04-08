@@ -20,7 +20,7 @@
   home.packages = with pkgs; [
     libnotify
     ventoy
-    gdb
+    gdb # Nix Debugger
   ];
 
   # Enable auto-mount
