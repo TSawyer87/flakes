@@ -20,6 +20,7 @@
       yaml-language-server
       wl-clipboard-rs
       scooter
+      simple-simple-completion-language-server
     ];
     settings = {
       # theme = "kanagawa";
@@ -170,6 +171,17 @@
         cargo.allFeatures = true;
       };
 
+      language-server.scls.config = {
+        max_completion_items = 100;
+        feature_words = true;
+        feature_snippets = true;
+        snippets_first = true;
+        snippets_inline_by_word_tail = false;
+        feature_unicode_input = false;
+        feature_paths = true;
+        feature_citations = false;
+      };
+
       language-server.yaml-language-server.config.yaml.schemas = {
         kubernetes = "k8s/*.yaml";
       };
@@ -318,6 +330,10 @@
             args = ["--stdin-filepath" "file.yaml"];
           };
           auto-format = true;
+        }
+        {
+          name = "simple-completion-language-server";
+          command = "simple-completion-language-server";
         }
       ];
     };
