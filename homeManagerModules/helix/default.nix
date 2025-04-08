@@ -16,9 +16,9 @@
       taplo-lsp
       vscode-langservers-extracted
       vscode-extensions.vadimcn.vscode-lldb
+      lldb
       yaml-language-server
       wl-clipboard-rs
-      lldb
       scooter
     ];
     settings = {
@@ -281,11 +281,16 @@
           name = "rust";
           language-servers = ["rust-analyzer" "gpt"];
           scope = "source.rust";
+          injection-regex = "rs|rust";
+          file-types = ["rs"];
+          roots = ["Cargo.toml" "Cargo.lock"];
+          shebangs = ["rust-script" "cargo"];
           formatter = {
             command = "rustfmt";
             args = ["--edition=2024"];
           };
           comment-tokens = ["//" "///" "//!"];
+          indent.tab-width = 4;
           auto-format = true;
         }
         {
