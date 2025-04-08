@@ -12,7 +12,7 @@
     ./jj.nix
     ./direnv.nix
     # ./fzf.nix
-    ./nushell/nushell.nix
+    ./nushell
     ./emoji.nix
     ./bat.nix
     ./nvf.nix
