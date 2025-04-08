@@ -5,8 +5,8 @@
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    # nix-index-database.url = "github:nix-community/nix-index-database";
+    # nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     # nixvim.url = "github:nix-community/nixvim";
     nix-inspect.url = "github:bluskript/nix-inspect";
@@ -34,7 +34,6 @@
     nixpkgs,
     home-manager,
     yazi,
-    nix-index-database,
     nvf,
     rose-pine-hyprcursor,
     wallpapers,
@@ -75,8 +74,8 @@
           ./hosts/${host}/config.nix
           inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
-          nix-index-database.nixosModules.nix-index
-          {programs.nix-index-database.comma.enable = true;}
+          # nix-index-database.nixosModules.nix-index
+          # {programs.nix-index-database.comma.enable = true;}
           {
             home-manager.extraSpecialArgs = {
               inherit username;
