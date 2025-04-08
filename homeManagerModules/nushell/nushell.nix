@@ -16,7 +16,7 @@
       # };
 
       nushell = {
-        enable = true;
+        enable = false;
         configFile.source = ./config.nu;
         shellAliases = let
           g = lib.getExe pkgs.git;
