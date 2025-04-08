@@ -300,7 +300,7 @@
         }
         {
           name = "rust";
-          language-servers = ["rust-analyzer" "gpt"];
+          language-servers = ["scls" "rust-analyzer" "gpt"];
           scope = "source.rust";
           injection-regex = "rs|rust";
           file-types = ["rs"];
@@ -312,6 +312,19 @@
           };
           comment-tokens = ["//" "///" "//!"];
           auto-format = true;
+        }
+        {
+          name = "git-commit";
+          language-servers = ["scls"];
+        }
+        {
+          name = "stub";
+          scope = "text.stub";
+          file-types = [];
+          shebangs = [];
+          roots = [];
+          auto-format = false;
+          language-servers = ["scls"];
         }
         {
           name = "scss";
