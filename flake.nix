@@ -33,7 +33,6 @@
     self,
     nixpkgs,
     home-manager,
-    nix-index-database,
     yazi,
     nvf,
     rose-pine-hyprcursor,
