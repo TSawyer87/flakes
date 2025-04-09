@@ -23,6 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yazi.url = "github:sxyazi/yazi";
+    wezterm.url = "github:wezterm/wezterm?dir=nix";
     wallpapers = {
       url = "git+ssh://git@github.com/TSawyer87/wallpapers.git";
       flake = false;
