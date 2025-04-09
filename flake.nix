@@ -34,10 +34,6 @@
     self,
     nixpkgs,
     home-manager,
-    yazi,
-    nvf,
-    rose-pine-hyprcursor,
-    wallpapers,
     ...
   } @ inputs: let
     system = "x86_64-linux";
