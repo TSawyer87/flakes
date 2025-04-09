@@ -161,8 +161,8 @@ set matchit_keybinding
 # $env.config.edit_mode = "vi"
 
 # alias gd = git diff
-# nitch
-fastfetch
+nitch
+# fastfetch
 
 source ~/flakes/homeManagerModules/nushell/zoxide.nu
 source ~/flakes/homeManagerModules/nushell/atuin.nu
