@@ -13,7 +13,7 @@
 
       return {
         font = wezterm.font("JetBrains Mono"),
-        font_size = 16.0,
+        font_size = 12.0,
         hide_tab_bar_if_only_one_tab = true,
         use_fancy_tab_bar = true,
         tab_bar_at_bottom = true,
