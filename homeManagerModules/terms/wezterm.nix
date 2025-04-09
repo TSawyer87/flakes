@@ -19,7 +19,7 @@ in
   outputs.lib.mkDesktopModule' config "wezterm" (with outputs.lib; {
     package = mkOption {
       type = types.package;
-      default = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      default = inputs.wezterm.packages.${system}.default;
     };
     exec = mkOption {
       type = types.functionTo types.str;
