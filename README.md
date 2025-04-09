@@ -66,6 +66,10 @@ After your flake is initialized, a few aliases:
 
 - `Super+Alt+w`
 
+## Justfile
+
+- I created a justfile to simplify some commands. To list available justfile commands run `just`
+  (it's aliased to `just --list`)
 - Click the top right keys for a cheatsheet that might be out of date
 
 - I've been using helix as my default editor, if you prefer Nvim, there

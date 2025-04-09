@@ -1,5 +1,8 @@
 # nix shell nixpkgs#just nixpkgs#nushell
 set shell := ["nu", "-c"]
+flake_path := "/home/jr/flakes"
+hostname := "magic"
+home_manager_output := "jr@magic"
 
 utils_nu := absolute_path("utils.nu")
 
@@ -8,12 +11,12 @@ default:
 # Rebuild
 [group('nix')]
 fr:
-    nh os switch --hostname magic /home/jr/flakes
+    nh os switch --hostname {{hostname}} {{flake_path}}
 
 # Flake Update
 [group('nix')]
 fu:
-    nh os switch  --hostname magic --update /home/jr/flakes
+    nh os switch  --hostname {{hostname}} --update {{flake_path}}
 
 # Update specific input
 # Usage: just upp nixpkgs
@@ -23,7 +26,7 @@ upp input:
 # Test
 [group('nix')]
 ft:
-    nh os test --hostname magic /home/jr/flakes
+    nh os test --hostname {{hostname}} {{flake_path}}
 # Collect Garbage
 [group('nix')]
 ncg:
@@ -40,7 +43,7 @@ clean:
 # Upgrade
 [group('nix')]
 upd:
-    sudo nixos-rebuild switch --upgrade --flake /home/jr/flakes
+    sudo nixos-rebuild switch --upgrade --flake {{flake_path}}
 
 # Nix Repl flake:nixpkgs
 [group('nix')]
@@ -73,16 +76,9 @@ repair-store *paths:
 vm:
     sudo nixos-rebuild build-vm
 
+
 system-info:
-    @echo "This is an {{arch()}} machine".
-
-# Sort-Reverse nushell
-sort:
-    ls | sort-by size | reverse
-
-# Find > 5kb files
-five:
-    ls | where size > 5kb
+     "This is an {{arch()}} machine"
 
 running:
     ps | where status == Running
@@ -120,6 +116,10 @@ ggc:
 [group('git')]
 game:
   git commit --amend -a --no-edit
+
+[group('git')]
+push:
+    git push -u origin main
 
 # Delete all failed pods
 [group('k8s')]
