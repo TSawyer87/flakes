@@ -11,7 +11,7 @@
           "$mod ALT,W,exec,killall -9 wpaperd && wpaperd"
           "$mod SHIFT,N,exec,swaync-client -rs"
           "$mod SHIFT,N,exec,swaync-client -rs"
-          "$mod,W,exec,firefox"
+          "$mod,W,exec,wezterm"
           "$mod,F,exec,firefox"
           "$mod,V,exec,cliphist list | wofi --dmenu | cliphist decode | wl-copy"
           "$mod,E,exec,emopicker9000"
