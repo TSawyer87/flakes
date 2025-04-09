@@ -166,6 +166,7 @@ fastfetch
 
 source ~/flakes/homeManagerModules/nushell/zoxide.nu
 source ~/flakes/homeManagerModules/nushell/atuin.nu
-source ~/.cache/carapace/init.nu
+source ~/flakes/homeManagerModules/nushell/carapace.nu
+# source ~/.cache/carapace/init.nu
 source ~/flakes/homeManagerModules/nushell/nu_scripts/themes/nu-themes/ayu.nu
 source ~/flakes/homeManagerModules/nushell/completions-jj.nu
