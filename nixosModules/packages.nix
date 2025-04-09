@@ -4,17 +4,12 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    inputs.nix-inspect.packages.${pkgs.system}.default
     #cargo-watch
     #cargo-spellcheck
     alejandra
     keyd
-    cheat
-    nitch
     vimiv-qt
     qalculate-gtk
-    just
-    inotify-tools
     wlroots
     evcxr # rust repl
     rustup
@@ -22,56 +17,25 @@
     vulkan-validation-layers
     vulkan-tools
     amdvlk
-    wget
     killall
-    eza
-    efibootmgr
     libvirt
     lm_sensors
-    unzip
-    unrar
     libnotify
     v4l-utils
-    duf
-    ncdu
-    pciutils
     ffmpeg
-    socat
-    ripgrep
-    lshw
-    pkg-config
-    meson
-    ninja
     virt-viewer # graphical consol client for qemu
     appimage-run
-    inxi
-    nix-prefetch-git
-    nix-prefetch-github
-    libgcc
-    gcc
-    gnumake
     chafa
     file-roller
     imv
     mpv
-    gimp
-    tree
-    cachix
-    dconf2nix
+    # gimp
     greetd.tuigreet
     zig_0_12
     unipicker
     nvtopPackages.amd
-    dmidecode
-    _7zz
-    p7zip
-    alsa-utils
-    nix-diff
-    linuxKernel.packages.linux_zen.cpupower
     tradingview
     dconf-editor
-    openssl
-    pkg-config
     go
     transmission_4-gtk
   ];

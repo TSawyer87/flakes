@@ -28,6 +28,7 @@
     ./virtualization.nix
     ./local-hardware-clock.nix
     ./drivers
+    ./utils.nix
     # ./grub.nix
     # ./greetdHypr.nix
   ];
