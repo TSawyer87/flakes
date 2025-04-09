@@ -30,14 +30,15 @@
     alsa-utils # util for ALSA sound
     nix-diff # tool to compare derivations
     linuxKernel.packages.linux_zen.cpupower
-    openssl # toolkit for TLS/SSL
     just
     unzip
-    pkg-config
     meson
     ninja
     gcc
     libgcc
     gnumake
+    cmake
+    openssl # toolkit for TLS/SSL
+    pkg-config
   ];
 }
