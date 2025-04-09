@@ -32,6 +32,7 @@ in {
 
     # Additional hardware configuration based on AMD GPU presence
     hardware = {
+      amdgpu.amdvlk.enable = true;
       graphics = {
         enable = true;
         enable32Bit = true;
