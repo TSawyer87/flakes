@@ -22,6 +22,7 @@
   # Custom Cachix enable
   gytix.cachix.enable = true;
 
+  drivers.amdgpu.enable = true;
   vm.guest-services.enable = false;
   local.hardware-clock.enable = true;
 
