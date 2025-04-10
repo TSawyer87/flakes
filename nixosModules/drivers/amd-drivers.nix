@@ -32,14 +32,14 @@ in {
 
     # Additional hardware configuration based on AMD GPU presence
     hardware = {
-      # amdgpu.amdvlk.enable = true;
+      amdgpu.amdvlk.enable = true;
       graphics = {
         enable = true;
-        enable32Bit = true;
+        enable32Bit = false;
         extraPackages = pkgs.lib.flatten (with pkgs; [
           (lib.optional hasAmdGpu amdvlk)
           (lib.optional needsMesa mesa)
-          # rocmPackages.clr.icd
+          rocmPackages.clr.icd
         ]);
         extraPackages32 = pkgs.lib.flatten (with pkgs; [
           (lib.optional hasAmdGpu amdvlk)
