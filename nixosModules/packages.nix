@@ -16,7 +16,6 @@
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
-    amdvlk
     killall
     libvirt
     lm_sensors

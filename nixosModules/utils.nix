@@ -10,6 +10,7 @@
     inxi # show detailed system info
     wget
     eza
+    clinfo
     efibootmgr # manage EFI boot entries
     inotify-tools # utility for monitoring file system events
     unrar # tool to extract RAR archives
