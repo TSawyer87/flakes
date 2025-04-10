@@ -13,9 +13,6 @@
     wlroots
     evcxr # rust repl
     rustup
-    vulkan-loader
-    vulkan-validation-layers
-    vulkan-tools
     killall
     libvirt
     lm_sensors

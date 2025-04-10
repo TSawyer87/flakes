@@ -39,7 +39,10 @@ in {
         extraPackages = pkgs.lib.flatten (with pkgs; [
           (lib.optional hasAmdGpu amdvlk)
           (lib.optional needsMesa mesa)
-          rocmPackages.clr.icd
+          rocmPackages.clr.icd                # OpenCL
+          vulkan-loader            # Vulkan runtime
+          vulkan-validation-layers # Vulkan debugging (optional)
+          vulkan-tools             # Vulkan utilities (optional)
         ]);
         extraPackages32 = pkgs.lib.flatten (with pkgs; [
           (lib.optional hasAmdGpu amdvlk)
