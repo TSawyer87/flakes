@@ -10,7 +10,6 @@
     ./packages.nix
     ./programs.nix
     ./services.nix
-    ./security.nix
     ./environmentVariables.nix
     ./nix.nix
     ./hardware.nix

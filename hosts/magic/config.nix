@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./hardware.nix
+    ./security.nix
     ./users.nix
     ../../nixosModules
   ];
