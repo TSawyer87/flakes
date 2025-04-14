@@ -11,10 +11,6 @@
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     systems.url = "github:nix-systems/x86_64-linux";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
-    };
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,10 +31,9 @@
     self,
     nixpkgs,
     home-manager,
-    flake-utils,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
+    system = inputs.systems;
     host = "magic";
     username = "jr";
     email = "sawyerjr.25@gmail.com";
@@ -69,13 +64,16 @@
         alejandra
         helix
         nix-diff
-        nixfmt-classic # Use nixfmt-classic if nixfmt is ambiguous
+        nixfmt-rfc-style # Use nixfmt-classic if nixfmt is ambiguous
         nix-tree
         # nix-repl # Not in nixpkgs; consider using `nix repl` or rlwrap
         ripgrep
         jq
         tree
         git
+        nh
+        nixd
+        nil
       ];
 
       shellHook = ''
