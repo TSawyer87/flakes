@@ -33,7 +33,7 @@
     home-manager,
     ...
   } @ inputs: let
-    system = inputs.systems;
+    system = "x86_64-linux";
     host = "magic";
     username = "jr";
     email = "sawyerjr.25@gmail.com";
