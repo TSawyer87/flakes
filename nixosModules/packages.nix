@@ -20,13 +20,13 @@
     v4l-utils
     ffmpeg
     virt-viewer # graphical consol client for qemu
-    appimage-run
+    # appimage-run
     chafa
     file-roller
     imv
     mpv
     # gimp
-    greetd.tuigreet
+    # greetd.tuigreet
     zig_0_12
     unipicker
     nvtopPackages.amd
