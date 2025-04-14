@@ -13,6 +13,11 @@
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
+    systems.url = "github:nix-systems/x86_64-linux";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
     # systems.url = "github:nix-systems/default-linux";
     nvf = {
       url = "github:notashelf/nvf";
@@ -29,19 +34,19 @@
       flake = false;
     };
   };
-
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    flake-utils,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
     host = "magic";
     username = "jr";
     email = "sawyerjr.25@gmail.com";
-    systemSettings = {
-      system = "x86_64-linux";
+    systemSettings = system: {
+      # Make systemSettings a function of 'system'
+      system = system;
       timezone = "America/New_York";
       locale = "en_US.UTF-8";
       gitUsername = "TSawyer87";
@@ -53,66 +58,72 @@
       editor = "hx";
       keyboardLayout = "us";
     };
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    devShells.default = pkgs.mkShell {
-      name = "nixos-dev";
-      packages = with pkgs; [
-        deadnix.packages.${system}.default
-        alejandra
-        helix
-        nix-diff
-        nixfmt
-        nix-tree
-        nix-repl
-        nix-store-tools # For nix-store commands
-        ripgrep # Or ripgrep if preferred
-        jq
-        tree
-        git
-        # Add any other tools you find useful for NixOS development
-      ];
+  in rec {
+    defaultPackage.${builtins.currentSystem} = self.packages.${builtins.currentSystem}.hello; # Example default package
 
-      shellHook = ''
-        echo "Welcome to the NixOS development shell!"
-        echo "Tools available: deadnix, alejandra, helix, nix-diff, nixfmt, nix-tree, nix-repl, nix-store-tools, grep, jq, tree, git"
-      '';
-    };
-
-    formatter.${system} = pkgs.alejandra;
-
-    nixosConfigurations = {
-      "${host}" = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit system;
-          inherit inputs;
-          inherit username;
-          inherit host;
-          inherit email;
-          inherit systemSettings;
-        };
-        modules = [
-          ./hosts/${host}/config.nix
-          inputs.stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
-          # nix-index-database.nixosModules.nix-index
-          # {programs.nix-index-database.comma.enable = true;}
-          {
-            home-manager.extraSpecialArgs = {
-              inherit username;
-              inherit inputs;
-              inherit host;
-              inherit system;
-              inherit systemSettings;
-              inherit email;
-            };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.${username} = import ./hosts/${host}/home.nix;
-          }
+    devShells = builtins.mapAttrs (system: pkgs: {
+      default = pkgs.mkShell {
+        name = "nixos-dev";
+        packages = with pkgs; [
+          deadnix
+          alejandra
+          helix
+          nix-diff
+          nixfmt
+          nix-tree
+          nix-repl
+          nix-store-tools
+          ripgrep
+          jq
+          tree
+          git
         ];
+
+        shellHook = ''
+          echo "Welcome to the NixOS development shell on $system!"
+          echo "Tools available: deadnix, alejandra, helix, nix-diff, nixfmt, nix-tree, nix-repl, nix-store-tools, grep, jq, tree, git"
+        '';
       };
+    }) (flake-utils.lib.eachDefaultSystem (system: let pkgs = import nixpkgs {inherit system;}; in pkgs));
+
+    packages = builtins.mapAttrs (system: pkgs: {
+      hello = pkgs.hello; # Example package
+      # Add other packages here
+    }) (flake-utils.lib.eachDefaultSystem (system: let pkgs = import nixpkgs {inherit system;}; in pkgs));
+
+    formatter =
+      builtins.mapAttrs (system: pkgs: pkgs.alejandra)
+      (flake-utils.lib.eachDefaultSystem (system: let pkgs = import nixpkgs {inherit system;}; in pkgs));
+
+    nixosConfigurations."${host}" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux"; # Hardcode system here as it's a NixOS config
+      specialArgs = {
+        inherit inputs;
+        inherit username;
+        inherit host;
+        inherit email;
+        inherit (systemSettings "x86_64-linux") systemSettings; # Use the function
+      };
+      modules = [
+        ./hosts/${host}/config.nix
+        inputs.stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
+        # nix-index-database.nixosModules.nix-index
+        # {programs.nix-index-database.comma.enable = true;}
+        {
+          home-manager.extraSpecialArgs = {
+            inherit username;
+            inherit inputs;
+            inherit host;
+            inherit (systemSettings "x86_64-linux") systemSettings; # Use the function
+            inherit email;
+          };
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+          home-manager.users."${username}" = import ./hosts/${host}/home.nix;
+        }
+      ];
     };
   };
 }
