@@ -1,11 +1,6 @@
-{pkgs ? import <nixpkgs> {}}:
-with pkgs;
-  mkShell {
-    buildInputs = [
-      nixpkgs-fmt-rfc-style
-    ];
-
-    shellHook = ''
-      # ...
-    '';
-  }
+{pkgs ? (import ./nixpkgs.nix) {}}: {
+  default = pkgs.mkShell {
+    NIX_CONFIG = "experimental-features = nix-command flakes";
+    nativeBuildInputs = with pkgs; [nix home-manager git neovim];
+  };
+}

@@ -55,6 +55,30 @@
     };
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    devShells.default = pkgs.mkShell {
+      name = "nixos-dev";
+      packages = with pkgs; [
+        deadnix.packages.${system}.default
+        alejandra
+        helix
+        nix-diff
+        nixfmt
+        nix-tree
+        nix-repl
+        nix-store-tools # For nix-store commands
+        ripgrep # Or ripgrep if preferred
+        jq
+        tree
+        git
+        # Add any other tools you find useful for NixOS development
+      ];
+
+      shellHook = ''
+        echo "Welcome to the NixOS development shell!"
+        echo "Tools available: deadnix, alejandra, helix, nix-diff, nixfmt, nix-tree, nix-repl, nix-store-tools, grep, jq, tree, git"
+      '';
+    };
+
     formatter.${system} = pkgs.alejandra;
 
     nixosConfigurations = {
