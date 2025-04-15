@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   boot.kernel.sysctl = {
     # The Magic SysRq key is a key combo that allows users connected to the
     # system console of a Linux kernel to perform some low-level commands.
@@ -40,6 +40,19 @@
     "net.core.default_qdisc" = "cake";
   };
   security = {
+    sudo.enable = false;
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          users = ["root"];
+          groups = ["wheel"];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
+    };
+
     pam.services.hyprlock.text = "auth include login";
 
     # userland niceness
@@ -68,4 +81,5 @@
     # don't ask for password for wheel group
     sudo.wheelNeedsPassword = false;
   };
+  environment.systemPackages = [pkgs.doas-sudo-shim];
 }
