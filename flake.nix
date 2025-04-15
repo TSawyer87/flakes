@@ -45,11 +45,11 @@
       "x86_64-darwin"
     ];
 
+    system = "x86_64-linux";
     host = "magic";
     username = "jr";
     email = "sawyerjr.25@gmail.com";
     systemSettings = {
-      system = "x86_64-linux";
       timezone = "America/New_York";
       locale = "en_US.UTF-8";
       gitUsername = "TSawyer87";
@@ -107,7 +107,7 @@
     # NixOS Configuration
     nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit systems;
+        inherit system;
         inherit inputs;
         inherit username;
         inherit host;
@@ -122,7 +122,7 @@
           home-manager.extraSpecialArgs = {
             inherit username;
             inherit inputs;
-            inherit systems;
+            inherit system;
             inherit host;
             inherit systemSettings;
             inherit email;
