@@ -84,7 +84,7 @@
 
     # Formatter for x86_64-linux
     # formatter.${system} = pkgs.alejandra;
-    formatter = pkgs.alejandra;
+    formatter.${system} = pkgs.nixfmt-rfc-style;
 
     # Optional: Packages (only if you need custom ones)
     # packages.${system} = {
