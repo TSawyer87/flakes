@@ -3,7 +3,7 @@
   host,
   systemSettings,
   options,
-  lib,
+  config,
   ...
 }: {
   imports = [

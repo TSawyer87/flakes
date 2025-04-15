@@ -117,6 +117,22 @@
         "type": "github"
       }
     },
+    "dont-track-me": {
+      "locked": {
+        "lastModified": 1740236549,
+        "narHash": "sha256-kPudEzLV58bjoz3lnJYPqPsrkWCTSaLzKaeNDpiIuro=",
+        "owner": "dtomvan",
+        "repo": "dont-track-me.nix",
+        "rev": "9664a973d594ca6900b694288f9c9bb84d2e52d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dtomvan",
+        "ref": "main",
+        "repo": "dont-track-me.nix",
+        "type": "github"
+      }
+    },
     "dream2nix": {
       "inputs": {
         "nixpkgs": [
@@ -960,6 +976,22 @@
         "type": "github"
       }
     },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1737831083,
+        "narHash": "sha256-LJggUHbpyeDvNagTUrdhe/pRVp4pnS6wVKALS782gRI=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "4b3e914cdf97a5b536a889e939fb2fd2b043a170",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "master",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
     "libpng": {
       "flake": false,
       "locked": {
@@ -1423,9 +1455,11 @@
     },
     "root": {
       "inputs": {
+        "dont-track-me": "dont-track-me",
         "helix": "helix",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "impermanence": "impermanence",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-inspect": "nix-inspect",
         "nixpkgs": "nixpkgs_4",
