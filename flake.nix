@@ -97,7 +97,7 @@
 
     # Formatter for x86_64-linux
     formatter =
-      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+      forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
     # Optional: Packages (only if you need custom ones)
     # packages.${system} = {
