@@ -28,9 +28,11 @@
     ./local-hardware-clock.nix
     ./drivers
     ./utils.nix
+    ./networking.nix
     # ./impermanence.nix
     # ./conditions.nix
     # ./grub.nix
     # ./greetdHypr.nix
+    # ./flatpak.nix
   ];
 }

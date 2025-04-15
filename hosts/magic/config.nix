@@ -1,11 +1,4 @@
-{
-  pkgs,
-  host,
-  systemSettings,
-  options,
-  config,
-  ...
-}: {
+{systemSettings, ...}: {
   imports = [
     ./hardware.nix
     ./security.nix
@@ -33,11 +26,11 @@
   # isEphemeral = true;
 
   # Enable networking
-  networking.networkmanager.enable = true;
-  networking.hostName = "${host}";
-  networking.timeServers =
-    options.networking.timeServers.default
-    ++ ["pool.ntp.org"];
+  # networking.networkmanager.enable = true;
+  # networking.hostName = "${host}";
+  # networking.timeServers =
+  #   options.networking.timeServers.default
+  #   ++ ["pool.ntp.org"];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -45,15 +38,8 @@
   # nixpkgs.config.permittedInsecurePackages = ["olm-3.2.16"];
 
   system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
-
-  # Extra Portal Configuration
-  systemd.services.flatpak-repo = {
-    path = [pkgs.flatpak];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+  system.autoUpgrade.allowReboot = true;
+  # system.autoUpgrade.channel = "https://nixos.org/channels/nixos-unstable";
 
   console.keyMap = systemSettings.keyboardLayout;
 
