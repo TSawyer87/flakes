@@ -51,6 +51,8 @@
       editor = "hx";
       keyboardLayout = "us";
     };
+    forSystem = nixpkgs.lib.genAttrs system;
+
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true; # Optional, if you need unfree packages
@@ -83,8 +85,7 @@
     };
 
     # Formatter for x86_64-linux
-    # formatter.${system} = pkgs.alejandra;
-    formatter.${system} = pkgs.nixfmt-rfc-style;
+    formatter = forSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
     # Optional: Packages (only if you need custom ones)
     # packages.${system} = {
