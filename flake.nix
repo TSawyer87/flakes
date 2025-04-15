@@ -106,8 +106,8 @@
 
     # NixOS Configuration
     nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
-      inherit systems;
       specialArgs = {
+        inherit systems;
         inherit inputs;
         inherit username;
         inherit host;
@@ -122,6 +122,7 @@
           home-manager.extraSpecialArgs = {
             inherit username;
             inherit inputs;
+            inherit systems;
             inherit host;
             inherit systemSettings;
             inherit email;
