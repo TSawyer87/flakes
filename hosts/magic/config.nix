@@ -25,13 +25,6 @@
   # Enable Impermanence
   # isEphemeral = true;
 
-  # Enable networking
-  # networking.networkmanager.enable = true;
-  # networking.hostName = "${host}";
-  # networking.timeServers =
-  #   options.networking.timeServers.default
-  #   ++ ["pool.ntp.org"];
-
   # Set your time zone.
   time.timeZone = "America/New_York";
 
