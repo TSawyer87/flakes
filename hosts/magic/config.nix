@@ -29,6 +29,9 @@
   vm.guest-services.enable = false;
   local.hardware-clock.enable = true;
 
+  # Enable Impermanence
+  config.isEphemeral = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "${host}";
