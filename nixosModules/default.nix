@@ -28,8 +28,8 @@
     ./local-hardware-clock.nix
     ./drivers
     ./utils.nix
-    ./impermanence.nix
-    ./conditions.nix
+    # ./impermanence.nix
+    # ./conditions.nix
     # ./grub.nix
     # ./greetdHypr.nix
   ];
