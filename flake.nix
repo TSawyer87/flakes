@@ -36,12 +36,20 @@
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
-    system = "x86_64-linux";
+
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+
     host = "magic";
     username = "jr";
     email = "sawyerjr.25@gmail.com";
     systemSettings = {
-      system = system;
+      system = "x86_64-linux";
       timezone = "America/New_York";
       locale = "en_US.UTF-8";
       gitUsername = "TSawyer87";
@@ -55,13 +63,15 @@
     };
 
     pkgs = import nixpkgs {
-      inherit system;
+      inherit systems;
       config.allowUnfree = true; # Optional, if you need unfree packages
       # overlays = [inputs.neovim-nightly-overlay.overlays.default]; # Add neovim overlay
     };
+
+    forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     # Dev Shell for x86_64-linux
-    devShells.${system}.default = pkgs.mkShell {
+    devShells.${systems}.default = pkgs.mkShell {
       name = "nixos-dev";
       packages = with pkgs; [
         deadnix
@@ -86,7 +96,8 @@
     };
 
     # Formatter for x86_64-linux
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter =
+      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Optional: Packages (only if you need custom ones)
     # packages.${system} = {
