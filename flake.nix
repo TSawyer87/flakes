@@ -30,6 +30,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     ...
@@ -52,12 +53,6 @@
       editor = "hx";
       keyboardLayout = "us";
     };
-
-    eachSystem = lib.genAttrs [
-      "x86_64-linux"
-      "aarch64-linux"
-      "x86_64-darwin"
-    ];
 
     pkgs = import nixpkgs {
       inherit system;
@@ -91,7 +86,7 @@
     };
 
     # Formatter for x86_64-linux
-    formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
 
     # Optional: Packages (only if you need custom ones)
     # packages.${system} = {
