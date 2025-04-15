@@ -15,7 +15,13 @@
   imports = [
     ../../homeManagerModules
     # ../../modules/sway
+    inputs.dont-track-me.homeManagerModules.default
   ];
+
+  dont-track-me = {
+    enable = true;
+    enableAll = true;
+  };
 
   home.packages = with pkgs; [
     libnotify
