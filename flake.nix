@@ -11,7 +11,7 @@
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     systems.url = "github:nix-systems/x86_64-linux";
-    # impermanence.url = "github:nix-community/impermanence/master";
+    impermanence.url = "github:nix-community/impermanence/master";
     dont-track-me.url = "github:dtomvan/dont-track-me.nix/main";
     nvf = {
       url = "github:notashelf/nvf";
