@@ -3,6 +3,11 @@
     # LinuxZen Kernel
     kernelPackages = pkgs.linuxPackages_zen;
     consoleLogLevel = 3;
+    # disable wifi powersave
+    extraModprobeConfig = ''
+      options iwlmvm  power_scheme=1
+      options iwlwifi power_save=0
+    '';
     kernelParams = [
       "quiet"
       "systemd.show_status=auto"
