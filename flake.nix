@@ -30,7 +30,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     ...
@@ -68,7 +67,6 @@
         nix-diff
         nixfmt-rfc-style # Use nixfmt-classic if nixfmt is ambiguous
         nix-tree
-        # nix-repl # Not in nixpkgs; consider using `nix repl` or rlwrap
         ripgrep
         jq
         tree
