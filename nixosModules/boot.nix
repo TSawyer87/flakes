@@ -1,7 +1,31 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  zfsCompatibleKernelPackages =
+    lib.filterAttrs (
+      name: kernelPackages:
+        (builtins.match "linux_[0-9]+_[0-9]+" name)
+        != null
+        && (builtins.tryEval kernelPackages).success
+        && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+    )
+    pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
+in {
   boot = {
+    supportedFilesystems = ["zfs"];
+    zfs.forceImportRoot = false;
     # LinuxZen Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_zen;
+    # Note this might jump back and forth as kernels are added or removed.
+    kernelPackages = latestKernelPackage;
     consoleLogLevel = 3;
     # disable wifi powersave
     extraModprobeConfig = ''
@@ -35,6 +59,7 @@
     #   magicOrExtension = "\\x7fELF....AI\\x02";
     # };
   };
+  networking.hostId = "2d393b76";
   environment.systemPackages = with pkgs; [
     greetd.tuigreet
   ];
