@@ -30,7 +30,7 @@
   local.hardware-clock.enable = true;
 
   # Enable Impermanence
-  # config.isEphemeral = true;
+  isEphemeral = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
