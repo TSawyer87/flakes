@@ -34,6 +34,7 @@
     home-manager,
     ...
   } @ inputs: let
+    inherit (nixpkgs) lib;
     system = "x86_64-linux";
     host = "magic";
     username = "jr";
@@ -51,7 +52,12 @@
       editor = "hx";
       keyboardLayout = "us";
     };
-    forSystem = nixpkgs.lib.genAttrs system;
+
+    eachSystem = lib.genAttrs [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+    ];
 
     pkgs = import nixpkgs {
       inherit system;
@@ -63,11 +69,11 @@
     devShells.${system}.default = pkgs.mkShell {
       name = "nixos-dev";
       packages = with pkgs; [
-        deadnix # Simplified, assuming deadnix is available directly
+        deadnix
         alejandra
         helix
         nix-diff
-        nixfmt-rfc-style # Use nixfmt-classic if nixfmt is ambiguous
+        nixfmt-rfc-style
         nix-tree
         ripgrep
         jq
@@ -85,7 +91,7 @@
     };
 
     # Formatter for x86_64-linux
-    formatter = forSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+    formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
     # Optional: Packages (only if you need custom ones)
     # packages.${system} = {
